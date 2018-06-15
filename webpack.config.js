@@ -15,6 +15,9 @@ module.exports = {
     extensions: [".js", ".jsx"],
     modules: ["node_modules"]
   },
+  devServer: {
+    port: 3001
+  },
   module: {
     rules: [
       {
@@ -24,6 +27,14 @@ module.exports = {
           {loader: "babel-loader"}
         ]
       },
+      {
+        test: /\.scss$/,
+        use: [
+          {loader: "style-loader"},
+          {loader: "css-loader"},
+          {loader: "sass-loader"}
+        ]
+      }
     ]
   },
   plugins: [
