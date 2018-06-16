@@ -3,8 +3,28 @@ body {
   background-color: rgb(136, 136, 136)
 }
 
-.head {
+.bioBody {
   margin-top: 2rem;
-  margin-bottom: 2rem;
   background-color: white;
+}
+
+#blogHeader{
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: lightgrey;
+  color: black; 
+  height: 7rem;
+}
+
+.blogText {
+  height: 10rem;
+  background-color: rgb(103, 102, 102);
+  text-decoration-color: white;
+}
+form.blogText textarea {
+  color: white;
+  background-color: blue
+}
+.submitBtn {
+  width: 10rem;
 }

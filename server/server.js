@@ -1,5 +1,24 @@
-const server = require("./app");
+const express = require("express");
+const morgan = require("morgan");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
-const PORT = process.env.PORT || 3000;
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/codewars");
+mongoose.Promise = Promise;
+let db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
 
-server.listen(PORT, () => console.log(`Server is listening on ${PORT}`))
+const app = express();
+
+app.use(morgan("dev"))
+app.use(express.static("dist"));
+app.use(express.static("public"));
+app.use(bodyParser.json());
+
+app.get("/login", (req,res) => {
+  res.send("login")
+})
+
+app.use("/api/codewars", require("./routes/Types"))
+
+ module.exports = app;

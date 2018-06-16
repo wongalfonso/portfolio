@@ -1,0 +1,25 @@
+body {
+  background-color: #888888; }
+
+.bioBody {
+  margin-top: 2rem;
+  background-color: white; }
+
+#blogHeader {
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: lightgrey;
+  color: black;
+  height: 7rem; }
+
+.blogText {
+  height: 10rem;
+  background-color: #676666;
+  text-decoration-color: white; }
+
+form.blogText textarea {
+  color: white;
+  background-color: blue; }
+
+.submitBtn {
+  width: 10rem; }

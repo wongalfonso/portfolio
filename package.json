@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development --hot",
-    "start": "npm run build && node server/server.js",
-    "build": "webpack --mode production"
+    "start": "npm run build && node server/index.js",
+    "build": "npm run sass && webpack --mode production",
+    "sass": "node-sass --include-path scss src/css/style.scss dist/css/style.css",
+    "watch-sass": "nodemon -e scss -x \"npm run sass\"",
+    "watch": "webpack --w --mode development"
   },
   "author": "Alfonso Wong",
   "license": "ISC",
@@ -15,6 +18,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "mongoose": "^5.1.5",
+    "nodemon": "^1.17.5",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1"
