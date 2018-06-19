@@ -15,7 +15,6 @@ router.post("/signup", (req, res, next) => {
       
       bcrypt.hash(req.body.password, salt, (err, hash) => {
         if (err) console.log("ERROR", err);
-        console.log("HASH", hash);
         password = hash;
         const userData = {
           username: username,
@@ -23,7 +22,7 @@ router.post("/signup", (req, res, next) => {
         }
         User.create(userData, (err, user) => {
           if (err) {
-            return next(err)
+            return res.send(err)
           } else {
             return res.send(user);
           }
@@ -39,18 +38,17 @@ router.post("/login", (req, res, next) => {
     User.findOne({ username: username })
       .exec((err, user) => {
         if (err) {
-          return (err)
+          return res.send(err)
         } else if (!user) {
           const err = new Error("User Not Found!");
           err.status = 401;
-          return (err);
+          return res.send(err);
         }
         bcrypt.compare(password, user.password, (err, result) => {
           if (result === true) {
-            console.log(user);
-            return (null, user);            
+            return res.send(user);            
           } else {
-            return err
+            return res.send(err)
           }                    
         })
       })
