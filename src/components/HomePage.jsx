@@ -10,7 +10,7 @@ export default class extends Component {
   render() {
     return (
       <div>
-        <List/>
+        {/* <List/> */}
       </div>
     )
   }

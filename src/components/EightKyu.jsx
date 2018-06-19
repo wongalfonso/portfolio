@@ -4,19 +4,13 @@ export default class EightKyu extends Component {
 
   defaultList() {
     return (
-      <tr>
-        <td>8 kyu</td>
-        <td><button>Show List</button></td>
-      </tr>
+    <div></div>
     )
   }
 
   fullList() {
     return (
-      <tr>
-        <td>8 kyu</td>
-        <td><button>Show List</button></td>
-      </tr>
+     <div></div>
     )
   }
   render() {

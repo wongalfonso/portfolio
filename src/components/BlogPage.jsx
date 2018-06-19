@@ -25,7 +25,15 @@ export default class BlogPage extends Component {
   submitForm(e) {
     e.preventDefault();
     console.log(this.state.type, this.state.name, this.state.instructions, this.state.process, this.state.answer)
-    axios.post("/codewars", { type: this.state.type, description: { name: this.state.name, instructions: this.state.instructions, thinking: this.state.process, answer: this.state.answer } }).then((resp) => {
+    axios.post(`/api/codewars/${this.state.type}`, { 
+      type: this.state.type, 
+      description: { 
+        name: this.state.name, 
+        instructions: this.state.instructions, 
+        thinking: this.state.process, 
+        answer: this.state.answer } 
+      })
+        .then((resp) => {
       console.log(resp)
       this.setState({
         response: resp

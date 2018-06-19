@@ -18,10 +18,10 @@ const ChallengesSchema = new Schema({
       type: String, 
       required: true
     },
-    types: [{
+    types: {
       type: Schema.Types.ObjectId, 
       ref: "Types"
-    }]
-})
+    }
+}, { timestamps: true })
 
 module.exports = mongoose.model("Challenges", ChallengesSchema)
