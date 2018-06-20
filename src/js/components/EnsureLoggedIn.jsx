@@ -1,10 +1,8 @@
 import React, { Component } from "react"
-import { AuthRoute } from "react-router-auth";
 import { connect } from "react-redux";
 import Profile from "./Profile";
 import Login from "./Login"
-import { createBrowserHistory } from "history";
-const history = createBrowserHistory();
+import { Route, Redirect } from "react-router-dom";
 
 class EnsureLoggedIn extends Component {
   constructor(props) {
@@ -13,23 +11,21 @@ class EnsureLoggedIn extends Component {
     this.renderLogin = this.renderLogin.bind(this);
   }
 
-  renderProfile() {    
-    history.push("/profile")
-    return (
-      <Profile/>
+  renderProfile() {
+    return (      
+        <Redirect from = "/login" to = "/profile" />        
     )
   }
 
-  renderLogin() {
-    history.push("/login");
+  renderLogin() {    
     return (
-      <Login/>
+      <Route path="/login" component = { Login } />
     )
   }
 
-  render() { 
+  render() {
     const { isLoggedIn } = this.props;
-    if (isLoggedIn) {
+    if (isLoggedIn === true) {
       return this.renderProfile()
     } else {
       return this.renderLogin()

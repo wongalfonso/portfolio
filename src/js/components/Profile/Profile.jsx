@@ -1,11 +1,24 @@
 import React, { Component } from "react";
+import { Link, Redirect } from "react-router-dom";
+
 
 export default class Profile extends Component {
-  
-  render() {
+  constructor(props) {
+    super(props); 
+    this.postBlog = this.postBlog.bind(this);
+  }
+
+  postBlog(e) {
+    e.preventDefault();        
     return (
-      
+      <Redirect to = "/blogpage" from = "/profile" />
+    )
+  }
+  render() {
+    const { isLoggedIn } = this.props;
+    return (      
       <div className="container">
+      {/* {(isLoggedIn !== true) && <Redirect from = "/profile" to = "/login"/> } */}
         <div className="row">
           <h2>Welcome </h2>
         </div>
@@ -15,7 +28,8 @@ export default class Profile extends Component {
           </div>
           <div className="col-4">
             <h3> Tool Bar </h3>
-            <button>Post A new Blog</button>
+            <button className = "btn" onClick = {this.postBlog}>Post A new Blog              
+            </button>
           </div>
         </div>
       </div>

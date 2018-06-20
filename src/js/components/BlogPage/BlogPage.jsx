@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom"
 
 export default class BlogPage extends Component {
   constructor(props) {
@@ -46,8 +47,11 @@ export default class BlogPage extends Component {
 
 
   render() {
+    const { isLoggedIn } = this.props;
+    console.log(isLoggedIn);
     return (
       <div className="container bioBody">
+      {(isLoggedIn !== true) && <Redirect from = "/blogpage" to = "/login"/> }
         <div className="row" >
           <div className="col-12 text-center" id="blogHeader">
             <h2>Post Your Kyu Here!</h2>
