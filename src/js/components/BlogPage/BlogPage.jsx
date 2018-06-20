@@ -1,6 +1,23 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom"
+import Modal from "react-modal";
+import { Redirect, Link } from "react-router-dom"
+
+const customStyles = {
+  content: {
+    backgroundColor: "lightGrey",    
+    fontWeight: "bold",
+    fontSize: "20px",
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+};
+
+
 
 export default class BlogPage extends Component {
   constructor(props) {
@@ -11,10 +28,14 @@ export default class BlogPage extends Component {
       instructions: "",
       process: "",
       answer: "",
-      response: []
+      response: [],
+      modalIsOpen: false
     }
     this.handleInput = this.handleInput.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.afterModalIsOpen = this.afterModalIsOpen.bind(this);
   }
 
   handleInput(e) {
@@ -23,22 +44,36 @@ export default class BlogPage extends Component {
       [e.target.name]: e.target.value
     })
   }
+
+  openModal() {
+    this.setState({ modalIsOpen: true })
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false })
+  }
+
+  afterModalIsOpen() {
+    this.subtitle.style.color = '#f00';
+  }
+
   submitForm(e) {
     e.preventDefault();
-    axios.post(`/api/codewars/${this.state.type}`, { 
-      type: this.state.type, 
-      description: { 
-        name: this.state.name, 
-        instructions: this.state.instructions, 
-        thinking: this.state.process, 
-        answer: this.state.answer } 
-      })
-        .then((resp) => {
-      this.setState({
-        response: resp
-      })
+    axios.post(`/api/codewars/${this.state.type}`, {
+      type: this.state.type,
+      description: {
+        name: this.state.name,
+        instructions: this.state.instructions,
+        thinking: this.state.process,
+        answer: this.state.answer
+      }
     })
-      .catch((err) => {        
+      .then((resp) => {
+        this.setState({
+          response: resp
+        })
+      })
+      .catch((err) => {
         this.setState({
           response: err
         })
@@ -48,13 +83,13 @@ export default class BlogPage extends Component {
 
   render() {
     const { isLoggedIn } = this.props;
-    console.log(isLoggedIn);
     return (
       <div className="container bioBody">
-      {(isLoggedIn !== true) && <Redirect from = "/blogpage" to = "/login"/> }
+        {/* {(isLoggedIn !== true) && <Redirect from = "/blogpage" to = "/login"/> } */}
         <div className="row" >
           <div className="col-12 text-center" id="blogHeader">
             <h2>Post Your Kyu Here!</h2>
+            <hr />
           </div>
         </div>
         <form onSubmit={this.submitForm}>
@@ -82,25 +117,49 @@ export default class BlogPage extends Component {
           </div>
           <div className="row">
             <div className="form-group col-12">
-              <label className="label" htmlFor="process">Enter your though process</label>
+              <label className="label" htmlFor="process">Enter your thought process</label>
               <textarea onChange={this.handleInput} id="process" name="process" placeholder="enter your process here" className="form-control blogText"></textarea>
             </div>
           </div>
           <div className="row">
             <div className="form-group col-12">
-              <label className="label" htmlFor="answer">Enter your though process</label>
+              <label className="label" htmlFor="answer">Enter your answer</label>
               <textarea onChange={this.handleInput} id="answer" name="answer" placeholder="enter your answer here" className="form-control blogText"></textarea>
             </div>
           </div>
           <div className="row">
             <div className="form-group col-12">
-              <button type = "submit" className = "btn btn-success float-right submitBtn">Submit</button> 
-            </div>            
+              <div className="col-8 float-right">
+                <button type="button" className="btn btn-warning  cancelBtn" onClick={this.openModal}>Cancel</button>
+                <button type="submit" className="btn btn-success  submitBtn">Submit</button>
+              </div>
+            </div>
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              onAfterOpen={this.afterOpenModal}
+              onRequestClose={this.closeModal}
+              style={customStyles}
+              ariaHideApp={false}
+              contentLabel="Example Modal"
+            >
+              <div className = "blogModal">
+                <div className="row textModal">
+                  <div className="col-12 text-center">
+                  <span> Are You Sure You Want To Cancel?</span>
+                  </div>                  
+                </div>
+                <div className="col-12 form-group">
+                  <button className="btn btn-danger modalBtn" onClick = {this.closeModal}>No</button>
+                  <Link to = "/profile"><button className="btn btn-success modalBtn" onClick = {this.closeModal}>Yes</button></Link>
+                </div>
+
+              </div>
+            </Modal>
           </div>
-          <div className = "row">
+          <div className="row">
             <div className="has-success col-12 text-center">
               <div className="form-control">
-              
+
               </div>
             </div>
           </div>

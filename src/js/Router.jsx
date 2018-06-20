@@ -18,11 +18,11 @@ class AppRouter extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path ="/profile" component = { Profile } />
-          <Route path="/blogpage" component={BlogPage} />
+          <Route path="/blogpost" component={BlogPage} />
+          <Route path="/codewars" component = {List}/>
           <EnsureLoggedIn/>          
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />          
-          <Route path="/codewars" component = {List}/>
         </Switch>
       </Router >
     )

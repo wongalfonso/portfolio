@@ -1,30 +1,35 @@
 
-body {
-  background-color: rgb(136, 136, 136)
-}
+
 
 .bioBody {
-  margin-top: 2rem;
-  background-color: white;
+  margin-top: 2rem;  
 }
-
+.container {
+  border: solid lightgrey;
+  background-color: lightgrey;
+  border-radius: 8px;
+}
 #blogHeader{
   padding-top: 2rem;
   margin-bottom: 2rem;
-  background-color: lightgrey;
   color: black; 
   height: 7rem;
 }
 
 .blogText {
-  height: 10rem;
-  background-color: rgb(103, 102, 102);
+  height: 10rem;  
   text-decoration-color: white;
 }
 form.blogText textarea {
-  color: white;
-  background-color: blue
+  color: white;  
 }
-.submitBtn {
+.submitBtn, .cancelBtn {
   width: 10rem;
+}
+.modalBtn {
+  width: 10rem;
+}
+
+.textModal {
+  padding-bottom: 2rem;
 }
