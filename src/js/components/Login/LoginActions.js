@@ -1,4 +1,5 @@
 import axios from "axios";
+import { history } from "./../../history";
 
 export const authenticateUser = (username, password) => {
   const getAuth = axios.post("/api/users/login", {username, password})
@@ -11,7 +12,6 @@ export const authenticateUser = (username, password) => {
         return res
       })
       .catch((err) => {
-        console.log(err);
         return err
       })
     })

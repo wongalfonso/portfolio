@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const path = require("path");
 const MongoStore = require("connect-mongo")(session);
 
 mongoose.connect("mongodb://localhost/codewars");
@@ -24,6 +25,9 @@ app.use(express.static("public"));
 //     mongooseConnection: db
 //   })
 // }))
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("public", "index.html"));
+})
 
 app.use("/api/users", require("./routes/Users"));
 app.use("/api/codewars", require("./routes/Types"));

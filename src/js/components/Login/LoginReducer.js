@@ -11,8 +11,8 @@ export default function LoginReducer(state = defaultState, action) {
       return {...state, user: payload}
     }
     case "AUTH_USER_FULFILLED": {
-      console.log(payload)
-      return Object.assign({}, state, {user: payload})
+      const { data } = payload
+      return Object.assign({}, state, {user: data, authenticated: true, isLoggedIn: true, isLoggedOut: false})
     }
     case "AUTH_USER_REJECTED": {
       return {loading: false}

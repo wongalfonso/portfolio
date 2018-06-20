@@ -1,22 +1,37 @@
-import { Switch, Route } from "react-router-dom"
+import { Router, Switch, Route, HashHistory } from "react-router-dom"
 import React, { Component } from "react";
 import HomePage from "./components/HomePage";
 import BlogPage from "./components/BlogPage";
-import SignUp  from "./components/Login"
-import Login from "./components/Login"
-import Profile from "./components/Profile/Profile"
+import SignUp from "./components/Login";
+import Login from "./components/Login";
+import Profile from "./components/Profile";
+import EnsureLoggedIn from "./components/EnsureLoggedIn";
+import { connect } from "react-redux";
+import { createBrowserHistory } from "history"
+const history = createBrowserHistory()
 
-export default class AppRouter extends Component {
+
+class AppRouter extends Component {
   render() {
+    console.log(this.props);
     return (
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/users/signup" component={SignUp} />
-        <Route path="/users/login" component={Login} />
-        <Route path="/users/codewars" component={BlogPage} />
-        {/* <SignUpRoute  auth = {this.state.authenticated} user = {this.state.user} path = "/users/profile/:id" component = {Profile}/> */}
-        {/* <Route path= "" render = {() => {return <h1>Sorry This Page Does Not Exist</h1>}}/> */}
-      </Switch>
+      <Router history = {history}>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path = "/login" component = {EnsureLoggedIn}/>    
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />                 
+          <Route path="/codewars" component={BlogPage} />
+        </Switch>
+      </Router >
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    isLoggedin: state.user.isLoggedin
+  }
+}
+
+export default connect(mapStateToProps)(AppRouter);

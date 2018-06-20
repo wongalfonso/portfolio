@@ -22,7 +22,7 @@ router.post("/signup", (req, res, next) => {
         }
         User.create(userData, (err, user) => {
           if (err) {
-            return res.send(err)
+            return res.status(401).send(err)
           } else {
             return res.send(user);
           }
@@ -38,17 +38,19 @@ router.post("/login", (req, res, next) => {
     User.findOne({ username: username })
       .exec((err, user) => {
         if (err) {
-          return res.send(err)
+          console.log(err);
+          const error = new Error("User Not Found!");
+          return res.status(401).send(error)
         } else if (!user) {
-          const err = new Error("User Not Found!");
-          err.status = 401;
-          return res.send(err);
+          const error = new Error("User Not Found!");          
+          return res.status(401).send(error);
         }
         bcrypt.compare(password, user.password, (err, result) => {
-          if (result === true) {
+          if (result === true) {            
             return res.send(user);            
           } else {
-            return res.send(err)
+            const error = new Error("Wrong Password");
+            return res.status(406).send(error)
           }                    
         })
       })

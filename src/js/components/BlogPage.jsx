@@ -24,7 +24,6 @@ export default class BlogPage extends Component {
   }
   submitForm(e) {
     e.preventDefault();
-    console.log(this.state.type, this.state.name, this.state.instructions, this.state.process, this.state.answer)
     axios.post(`/api/codewars/${this.state.type}`, { 
       type: this.state.type, 
       description: { 
@@ -34,13 +33,11 @@ export default class BlogPage extends Component {
         answer: this.state.answer } 
       })
         .then((resp) => {
-      console.log(resp)
       this.setState({
         response: resp
       })
     })
-      .catch((err) => {
-        console.log(err);
+      .catch((err) => {        
         this.setState({
           response: err
         })
@@ -49,7 +46,6 @@ export default class BlogPage extends Component {
 
 
   render() {
-    console.log(this.state.response);
     return (
       <div className="container bioBody">
         <div className="row" >
