@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { authenticateUser } from "./LoginActions";
+import { getDate } from "../Date"
 
 export default class Login extends Component {
   constructor(props) {
@@ -23,7 +24,8 @@ export default class Login extends Component {
     const username = this.state.username
     const password = this.state.password
     const { dispatch } = this.props;
-    dispatch(authenticateUser(username, password));
+    const date = getDate();
+    dispatch(authenticateUser(username, password, date));
   }
 
   submitButton() {

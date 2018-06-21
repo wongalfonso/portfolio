@@ -30887,7 +30887,7 @@ var _PageBlog = __webpack_require__(/*! ./components/PageBlog */ "./src/js/compo
 
 var _PageBlog2 = _interopRequireDefault(_PageBlog);
 
-var _SignUp = __webpack_require__(/*! ./components/SignUp */ "./src/js/components/SignUp.jsx");
+var _SignUp = __webpack_require__(/*! ./components/SignUp/SignUp */ "./src/js/components/SignUp/SignUp.jsx");
 
 var _SignUp2 = _interopRequireDefault(_SignUp);
 
@@ -31189,6 +31189,39 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(BlogSplashPage);
 
 /***/ }),
 
+/***/ "./src/js/components/Date.js":
+/*!***********************************!*\
+  !*** ./src/js/components/Date.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getDate = getDate;
+function getDate() {
+  var d = new Date();
+  var month = new Array();
+  month[0] = "Jan";month[1] = "Feb";month[2] = "Mar";month[3] = "April";month[4] = "May";month[5] = "June";month[6] = "Jul";month[7] = "Aug";month[8] = "Sep";month[9] = "Oct";month[10] = "Nov";month[11] = "Dec";
+  var y = d.getFullYear();
+  var m = month[d.getMonth()];
+  var day = d.getDate();
+  var h = d.getHours();
+  var min = d.getMinutes();
+  var sec = d.getSeconds();
+  if (day < 10) day = "0" + day;
+  if (h < 10) h = "0" + h;
+  if (min < 10) min = "0" + min;
+  var date = m + " " + day + " " + y + " " + h + ":" + min + ":" + sec;
+  return date;
+}
+
+/***/ }),
+
 /***/ "./src/js/components/EightKyu.jsx":
 /*!****************************************!*\
   !*** ./src/js/components/EightKyu.jsx ***!
@@ -31320,8 +31353,9 @@ var EnsureLoggedIn = function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var isLoggedIn = this.props.isLoggedIn;
+      var user = this.props.user;
 
+      var isLoggedIn = user.isLoggedIn;
       if (isLoggedIn === true) {
         return this.renderProfile();
       } else {
@@ -31335,7 +31369,7 @@ var EnsureLoggedIn = function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    isLoggedIn: state.user.isLoggedIn
+    user: state.user
   };
 };
 
@@ -31541,6 +31575,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _LoginActions = __webpack_require__(/*! ./LoginActions */ "./src/js/components/Login/LoginActions.js");
 
+var _Date = __webpack_require__(/*! ../Date */ "./src/js/components/Date.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -31581,7 +31617,8 @@ var Login = function (_Component) {
       var password = this.state.password;
       var dispatch = this.props.dispatch;
 
-      dispatch((0, _LoginActions.authenticateUser)(username, password));
+      var date = (0, _Date.getDate)();
+      dispatch((0, _LoginActions.authenticateUser)(username, password, date));
     }
   }, {
     key: "submitButton",
@@ -31700,7 +31737,7 @@ exports.default = Login;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.authenticateUser = undefined;
+exports.createUser = exports.authenticateUser = undefined;
 
 var _axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
@@ -31710,15 +31747,32 @@ var _history = __webpack_require__(/*! ./../../history */ "./src/js/history.js")
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var authenticateUser = exports.authenticateUser = function authenticateUser(username, password) {
-  var getAuth = _axios2.default.post("/api/users/login", { username: username, password: password });
+var authenticateUser = exports.authenticateUser = function authenticateUser(username, password, date) {
+  var getAuth = _axios2.default.post("/api/users/login", { username: username, password: password, date: date });
   return function (dispatch, state) {
     dispatch({
       type: "AUTH_USER",
       payload: getAuth.then(function (res) {
-        return res;
+        return res.data;
       }).catch(function (err) {
         return err;
+      })
+    });
+  };
+};
+
+var createUser = exports.createUser = function createUser(username, password, date) {
+  var createLogin = _axios2.default.post("/api/users/signup", {
+    username: username,
+    password: password,
+    date: date
+  });
+  return function (dispatch) {
+    dispatch({
+      type: "CREATE_USER",
+      payload: createLogin.then(function (res) {
+        console.log(res);
+        return res.data;
       })
     });
   };
@@ -31744,7 +31798,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 exports.default = LoginReducer;
 var defaultState = {
-  user: [],
   loading: false
 };
 
@@ -31762,11 +31815,21 @@ function LoginReducer() {
       }
     case "AUTH_USER_FULFILLED":
       {
-        var data = payload.data;
-
-        return Object.assign({}, state, { user: data, authenticated: true, isLoggedIn: true, isLoggedOut: false });
+        return Object.assign({}, state, payload, { isLoggedIn: true });
       }
     case "AUTH_USER_REJECTED":
+      {
+        return { loading: false };
+      }
+    case "CREATE_USER_PENDING":
+      {
+        return { loading: true };
+      }
+    case "CREATE_USER_FULFILLED":
+      {
+        return Object.assign({}, state, payload, { isLoggedIn: true });
+      }
+    case "CREATE_USER_REJECTED":
       {
         return { loading: false };
       }
@@ -31802,8 +31865,9 @@ var _Login2 = _interopRequireDefault(_Login);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
+  console.log(state);
   return {
-    user: state.user
+    userLogin: state.user
   };
 };
 
@@ -32173,7 +32237,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var postBlog = exports.postBlog = function postBlog(type, name, instructions, thinking, answer, username) {
 
-  var postChallenge = _axios2.default.post("/api/kyus/postblog", { type: type, name: name, instructions: instructions, thinking: thinking, answer: answer, username: username });
+  var postChallenge = _axios2.default.post("/api/kyus", { type: type, name: name, instructions: instructions, thinking: thinking, answer: answer, username: username });
   return function (dispatch, state) {
     dispatch({
       type: "POST_BLOG",
@@ -32292,6 +32356,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
+var _ProfileActions = __webpack_require__(/*! ./ProfileActions */ "./src/js/components/Profile/ProfileActions.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32310,10 +32376,14 @@ var Profile = function (_Component) {
   }
 
   _createClass(Profile, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
     key: "render",
     value: function render() {
-      var isLoggedIn = this.props.isLoggedIn;
+      var user = this.props.user;
 
+      var isLoggedIn = user.isLoggedIn;
       return _react2.default.createElement(
         "div",
         { className: "container" },
@@ -32357,6 +32427,15 @@ var Profile = function (_Component) {
               )
             )
           )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12" },
+            _react2.default.createElement("ul", null)
+          )
         )
       );
     }
@@ -32366,6 +32445,102 @@ var Profile = function (_Component) {
 }(_react.Component);
 
 exports.default = Profile;
+
+/***/ }),
+
+/***/ "./src/js/components/Profile/ProfileActions.js":
+/*!*****************************************************!*\
+  !*** ./src/js/components/Profile/ProfileActions.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getBlogs = undefined;
+
+var _axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var getBlogs = exports.getBlogs = function getBlogs(userLogin) {
+  var kyus = userLogin.kyus;
+  var password = userLogin.password;
+  var username = userLogin.username;
+  var id = userLogin._id;
+  var isLoggedIn = userLogin.isLoggedIn;
+  var blogs = [];
+  var userInfo = {};
+  var getAllBlogs = _axios2.default.get("/api/kyus/" + id);
+  return function (dispatch) {
+    dispatch({
+      type: "GET_ALL_BLOGS",
+      payload: getAllBlogs.then(function (res) {
+        res.data.map(function (blog) {
+          blogs.push(blog);
+        });
+        return { blogs: blogs, id: id, kyus: kyus, username: username, password: password, isLoggedIn: isLoggedIn };
+      })
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./src/js/components/Profile/ProfileReducer.js":
+/*!*****************************************************!*\
+  !*** ./src/js/components/Profile/ProfileReducer.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = ProfileReducer;
+var defaultState = {
+  data: [],
+  loading: true,
+  response: ""
+};
+
+function ProfileReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+  var action = arguments[1];
+  var payload = action.payload,
+      type = action.type;
+
+  switch (type) {
+    case "GET_ALL_BLOGS_PENDING":
+      {
+        return { loading: true };
+      }
+    case "GET_ALL_BLOGS_FULFILLED":
+      {
+        return Object.assign({}, state, { data: payload });
+      }
+    case "GET_ALL_BLOGS_REJECTED":
+      {
+        return _extends({}, state, { response: payload });
+      }
+    default:
+      {
+        return state;
+      }
+  }
+}
 
 /***/ }),
 
@@ -32392,10 +32567,8 @@ var _Profile2 = _interopRequireDefault(_Profile);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
-  console.log(state);
   return {
-    user: state.user,
-    isLoggedIn: state.user.isLoggedIn
+    user: state.user
   };
 };
 
@@ -32403,10 +32576,10 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(_Profile2.default);
 
 /***/ }),
 
-/***/ "./src/js/components/SignUp.jsx":
-/*!**************************************!*\
-  !*** ./src/js/components/SignUp.jsx ***!
-  \**************************************/
+/***/ "./src/js/components/SignUp/SignUp.jsx":
+/*!*********************************************!*\
+  !*** ./src/js/components/SignUp/SignUp.jsx ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32426,6 +32599,14 @@ var _react2 = _interopRequireDefault(_react);
 var _axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 var _axios2 = _interopRequireDefault(_axios);
+
+var _LoginActions = __webpack_require__(/*! ../Login/LoginActions */ "./src/js/components/Login/LoginActions.js");
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+var _Date = __webpack_require__(/*! ../Date */ "./src/js/components/Date.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32458,6 +32639,11 @@ var SignUp = function (_Component) {
   }
 
   _createClass(SignUp, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log(this.props);
+    }
+  }, {
     key: "handleInput",
     value: function handleInput(e) {
       this.setState(_defineProperty({}, e.target.name, e.target.value));
@@ -32465,23 +32651,11 @@ var SignUp = function (_Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this2 = this;
-
       e.preventDefault();
-      _axios2.default.post("/api/users/signup", {
-        username: this.state.username,
-        password: this.state.password
-      }).then(function (res) {
-        res.data === 200 && _this2.setState({
-          redirect: true,
-          response: res.data
-        });
-      }).catch(function (err) {
-        _this2.setState({
-          redirect: false,
-          response: err
-        });
-      });
+      var date = (0, _Date.getDate)();
+      var dispatch = this.props.dispatch;
+
+      dispatch((0, _LoginActions.createUser)(this.state.username, this.state.password, date));
     }
   }, {
     key: "submitButton",
@@ -32509,10 +32683,14 @@ var SignUp = function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state.response);
+      var user = this.props.user;
+
+      console.log(user);
+      var isLoggedIn = user.isLoggedIn;
       return _react2.default.createElement(
         "div",
         { className: "container" },
+        isLoggedIn === true && _react2.default.createElement(_reactRouterDom.Redirect, { from: "/signup", to: "/profile" }),
         _react2.default.createElement(
           "div",
           { className: "row" },
@@ -32602,7 +32780,13 @@ var SignUp = function (_Component) {
   return SignUp;
 }(_react.Component);
 
-exports.default = SignUp;
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    user: state.user
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(SignUp);
 
 /***/ }),
 
@@ -32686,6 +32870,10 @@ var _LoginReducer2 = _interopRequireDefault(_LoginReducer);
 var _PageBlogReducer = __webpack_require__(/*! ./components/PageBlog/PageBlogReducer */ "./src/js/components/PageBlog/PageBlogReducer.js");
 
 var _PageBlogReducer2 = _interopRequireDefault(_PageBlogReducer);
+
+var _ProfileReducer = __webpack_require__(/*! ./components/Profile/ProfileReducer */ "./src/js/components/Profile/ProfileReducer.js");
+
+var _ProfileReducer2 = _interopRequireDefault(_ProfileReducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

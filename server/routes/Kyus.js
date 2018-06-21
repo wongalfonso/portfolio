@@ -2,18 +2,9 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/Users");
 const Kyus = require("../models/Kyus");
-const Challenges = require("../models/Challenges");
 
 
-router.get("/", (req, res) => {
-
-  Kyus.find().then(kyus => {
-    console.log(kyus);
-    res.status(200).json(kyus);
-  })
-})
-
-router.post('/postblog', (req, res) => {
+router.post('/', (req, res) => {
   let dbUser;  
   const username = {"username" : req.body.username};
   const kyuBlog = {
@@ -43,5 +34,12 @@ router.post('/postblog', (req, res) => {
     })
 
 });
+
+router.get("/:id", (req, res) => {
+  const id = {"user" : req.params.id}
+  Kyus.find(id).then(kyus => {    
+    res.status(202).json(kyus);
+  })
+})
 
 module.exports = router;

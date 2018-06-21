@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import React, { Component } from "react";
 import HomePage from "./components/HomePage";
 import PageBlog from "./components/PageBlog";
-import SignUp from "./components/SignUp";
+import SignUp from "./components/SignUp/SignUp";
 import Login from "./components/Login";
 import EnsureLoggedIn from "./components/EnsureLoggedIn";
 import Profile from "./components/Profile";

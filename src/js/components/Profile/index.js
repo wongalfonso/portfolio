@@ -3,10 +3,8 @@ import Profile from "./Profile";
 
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
-    user: state.user,
-    isLoggedIn: state.user.isLoggedIn
+    user: state.user,     
   }
 }
 

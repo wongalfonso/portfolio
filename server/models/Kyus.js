@@ -25,10 +25,14 @@ const kyusSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "Users"
+  },
+  created: {
+    type: String,
+  },
+  edited: {
+    type: String
   }
-}, {
-    timestamps: true
-  })
+})
 
 
 module.exports = mongoose.model("Kyus", kyusSchema)

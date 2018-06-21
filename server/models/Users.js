@@ -13,6 +13,15 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  challenges: {
+    type: Array,
+  },
+  dateCreated: {
+    type: String,
+  },
+  lastLogin: {
+    type: String
+  },
   kyus: [{
     type: Schema.Types.ObjectId,
     ref: "Kyus"

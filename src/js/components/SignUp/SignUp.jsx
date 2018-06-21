@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {createUser } from "../Login/LoginActions";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom"
+import { getDate } from "../Date"
 
-export default class SignUp extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +18,9 @@ export default class SignUp extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+  componentDidMount() {
+    console.log(this.props);
+  }
   handleInput(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -23,23 +29,9 @@ export default class SignUp extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post(`/api/users/signup`, {
-      username: this.state.username, 
-      password: this.state.password
-    })
-    .then((res) => {              
-       (res.data === 200) && 
-       this.setState({
-         redirect: true,
-         response: res.data
-       })              
-    })
-    .catch((err) => {
-      this.setState({
-        redirect: false,
-        response: err
-      })
-    })
+    const date = getDate();
+    const { dispatch } = this.props;    
+    dispatch(createUser(this.state.username, this.state.password, date));
   }
 
   submitButton() {
@@ -64,9 +56,12 @@ export default class SignUp extends Component {
     }
   }
   render() {
-    console.log(this.state.response)
+    const { user } = this.props;
+    console.log(user);
+    const isLoggedIn = user.isLoggedIn
     return (
       <div className="container">
+      {(isLoggedIn === true) && <Redirect from = "/signup" to = "/profile"/>}
         <div className="row">
           <div className="col-12 text-center">
             <h2>User Sign Up</h2>
@@ -122,3 +117,11 @@ export default class SignUp extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(SignUp);

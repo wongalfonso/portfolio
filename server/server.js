@@ -25,12 +25,11 @@ app.use(express.static("public"));
 //     mongooseConnection: db
 //   })
 // }))
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve("public", "index.html"));
-})
 
 app.use("/api/users", require("./routes/Users"));
 app.use("/api/kyus", require("./routes/Kyus"));
-app.use("/api/codewars", require("./routes/Challenges"));
 
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("public", "index.html"));
+})
  module.exports = app;

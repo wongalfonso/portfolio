@@ -24,7 +24,8 @@ class EnsureLoggedIn extends Component {
   }
 
   render() {
-    const { isLoggedIn } = this.props;
+    const { user } = this.props;
+    const isLoggedIn = user.isLoggedIn
     if (isLoggedIn === true) {
       return this.renderProfile()
     } else {
@@ -35,7 +36,7 @@ class EnsureLoggedIn extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isLoggedIn: state.user.isLoggedIn
+    user: state.user
   }
 }
 
