@@ -9,12 +9,9 @@ export const postBlog = (type, name, instructions, thinking, answer, username) =
       payload: 
         postChallenge
         .then((res) => {
-          console.log("RESPONSE", res);
+          console.log(res);       
           return res
-        })
-        .catch((err) => {
-          console.log(err);
-        })
+        })        
     })
   }
   

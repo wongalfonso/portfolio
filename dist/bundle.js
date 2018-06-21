@@ -30907,6 +30907,10 @@ var _List = __webpack_require__(/*! ./components/List */ "./src/js/components/Li
 
 var _List2 = _interopRequireDefault(_List);
 
+var _BlogSplashPage = __webpack_require__(/*! ./components/BlogSplashPage */ "./src/js/components/BlogSplashPage.jsx");
+
+var _BlogSplashPage2 = _interopRequireDefault(_BlogSplashPage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30936,6 +30940,7 @@ var AppRouter = function (_Component) {
           _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _HomePage2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/profile", component: _Profile2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/blogpost", component: _PageBlog2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { path: "/blogsplash", component: _BlogSplashPage2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/codewars", component: _List2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/signup", component: _SignUp2.default }),
           _react2.default.createElement(_EnsureLoggedIn2.default, null),
@@ -30949,6 +30954,238 @@ var AppRouter = function (_Component) {
 }(_react.Component);
 
 exports.default = AppRouter;
+
+/***/ }),
+
+/***/ "./src/js/components/BlogSplashPage.jsx":
+/*!**********************************************!*\
+  !*** ./src/js/components/BlogSplashPage.jsx ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var BlogSplashPage = function (_Component) {
+  _inherits(BlogSplashPage, _Component);
+
+  function BlogSplashPage() {
+    _classCallCheck(this, BlogSplashPage);
+
+    return _possibleConstructorReturn(this, (BlogSplashPage.__proto__ || Object.getPrototypeOf(BlogSplashPage)).apply(this, arguments));
+  }
+
+  _createClass(BlogSplashPage, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      var blog = this.props.blog;
+      var isLoggedIn = this.props.isLoggedIn;
+
+      var kyu = blog.blog;
+      return _react2.default.createElement(
+        "div",
+        { className: "container text-center" },
+        isLoggedIn !== true && _react2.default.createElement(_reactRouterDom.Redirect, { from: "/blogsplash", to: "/login" }),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12" },
+            _react2.default.createElement(
+              "h2",
+              null,
+              "You have Posted Your Kyu"
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12" },
+            _react2.default.createElement(
+              "h4",
+              null,
+              "Kyu"
+            ),
+            _react2.default.createElement(
+              "h5",
+              null,
+              kyu.kyuType
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12" },
+            _react2.default.createElement(
+              "h4",
+              null,
+              "Name"
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12" },
+            _react2.default.createElement(
+              "h5",
+              null,
+              kyu.name
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12" },
+            _react2.default.createElement(
+              "h4",
+              null,
+              " Instructions "
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12" },
+            _react2.default.createElement(
+              "h5",
+              null,
+              " ",
+              kyu.instructions,
+              " "
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12" },
+            _react2.default.createElement(
+              "h4",
+              null,
+              " Thinking "
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12" },
+            _react2.default.createElement(
+              "h5",
+              null,
+              " ",
+              kyu.thinking,
+              " "
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12" },
+            _react2.default.createElement(
+              "h4",
+              null,
+              " Answer "
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12" },
+            _react2.default.createElement(
+              "h5",
+              null,
+              " ",
+              kyu.answer,
+              " "
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 pull-right" },
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: "/profile" },
+              _react2.default.createElement(
+                "button",
+                { className: "btn btn-primary" },
+                "Next"
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return BlogSplashPage;
+}(_react.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    blog: state.blog,
+    user: state.user,
+    isLoggedIn: state.user.isLoggedIn
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(BlogSplashPage);
 
 /***/ }),
 
@@ -31652,6 +31889,9 @@ var PageBlog = function (_Component) {
   }
 
   _createClass(PageBlog, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {}
+  }, {
     key: "handleInput",
     value: function handleInput(e) {
       e.preventDefault();
@@ -31692,11 +31932,13 @@ var PageBlog = function (_Component) {
     key: "render",
     value: function render() {
       var isLoggedIn = this.props.isLoggedIn;
+      var blog = this.props.blog;
 
       return _react2.default.createElement(
         "div",
         { className: "container bioBody" },
         isLoggedIn !== true && _react2.default.createElement(_reactRouterDom.Redirect, { from: "/blogpage", to: "/login" }),
+        blog.responseCode === 201 && _react2.default.createElement(_reactRouterDom.Redirect, { from: "/blogpage", to: "/blogsplash" }),
         _react2.default.createElement(
           "div",
           { className: "row" },
@@ -31936,10 +32178,8 @@ var postBlog = exports.postBlog = function postBlog(type, name, instructions, th
     dispatch({
       type: "POST_BLOG",
       payload: postChallenge.then(function (res) {
-        console.log("RESPONSE", res);
+        console.log(res);
         return res;
-      }).catch(function (err) {
-        console.log(err);
       })
     });
   };
@@ -31962,7 +32202,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = PageBlogReducer;
 var defaultState = {
-  blog: []
+  blog: [],
+  rejectResponse: "",
+  responseCode: ""
 };
 
 function PageBlogReducer() {
@@ -31979,7 +32221,7 @@ function PageBlogReducer() {
       }
     case "POST_BLOG_FULFILLED":
       {
-        return Object.assign({}, state, { blog: payload }, { loading: true });
+        return Object.assign({}, state, { blog: payload.data, loading: false, responseCode: payload.status });
       }
     case "POST_BLOG_REJECTED":
       {

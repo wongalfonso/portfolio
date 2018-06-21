@@ -1,5 +1,7 @@
 const defaultState = {
-  blog: []
+  blog: [],
+  rejectResponse: "",
+  responseCode: ""
 }
 
 export default function PageBlogReducer(state = defaultState, action) {
@@ -10,7 +12,7 @@ export default function PageBlogReducer(state = defaultState, action) {
       return { loading: true }
     }
     case "POST_BLOG_FULFILLED": {
-      return Object.assign({}, state, { blog: payload }, { loading: true })
+      return Object.assign({}, state, { blog: payload.data, loading: false, responseCode: payload.status })
     }
     case "POST_BLOG_REJECTED": {
       return Object.assign({}, { loading: false, rejectedResponse: payload })

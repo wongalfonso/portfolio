@@ -35,7 +35,9 @@ export default class PageBlog extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.afterModalIsOpen = this.afterModalIsOpen.bind(this);
   }
-
+  componentDidUpdate() {
+    
+  }
   handleInput(e) {
     e.preventDefault()
     this.setState({
@@ -70,9 +72,11 @@ export default class PageBlog extends Component {
 
   render() {
     const { isLoggedIn } = this.props;
+    const { blog } = this.props;
     return (
       <div className="container bioBody">
         {(isLoggedIn !== true) && <Redirect from = "/blogpage" to = "/login"/> }
+        {(blog.responseCode === 201) && <Redirect from= "/blogpage" to = "/blogsplash"/>}
         <div className="row" >
           <div className="col-12 text-center" id="blogHeader">
             <h2>Post Your Kyu Here!</h2>
