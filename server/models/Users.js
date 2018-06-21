@@ -5,17 +5,17 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   username: {
     type: String,
-    unique: true, 
+    unique: true,
     required: true,
     trim: true
   },
   password: {
-    type: String, 
+    type: String,
     required: true
   },
   kyus: [{
-    type: Schema.Types.ObjectId, 
-    ref: "Types"
+    type: Schema.Types.ObjectId,
+    ref: "Kyus"
   }]
 })
 

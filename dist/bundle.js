@@ -30883,9 +30883,13 @@ var _HomePage = __webpack_require__(/*! ./components/HomePage */ "./src/js/compo
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
 
-var _BlogPage = __webpack_require__(/*! ./components/BlogPage/BlogPage */ "./src/js/components/BlogPage/BlogPage.jsx");
+var _PageBlog = __webpack_require__(/*! ./components/PageBlog */ "./src/js/components/PageBlog/index.js");
 
-var _BlogPage2 = _interopRequireDefault(_BlogPage);
+var _PageBlog2 = _interopRequireDefault(_PageBlog);
+
+var _SignUp = __webpack_require__(/*! ./components/SignUp */ "./src/js/components/SignUp.jsx");
+
+var _SignUp2 = _interopRequireDefault(_SignUp);
 
 var _Login = __webpack_require__(/*! ./components/Login */ "./src/js/components/Login/index.js");
 
@@ -30902,8 +30906,6 @@ var _Profile2 = _interopRequireDefault(_Profile);
 var _List = __webpack_require__(/*! ./components/List */ "./src/js/components/List.jsx");
 
 var _List2 = _interopRequireDefault(_List);
-
-var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30925,7 +30927,6 @@ var AppRouter = function (_Component) {
   _createClass(AppRouter, [{
     key: "render",
     value: function render() {
-      console.log(this.props);
       return _react2.default.createElement(
         _reactRouterDom.BrowserRouter,
         null,
@@ -30934,11 +30935,11 @@ var AppRouter = function (_Component) {
           null,
           _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _HomePage2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/profile", component: _Profile2.default }),
-          _react2.default.createElement(_reactRouterDom.Route, { path: "/blogpost", component: _BlogPage2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { path: "/blogpost", component: _PageBlog2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/codewars", component: _List2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { path: "/signup", component: _SignUp2.default }),
           _react2.default.createElement(_EnsureLoggedIn2.default, null),
-          _react2.default.createElement(_reactRouterDom.Route, { path: "/login", component: _Login2.default }),
-          _react2.default.createElement(_reactRouterDom.Route, { path: "/signup", component: _Login2.default })
+          _react2.default.createElement(_reactRouterDom.Route, { path: "/login", component: _Login2.default })
         )
       );
     }
@@ -30947,345 +30948,7 @@ var AppRouter = function (_Component) {
   return AppRouter;
 }(_react.Component);
 
-function mapStateToProps(state) {
-  return {
-    isLoggedin: state.user.isLoggedin
-  };
-}
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(AppRouter);
-
-/***/ }),
-
-/***/ "./src/js/components/BlogPage/BlogPage.jsx":
-/*!*************************************************!*\
-  !*** ./src/js/components/BlogPage/BlogPage.jsx ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-
-var _axios2 = _interopRequireDefault(_axios);
-
-var _reactModal = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
-
-var _reactModal2 = _interopRequireDefault(_reactModal);
-
-var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var customStyles = {
-  content: {
-    backgroundColor: "lightGrey",
-    fontWeight: "bold",
-    fontSize: "20px",
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
-  }
-};
-
-var BlogPage = function (_Component) {
-  _inherits(BlogPage, _Component);
-
-  function BlogPage(props) {
-    _classCallCheck(this, BlogPage);
-
-    var _this = _possibleConstructorReturn(this, (BlogPage.__proto__ || Object.getPrototypeOf(BlogPage)).call(this, props));
-
-    _this.state = {
-      type: "",
-      name: "",
-      instructions: "",
-      process: "",
-      answer: "",
-      response: [],
-      modalIsOpen: false
-    };
-    _this.handleInput = _this.handleInput.bind(_this);
-    _this.submitForm = _this.submitForm.bind(_this);
-    _this.openModal = _this.openModal.bind(_this);
-    _this.closeModal = _this.closeModal.bind(_this);
-    _this.afterModalIsOpen = _this.afterModalIsOpen.bind(_this);
-    return _this;
-  }
-
-  _createClass(BlogPage, [{
-    key: "handleInput",
-    value: function handleInput(e) {
-      e.preventDefault();
-      this.setState(_defineProperty({}, e.target.name, e.target.value));
-    }
-  }, {
-    key: "openModal",
-    value: function openModal() {
-      this.setState({ modalIsOpen: true });
-    }
-  }, {
-    key: "closeModal",
-    value: function closeModal() {
-      this.setState({ modalIsOpen: false });
-    }
-  }, {
-    key: "afterModalIsOpen",
-    value: function afterModalIsOpen() {
-      this.subtitle.style.color = '#f00';
-    }
-  }, {
-    key: "submitForm",
-    value: function submitForm(e) {
-      var _this2 = this;
-
-      e.preventDefault();
-      _axios2.default.post("/api/codewars/" + this.state.type, {
-        type: this.state.type,
-        description: {
-          name: this.state.name,
-          instructions: this.state.instructions,
-          thinking: this.state.process,
-          answer: this.state.answer
-        }
-      }).then(function (resp) {
-        _this2.setState({
-          response: resp
-        });
-      }).catch(function (err) {
-        _this2.setState({
-          response: err
-        });
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var isLoggedIn = this.props.isLoggedIn;
-
-      return _react2.default.createElement(
-        "div",
-        { className: "container bioBody" },
-        _react2.default.createElement(
-          "div",
-          { className: "row" },
-          _react2.default.createElement(
-            "div",
-            { className: "col-12 text-center", id: "blogHeader" },
-            _react2.default.createElement(
-              "h2",
-              null,
-              "Post Your Kyu Here!"
-            ),
-            _react2.default.createElement("hr", null)
-          )
-        ),
-        _react2.default.createElement(
-          "form",
-          { onSubmit: this.submitForm },
-          _react2.default.createElement(
-            "div",
-            { className: "row" },
-            _react2.default.createElement(
-              "div",
-              { className: "form-group col-md-6" },
-              _react2.default.createElement(
-                "label",
-                { htmlFor: "kyuSelect" },
-                "Kyu"
-              ),
-              _react2.default.createElement(
-                "select",
-                { className: "form-control", id: "kyuSelect", name: "type", onChange: this.handleInput },
-                _react2.default.createElement(
-                  "option",
-                  { hidden: true },
-                  "Select Kyu"
-                ),
-                _react2.default.createElement(
-                  "option",
-                  null,
-                  "8 Kyu"
-                ),
-                _react2.default.createElement(
-                  "option",
-                  null,
-                  "7 Kyu"
-                ),
-                _react2.default.createElement(
-                  "option",
-                  null,
-                  "6 Kyu"
-                ),
-                _react2.default.createElement(
-                  "option",
-                  null,
-                  "5 Kyu"
-                )
-              )
-            ),
-            _react2.default.createElement(
-              "div",
-              { className: "form-group col-md-6" },
-              _react2.default.createElement(
-                "label",
-                { className: "label", htmlFor: "kyuName" },
-                "Kyu Name"
-              ),
-              _react2.default.createElement("input", { className: "form-control", placeholder: "Enter Kyu Name", id: "kyuName", name: "name", onChange: this.handleInput })
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "row" },
-            _react2.default.createElement(
-              "div",
-              { className: "form-group col-12" },
-              _react2.default.createElement(
-                "label",
-                { className: "label", htmlFor: "instructions" },
-                "Enter Instructions of Kyu"
-              ),
-              _react2.default.createElement("textarea", { className: "form-control blogText", name: "instructions", id: "instructions", onChange: this.handleInput, placeholder: "type instructions here" })
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "row" },
-            _react2.default.createElement(
-              "div",
-              { className: "form-group col-12" },
-              _react2.default.createElement(
-                "label",
-                { className: "label", htmlFor: "process" },
-                "Enter your thought process"
-              ),
-              _react2.default.createElement("textarea", { onChange: this.handleInput, id: "process", name: "process", placeholder: "enter your process here", className: "form-control blogText" })
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "row" },
-            _react2.default.createElement(
-              "div",
-              { className: "form-group col-12" },
-              _react2.default.createElement(
-                "label",
-                { className: "label", htmlFor: "answer" },
-                "Enter your answer"
-              ),
-              _react2.default.createElement("textarea", { onChange: this.handleInput, id: "answer", name: "answer", placeholder: "enter your answer here", className: "form-control blogText" })
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "row" },
-            _react2.default.createElement(
-              "div",
-              { className: "form-group col-12" },
-              _react2.default.createElement(
-                "div",
-                { className: "col-8 float-right" },
-                _react2.default.createElement(
-                  "button",
-                  { type: "button", className: "btn btn-warning  cancelBtn", onClick: this.openModal },
-                  "Cancel"
-                ),
-                _react2.default.createElement(
-                  "button",
-                  { type: "submit", className: "btn btn-success  submitBtn" },
-                  "Submit"
-                )
-              )
-            ),
-            _react2.default.createElement(
-              _reactModal2.default,
-              {
-                isOpen: this.state.modalIsOpen,
-                onAfterOpen: this.afterOpenModal,
-                onRequestClose: this.closeModal,
-                style: customStyles,
-                ariaHideApp: false,
-                contentLabel: "Example Modal"
-              },
-              _react2.default.createElement(
-                "div",
-                { className: "blogModal" },
-                _react2.default.createElement(
-                  "div",
-                  { className: "row textModal" },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "col-12 text-center" },
-                    _react2.default.createElement(
-                      "span",
-                      null,
-                      " Are You Sure You Want To Cancel?"
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  "div",
-                  { className: "col-12 form-group" },
-                  _react2.default.createElement(
-                    "button",
-                    { className: "btn btn-danger modalBtn", onClick: this.closeModal },
-                    "No"
-                  ),
-                  _react2.default.createElement(
-                    _reactRouterDom.Link,
-                    { to: "/profile" },
-                    _react2.default.createElement(
-                      "button",
-                      { className: "btn btn-success modalBtn", onClick: this.closeModal },
-                      "Yes"
-                    )
-                  )
-                )
-              )
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "row" },
-            _react2.default.createElement(
-              "div",
-              { className: "has-success col-12 text-center" },
-              _react2.default.createElement("div", { className: "form-control" })
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return BlogPage;
-}(_react.Component);
-
-exports.default = BlogPage;
+exports.default = AppRouter;
 
 /***/ }),
 
@@ -31911,6 +31574,460 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(_Login2.default);
 
 /***/ }),
 
+/***/ "./src/js/components/PageBlog/PageBlog.jsx":
+/*!*************************************************!*\
+  !*** ./src/js/components/PageBlog/PageBlog.jsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactModal = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
+
+var _reactModal2 = _interopRequireDefault(_reactModal);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+var _PageBlogActions = __webpack_require__(/*! ./PageBlogActions */ "./src/js/components/PageBlog/PageBlogActions.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var customStyles = {
+  content: {
+    backgroundColor: "lightGrey",
+    fontWeight: "bold",
+    fontSize: "20px",
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+};
+
+var PageBlog = function (_Component) {
+  _inherits(PageBlog, _Component);
+
+  function PageBlog(props) {
+    _classCallCheck(this, PageBlog);
+
+    var _this = _possibleConstructorReturn(this, (PageBlog.__proto__ || Object.getPrototypeOf(PageBlog)).call(this, props));
+
+    _this.state = {
+      type: "",
+      name: "",
+      instructions: "",
+      process: "",
+      answer: "",
+      response: [],
+      modalIsOpen: false
+    };
+    _this.handleInput = _this.handleInput.bind(_this);
+    _this.submitForm = _this.submitForm.bind(_this);
+    _this.openModal = _this.openModal.bind(_this);
+    _this.closeModal = _this.closeModal.bind(_this);
+    _this.afterModalIsOpen = _this.afterModalIsOpen.bind(_this);
+    return _this;
+  }
+
+  _createClass(PageBlog, [{
+    key: "handleInput",
+    value: function handleInput(e) {
+      e.preventDefault();
+      this.setState(_defineProperty({}, e.target.name, e.target.value));
+    }
+  }, {
+    key: "openModal",
+    value: function openModal() {
+      this.setState({ modalIsOpen: true });
+    }
+  }, {
+    key: "closeModal",
+    value: function closeModal() {
+      this.setState({ modalIsOpen: false });
+    }
+  }, {
+    key: "afterModalIsOpen",
+    value: function afterModalIsOpen() {
+      this.subtitle.style.color = '#f00';
+    }
+  }, {
+    key: "submitForm",
+    value: function submitForm(e) {
+      e.preventDefault();
+      var _props = this.props,
+          dispatch = _props.dispatch,
+          user = _props.user;
+
+      var type = this.state.type;
+      var name = this.state.name;
+      var instructions = this.state.instructions;
+      var thinking = this.state.process;
+      var answer = this.state.answer;
+      var username = user.user.username;
+      dispatch((0, _PageBlogActions.postBlog)(type, name, instructions, thinking, answer, username));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var isLoggedIn = this.props.isLoggedIn;
+
+      return _react2.default.createElement(
+        "div",
+        { className: "container bioBody" },
+        isLoggedIn !== true && _react2.default.createElement(_reactRouterDom.Redirect, { from: "/blogpage", to: "/login" }),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 text-center", id: "blogHeader" },
+            _react2.default.createElement(
+              "h2",
+              null,
+              "Post Your Kyu Here!"
+            ),
+            _react2.default.createElement("hr", null)
+          )
+        ),
+        _react2.default.createElement(
+          "form",
+          { onSubmit: this.submitForm },
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group col-md-6" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "kyuSelect" },
+                "Kyu"
+              ),
+              _react2.default.createElement(
+                "select",
+                { className: "form-control", id: "kyuSelect", name: "type", onChange: this.handleInput },
+                _react2.default.createElement(
+                  "option",
+                  { hidden: true },
+                  "Select Kyu"
+                ),
+                _react2.default.createElement(
+                  "option",
+                  null,
+                  "8 Kyu"
+                ),
+                _react2.default.createElement(
+                  "option",
+                  null,
+                  "7 Kyu"
+                ),
+                _react2.default.createElement(
+                  "option",
+                  null,
+                  "6 Kyu"
+                ),
+                _react2.default.createElement(
+                  "option",
+                  null,
+                  "5 Kyu"
+                )
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "form-group col-md-6" },
+              _react2.default.createElement(
+                "label",
+                { className: "label", htmlFor: "kyuName" },
+                "Kyu Name"
+              ),
+              _react2.default.createElement("input", { className: "form-control", placeholder: "Enter Kyu Name", id: "kyuName", name: "name", onChange: this.handleInput })
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group col-12" },
+              _react2.default.createElement(
+                "label",
+                { className: "label", htmlFor: "instructions" },
+                "Enter Instructions of Kyu"
+              ),
+              _react2.default.createElement("textarea", { className: "form-control blogText", name: "instructions", id: "instructions", onChange: this.handleInput, placeholder: "type instructions here" })
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group col-12" },
+              _react2.default.createElement(
+                "label",
+                { className: "label", htmlFor: "process" },
+                "Enter your thought process"
+              ),
+              _react2.default.createElement("textarea", { onChange: this.handleInput, id: "process", name: "process", placeholder: "enter your process here", className: "form-control blogText" })
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group col-12" },
+              _react2.default.createElement(
+                "label",
+                { className: "label", htmlFor: "answer" },
+                "Enter your answer"
+              ),
+              _react2.default.createElement("textarea", { onChange: this.handleInput, id: "answer", name: "answer", placeholder: "enter your answer here", className: "form-control blogText" })
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group col-12" },
+              _react2.default.createElement(
+                "div",
+                { className: "col-8 float-right" },
+                _react2.default.createElement(
+                  "button",
+                  { type: "button", className: "btn btn-warning  cancelBtn", onClick: this.openModal },
+                  "Cancel"
+                ),
+                _react2.default.createElement(
+                  "button",
+                  { type: "submit", className: "btn btn-success  submitBtn" },
+                  "Submit"
+                )
+              )
+            ),
+            _react2.default.createElement(
+              _reactModal2.default,
+              {
+                isOpen: this.state.modalIsOpen,
+                onAfterOpen: this.afterOpenModal,
+                onRequestClose: this.closeModal,
+                style: customStyles,
+                ariaHideApp: false,
+                contentLabel: "Example Modal"
+              },
+              _react2.default.createElement(
+                "div",
+                { className: "blogModal" },
+                _react2.default.createElement(
+                  "div",
+                  { className: "row textModal" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "col-12 text-center" },
+                    _react2.default.createElement(
+                      "span",
+                      null,
+                      " Are You Sure You Want To Cancel?"
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  "div",
+                  { className: "col-12 form-group" },
+                  _react2.default.createElement(
+                    "button",
+                    { className: "btn btn-danger modalBtn", onClick: this.closeModal },
+                    "No"
+                  ),
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: "/profile" },
+                    _react2.default.createElement(
+                      "button",
+                      { className: "btn btn-success modalBtn", onClick: this.closeModal },
+                      "Yes"
+                    )
+                  )
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "has-success col-12 text-center" },
+              _react2.default.createElement("div", { className: "form-control" })
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return PageBlog;
+}(_react.Component);
+
+// const mapStateToProps = (state) => {
+//   return {
+//     user: state.user,
+//     isLoggedIn: state.user.isLoggedIn,
+//     blog: state.blog
+//   }
+// }
+
+// export default connect(mapStateToProps)(BlogPage);
+
+
+exports.default = PageBlog;
+
+/***/ }),
+
+/***/ "./src/js/components/PageBlog/PageBlogActions.js":
+/*!*******************************************************!*\
+  !*** ./src/js/components/PageBlog/PageBlogActions.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.postBlog = undefined;
+
+var _axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var postBlog = exports.postBlog = function postBlog(type, name, instructions, thinking, answer, username) {
+
+  var postChallenge = _axios2.default.post("/api/kyus/postblog", { type: type, name: name, instructions: instructions, thinking: thinking, answer: answer, username: username });
+  return function (dispatch, state) {
+    dispatch({
+      type: "POST_BLOG",
+      payload: postChallenge.then(function (res) {
+        console.log("RESPONSE", res);
+        return res;
+      }).catch(function (err) {
+        console.log(err);
+      })
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./src/js/components/PageBlog/PageBlogReducer.js":
+/*!*******************************************************!*\
+  !*** ./src/js/components/PageBlog/PageBlogReducer.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = PageBlogReducer;
+var defaultState = {
+  blog: []
+};
+
+function PageBlogReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+  var action = arguments[1];
+  var type = action.type,
+      payload = action.payload;
+
+
+  switch (type) {
+    case "POST_BLOG_PENDING":
+      {
+        return { loading: true };
+      }
+    case "POST_BLOG_FULFILLED":
+      {
+        return Object.assign({}, state, { blog: payload }, { loading: true });
+      }
+    case "POST_BLOG_REJECTED":
+      {
+        return Object.assign({}, { loading: false, rejectedResponse: payload });
+      }
+    default:
+      {
+        return state;
+      }
+  }
+}
+
+/***/ }),
+
+/***/ "./src/js/components/PageBlog/index.js":
+/*!*********************************************!*\
+  !*** ./src/js/components/PageBlog/index.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _PageBlog = __webpack_require__(/*! ./PageBlog */ "./src/js/components/PageBlog/PageBlog.jsx");
+
+var _PageBlog2 = _interopRequireDefault(_PageBlog);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function mapStoreToProps(state) {
+  return {
+    user: state.user,
+    isLoggedIn: state.user.isLoggedIn,
+    blog: state.blog
+  };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStoreToProps)(_PageBlog2.default);
+
+/***/ }),
+
 /***/ "./src/js/components/Profile/Profile.jsx":
 /*!***********************************************!*\
   !*** ./src/js/components/Profile/Profile.jsx ***!
@@ -31958,6 +32075,7 @@ var Profile = function (_Component) {
       return _react2.default.createElement(
         "div",
         { className: "container" },
+        isLoggedIn !== true && _react2.default.createElement(_reactRouterDom.Redirect, { from: "/profile", to: "/login" }),
         _react2.default.createElement(
           "div",
           { className: "row" },
@@ -32043,6 +32161,209 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(_Profile2.default);
 
 /***/ }),
 
+/***/ "./src/js/components/SignUp.jsx":
+/*!**************************************!*\
+  !*** ./src/js/components/SignUp.jsx ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SignUp = function (_Component) {
+  _inherits(SignUp, _Component);
+
+  function SignUp(props) {
+    _classCallCheck(this, SignUp);
+
+    var _this = _possibleConstructorReturn(this, (SignUp.__proto__ || Object.getPrototypeOf(SignUp)).call(this, props));
+
+    _this.state = {
+      username: "",
+      password: "",
+      passwordConf: "",
+      redirect: false,
+      response: []
+    };
+    _this.handleInput = _this.handleInput.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
+  }
+
+  _createClass(SignUp, [{
+    key: "handleInput",
+    value: function handleInput(e) {
+      this.setState(_defineProperty({}, e.target.name, e.target.value));
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      _axios2.default.post("/api/users/signup", {
+        username: this.state.username,
+        password: this.state.password
+      }).then(function (res) {
+        res.data === 200 && _this2.setState({
+          redirect: true,
+          response: res.data
+        });
+      }).catch(function (err) {
+        _this2.setState({
+          redirect: false,
+          response: err
+        });
+      });
+    }
+  }, {
+    key: "submitButton",
+    value: function submitButton() {
+      var pw = this.state.password;
+      var config = this.state.passwordConf;
+      var un = this.state.username;
+      if (pw.length === 0 || config.length === 0 || pw !== config || un.length === 0) {
+        return _react2.default.createElement(
+          "button",
+          { type: "submit",
+            className: "btn btn-danger float-right",
+            disabled: true },
+          "Submit"
+        );
+      } else {
+        return _react2.default.createElement(
+          "button",
+          { type: "submit",
+            className: "btn btn-success float-right" },
+          "Submit"
+        );
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      console.log(this.state.response);
+      return _react2.default.createElement(
+        "div",
+        { className: "container" },
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 text-center" },
+            _react2.default.createElement(
+              "h2",
+              null,
+              "User Sign Up"
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "form",
+          { onSubmit: this.handleSubmit },
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group col-12" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "username",
+                  className: "control-label" },
+                "Username"
+              ),
+              _react2.default.createElement("input", { type: "text",
+                onChange: this.handleInput,
+                name: "username",
+                value: this.state.username,
+                id: "username",
+                className: "" })
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group has-feedback col-12" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "password",
+                  className: "control-label" },
+                "Password"
+              ),
+              _react2.default.createElement("input", { type: "password",
+                onChange: this.handleInput,
+                name: "password",
+                value: this.state.password })
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group has-feedback col-12" },
+              _react2.default.createElement(
+                "label",
+                { htmlFor: "passwordConf",
+                  className: "control-label" },
+                "Retype Password"
+              ),
+              _react2.default.createElement("input", { type: "passwordConf",
+                onChange: this.handleInput,
+                name: "passwordConf",
+                value: this.state.passwordConf })
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "form-group has-feedback col-12" },
+              this.submitButton()
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return SignUp;
+}(_react.Component);
+
+exports.default = SignUp;
+
+/***/ }),
+
 /***/ "./src/js/history.js":
 /*!***************************!*\
   !*** ./src/js/history.js ***!
@@ -32120,10 +32441,15 @@ var _LoginReducer = __webpack_require__(/*! ./components/Login/LoginReducer */ "
 
 var _LoginReducer2 = _interopRequireDefault(_LoginReducer);
 
+var _PageBlogReducer = __webpack_require__(/*! ./components/PageBlog/PageBlogReducer */ "./src/js/components/PageBlog/PageBlogReducer.js");
+
+var _PageBlogReducer2 = _interopRequireDefault(_PageBlogReducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
-  user: _LoginReducer2.default
+  user: _LoginReducer2.default,
+  blog: _PageBlogReducer2.default
 });
 
 exports.default = rootReducer;

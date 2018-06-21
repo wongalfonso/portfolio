@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Challenges = require("../models/Challenges");
-const Blog = require("../models/Types");
+const Types = require("../models/Kyus");
 
 
 router.get("/", (req, res) => {

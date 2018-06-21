@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import axios from "axios";
 import Modal from "react-modal";
-import { Redirect, Link } from "react-router-dom"
+import { Redirect, Link } from "react-router-dom";
+import { postBlog } from "./PageBlogActions";
 
 const customStyles = {
   content: {
-    backgroundColor: "lightGrey",    
+    backgroundColor: "lightGrey",
     fontWeight: "bold",
     fontSize: "20px",
     top: '50%',
@@ -17,9 +17,7 @@ const customStyles = {
   }
 };
 
-
-
-export default class BlogPage extends Component {
+export default class PageBlog extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,25 +57,14 @@ export default class BlogPage extends Component {
 
   submitForm(e) {
     e.preventDefault();
-    axios.post(`/api/codewars/${this.state.type}`, {
-      type: this.state.type,
-      description: {
-        name: this.state.name,
-        instructions: this.state.instructions,
-        thinking: this.state.process,
-        answer: this.state.answer
-      }
-    })
-      .then((resp) => {
-        this.setState({
-          response: resp
-        })
-      })
-      .catch((err) => {
-        this.setState({
-          response: err
-        })
-      })
+    const { dispatch, user } = this.props;    
+    const type = this.state.type;
+    const name = this.state.name;
+    const instructions = this.state.instructions;
+    const thinking = this.state.process;
+    const answer = this.state.answer;
+    const username = user.user.username;
+    dispatch(postBlog(type, name, instructions, thinking, answer, username));
   }
 
 
@@ -85,7 +72,7 @@ export default class BlogPage extends Component {
     const { isLoggedIn } = this.props;
     return (
       <div className="container bioBody">
-        {/* {(isLoggedIn !== true) && <Redirect from = "/blogpage" to = "/login"/> } */}
+        {(isLoggedIn !== true) && <Redirect from = "/blogpage" to = "/login"/> }
         <div className="row" >
           <div className="col-12 text-center" id="blogHeader">
             <h2>Post Your Kyu Here!</h2>
@@ -142,15 +129,15 @@ export default class BlogPage extends Component {
               ariaHideApp={false}
               contentLabel="Example Modal"
             >
-              <div className = "blogModal">
+              <div className="blogModal">
                 <div className="row textModal">
                   <div className="col-12 text-center">
-                  <span> Are You Sure You Want To Cancel?</span>
-                  </div>                  
+                    <span> Are You Sure You Want To Cancel?</span>
+                  </div>
                 </div>
                 <div className="col-12 form-group">
-                  <button className="btn btn-danger modalBtn" onClick = {this.closeModal}>No</button>
-                  <Link to = "/profile"><button className="btn btn-success modalBtn" onClick = {this.closeModal}>Yes</button></Link>
+                  <button className="btn btn-danger modalBtn" onClick={this.closeModal}>No</button>
+                  <Link to="/profile"><button className="btn btn-success modalBtn" onClick={this.closeModal}>Yes</button></Link>
                 </div>
 
               </div>
@@ -163,10 +150,18 @@ export default class BlogPage extends Component {
               </div>
             </div>
           </div>
-
-
         </form>
       </div>
     )
   }
 }
+
+// const mapStateToProps = (state) => {
+//   return {
+//     user: state.user,
+//     isLoggedIn: state.user.isLoggedIn,
+//     blog: state.blog
+//   }
+// }
+
+// export default connect(mapStateToProps)(BlogPage);

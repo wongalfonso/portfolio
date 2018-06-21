@@ -11,7 +11,7 @@ export default class Profile extends Component {
     const { isLoggedIn } = this.props;
     return (      
       <div className="container">
-      {/* {(isLoggedIn !== true) && <Redirect from = "/profile" to = "/login"/> } */}
+      {(isLoggedIn !== true) && <Redirect from = "/profile" to = "/login"/> }
         <div className="row">
           <h2>Welcome </h2>
         </div>

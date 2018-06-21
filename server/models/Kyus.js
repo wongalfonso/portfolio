@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const ChallengesSchema = new Schema({
+const kyusSchema = new Schema({
+  kyuType: {
+    type: String,
+    required: true
+  },
   name: {
     type: String,
     required: true
@@ -18,10 +22,13 @@ const ChallengesSchema = new Schema({
     type: String,
     required: true
   },
-  kyus: {
+  user: {
     type: Schema.Types.ObjectId,
-    ref: "Kyus"
+    ref: "Users"
   }
-}, { timestamps: true })
+}, {
+    timestamps: true
+  })
 
-module.exports = mongoose.model("Challenges", ChallengesSchema)
+
+module.exports = mongoose.model("Kyus", kyusSchema)

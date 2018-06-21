@@ -30,6 +30,7 @@ app.get("*", (req, res) => {
 })
 
 app.use("/api/users", require("./routes/Users"));
-app.use("/api/codewars", require("./routes/Types"));
+app.use("/api/kyus", require("./routes/Kyus"));
+app.use("/api/codewars", require("./routes/Challenges"));
 
  module.exports = app;
