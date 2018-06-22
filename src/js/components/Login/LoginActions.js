@@ -8,11 +8,8 @@ export const authenticateUser = (username, password, date) => {
       type: "AUTH_USER",
       payload:
         getAuth
-          .then((res) => {
-            return res.data
-          })
-          .catch((err) => {
-            return err
+          .then((res) => {            
+            return res
           })
     })
   }
@@ -29,8 +26,7 @@ export const createUser = (username, password, date) => {
       type: "CREATE_USER",
       payload:
         createLogin
-          .then((res) => {
-            console.log(res);
+          .then((res) => {            
             return res.data
           })
     })

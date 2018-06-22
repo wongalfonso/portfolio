@@ -4,10 +4,37 @@
 .bioBody {
   margin-top: 2rem;  
 }
-.container {
-  border: solid lightgrey;
-  background-color: lightgrey;
+.page {
+  border: solid rgb(233, 231, 231);
+  background-color: rgb(233, 231, 231);
   border-radius: 8px;
+  margin-top: 6rem;
+  margin-left: 15rem;
+  margin-right: 15rem;
+}
+#loginForm {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+#loginName {
+  margin-bottom: 4rem;
+}
+#loginName span {font-size: 50px; color: rgb(131, 131, 131)}
+
+.inputs {
+  width: 100%;
+  float: none;
+  margin: auto;
+}
+#username, #password {
+  width: 400px;  
+  margin: auto;
+  float: none;
+}
+.loginBtn {
+  width: 400px; 
+  margin: auto;
+  float: none;
 }
 #blogHeader{
   padding-top: 2rem;
@@ -33,3 +60,14 @@ form.blogText textarea {
 .textModal {
   padding-bottom: 2rem;
 }
+#userList li span {
+  display: block;
+  float: left;  
+}
+.userListLine {
+  height: 50px;
+}
+
+#userList li span.userListName{width: 400px;}
+#userList li span.userListType{width: 300px;}
+#userList li span.userListDate{width: 300px; float: right;}

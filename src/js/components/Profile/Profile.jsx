@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { getBlogs } from "./ProfileActions";
+import List  from "../List"
 
 export default class Profile extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class Profile extends Component {
   render() {
     const { user } = this.props;
     const isLoggedIn = user.isLoggedIn;
+    console.log(user.challenges);
     return (      
       <div className="container">
       {(isLoggedIn !== true) && <Redirect from = "/profile" to = "/login"/> }
@@ -29,14 +31,8 @@ export default class Profile extends Component {
             </button></Link>
           </div>
         </div>
-        <div className="row">
-          <div className="col-12">
-          <ul>
-            {/* {user.map((kyu,i) => {
-              <li><Link to = {`/codewars/${kyu._id}`}>{i}{kyu.name}</Link></li>
-            })} */}
-          </ul>
-          </div>
+        <div className="row">             
+            <List challenges = {user.challenges}/>          
         </div>
       </div>
     )

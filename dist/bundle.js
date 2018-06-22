@@ -1766,7 +1766,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".bioBody {\n  margin-top: 2rem; }\n\n.container {\n  border: solid lightgrey;\n  background-color: lightgrey;\n  border-radius: 8px; }\n\n#blogHeader {\n  padding-top: 2rem;\n  margin-bottom: 2rem;\n  color: black;\n  height: 7rem; }\n\n.blogText {\n  height: 10rem;\n  text-decoration-color: white; }\n\nform.blogText textarea {\n  color: white; }\n\n.submitBtn, .cancelBtn {\n  width: 10rem; }\n\n.modalBtn {\n  width: 10rem; }\n\n.textModal {\n  padding-bottom: 2rem; }\n", ""]);
+exports.push([module.i, ".bioBody {\n  margin-top: 2rem; }\n\n.page {\n  border: solid #e9e7e7;\n  background-color: #e9e7e7;\n  border-radius: 8px;\n  margin-top: 6rem;\n  margin-left: 15rem;\n  margin-right: 15rem; }\n\n#loginForm {\n  margin-top: 8rem;\n  margin-bottom: 8rem; }\n\n#loginName {\n  margin-bottom: 4rem; }\n\n#loginName span {\n  font-size: 50px;\n  color: #838383; }\n\n.inputs {\n  width: 100%;\n  float: none;\n  margin: auto; }\n\n#username, #password {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n.loginBtn {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n#blogHeader {\n  padding-top: 2rem;\n  margin-bottom: 2rem;\n  color: black;\n  height: 7rem; }\n\n.blogText {\n  height: 10rem;\n  text-decoration-color: white; }\n\nform.blogText textarea {\n  color: white; }\n\n.submitBtn, .cancelBtn {\n  width: 10rem; }\n\n.modalBtn {\n  width: 10rem; }\n\n.textModal {\n  padding-bottom: 2rem; }\n\n#userList li span {\n  display: block;\n  float: left; }\n\n.userListLine {\n  height: 50px; }\n\n#userList li span.userListName {\n  width: 400px; }\n\n#userList li span.userListType {\n  width: 300px; }\n\n#userList li span.userListDate {\n  width: 300px;\n  float: right; }\n", ""]);
 
 // exports
 
@@ -31222,71 +31222,6 @@ function getDate() {
 
 /***/ }),
 
-/***/ "./src/js/components/EightKyu.jsx":
-/*!****************************************!*\
-  !*** ./src/js/components/EightKyu.jsx ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var EightKyu = function (_Component) {
-  _inherits(EightKyu, _Component);
-
-  function EightKyu() {
-    _classCallCheck(this, EightKyu);
-
-    return _possibleConstructorReturn(this, (EightKyu.__proto__ || Object.getPrototypeOf(EightKyu)).apply(this, arguments));
-  }
-
-  _createClass(EightKyu, [{
-    key: "defaultList",
-    value: function defaultList() {
-      return _react2.default.createElement("div", null);
-    }
-  }, {
-    key: "fullList",
-    value: function fullList() {
-      return _react2.default.createElement("div", null);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        { className: "container" },
-        this.props.showlist ? this.defaultList() : this.fullList()
-      );
-    }
-  }]);
-
-  return EightKyu;
-}(_react.Component);
-
-exports.default = EightKyu;
-
-/***/ }),
-
 /***/ "./src/js/components/EnsureLoggedIn.jsx":
 /*!**********************************************!*\
   !*** ./src/js/components/EnsureLoggedIn.jsx ***!
@@ -31456,9 +31391,7 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _EightKyu = __webpack_require__(/*! ./EightKyu */ "./src/js/components/EightKyu.jsx");
-
-var _EightKyu2 = _interopRequireDefault(_EightKyu);
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31471,77 +31404,55 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var List = function (_Component) {
   _inherits(List, _Component);
 
-  function List(props) {
+  function List() {
     _classCallCheck(this, List);
 
-    var _this = _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).call(this, props));
-
-    _this.state = {
-      showList: false
-    };
-    _this.handleList = _this.handleList.bind(_this);
-    return _this;
+    return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).apply(this, arguments));
   }
 
   _createClass(List, [{
-    key: "handleList",
-    value: function handleList() {
-      this.setState({
-        showList: true
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
+      var challenges = this.props.challenges;
+
+      if (challenges === undefined) challenges = [];
+
       return _react2.default.createElement(
-        "div",
-        { className: "container" },
-        _react2.default.createElement(
-          "table",
-          { className: "table" },
-          _react2.default.createElement(
-            "tbody",
-            null,
-            _react2.default.createElement(_EightKyu2.default, {
-              expandList: this.handleList }),
+        "ul",
+        { className: "list-group col-12", id: "userList" },
+        challenges.map(function (kyu, i) {
+          console.log(kyu);
+          return _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: "/codewars/" + kyu._id, key: i },
             _react2.default.createElement(
-              "tr",
-              null,
+              "li",
+              { className: "list-group-item list-group-item-action userListLine" },
               _react2.default.createElement(
-                "td",
-                null,
-                "7 kyu"
-              ),
-              _react2.default.createElement(
-                "td",
-                null,
+                "div",
+                { className: "col-12" },
                 _react2.default.createElement(
-                  "button",
-                  null,
-                  "Show List"
-                )
-              )
-            ),
-            _react2.default.createElement(
-              "tr",
-              null,
-              _react2.default.createElement(
-                "td",
-                null,
-                "6 kyu"
-              ),
-              _react2.default.createElement(
-                "td",
-                null,
+                  "span",
+                  { className: "userListName",
+                    style: { display: "inlineBlock" } },
+                  kyu.name
+                ),
                 _react2.default.createElement(
-                  "button",
-                  null,
-                  "Show List"
+                  "span",
+                  { className: "userListType",
+                    style: { display: "inlineBlock" } },
+                  kyu.kyuType
+                ),
+                _react2.default.createElement(
+                  "span",
+                  { className: "userListDate",
+                    style: { display: "inlineBlock" } },
+                  kyu.created
                 )
               )
             )
-          )
-        )
+          );
+        })
       );
     }
   }]);
@@ -31629,16 +31540,18 @@ var Login = function (_Component) {
       if (pw.length === 0 || un.length === 0) {
         return _react2.default.createElement(
           "button",
-          { type: "submit",
-            className: "btn btn-danger float-right",
+          {
+            type: "submit",
+            className: "btn btn-danger form-control loginBtn",
             disabled: true },
           "Submit"
         );
       } else {
         return _react2.default.createElement(
           "button",
-          { type: "submit",
-            className: "btn btn-success float-right" },
+          {
+            type: "submit",
+            className: "btn btn-success form-control loginBtn" },
           "Submit"
         );
       }
@@ -31651,65 +31564,73 @@ var Login = function (_Component) {
         { className: "container" },
         _react2.default.createElement(
           "div",
-          { className: "row" },
+          { className: "page" },
           _react2.default.createElement(
-            "div",
-            { className: "col-12 text-center" },
-            _react2.default.createElement(
-              "h2",
-              null,
-              "User Log In"
-            )
-          )
-        ),
-        _react2.default.createElement(
-          "form",
-          { onSubmit: this.handleSubmit },
-          _react2.default.createElement(
-            "div",
-            { className: "row" },
+            "form",
+            { onSubmit: this.handleSubmit, id: "loginForm" },
             _react2.default.createElement(
               "div",
-              { className: "form-group col-12" },
+              { className: "row" },
               _react2.default.createElement(
-                "label",
-                { htmlFor: "username",
-                  className: "control-label" },
-                "Username"
-              ),
-              _react2.default.createElement("input", { type: "text",
-                onChange: this.handleInput,
-                name: "username",
-                value: this.state.username,
-                id: "username",
-                className: "" })
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "row" },
+                "div",
+                { className: "col-12 text-center", id: "loginName" },
+                _react2.default.createElement(
+                  "span",
+                  null,
+                  "Log-In"
+                )
+              )
+            ),
             _react2.default.createElement(
               "div",
-              { className: "form-group has-feedback col-12" },
+              { className: "row" },
               _react2.default.createElement(
-                "label",
-                { htmlFor: "password",
-                  className: "control-label" },
-                "Password"
-              ),
-              _react2.default.createElement("input", { type: "password",
-                onChange: this.handleInput,
-                name: "password",
-                value: this.state.password })
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "row" },
+                "div",
+                { className: "col-8 inputs" },
+                _react2.default.createElement(
+                  "div",
+                  { className: "form-group" },
+                  _react2.default.createElement("input", { type: "text",
+                    onChange: this.handleInput,
+                    name: "username",
+                    placeholder: "Username",
+                    value: this.state.username,
+                    id: "username",
+                    className: "form-control" })
+                )
+              )
+            ),
             _react2.default.createElement(
               "div",
-              { className: "form-group has-feedback col-12" },
-              this.submitButton()
+              { className: "row" },
+              _react2.default.createElement(
+                "div",
+                { className: "col-8 inputs " },
+                _react2.default.createElement(
+                  "div",
+                  { className: "form-group has-feedback" },
+                  _react2.default.createElement("input", { type: "password",
+                    onChange: this.handleInput,
+                    name: "password",
+                    id: "password",
+                    placeholder: "Password",
+                    value: this.state.password,
+                    className: "form-control" })
+                )
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "row text-center" },
+              _react2.default.createElement(
+                "div",
+                { className: "col-8 inputs" },
+                _react2.default.createElement(
+                  "div",
+                  { className: "form-group" },
+                  this.submitButton()
+                )
+              )
             )
           )
         )
@@ -31753,9 +31674,7 @@ var authenticateUser = exports.authenticateUser = function authenticateUser(user
     dispatch({
       type: "AUTH_USER",
       payload: getAuth.then(function (res) {
-        return res.data;
-      }).catch(function (err) {
-        return err;
+        return res;
       })
     });
   };
@@ -31771,7 +31690,6 @@ var createUser = exports.createUser = function createUser(username, password, da
     dispatch({
       type: "CREATE_USER",
       payload: createLogin.then(function (res) {
-        console.log(res);
         return res.data;
       })
     });
@@ -31798,7 +31716,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 exports.default = LoginReducer;
 var defaultState = {
-  loading: false
+  loading: false,
+  message: ""
 };
 
 function LoginReducer() {
@@ -31815,11 +31734,12 @@ function LoginReducer() {
       }
     case "AUTH_USER_FULFILLED":
       {
-        return Object.assign({}, state, payload, { isLoggedIn: true });
+        return Object.assign({}, state, payload.data, { isLoggedIn: true });
       }
     case "AUTH_USER_REJECTED":
       {
-        return { loading: false };
+
+        return _extends({}, state, { loading: false, message: payload });
       }
     case "CREATE_USER_PENDING":
       {
@@ -31865,7 +31785,6 @@ var _Login2 = _interopRequireDefault(_Login);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
-  console.log(state);
   return {
     userLogin: state.user
   };
@@ -32358,6 +32277,10 @@ var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_module
 
 var _ProfileActions = __webpack_require__(/*! ./ProfileActions */ "./src/js/components/Profile/ProfileActions.js");
 
+var _List = __webpack_require__(/*! ../List */ "./src/js/components/List.jsx");
+
+var _List2 = _interopRequireDefault(_List);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32384,6 +32307,7 @@ var Profile = function (_Component) {
       var user = this.props.user;
 
       var isLoggedIn = user.isLoggedIn;
+      console.log(user.challenges);
       return _react2.default.createElement(
         "div",
         { className: "container" },
@@ -32431,11 +32355,7 @@ var Profile = function (_Component) {
         _react2.default.createElement(
           "div",
           { className: "row" },
-          _react2.default.createElement(
-            "div",
-            { className: "col-12" },
-            _react2.default.createElement("ul", null)
-          )
+          _react2.default.createElement(_List2.default, { challenges: user.challenges })
         )
       );
     }

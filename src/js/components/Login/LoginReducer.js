@@ -1,5 +1,6 @@
 const defaultState = {
   loading: false,
+  message: ""
 }
 
 export default function LoginReducer(state = defaultState, action) {
@@ -9,11 +10,12 @@ export default function LoginReducer(state = defaultState, action) {
     case "AUTH_USER": {
       return { ...state, user: payload }
     }
-    case "AUTH_USER_FULFILLED": {       
-      return Object.assign({}, state, payload, {isLoggedIn: true})
+    case "AUTH_USER_FULFILLED": {           
+      return Object.assign({}, state, payload.data, {isLoggedIn: true})
     }
     case "AUTH_USER_REJECTED": {
-      return { loading: false }
+          
+      return { ...state, loading: false, message: payload }
     }
     case "CREATE_USER_PENDING": {
       return {loading: true}

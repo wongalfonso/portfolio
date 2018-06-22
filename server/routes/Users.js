@@ -59,24 +59,24 @@ router.post("/login", (req, res, next) => {
   let date = req.body.date;
     User.findOne({ username: username })
       .exec((err, user) => {
-        console.log(user);
         if (err) {
-          console.log(err);
           const error = new Error("User Not Found!");
-          return res.status(401).send(error)
+          return res.status(402).send(error)
         } else if (!user) {
-          const error = new Error("User Not Found!");          
+          const error = "User Not Found!";          
           return res.status(401).send(error);
         }
         const id = {"user" : user._id}        
         bcrypt.compare(password, user.password, (err, result) => {
           if (result === true) {      
             Kyus.find(id).then(kyus => {
-              user.data = kyus
+              kyus.map((kyu) => {
+                user.challenges.push(kyu)
+              })                         
               user.lastLogin = date;
               return res.send(user);
             })
-            .catch(err => {
+            .catch(err => {              
               res.status(500).send(err);
             })                         
           } else {
