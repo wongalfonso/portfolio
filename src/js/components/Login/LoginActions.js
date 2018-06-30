@@ -3,7 +3,7 @@ import { history } from "./../../history";
 
 export const authenticateUser = (username, password, date) => {
   const getAuth = axios.post("/api/users/login", { username, password, date })
-  return (dispatch, state) => {
+  return (dispatch) => {
     dispatch({
       type: "AUTH_USER",
       payload:

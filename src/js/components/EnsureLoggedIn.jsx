@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { connect } from "react-redux";
-import Profile from "./Profile";
 import Login from "./Login"
 import { Route, Redirect } from "react-router-dom";
 
@@ -11,7 +10,7 @@ class EnsureLoggedIn extends Component {
     this.renderLogin = this.renderLogin.bind(this);
   }
 
-  renderProfile() {
+  renderProfile() {    
     return (      
         <Redirect from = "/login" to = "/profile" />        
     )
@@ -24,19 +23,21 @@ class EnsureLoggedIn extends Component {
   }
 
   render() {
-    const { user } = this.props;
-    const isLoggedIn = user.isLoggedIn
+    const { isLoggedIn } = this.props;
+
     if (isLoggedIn === true) {
       return this.renderProfile()
     } else {
       return this.renderLogin()
     }
+    // return (<Login/>)
+    
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {  
   return {
-    user: state.user
+    isLoggedIn: state.user.userLogin.isLoggedIn
   }
 }
 

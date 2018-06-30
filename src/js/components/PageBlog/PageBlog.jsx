@@ -60,12 +60,13 @@ export default class PageBlog extends Component {
   submitForm(e) {
     e.preventDefault();
     const { dispatch, user } = this.props;    
+    console.log(user)
     const type = this.state.type;
     const name = this.state.name;
     const instructions = this.state.instructions;
     const thinking = this.state.process;
     const answer = this.state.answer;
-    const username = user.user.username;
+    const username = user.username;
     dispatch(postBlog(type, name, instructions, thinking, answer, username));
   }
 

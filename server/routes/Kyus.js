@@ -37,9 +37,11 @@ router.post('/', (req, res) => {
 
 router.get("/:id", (req, res) => {
   const id = {"user" : req.params.id}
-  Kyus.find(id).then(kyus => {    
-    res.status(202).json(kyus);
-  })
+  Kyus.find(id)
+    .exec((err, kyus) => {
+      (err) && res.status(500).send(err)
+      res.status(201).send(kyus);
+    })
 })
 
 module.exports = router;

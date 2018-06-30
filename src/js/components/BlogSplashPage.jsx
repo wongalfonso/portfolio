@@ -4,9 +4,7 @@ import { Redirect, Link } from "react-router-dom"
 
 
 class BlogSplashPage extends Component {
-  componentDidMount() {
-
-  }
+  
   render() {
     const { blog } = this.props
     const { isLoggedIn } = this.props
@@ -80,7 +78,7 @@ const mapStateToProps = (state) => {
   return {
     blog: state.blog,
     user: state.user,
-    isLoggedIn: state.user.isLoggedIn
+    isLoggedIn: state.userLogin.isLoggedIn
   }
 }
 

@@ -68,6 +68,7 @@ form.blogText textarea {
   height: 50px;
 }
 
-#userList li span.userListName{width: 400px;}
-#userList li span.userListType{width: 300px;}
-#userList li span.userListDate{width: 300px; float: right;}
+#userList li span.userListName{width: 300px; display: inline-block}
+#userList li span.userListType{width: 100px; display: inline-block}
+#userList li span.userListDate{width: 200px; display: inline-block}
+#userList li button.expandBtn{width: 200px; display: inline-block}

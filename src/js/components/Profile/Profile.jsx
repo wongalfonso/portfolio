@@ -1,23 +1,38 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { getBlogs } from "./ProfileActions";
-import List  from "../List"
+import { getUserInfo } from "./ProfileActions";
+import List from "../List"
 
 export default class Profile extends Component {
   constructor(props) {
-    super(props);     
+    super(props);
+    this.state = {
+      challenges: []
+    }
+    this.expandList = this.expandList.bind(this);
+    this.closeList = this.closeList.bind(this);
   }
 
-  componentDidMount() {    
+  componentDidMount() {
+    const { userLogin, dispatch } = this.props;
+    dispatch(getUserInfo(userLogin.id));
+  }
+
+  expandList(i) {
+    const newList = this.state.challenges
+    newList[i].expand = true
+
+    this.setState({ challenges: newList })
+  }
+
+  closeList(i) {
   }
 
   render() {
-    const { user } = this.props;
-    const isLoggedIn = user.isLoggedIn;
-    console.log(user.challenges);
-    return (      
+    const { isLoggedIn, user } = this.props;    
+    return (
       <div className="container">
-      {(isLoggedIn !== true) && <Redirect from = "/profile" to = "/login"/> }
+        {(isLoggedIn !== true) && <Redirect from="/profile" to="/login" />}
         <div className="row">
           <h2>Welcome {}</h2>
         </div>
@@ -27,12 +42,19 @@ export default class Profile extends Component {
           </div>
           <div className="col-4">
             <h3> Tool Bar </h3>
-            <Link to = "/blogpost"><button className = "btn">Post A new Blog              
+            <Link to="/blogpost"><button className="btn">Post A new Blog
             </button></Link>
           </div>
         </div>
-        <div className="row">             
-            <List challenges = {user.challenges}/>          
+        <div className="row">
+          {user.profile.blogs.length > 0 &&
+            <List
+              challenges={user.profile.blogs}
+              expand={this.expandList}
+              close={this.closeList}
+            />
+          }
+
         </div>
       </div>
     )

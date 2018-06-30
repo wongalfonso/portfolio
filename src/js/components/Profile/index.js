@@ -4,7 +4,9 @@ import Profile from "./Profile";
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user,     
+    userLogin: state.user.userLogin,  
+    isLoggedIn: state.user.userLogin.isLoggedIn,  
+    user: state.user,    
   }
 }
 

@@ -1766,7 +1766,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".bioBody {\n  margin-top: 2rem; }\n\n.page {\n  border: solid #e9e7e7;\n  background-color: #e9e7e7;\n  border-radius: 8px;\n  margin-top: 6rem;\n  margin-left: 15rem;\n  margin-right: 15rem; }\n\n#loginForm {\n  margin-top: 8rem;\n  margin-bottom: 8rem; }\n\n#loginName {\n  margin-bottom: 4rem; }\n\n#loginName span {\n  font-size: 50px;\n  color: #838383; }\n\n.inputs {\n  width: 100%;\n  float: none;\n  margin: auto; }\n\n#username, #password {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n.loginBtn {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n#blogHeader {\n  padding-top: 2rem;\n  margin-bottom: 2rem;\n  color: black;\n  height: 7rem; }\n\n.blogText {\n  height: 10rem;\n  text-decoration-color: white; }\n\nform.blogText textarea {\n  color: white; }\n\n.submitBtn, .cancelBtn {\n  width: 10rem; }\n\n.modalBtn {\n  width: 10rem; }\n\n.textModal {\n  padding-bottom: 2rem; }\n\n#userList li span {\n  display: block;\n  float: left; }\n\n.userListLine {\n  height: 50px; }\n\n#userList li span.userListName {\n  width: 400px; }\n\n#userList li span.userListType {\n  width: 300px; }\n\n#userList li span.userListDate {\n  width: 300px;\n  float: right; }\n", ""]);
+exports.push([module.i, ".bioBody {\n  margin-top: 2rem; }\n\n.page {\n  border: solid #e9e7e7;\n  background-color: #e9e7e7;\n  border-radius: 8px;\n  margin-top: 6rem;\n  margin-left: 15rem;\n  margin-right: 15rem; }\n\n#loginForm {\n  margin-top: 8rem;\n  margin-bottom: 8rem; }\n\n#loginName {\n  margin-bottom: 4rem; }\n\n#loginName span {\n  font-size: 50px;\n  color: #838383; }\n\n.inputs {\n  width: 100%;\n  float: none;\n  margin: auto; }\n\n#username, #password {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n.loginBtn {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n#blogHeader {\n  padding-top: 2rem;\n  margin-bottom: 2rem;\n  color: black;\n  height: 7rem; }\n\n.blogText {\n  height: 10rem;\n  text-decoration-color: white; }\n\nform.blogText textarea {\n  color: white; }\n\n.submitBtn, .cancelBtn {\n  width: 10rem; }\n\n.modalBtn {\n  width: 10rem; }\n\n.textModal {\n  padding-bottom: 2rem; }\n\n#userList li span {\n  display: block;\n  float: left; }\n\n.userListLine {\n  height: 50px; }\n\n#userList li span.userListName {\n  width: 300px;\n  display: inline-block; }\n\n#userList li span.userListType {\n  width: 100px;\n  display: inline-block; }\n\n#userList li span.userListDate {\n  width: 200px;\n  display: inline-block; }\n\n#userList li button.expandBtn {\n  width: 200px;\n  display: inline-block; }\n", ""]);
 
 // exports
 
@@ -30903,9 +30903,9 @@ var _Profile = __webpack_require__(/*! ./components/Profile */ "./src/js/compone
 
 var _Profile2 = _interopRequireDefault(_Profile);
 
-var _List = __webpack_require__(/*! ./components/List */ "./src/js/components/List.jsx");
+var _ListEdit = __webpack_require__(/*! ./components/ListEdit */ "./src/js/components/ListEdit/index.js");
 
-var _List2 = _interopRequireDefault(_List);
+var _ListEdit2 = _interopRequireDefault(_ListEdit);
 
 var _BlogSplashPage = __webpack_require__(/*! ./components/BlogSplashPage */ "./src/js/components/BlogSplashPage.jsx");
 
@@ -30918,6 +30918,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import List from "./components/List";
+
 
 var AppRouter = function (_Component) {
   _inherits(AppRouter, _Component);
@@ -30941,7 +30943,7 @@ var AppRouter = function (_Component) {
           _react2.default.createElement(_reactRouterDom.Route, { path: "/profile", component: _Profile2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/blogpost", component: _PageBlog2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/blogsplash", component: _BlogSplashPage2.default }),
-          _react2.default.createElement(_reactRouterDom.Route, { path: "/codewars", component: _List2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { path: "/codewars/:id", component: _ListEdit2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/signup", component: _SignUp2.default }),
           _react2.default.createElement(_EnsureLoggedIn2.default, null),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/login", component: _Login2.default })
@@ -30999,9 +31001,6 @@ var BlogSplashPage = function (_Component) {
   }
 
   _createClass(BlogSplashPage, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {}
-  }, {
     key: "render",
     value: function render() {
       var blog = this.props.blog;
@@ -31181,7 +31180,7 @@ var mapStateToProps = function mapStateToProps(state) {
   return {
     blog: state.blog,
     user: state.user,
-    isLoggedIn: state.user.isLoggedIn
+    isLoggedIn: state.userLogin.isLoggedIn
   };
 };
 
@@ -31244,10 +31243,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
-var _Profile = __webpack_require__(/*! ./Profile */ "./src/js/components/Profile/index.js");
-
-var _Profile2 = _interopRequireDefault(_Profile);
-
 var _Login = __webpack_require__(/*! ./Login */ "./src/js/components/Login/index.js");
 
 var _Login2 = _interopRequireDefault(_Login);
@@ -31288,14 +31283,15 @@ var EnsureLoggedIn = function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var user = this.props.user;
+      var isLoggedIn = this.props.isLoggedIn;
 
-      var isLoggedIn = user.isLoggedIn;
+
       if (isLoggedIn === true) {
         return this.renderProfile();
       } else {
         return this.renderLogin();
       }
+      // return (<Login/>)
     }
   }]);
 
@@ -31304,7 +31300,7 @@ var EnsureLoggedIn = function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    user: state.user
+    isLoggedIn: state.user.userLogin.isLoggedIn
   };
 };
 
@@ -31411,47 +31407,81 @@ var List = function (_Component) {
   }
 
   _createClass(List, [{
+    key: "closedList",
+    value: function closedList(kyu, i) {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        "li",
+        { className: "list-group-item list-group-item-action userListLine", key: i },
+        _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: "/codewars/" + kyu._id },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12" },
+            _react2.default.createElement(
+              "span",
+              { className: "userListName"
+              },
+              kyu.name
+            ),
+            _react2.default.createElement(
+              "span",
+              { className: "userListType"
+              },
+              kyu.kyuType
+            ),
+            _react2.default.createElement(
+              "span",
+              { className: "userListDate"
+              },
+              kyu.created
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "col-4" },
+          _react2.default.createElement(
+            "button",
+            { className: "btn btn-default expandBtn", onClick: function onClick() {
+                return _this2.props.expand(i);
+              } },
+            "Expand"
+          )
+        )
+      );
+    }
+  }, {
+    key: "expandedList",
+    value: function expandedList(kyu, i) {
+      var _this3 = this;
+
+      return _react2.default.createElement(
+        "div",
+        { key: i },
+        _react2.default.createElement(
+          "button",
+          { className: "btn btn-default", onClick: function onClick() {
+              return _this3.props.close(i);
+            } },
+          "Hello"
+        )
+      );
+    }
+  }, {
     key: "render",
     value: function render() {
-      var challenges = this.props.challenges;
+      var _this4 = this;
 
-      if (challenges === undefined) challenges = [];
+      var challenges = this.props.challenges;
 
       return _react2.default.createElement(
         "ul",
-        { className: "list-group col-12", id: "userList" },
+        { className: "list-group col-8", id: "userList" },
         challenges.map(function (kyu, i) {
-          console.log(kyu);
-          return _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: "/codewars/" + kyu._id, key: i },
-            _react2.default.createElement(
-              "li",
-              { className: "list-group-item list-group-item-action userListLine" },
-              _react2.default.createElement(
-                "div",
-                { className: "col-12" },
-                _react2.default.createElement(
-                  "span",
-                  { className: "userListName",
-                    style: { display: "inlineBlock" } },
-                  kyu.name
-                ),
-                _react2.default.createElement(
-                  "span",
-                  { className: "userListType",
-                    style: { display: "inlineBlock" } },
-                  kyu.kyuType
-                ),
-                _react2.default.createElement(
-                  "span",
-                  { className: "userListDate",
-                    style: { display: "inlineBlock" } },
-                  kyu.created
-                )
-              )
-            )
-          );
+          return kyu.expand ? _this4.expandedList(kyu, i) : _this4.closedList(kyu, i);
         })
       );
     }
@@ -31461,6 +31491,132 @@ var List = function (_Component) {
 }(_react.Component);
 
 exports.default = List;
+
+/***/ }),
+
+/***/ "./src/js/components/ListEdit/ListEdit.jsx":
+/*!*************************************************!*\
+  !*** ./src/js/components/ListEdit/ListEdit.jsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ListEdit = function (_Component) {
+  _inherits(ListEdit, _Component);
+
+  function ListEdit() {
+    _classCallCheck(this, ListEdit);
+
+    return _possibleConstructorReturn(this, (ListEdit.__proto__ || Object.getPrototypeOf(ListEdit)).apply(this, arguments));
+  }
+
+  _createClass(ListEdit, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement("div", null);
+    }
+  }]);
+
+  return ListEdit;
+}(_react.Component);
+
+exports.default = ListEdit;
+
+/***/ }),
+
+/***/ "./src/js/components/ListEdit/ListEditReducer.js":
+/*!*******************************************************!*\
+  !*** ./src/js/components/ListEdit/ListEditReducer.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = ListEditReducer;
+var defaultState = {};
+
+function ListEditReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+  var action = arguments[1];
+  var payload = action.payload,
+      type = action.type;
+
+  switch (type) {
+    case "EDIT_LIST_PENDING":
+      {
+        return {};
+      }
+    case "EDIT_LIST_FULFILLED":
+      {
+        return {};
+      }
+    case "EDIT_LIST_REJECTED":
+      {
+        return {};
+      }
+    default:
+      return state;
+  }
+}
+
+/***/ }),
+
+/***/ "./src/js/components/ListEdit/index.js":
+/*!*********************************************!*\
+  !*** ./src/js/components/ListEdit/index.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _ListEdit = __webpack_require__(/*! ./ListEdit */ "./src/js/components/ListEdit/ListEdit.jsx");
+
+var _ListEdit2 = _interopRequireDefault(_ListEdit);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    user: state.user,
+    isLoggedIn: state.userLogin.isLoggedIn
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(_ListEdit2.default);
 
 /***/ }),
 
@@ -31670,7 +31826,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var authenticateUser = exports.authenticateUser = function authenticateUser(username, password, date) {
   var getAuth = _axios2.default.post("/api/users/login", { username: username, password: password, date: date });
-  return function (dispatch, state) {
+  return function (dispatch) {
     dispatch({
       type: "AUTH_USER",
       payload: getAuth.then(function (res) {
@@ -31715,9 +31871,14 @@ Object.defineProperty(exports, "__esModule", {
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 exports.default = LoginReducer;
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 var defaultState = {
-  loading: false,
-  message: ""
+  response: "",
+  username: "",
+  id: "",
+  isLoggedIn: false
 };
 
 function LoginReducer() {
@@ -31728,30 +31889,30 @@ function LoginReducer() {
 
 
   switch (type) {
-    case "AUTH_USER":
+    case "AUTH_USER_PENDING":
       {
-        return _extends({}, state, { user: payload });
+        return {};
       }
     case "AUTH_USER_FULFILLED":
       {
-        return Object.assign({}, state, payload.data, { isLoggedIn: true });
+        return _extends({}, state, { username: payload.data.username, id: payload.data._id, isLoggedIn: true });
       }
     case "AUTH_USER_REJECTED":
       {
 
-        return _extends({}, state, { loading: false, message: payload });
+        return _extends({}, state, { response: payload });
       }
     case "CREATE_USER_PENDING":
       {
-        return { loading: true };
+        return {};
       }
     case "CREATE_USER_FULFILLED":
       {
-        return Object.assign({}, state, payload, { isLoggedIn: true });
+        return Object.assign.apply(Object, [{}].concat(_toConsumableArray(state), [{ username: payload.data.username, id: payload.data._id, isLoggedIn: true }]));
       }
     case "CREATE_USER_REJECTED":
       {
-        return { loading: false };
+        return { response: payload };
       }
     default:
       {
@@ -31786,7 +31947,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    userLogin: state.user
+    userLogin: state.user.userLogin
   };
 };
 
@@ -31903,12 +32064,13 @@ var PageBlog = function (_Component) {
           dispatch = _props.dispatch,
           user = _props.user;
 
+      console.log(user);
       var type = this.state.type;
       var name = this.state.name;
       var instructions = this.state.instructions;
       var thinking = this.state.process;
       var answer = this.state.answer;
-      var username = user.user.username;
+      var username = user.username;
       dispatch((0, _PageBlogActions.postBlog)(type, name, instructions, thinking, answer, username));
     }
   }, {
@@ -32243,8 +32405,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function mapStoreToProps(state) {
   return {
+    isLoggedIn: state.userLogin.isLoggedIn,
     user: state.user,
-    isLoggedIn: state.user.isLoggedIn,
     blog: state.blog
   };
 }
@@ -32295,19 +32457,43 @@ var Profile = function (_Component) {
   function Profile(props) {
     _classCallCheck(this, Profile);
 
-    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
+
+    _this.state = {
+      challenges: []
+    };
+    _this.expandList = _this.expandList.bind(_this);
+    _this.closeList = _this.closeList.bind(_this);
+    return _this;
   }
 
   _createClass(Profile, [{
     key: "componentDidMount",
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      var _props = this.props,
+          userLogin = _props.userLogin,
+          dispatch = _props.dispatch;
+
+      dispatch((0, _ProfileActions.getUserInfo)(userLogin.id));
+    }
+  }, {
+    key: "expandList",
+    value: function expandList(i) {
+      var newList = this.state.challenges;
+      newList[i].expand = true;
+
+      this.setState({ challenges: newList });
+    }
+  }, {
+    key: "closeList",
+    value: function closeList(i) {}
   }, {
     key: "render",
     value: function render() {
-      var user = this.props.user;
+      var _props2 = this.props,
+          isLoggedIn = _props2.isLoggedIn,
+          user = _props2.user;
 
-      var isLoggedIn = user.isLoggedIn;
-      console.log(user.challenges);
       return _react2.default.createElement(
         "div",
         { className: "container" },
@@ -32355,7 +32541,11 @@ var Profile = function (_Component) {
         _react2.default.createElement(
           "div",
           { className: "row" },
-          _react2.default.createElement(_List2.default, { challenges: user.challenges })
+          user.profile.blogs.length > 0 && _react2.default.createElement(_List2.default, {
+            challenges: user.profile.blogs,
+            expand: this.expandList,
+            close: this.closeList
+          })
         )
       );
     }
@@ -32381,7 +32571,7 @@ exports.default = Profile;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getBlogs = undefined;
+exports.getUserInfo = undefined;
 
 var _axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
@@ -32389,23 +32579,17 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var getBlogs = exports.getBlogs = function getBlogs(userLogin) {
-  var kyus = userLogin.kyus;
-  var password = userLogin.password;
-  var username = userLogin.username;
-  var id = userLogin._id;
-  var isLoggedIn = userLogin.isLoggedIn;
+var getUserInfo = exports.getUserInfo = function getUserInfo(id) {
   var blogs = [];
-  var userInfo = {};
   var getAllBlogs = _axios2.default.get("/api/kyus/" + id);
   return function (dispatch) {
     dispatch({
       type: "GET_ALL_BLOGS",
       payload: getAllBlogs.then(function (res) {
-        res.data.map(function (blog) {
-          blogs.push(blog);
-        });
-        return { blogs: blogs, id: id, kyus: kyus, username: username, password: password, isLoggedIn: isLoggedIn };
+        if (res.status === 201) {
+          return res.data;
+        }
+        return res;
       })
     });
   };
@@ -32431,7 +32615,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 exports.default = ProfileReducer;
 var defaultState = {
-  data: [],
+  blogs: [],
   loading: true,
   response: ""
 };
@@ -32445,11 +32629,11 @@ function ProfileReducer() {
   switch (type) {
     case "GET_ALL_BLOGS_PENDING":
       {
-        return { loading: true };
+        return _extends({}, state, { loading: true });
       }
     case "GET_ALL_BLOGS_FULFILLED":
       {
-        return Object.assign({}, state, { data: payload });
+        return _extends({}, state, { blogs: payload, loading: false });
       }
     case "GET_ALL_BLOGS_REJECTED":
       {
@@ -32488,6 +32672,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
+    userLogin: state.user.userLogin,
+    isLoggedIn: state.user.userLogin.isLoggedIn,
     user: state.user
   };
 };
@@ -32783,23 +32969,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 
-var _LoginReducer = __webpack_require__(/*! ./components/Login/LoginReducer */ "./src/js/components/Login/LoginReducer.js");
+var _userReducer = __webpack_require__(/*! ./userReducer */ "./src/js/userReducer.js");
 
-var _LoginReducer2 = _interopRequireDefault(_LoginReducer);
-
-var _PageBlogReducer = __webpack_require__(/*! ./components/PageBlog/PageBlogReducer */ "./src/js/components/PageBlog/PageBlogReducer.js");
-
-var _PageBlogReducer2 = _interopRequireDefault(_PageBlogReducer);
-
-var _ProfileReducer = __webpack_require__(/*! ./components/Profile/ProfileReducer */ "./src/js/components/Profile/ProfileReducer.js");
-
-var _ProfileReducer2 = _interopRequireDefault(_ProfileReducer);
+var _userReducer2 = _interopRequireDefault(_userReducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
-  user: _LoginReducer2.default,
-  blog: _PageBlogReducer2.default
+  user: _userReducer2.default
 });
 
 exports.default = rootReducer;
@@ -32844,6 +33021,51 @@ var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.com
 var rootStore = (0, _redux.createStore)(_rootReducer2.default, composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default, (0, _reduxPromiseMiddleware2.default)())));
 
 exports.default = rootStore;
+
+/***/ }),
+
+/***/ "./src/js/userReducer.js":
+/*!*******************************!*\
+  !*** ./src/js/userReducer.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+
+var _LoginReducer = __webpack_require__(/*! ./components/Login/LoginReducer */ "./src/js/components/Login/LoginReducer.js");
+
+var _LoginReducer2 = _interopRequireDefault(_LoginReducer);
+
+var _PageBlogReducer = __webpack_require__(/*! ./components/PageBlog/PageBlogReducer */ "./src/js/components/PageBlog/PageBlogReducer.js");
+
+var _PageBlogReducer2 = _interopRequireDefault(_PageBlogReducer);
+
+var _ProfileReducer = __webpack_require__(/*! ./components/Profile/ProfileReducer */ "./src/js/components/Profile/ProfileReducer.js");
+
+var _ProfileReducer2 = _interopRequireDefault(_ProfileReducer);
+
+var _ListEditReducer = __webpack_require__(/*! ./components/ListEdit/ListEditReducer */ "./src/js/components/ListEdit/ListEditReducer.js");
+
+var _ListEditReducer2 = _interopRequireDefault(_ListEditReducer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var userReducer = (0, _redux.combineReducers)({
+  userLogin: _LoginReducer2.default,
+  profile: _ProfileReducer2.default,
+  blog: _PageBlogReducer2.default,
+  editUser: _ListEditReducer2.default
+});
+
+exports.default = userReducer;
 
 /***/ })
 

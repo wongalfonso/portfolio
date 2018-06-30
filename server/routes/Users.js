@@ -5,7 +5,11 @@ const Kyus = require("../models/Kyus");
 const bcrypt = require("bcrypt");
 
 router.get("/", (req, res) => {
-  res.send("yes");
+  User.find({})
+    .exec((err, users) => {
+      (err) && res.status(500).send(err)
+      res.status(200).send(users);
+    })  
 })
 
 router.post("/signup", (req, res, next) => {
@@ -52,6 +56,7 @@ router.post("/signup", (req, res, next) => {
     })    
   }
 })
+
 
 router.post("/login", (req, res, next) => {
   let username = req.body.username;

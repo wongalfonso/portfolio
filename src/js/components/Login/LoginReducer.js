@@ -1,30 +1,32 @@
-const defaultState = {
-  loading: false,
-  message: ""
+const defaultState = {  
+  response: "",
+  username: "",
+  id: "",
+  isLoggedIn: false
 }
 
 export default function LoginReducer(state = defaultState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case "AUTH_USER": {
-      return { ...state, user: payload }
+    case "AUTH_USER_PENDING": {
+      return {}
     }
     case "AUTH_USER_FULFILLED": {           
-      return Object.assign({}, state, payload.data, {isLoggedIn: true})
+      return { ...state, username: payload.data.username, id: payload.data._id, isLoggedIn: true}
     }
     case "AUTH_USER_REJECTED": {
           
-      return { ...state, loading: false, message: payload }
+      return { ...state, response: payload }
     }
     case "CREATE_USER_PENDING": {
-      return {loading: true}
+      return {}
     }
-    case "CREATE_USER_FULFILLED": {
-      return Object.assign({}, state, payload, {isLoggedIn: true})
+    case "CREATE_USER_FULFILLED": {      
+      return Object.assign({}, ...state, {username: payload.data.username, id: payload.data._id, isLoggedIn: true})
     }
     case "CREATE_USER_REJECTED": {
-      return {loading:false}
+      return {response: payload}
     }
     default: {
       return state;
