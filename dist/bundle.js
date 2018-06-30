@@ -1766,7 +1766,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".bioBody {\n  margin-top: 2rem; }\n\n.page {\n  border: solid #e9e7e7;\n  background-color: #e9e7e7;\n  border-radius: 8px;\n  margin-top: 6rem;\n  margin-left: 15rem;\n  margin-right: 15rem; }\n\n#loginForm {\n  margin-top: 8rem;\n  margin-bottom: 8rem; }\n\n#loginName {\n  margin-bottom: 4rem; }\n\n#loginName span {\n  font-size: 50px;\n  color: #838383; }\n\n.inputs {\n  width: 100%;\n  float: none;\n  margin: auto; }\n\n#username, #password {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n.loginBtn {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n#blogHeader {\n  padding-top: 2rem;\n  margin-bottom: 2rem;\n  color: black;\n  height: 7rem; }\n\n.blogText {\n  height: 10rem;\n  text-decoration-color: white; }\n\nform.blogText textarea {\n  color: white; }\n\n.submitBtn, .cancelBtn {\n  width: 10rem; }\n\n.modalBtn {\n  width: 10rem; }\n\n.textModal {\n  padding-bottom: 2rem; }\n\n#userList li span {\n  display: block;\n  float: left; }\n\n.userListLine {\n  height: 50px; }\n\n#userList li span.userListName {\n  width: 300px;\n  display: inline-block; }\n\n#userList li span.userListType {\n  width: 100px;\n  display: inline-block; }\n\n#userList li span.userListDate {\n  width: 200px;\n  display: inline-block; }\n\n#userList li button.expandBtn {\n  width: 200px;\n  display: inline-block; }\n", ""]);
+exports.push([module.i, ".vidContainer {\n  position: relative;\n  max-height: 100vh;\n  width: 100vw;\n  display: block; }\n\n#backgroundVid {\n  background-size: cover;\n  position: absolute;\n  clip: inherit;\n  max-height: 100vw;\n  width: 100vw;\n  margin-top: -120px; }\n\n#overlay {\n  display: block;\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  z-index: 2; }\n\n.bioBody {\n  margin-top: 2rem; }\n\n.page {\n  border: solid #e9e7e7;\n  background-color: #e9e7e7;\n  border-radius: 8px;\n  margin-top: 6rem;\n  margin-left: 15rem;\n  margin-right: 15rem; }\n\n#loginForm {\n  margin-top: 8rem;\n  margin-bottom: 8rem; }\n\n#loginName {\n  margin-bottom: 4rem; }\n\n#loginName span {\n  font-size: 50px;\n  color: #838383; }\n\n.inputs {\n  width: 100%;\n  float: none;\n  margin: auto; }\n\n#username, #password {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n.loginBtn {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n#blogHeader {\n  padding-top: 2rem;\n  margin-bottom: 2rem;\n  color: black;\n  height: 7rem; }\n\n.blogText {\n  height: 10rem;\n  text-decoration-color: white; }\n\nform.blogText textarea {\n  color: white; }\n\n.submitBtn, .cancelBtn {\n  width: 10rem; }\n\n.modalBtn {\n  width: 10rem; }\n\n.textModal {\n  padding-bottom: 2rem; }\n\n#userList li span {\n  display: block;\n  float: left; }\n\n.userListLine {\n  height: 50px; }\n\n#userList li span.userListName {\n  width: 300px;\n  display: inline-block; }\n\n#userList li span.userListType {\n  width: 100px;\n  display: inline-block; }\n\n#userList li span.userListDate {\n  width: 200px;\n  display: inline-block; }\n\n#userList li button.expandBtn {\n  width: 200px;\n  display: inline-block; }\n", ""]);
 
 // exports
 
@@ -30765,6 +30765,17 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
+/***/ "./src/assets/Video/backgroundVideo.mp4":
+/*!**********************************************!*\
+  !*** ./src/assets/Video/backgroundVideo.mp4 ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "backgroundVideo.mp4";
+
+/***/ }),
+
 /***/ "./src/css/style.scss":
 /*!****************************!*\
   !*** ./src/css/style.scss ***!
@@ -30879,7 +30890,7 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _HomePage = __webpack_require__(/*! ./components/HomePage */ "./src/js/components/HomePage.jsx");
+var _HomePage = __webpack_require__(/*! ./components/HomePage/HomePage */ "./src/js/components/HomePage/HomePage.jsx");
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
 
@@ -30918,8 +30929,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import List from "./components/List";
-
 
 var AppRouter = function (_Component) {
   _inherits(AppRouter, _Component);
@@ -31308,10 +31317,10 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(EnsureLoggedIn);
 
 /***/ }),
 
-/***/ "./src/js/components/HomePage.jsx":
-/*!****************************************!*\
-  !*** ./src/js/components/HomePage.jsx ***!
-  \****************************************/
+/***/ "./src/js/components/HomePage/HomePage.jsx":
+/*!*************************************************!*\
+  !*** ./src/js/components/HomePage/HomePage.jsx ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31328,9 +31337,9 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _List = __webpack_require__(/*! ./List */ "./src/js/components/List.jsx");
+var _Splash = __webpack_require__(/*! ./Splash */ "./src/js/components/HomePage/Splash.jsx");
 
-var _List2 = _interopRequireDefault(_List);
+var _Splash2 = _interopRequireDefault(_Splash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31355,7 +31364,7 @@ var _class = function (_Component) {
       return _react2.default.createElement(
         "div",
         null,
-        "Hello"
+        _react2.default.createElement(_Splash2.default, null)
       );
     }
   }]);
@@ -31364,6 +31373,70 @@ var _class = function (_Component) {
 }(_react.Component);
 
 exports.default = _class;
+
+/***/ }),
+
+/***/ "./src/js/components/HomePage/Splash.jsx":
+/*!***********************************************!*\
+  !*** ./src/js/components/HomePage/Splash.jsx ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _backgroundVideo = __webpack_require__(/*! ./../../../assets/Video/backgroundVideo.mp4 */ "./src/assets/Video/backgroundVideo.mp4");
+
+var _backgroundVideo2 = _interopRequireDefault(_backgroundVideo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Splash = function (_Component) {
+  _inherits(Splash, _Component);
+
+  function Splash() {
+    _classCallCheck(this, Splash);
+
+    return _possibleConstructorReturn(this, (Splash.__proto__ || Object.getPrototypeOf(Splash)).apply(this, arguments));
+  }
+
+  _createClass(Splash, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "vidContainer" },
+        _react2.default.createElement("div", { id: "overlay" }),
+        _react2.default.createElement(
+          "video",
+          { id: "backgroundVid", loop: true, autoPlay: true, muted: true },
+          _react2.default.createElement("source", { src: _backgroundVideo2.default, type: "video/mp4" })
+        )
+      );
+    }
+  }]);
+
+  return Splash;
+}(_react.Component);
+
+exports.default = Splash;
 
 /***/ }),
 
