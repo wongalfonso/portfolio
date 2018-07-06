@@ -1,24 +1,24 @@
-import React, { Component } from "react"
-import { connect } from "react-redux";
-import Login from "./Login"
-import { Route, Redirect } from "react-router-dom";
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { Route, Redirect } from 'react-router-dom';
+import Login from './Login';
 
 class EnsureLoggedIn extends Component {
   constructor(props) {
     super(props);
     this.renderProfile = this.renderProfile.bind(this);
     this.renderLogin = this.renderLogin.bind(this);
-  }
+  };
 
   renderProfile() {    
     return (      
-        <Redirect from = "/login" to = "/profile" />        
+        <Redirect from = '/login' to = '/profile' />        
     )
   }
 
   renderLogin() {    
     return (
-      <Route path="/login" component = { Login } />
+      <Route path='/login' component = { Login } />
     )
   }
 
@@ -39,6 +39,6 @@ const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.user.userLogin.isLoggedIn
   }
-}
+};
 
 export default connect(mapStateToProps)(EnsureLoggedIn);

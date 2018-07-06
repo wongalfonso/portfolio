@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
-import { getUserInfo } from "./ProfileActions";
-import List from "../List"
+import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { getUserInfo } from './ProfileActions';
+import List from '../List'
 
 export default class Profile extends Component {
   constructor(props) {
@@ -31,22 +31,22 @@ export default class Profile extends Component {
   render() {
     const { isLoggedIn, user } = this.props;    
     return (
-      <div className="container">
-        {(isLoggedIn !== true) && <Redirect from="/profile" to="/login" />}
-        <div className="row">
+      <div className='container'>
+        {(isLoggedIn !== true) && <Redirect from='/profile' to='/login' />}
+        <div className='row'>
           <h2>Welcome {}</h2>
         </div>
-        <div className="row">
-          <div className="col-8">
+        <div className='row'>
+          <div className='col-8'>
             <h3>Past Posts</h3>
           </div>
-          <div className="col-4">
+          <div className='col-4'>
             <h3> Tool Bar </h3>
-            <Link to="/blogpost"><button className="btn">Post A new Blog
+            <Link to='/blogpost'><button className='btn'>Post A new Blog
             </button></Link>
           </div>
         </div>
-        <div className="row">
+        <div className='row'>
           {user.profile.blogs.length > 0 &&
             <List
               challenges={user.profile.blogs}

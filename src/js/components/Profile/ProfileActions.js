@@ -1,20 +1,19 @@
-import axios from "axios";
+import axios from 'axios';
 
 
-export const getUserInfo = (id) => {  
-  let blogs = [];
-  const getAllBlogs = axios.get(`/api/kyus/${id}`,)
+export const getUserInfo = (id) => {
+  const getAllBlogs = axios.get(`/api/kyus/${id}`,);
   return (dispatch) => {
     dispatch({
-      type: "GET_ALL_BLOGS",
-      payload: 
+      type: 'GET_ALL_BLOGS',
+      payload:
         getAllBlogs
-          .then((res) => {            
-            if (res.status === 201) {                     
-              return res.data 
+          .then((res) => {
+            if (res.status === 201) {
+              return res.data;
             }
-            return res
+            return res;
           })
-    })
-  }
-}
+    });
+  };
+};

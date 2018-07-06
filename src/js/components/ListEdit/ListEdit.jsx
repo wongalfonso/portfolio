@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 
 export default class ListEdit extends Component {
@@ -7,4 +7,4 @@ export default class ListEdit extends Component {
       <div></div>
     )
   }
-}
+};

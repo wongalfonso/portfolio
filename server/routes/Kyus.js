@@ -1,8 +1,7 @@
 const express = require("express");
-const router = express.Router();
 const User = require("../models/Users");
 const Kyus = require("../models/Kyus");
-
+const router = express.Router();
 
 router.post('/', (req, res) => {
   let dbUser;  
@@ -13,7 +12,7 @@ router.post('/', (req, res) => {
     "thinking" : req.body.thinking, 
     "instructions": req.body.instructions, 
     "answer": req.body.answer
-  }
+  };
   User
     .findOne(username)
     .then((user) => {        

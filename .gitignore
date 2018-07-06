@@ -1,4 +1,4 @@
-.node_modules
+node_modules
 .DS_store
 .vscode
 dist
@@ -6,4 +6,3 @@ dist
 *.log
 logs
 coverage
-.sass-cache
