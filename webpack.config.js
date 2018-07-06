@@ -9,10 +9,7 @@ module.exports = {
     path: path.join(__dirname, '/dist'),    
     filename: 'bundle.js'
   },
-<<<<<<< HEAD
-=======
   devtool: 'source-map',
->>>>>>> 248dd805cdacc9014c58ea61878549d58c74fbdb
   resolve: {
     alias: {
       react: path.join(__dirname, 'node_modules', 'react')
@@ -62,8 +59,4 @@ module.exports = {
       }
     ]
   }
-<<<<<<< HEAD
 }
-=======
-};
->>>>>>> 248dd805cdacc9014c58ea61878549d58c74fbdb
