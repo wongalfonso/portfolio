@@ -31657,16 +31657,7 @@ var Projects = function (_Component) {
     _classCallCheck(this, Projects);
 
     return _possibleConstructorReturn(this, (Projects.__proto__ || Object.getPrototypeOf(Projects)).call(this, props));
-    // this.listenScrollEvent = this.listenScrollEvent.bind(this);
   }
-
-  //   componentDidMount() {
-  //     ReactDOM.findDOMNode(this.refs.text).addEventListener('scroll', this.listenScrollEvent);
-  // }
-
-  // componentWillUnmount() {
-  //     ReactDOM.findDOMNode(this.refs.text).removeEventListener('scroll', this.listenScrollEvent);
-  // }
 
   _createClass(Projects, [{
     key: "listenScrollEvent",

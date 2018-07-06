@@ -6,17 +6,7 @@ import Modal from "react-modal";
 export default class Projects extends Component {
   constructor(props) {
     super(props);
-    // this.listenScrollEvent = this.listenScrollEvent.bind(this);
   }
-
-//   componentDidMount() {
-//     ReactDOM.findDOMNode(this.refs.text).addEventListener('scroll', this.listenScrollEvent);
-// }
-
-// componentWillUnmount() {
-//     ReactDOM.findDOMNode(this.refs.text).removeEventListener('scroll', this.listenScrollEvent);
-// }
-
 listenScrollEvent() {
     console.log('Scroll event detected!');
 }
