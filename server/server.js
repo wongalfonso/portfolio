@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(morgan("dev"))
 app.use(express.static("dist"));
-app.use(express.static("public"));
+app.use(express.static(path.join("public")));
 // app.use(session({
 //   secret: "word hard",
 //   resave: true,

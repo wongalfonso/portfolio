@@ -1761,12 +1761,13 @@ module.exports = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, ".vidContainer {\n  position: relative;\n  max-height: 100vh;\n  width: 100vw;\n  display: block; }\n\n#backgroundVid {\n  background-size: cover;\n  position: absolute;\n  clip: inherit;\n  max-height: 100vw;\n  width: 100vw;\n  margin-top: -120px; }\n\n#overlay {\n  display: block;\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  z-index: 2; }\n\n.bioBody {\n  margin-top: 2rem; }\n\n.page {\n  border: solid #e9e7e7;\n  background-color: #e9e7e7;\n  border-radius: 8px;\n  margin-top: 6rem;\n  margin-left: 15rem;\n  margin-right: 15rem; }\n\n#loginForm {\n  margin-top: 8rem;\n  margin-bottom: 8rem; }\n\n#loginName {\n  margin-bottom: 4rem; }\n\n#loginName span {\n  font-size: 50px;\n  color: #838383; }\n\n.inputs {\n  width: 100%;\n  float: none;\n  margin: auto; }\n\n#username, #password {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n.loginBtn {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n#blogHeader {\n  padding-top: 2rem;\n  margin-bottom: 2rem;\n  color: black;\n  height: 7rem; }\n\n.blogText {\n  height: 10rem;\n  text-decoration-color: white; }\n\nform.blogText textarea {\n  color: white; }\n\n.submitBtn, .cancelBtn {\n  width: 10rem; }\n\n.modalBtn {\n  width: 10rem; }\n\n.textModal {\n  padding-bottom: 2rem; }\n\n#userList li span {\n  display: block;\n  float: left; }\n\n.userListLine {\n  height: 50px; }\n\n#userList li span.userListName {\n  width: 300px;\n  display: inline-block; }\n\n#userList li span.userListType {\n  width: 100px;\n  display: inline-block; }\n\n#userList li span.userListDate {\n  width: 200px;\n  display: inline-block; }\n\n#userList li button.expandBtn {\n  width: 200px;\n  display: inline-block; }\n", ""]);
+exports.push([module.i, ".vidContainer {\n  position: relative;\n  width: 100vw;\n  height: 100vh;\n  bottom: 0;\n  overflow: hidden; }\n\n#backgroundVid {\n  position: fixed;\n  min-width: 100vw;\n  min-height: 100vh;\n  overflow: hidden;\n  bottom: 0;\n  right: 0; }\n\n.vidContainer:after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  z-index: 2;\n  animation-name: overlay;\n  animation-duration: 2s;\n  animation-delay: 2s;\n  animation-fill-mode: forwards; }\n\n@keyframes overlay {\n  0% {\n    background-color: rgba(0, 0, 0, 0); }\n  100% {\n    background-color: rgba(0, 0, 0, 0.6); } }\n\n.overlayText {\n  list-style: none;\n  position: absolute;\n  top: 40%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  text-align: center;\n  font-size: 70px;\n  width: 100%;\n  font-weight: bold;\n  color: white;\n  z-index: 20; }\n\n.overlayText li {\n  display: inline-block;\n  opacity: 0; }\n\n.overlayTextTitle {\n  margin-top: 80px; }\n\n.overlayTextName li:nth-child(7) {\n  margin-right: 30px; }\n\n.overlayTextName li:last-child {\n  margin-right: 0; }\n\n.overlayTextName li:nth-child(1) {\n  animation: 1.6s linear 3s first;\n  animation-fill-mode: forwards; }\n\n.overlayTextName li:nth-child(2) {\n  animation: 1.6s linear 3.2s sec;\n  animation-fill-mode: forwards; }\n\n.overlayTextName li:nth-child(3) {\n  animation: 1.6s linear 3.4s third;\n  animation-fill-mode: forwards; }\n\n.overlayTextName li:nth-child(4) {\n  animation: 1.6s linear 3.6s fourth;\n  animation-fill-mode: forwards; }\n\n.overlayTextName li:nth-child(5) {\n  animation: 1.6s linear 3.8s fifth;\n  animation-fill-mode: forwards; }\n\n.overlayTextName li:nth-child(6) {\n  animation: 1.6s linear 4s sixth;\n  animation-fill-mode: forwards; }\n\n.overlayTextName li:nth-child(7) {\n  animation: 1.6s linear 4.2s seventh;\n  animation-fill-mode: forwards;\n  margin-right: 30px; }\n\n.overlayTextName li:nth-child(8) {\n  animation: 1.6s linear 4.4s eighth;\n  animation-fill-mode: forwards; }\n\n.overlayTextName li:nth-child(9) {\n  animation: 1.6s linear 4.6s ninth;\n  animation-fill-mode: forwards; }\n\n.overlayTextName li:nth-child(10) {\n  animation: 1.6s linear 4.8s tenth;\n  animation-fill-mode: forwards; }\n\n.overlayTextName li:nth-child(11) {\n  animation: 1.6s linear 5s eleventh;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(1) {\n  animation: 1s linear 3s firstT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(2) {\n  animation: 1s linear 3.2s secT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(3) {\n  animation: 1s linear 3.4s thirdT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(4) {\n  animation: 1s linear 3.6s fourthT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(5) {\n  animation: 1s linear 3.8s fifthT;\n  animation-fill-mode: forwards;\n  margin-right: 30px; }\n\n.overlayTextTitle li:nth-child(6) {\n  animation: 1s linear 4s sixthT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(7) {\n  animation: 1s linear 4.2s seventhT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(8) {\n  animation: 1s linear 4.4s eighthT;\n  animation-fill-mode: forwards;\n  margin-right: 30px; }\n\n.overlayTextTitle li:nth-child(9) {\n  animation: 1s linear 4.6s ninthT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(10) {\n  animation: 1s linear 4.8s tenthT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(11) {\n  animation: 1s linear 5s eleventhT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(12) {\n  animation: 1s linear 5.2s twelvethT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(13) {\n  animation: 1s linear 5.4s thirteenthT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(14) {\n  animation: 1s linear 5.6s fourteenthT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(15) {\n  animation: 1s linear 5.8s fifteenthT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(16) {\n  animation: 1s linear 6s sixteenthT;\n  animation-fill-mode: forwards; }\n\n.overlayTextTitle li:nth-child(17) {\n  animation: 1s linear 6.2s seventeenthT;\n  animation-fill-mode: forwards; }\n\n@keyframes first {\n  from {\n    transform: translate(0, 200%); }\n  to {\n    opacity: 1; } }\n\n@keyframes sec {\n  from {\n    transform: translate(-200%, 0%); }\n  to {\n    opacity: 1; } }\n\n@keyframes third {\n  from {\n    transform: translate(-300%, 2%); }\n  to {\n    opacity: 1; } }\n\n@keyframes fourth {\n  from {\n    transform: translate(-200%, -500%); }\n  to {\n    opacity: 1; } }\n\n@keyframes fifth {\n  from {\n    transform: translate(-300%, -200%); }\n  to {\n    opacity: 1; } }\n\n@keyframes sixth {\n  from {\n    transform: translate(20%, -100%); }\n  to {\n    opacity: 1; } }\n\n@keyframes seventh {\n  from {\n    transform: translate(-300%, -200%); }\n  to {\n    opacity: 1; } }\n\n@keyframes eighth {\n  from {\n    transform: translate(700%, -200%); }\n  to {\n    opacity: 1; } }\n\n@keyframes ninth {\n  from {\n    transform: translate(600%, -400%); }\n  to {\n    opacity: 1; } }\n\n@keyframes tenth {\n  from {\n    transform: translate(300%, -200%); }\n  to {\n    opacity: 1; } }\n\n@keyframes eleventh {\n  from {\n    transform: translate(300%, -800%); }\n  to {\n    opacity: 1; } }\n\n@keyframes firstT {\n  from {\n    transform: translate(-300%, 800%); }\n  to {\n    opacity: 1; } }\n\n@keyframes secT {\n  from {\n    transform: translate(-600%, -600%); }\n  to {\n    opacity: 1; } }\n\n@keyframes thirdT {\n  from {\n    transform: translate(200%, 200%); }\n  to {\n    opacity: 1; } }\n\n@keyframes fourthT {\n  from {\n    transform: translate(600%, -20%); }\n  to {\n    opacity: 1; } }\n\n@keyframes fifthT {\n  from {\n    transform: translate(-200%, -800%); }\n  to {\n    opacity: 1; } }\n\n@keyframes sixthT {\n  from {\n    transform: translate(-300%, -800%); }\n  to {\n    opacity: 1; } }\n\n@keyframes seventhT {\n  from {\n    transform: translate(-100%, -100%); }\n  to {\n    opacity: 1; } }\n\n@keyframes eighthT {\n  from {\n    transform: translate(-200%, 100%); }\n  to {\n    opacity: 1; } }\n\n@keyframes ninthT {\n  from {\n    transform: translate(-500%, 500%); }\n  to {\n    opacity: 1; } }\n\n@keyframes tenthT {\n  from {\n    transform: translate(90%, -90%); }\n  to {\n    opacity: 1; } }\n\n@keyframes eleventhT {\n  from {\n    transform: translate(100%, 100%); }\n  to {\n    opacity: 1; } }\n\n@keyframes twelvethT {\n  from {\n    transform: translate(-200%, 200%); }\n  to {\n    opacity: 1; } }\n\n@keyframes thirteenthT {\n  from {\n    transform: translate(250%, 250%); }\n  to {\n    opacity: 1; } }\n\n@keyframes fourteenthT {\n  from {\n    transform: translate(700%, 700%); }\n  to {\n    opacity: 1; } }\n\n@keyframes fifteenthT {\n  from {\n    transform: translate(-500%, -500%); }\n  to {\n    opacity: 1; } }\n\n@keyframes sixteenthT {\n  from {\n    transform: translate(300%, 300%); }\n  to {\n    opacity: 1; } }\n\n@keyframes seventeenthT {\n  from {\n    transform: translate(-200%, -200%); }\n  to {\n    opacity: 1; } }\n\n.bioPage {\n  background-image: url(" + escape(__webpack_require__(/*! ./../assets/images/OceanBeachPier.jpg */ "./src/assets/images/OceanBeachPier.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  position: relative;\n  width: 100vw;\n  height: 100vh; }\n\n.bioHeader {\n  z-index: 20; }\n\n.bioPage:after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  z-index: 10; }\n\n.bioRow {\n  background-color: rgba(255, 255, 255, 0.5);\n  z-index: 15;\n  border-radius: 100px;\n  border-left: solid white 4px;\n  border-top: solid white 4px;\n  border-bottom: solid white 4px;\n  z-index: 15; }\n\n.profilePicDiv {\n  padding: 0; }\n\n.profilePic {\n  position: relative;\n  float: none;\n  text-align: right;\n  background-image: url(" + escape(__webpack_require__(/*! ./../assets/images/mainProfileImage.png */ "./src/assets/images/mainProfileImage.png")) + ");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  display: block;\n  width: 100%;\n  height: 100%;\n  z-index: 100;\n  background-color: rgba(255, 255, 255, 0.2);\n  border-radius: 100px; }\n\n.profilePic:before {\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 200;\n  background: white; }\n\n.bioText {\n  margin-top: 1.5em;\n  text-indent: 2em;\n  letter-spacing: 1px;\n  font-size: 1em;\n  text-align: center;\n  line-height: 1.6;\n  color: white;\n  z-index: 100; }\n\n.bioRow {\n  margin-bottom: 4rem; }\n\n.resumeBtnDiv {\n  z-index: 20; }\n\n.resumeBtn {\n  float: none;\n  border-radius: 8px;\n  color: white;\n  background-color: #3a3af2;\n  height: 3.5em;\n  width: 300px;\n  z-index: 20; }\n\n.projectsPage {\n  background-image: url(" + escape(__webpack_require__(/*! ./../assets/images/BalboaPark.jpg */ "./src/assets/images/BalboaPark.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  position: relative;\n  width: 100vw;\n  height: 100vh; }\n\n.projectsPage:after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  z-index: 10; }\n\n#infoDiv {\n  background-color: rgba(255, 255, 255, 0.5);\n  position: relative;\n  color: white;\n  text-align: center;\n  height: 100%;\n  width: 100%;\n  z-index: 20;\n  visibility: hidden;\n  opacity: 0;\n  transition: visibility 0s, opacity .5s linear; }\n\n.projectsHeader {\n  z-index: 20; }\n\n#changeCalcImage {\n  background-image: url(" + escape(__webpack_require__(/*! ./../assets/images/ChangeCalc.jpg */ "./src/assets/images/ChangeCalc.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  position: relative;\n  display: block;\n  width: 500px;\n  height: 300px;\n  margin-right: auto;\n  margin-left: auto;\n  z-index: 20;\n  -webkit-animation-name: moveRight;\n  -webkit-animation-duration: 2s;\n  -webkit-animation-timing-function: ease-in-out;\n  -webkit-animation-fill-mode: forwards;\n  animation-name: moveRight;\n  animation-duration: 2s;\n  animation-timing-function: ease-in-out;\n  animation-fill-mode: forwards;\n  animation-play-state: paused; }\n\n@keyframes moveRight {\n  0% {\n    margin-right: 50%; }\n  100% {\n    margin-right: 0; } }\n\n#changeCalcImage:hover {\n  animation-play-state: running; }\n\nheader {\n  color: white;\n  text-align: left;\n  border-bottom: 1px solid white;\n  margin-bottom: 2em; }\n\n.changeInputLabel {\n  color: black;\n  font-size: 1em;\n  text-decoration: bold; }\n\n.ChangeOutputLabels {\n  text-align: center;\n  font-size: 1.25em;\n  text-decoration: bold;\n  background-color: lightgrey;\n  width: 22.5%;\n  height: 10em;\n  margin: 8px;\n  border-radius: 8px; }\n\n.changeLabels {\n  font-size: 1em;\n  text-decoration: bold;\n  vertical-align: middle;\n  line-height: 70px; }\n\n.changeOutputs {\n  text-decoration: bold;\n  color: black;\n  margin-top: -1.5em; }\n\n.changeOutcome {\n  text-align: center;\n  height: 4%;\n  width: 100%; }\n\n/******** Full Site Grid *********/\nhtml, body {\n  margin: 0;\n  height: 100%; }\n\nbody {\n  font-family: \"Open Sans\", sans-serif; }\n\n.fullPage {\n  position: relative;\n  height: 100vh;\n  width: 100vw;\n  display: flex;\n  flex-direction: column; }\n\n.title {\n  margin-top: 4rem;\n  margin-bottom: 4rem;\n  text-align: center;\n  font-size: 4rem;\n  font-weight: bold;\n  color: white;\n  background-color: rgba(255, 255, 255, 0.3);\n  border-bottom: 4px solid rgba(255, 255, 255, 0.5);\n  border-radius: 120px; }\n\n.page {\n  border: solid #e9e7e7;\n  background-color: #e9e7e7;\n  border-radius: 8px;\n  margin-top: 6rem;\n  margin-left: 15rem;\n  margin-right: 15rem; }\n\n#loginForm {\n  margin-top: 8rem;\n  margin-bottom: 8rem; }\n\n#loginName {\n  margin-bottom: 4rem; }\n\n#loginName li {\n  font-size: 50px;\n  color: #838383; }\n\n.inputs {\n  width: 100%;\n  float: none;\n  margin: auto; }\n\n#username, #password {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n.loginBtn {\n  width: 400px;\n  margin: auto;\n  float: none; }\n\n#blogHeader {\n  padding-top: 2rem;\n  margin-bottom: 2rem;\n  color: black;\n  height: 7rem; }\n\n.blogText {\n  height: 10rem;\n  text-decoration-color: white; }\n\nform.blogText textarea {\n  color: white; }\n\n.submitBtn, .cancelBtn {\n  width: 10rem; }\n\n.modalBtn {\n  width: 10rem; }\n\n.textModal {\n  padding-bottom: 2rem; }\n\n#userList li li {\n  display: block;\n  float: left; }\n\n.userListLine {\n  height: 50px; }\n\n#userList li li.userListName {\n  width: 300px;\n  display: inline-block; }\n\n#userList li li.userListType {\n  width: 100px;\n  display: inline-block; }\n\n#userList li li.userListDate {\n  width: 200px;\n  display: inline-block; }\n\n#userList li button.expandBtn {\n  width: 200px;\n  display: inline-block; }\n", ""]);
 
 // exports
 
@@ -1855,6 +1856,33 @@ function toComment(sourceMap) {
 	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
 
 	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/url/escape.js":
+/*!***************************************************!*\
+  !*** ./node_modules/css-loader/lib/url/escape.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function escape(url) {
+    if (typeof url !== 'string') {
+        return url
+    }
+    // If url is already wrapped in quotes, remove them
+    if (/^['"].*['"]$/.test(url)) {
+        url = url.slice(1, -1);
+    }
+    // Should url be wrapped?
+    // See https://drafts.csswg.org/css-values-3/#urls
+    if (/["'() \t\n]/.test(url)) {
+        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
+    }
+
+    return url
 }
 
 
@@ -30765,9 +30793,53 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
-/***/ "./src/assets/Video/backgroundVideo.mp4":
+/***/ "./src/assets/images/BalboaPark.jpg":
+/*!******************************************!*\
+  !*** ./src/assets/images/BalboaPark.jpg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "db79fb91674f5b2b25582ca61c182bf6.jpg";
+
+/***/ }),
+
+/***/ "./src/assets/images/ChangeCalc.jpg":
+/*!******************************************!*\
+  !*** ./src/assets/images/ChangeCalc.jpg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "53917135cffa72417552b90519af6ede.jpg";
+
+/***/ }),
+
+/***/ "./src/assets/images/OceanBeachPier.jpg":
 /*!**********************************************!*\
-  !*** ./src/assets/Video/backgroundVideo.mp4 ***!
+  !*** ./src/assets/images/OceanBeachPier.jpg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "ed73e6fc3f9d6191562a796358c8b6f6.jpg";
+
+/***/ }),
+
+/***/ "./src/assets/images/mainProfileImage.png":
+/*!************************************************!*\
+  !*** ./src/assets/images/mainProfileImage.png ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "397d57e6a5df13a08df753429fde84e6.png";
+
+/***/ }),
+
+/***/ "./src/assets/video/backgroundVideo.mp4":
+/*!**********************************************!*\
+  !*** ./src/assets/video/backgroundVideo.mp4 ***!
   \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -31317,6 +31389,128 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(EnsureLoggedIn);
 
 /***/ }),
 
+/***/ "./src/js/components/HomePage/Bio.jsx":
+/*!********************************************!*\
+  !*** ./src/js/components/HomePage/Bio.jsx ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Bio = function (_Component) {
+  _inherits(Bio, _Component);
+
+  function Bio() {
+    _classCallCheck(this, Bio);
+
+    return _possibleConstructorReturn(this, (Bio.__proto__ || Object.getPrototypeOf(Bio)).apply(this, arguments));
+  }
+
+  _createClass(Bio, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "bioPage", refs: "bioPage" },
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 bioHeader" },
+            _react2.default.createElement(
+              "div",
+              { className: "title" },
+              "Bio"
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "container bioContainer" },
+          _react2.default.createElement(
+            "div",
+            { className: "row bioRow" },
+            _react2.default.createElement(
+              "div",
+              { className: "col-6 bioText" },
+              _react2.default.createElement(
+                "p",
+                null,
+                "My name is ",
+                _react2.default.createElement(
+                  "b",
+                  null,
+                  "Alfonso Wong"
+                ),
+                ". I graduated from Cal State Dominguez Hills with a bachelors in Digital Media with an emphasis in Audio Recording. After working as an Audio Engineer in San Diego, I found that I could use my love for creating and developing media and applying it to Web Design. After receiving my certification from Origin Code Academy, I have focused my time and energy into building Web Applications with the React framework."
+              ),
+              _react2.default.createElement(
+                "p",
+                null,
+                " This site is built with just that. I have added React and Redux to this site because it is much more then just a static web page. This site is also hosted on AWS, which gives me flexability with my application. I have basic CRUD operations on the backend that allow me to communicate via Mongoose to MongoDB. These CRUD operations allow me to login, post, edit and delete a Blog that I have created for my solutions of Code Wars that I have completed. I hope you enjoy my page."
+              ),
+              _react2.default.createElement(
+                "p",
+                null,
+                "-Alfonso "
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "col-6 profilePicDiv" },
+              _react2.default.createElement("div", { className: "profilePic" })
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: "col-12 text-center resumeBtnDiv" },
+              _react2.default.createElement(
+                "a",
+                { href: "/files/AlfonsoWongResume.pdf", download: true },
+                _react2.default.createElement(
+                  "button",
+                  { className: "btn btn-default resumeBtn" },
+                  "Download Resume"
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Bio;
+}(_react.Component);
+
+exports.default = Bio;
+
+/***/ }),
+
 /***/ "./src/js/components/HomePage/HomePage.jsx":
 /*!*************************************************!*\
   !*** ./src/js/components/HomePage/HomePage.jsx ***!
@@ -31337,9 +31531,21 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _Splash = __webpack_require__(/*! ./Splash */ "./src/js/components/HomePage/Splash.jsx");
 
 var _Splash2 = _interopRequireDefault(_Splash);
+
+var _Bio = __webpack_require__(/*! ./Bio */ "./src/js/components/HomePage/Bio.jsx");
+
+var _Bio2 = _interopRequireDefault(_Bio);
+
+var _Projects = __webpack_require__(/*! ./Projects */ "./src/js/components/HomePage/Projects.jsx");
+
+var _Projects2 = _interopRequireDefault(_Projects);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31355,16 +31561,44 @@ var _class = function (_Component) {
   function _class(props) {
     _classCallCheck(this, _class);
 
-    return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
+
+    _this.state = {
+      transform: ""
+    };
+    _this.handleScroll = _this.handleScroll.bind(_this);
+    return _this;
   }
 
   _createClass(_class, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      window.addEventListener('scroll', this.handleScroll);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
+  }, {
+    key: "handleScroll",
+    value: function handleScroll(event) {
+      var scrollTop = event.srcElement.body.scrollTop,
+          itemTranslate = Math.min(0, scrollTop / 3 - 60);
+
+      this.setState({
+        transform: itemTranslate
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react2.default.createElement(
         "div",
-        null,
-        _react2.default.createElement(_Splash2.default, null)
+        { className: "fullSite" },
+        _react2.default.createElement(_Splash2.default, null),
+        _react2.default.createElement(_Bio2.default, null),
+        _react2.default.createElement(_Projects2.default, null)
       );
     }
   }]);
@@ -31373,6 +31607,114 @@ var _class = function (_Component) {
 }(_react.Component);
 
 exports.default = _class;
+
+/***/ }),
+
+/***/ "./src/js/components/HomePage/Projects.jsx":
+/*!*************************************************!*\
+  !*** ./src/js/components/HomePage/Projects.jsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _ChangeCalc = __webpack_require__(/*! ./projects/ChangeCalc */ "./src/js/components/HomePage/projects/ChangeCalc.jsx");
+
+var _ChangeCalc2 = _interopRequireDefault(_ChangeCalc);
+
+var _reactModal = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
+
+var _reactModal2 = _interopRequireDefault(_reactModal);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Projects = function (_Component) {
+  _inherits(Projects, _Component);
+
+  function Projects(props) {
+    _classCallCheck(this, Projects);
+
+    return _possibleConstructorReturn(this, (Projects.__proto__ || Object.getPrototypeOf(Projects)).call(this, props));
+    // this.listenScrollEvent = this.listenScrollEvent.bind(this);
+  }
+
+  //   componentDidMount() {
+  //     ReactDOM.findDOMNode(this.refs.text).addEventListener('scroll', this.listenScrollEvent);
+  // }
+
+  // componentWillUnmount() {
+  //     ReactDOM.findDOMNode(this.refs.text).removeEventListener('scroll', this.listenScrollEvent);
+  // }
+
+  _createClass(Projects, [{
+    key: "listenScrollEvent",
+    value: function listenScrollEvent() {
+      console.log('Scroll event detected!');
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "projectsPage" },
+        _react2.default.createElement("div", { className: "row" }),
+        _react2.default.createElement(
+          "div",
+          { className: "container" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 projectsHeader" },
+            _react2.default.createElement(
+              "div",
+              { className: "title" },
+              "Projects"
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "row", id: "calcContainer" },
+            _react2.default.createElement(
+              "div",
+              { className: "infoDiv", id: "infoDiv" },
+              _react2.default.createElement(
+                "p",
+                null,
+                "This is a simple React form that allos you to enter the total amount of an item and also enter the amount the person used to pay for that amount. This is not a form that is meant to be used for online shopping due to the fact that exact totals are usually charged, this is though meant to be used as a cash register form where amounts such as a whole Dollars can be accepted to pay for the item."
+              )
+            ),
+            _react2.default.createElement("div", { id: "changeCalcImage", className: "projectImages", onFocus: this.listenScrollEvent.bind(this) })
+          )
+        )
+      );
+    }
+  }]);
+
+  return Projects;
+}(_react.Component);
+
+exports.default = Projects;
 
 /***/ }),
 
@@ -31390,15 +31732,203 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _backgroundVideo = __webpack_require__(/*! ./../../../assets/video/backgroundVideo.mp4 */ "./src/assets/video/backgroundVideo.mp4");
+
+var _backgroundVideo2 = _interopRequireDefault(_backgroundVideo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Splash = function Splash() {
+  return _react2.default.createElement(
+    "div",
+    { className: "vidContainer" },
+    _react2.default.createElement(
+      "video",
+      { id: "backgroundVid", loop: true, autoPlay: true, muted: true },
+      _react2.default.createElement("source", { src: _backgroundVideo2.default, type: "video/mp4" })
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "overlay" },
+      _react2.default.createElement(
+        "ul",
+        { className: "overlayText overlayTextName" },
+        _react2.default.createElement(
+          "li",
+          null,
+          "A"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "L"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "F"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "O"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "N"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "S"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "O "
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "W"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "O"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "N"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "G"
+        )
+      ),
+      _react2.default.createElement(
+        "ul",
+        { className: "overlayText overlayTextTitle" },
+        _react2.default.createElement(
+          "li",
+          null,
+          "F"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "R"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "O"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "N"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "T"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "E"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "N"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "D"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "D"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "E"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "V"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "E"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "L"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "O"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "P"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "E"
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          "R"
+        )
+      )
+    )
+  );
+};
+
+exports.default = Splash;
+
+/***/ }),
+
+/***/ "./src/js/components/HomePage/projects/ChangeCalc.jsx":
+/*!************************************************************!*\
+  !*** ./src/js/components/HomePage/projects/ChangeCalc.jsx ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
-
-var _backgroundVideo = __webpack_require__(/*! ./../../../assets/Video/backgroundVideo.mp4 */ "./src/assets/Video/backgroundVideo.mp4");
-
-var _backgroundVideo2 = _interopRequireDefault(_backgroundVideo);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31408,35 +31938,373 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Splash = function (_Component) {
-  _inherits(Splash, _Component);
+var ChangeCalc = function (_Component) {
+  _inherits(ChangeCalc, _Component);
 
-  function Splash() {
-    _classCallCheck(this, Splash);
+  function ChangeCalc() {
+    _classCallCheck(this, ChangeCalc);
 
-    return _possibleConstructorReturn(this, (Splash.__proto__ || Object.getPrototypeOf(Splash)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (ChangeCalc.__proto__ || Object.getPrototypeOf(ChangeCalc)).call(this));
+
+    _this.state = {
+      amountDue: "",
+      amountRec: "",
+      twenties: "0",
+      tens: "0",
+      fives: "0",
+      ones: "0",
+      quarters: "0",
+      dimes: "0",
+      nickels: "0",
+      pennies: "0",
+      output: "0"
+    };
+    _this.handleDue = _this.handleDue.bind(_this);
+    _this.handleRec = _this.handleRec.bind(_this);
+    _this.calculate = _this.calculate.bind(_this);
+    return _this;
   }
 
-  _createClass(Splash, [{
+  _createClass(ChangeCalc, [{
+    key: "handleDue",
+    value: function handleDue(event) {
+      var amountDue = event.target.validity.valid ? event.target.value : this.state.amountDue;
+      this.setState({ amountDue: amountDue });
+    }
+  }, {
+    key: "handleRec",
+    value: function handleRec(event) {
+      var amountRec = event.target.validity.valid ? event.target.value : this.state.amountRec;
+
+      this.setState({ amountRec: amountRec });
+    }
+  }, {
+    key: "calculate",
+    value: function calculate(e) {
+      e.preventDefault();
+      var amountDue = this.state.amountDue;
+      amountDue = parseFloat(amountDue);
+      amountDue = amountDue * 100;
+      var amountRec = this.state.amountRec;
+      amountRec = parseFloat(amountRec);
+      amountRec = amountRec * 100;
+      var amountLeft = amountRec - amountDue;
+      var amountRet2 = amountRec - amountDue;
+      amountRet2 = amountRet2 / 100;
+      amountRet2 = amountRet2.toFixed(2);
+
+      var twenties = void 0,
+          tens = void 0,
+          fives = void 0,
+          ones = void 0,
+          quarters = void 0,
+          dimes = void 0,
+          nickels = void 0,
+          pennies = void 0;
+
+      if (amountLeft > 1999) {
+        amountLeft = amountLeft % 2000;
+        twenties = amountLeft / 2000;
+        twenties = Math.floor(twenties);
+        twenties = twenties.toFixed();
+      } else {
+        twenties = 0;
+      }
+      if (amountLeft > 999) {
+        tens = amountLeft / 1000;
+        tens = Math.floor(tens);
+        tens = tens.toFixed();
+        amountLeft = amountLeft % 1000;
+      } else {
+        tens = 0;
+      }
+      if (amountLeft > 499) {
+        fives = amountLeft / 500;
+        fives = Math.floor(fives);
+        fives = fives.toFixed();
+        amountLeft = amountLeft % 500;
+      } else {
+        fives = 0;
+      }
+      if (amountLeft > 99) {
+        ones = amountLeft / 100;
+        ones = Math.floor(ones);
+        ones = ones.toFixed();
+        amountLeft = amountLeft % 100;
+      } else {
+        ones = 0;
+      }
+      if (amountLeft > 24) {
+        quarters = amountLeft / 25;
+        quarters = Math.floor(quarters);
+        quarters = quarters.toFixed();
+        amountLeft = amountLeft % 25;
+      } else {
+        quarters = 0;
+      }
+      if (amountLeft > 9) {
+        dimes = amountLeft / 10;
+        dimes = Math.floor(dimes);
+        dimes = dimes.toFixed();
+        amountLeft = amountLeft % 10;
+      } else {
+        dimes = 0;
+      }
+      if (amountLeft > 4) {
+        nickels = amountLeft / 5;
+        nickels = Math.floor(nickels);
+        nickels = nickels.toFixed();
+        amountLeft = amountLeft % 5;
+      } else {
+        nickels = 0;
+      }
+      if (amountLeft > .99) {
+        pennies = amountLeft;
+        pennies = Math.floor(pennies);
+      } else {
+        pennies = 0;
+      }
+      this.setState({
+        twenties: twenties,
+        tens: tens,
+        fives: fives,
+        ones: ones,
+        quarters: quarters,
+        dimes: dimes,
+        nickels: nickels,
+        pennies: pennies,
+        output: amountRet2
+      });
+      console.log(this.state.twenties);
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react2.default.createElement(
         "div",
-        { className: "vidContainer" },
-        _react2.default.createElement("div", { id: "overlay" }),
+        { className: "container" },
         _react2.default.createElement(
-          "video",
-          { id: "backgroundVid", loop: true, autoPlay: true, muted: true },
-          _react2.default.createElement("source", { src: _backgroundVideo2.default, type: "video/mp4" })
+          "header",
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Change Calculator"
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-lg-4" },
+            _react2.default.createElement(
+              "div",
+              { className: "panel panel-default" },
+              _react2.default.createElement(
+                "div",
+                { className: "panel-heading" },
+                "Enter Information"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "panel-body" },
+                _react2.default.createElement(
+                  "label",
+                  { className: "changeInputLabel",
+                    htmlFor: "amountDue" },
+                  "How much is due?"
+                ),
+                _react2.default.createElement("input", { name: "amountDue",
+                  className: "form-control",
+                  type: "text",
+                  pattern: "^[0-9]*(\\.[0-9]*)?$",
+                  value: this.state.amountDue,
+                  onChange: this.handleDue,
+                  id: "amountDue"
+                }),
+                _react2.default.createElement(
+                  "label",
+                  { className: "changeInputLabel",
+                    htmlFor: "received" },
+                  "How much was received?"
+                ),
+                _react2.default.createElement("input", { name: "amountReceived",
+                  className: "form-control",
+                  type: "text",
+                  pattern: "^[0-9]*(\\.[0-9]*)?$",
+                  value: this.state.amountRec,
+                  onChange: this.handleRec,
+                  id: "received" })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "panel-footer" },
+                _react2.default.createElement(
+                  "div",
+                  { className: "form-group" },
+                  _react2.default.createElement(
+                    "button",
+                    { className: "btn btn-primary form-control",
+                      type: "submit",
+                      onClick: this.calculate },
+                    "Calculate"
+                  )
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "col-lg-8" },
+            _react2.default.createElement(
+              "div",
+              { className: "panel" },
+              _react2.default.createElement(
+                "div",
+                { className: "panel-body" },
+                _react2.default.createElement(
+                  "div",
+                  { className: "row" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "alert alert-success changeOutcome" },
+                    "The total change due is $",
+                    this.state.output
+                  )
+                ),
+                _react2.default.createElement(
+                  "div",
+                  { className: "row" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "form-group well col-md-2 ChangeOutputLabels alert alert-success" },
+                    _react2.default.createElement(
+                      "h1",
+                      { className: "changeLabels" },
+                      "Twenties"
+                    ),
+                    _react2.default.createElement(
+                      "p",
+                      { className: "lead changeOutputs" },
+                      this.state.twenties
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "form-group well col-md-2 ChangeOutputLabels alert alert-success" },
+                    _react2.default.createElement(
+                      "h1",
+                      { className: "changeLabels" },
+                      "Tens"
+                    ),
+                    _react2.default.createElement(
+                      "p",
+                      { className: "lead changeOutputs" },
+                      this.state.tens
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "form-group well col-md-2 ChangeOutputLabels alert alert-success" },
+                    _react2.default.createElement(
+                      "h1",
+                      { className: "changeLabels" },
+                      "Fives"
+                    ),
+                    _react2.default.createElement(
+                      "p",
+                      { className: "lead changeOutputs" },
+                      this.state.fives
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "form-group well col-md-2 ChangeOutputLabels alert alert-success" },
+                    _react2.default.createElement(
+                      "h1",
+                      { className: "changeLabels" },
+                      "Ones"
+                    ),
+                    _react2.default.createElement(
+                      "p",
+                      { className: "lead changeOutputs" },
+                      this.state.ones
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  "div",
+                  { className: "row" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "form-group well col-md-2 ChangeOutputLabels alert alert-success" },
+                    _react2.default.createElement(
+                      "h1",
+                      { className: "changeLabels" },
+                      "Quarters"
+                    ),
+                    _react2.default.createElement(
+                      "p",
+                      { className: "lead changeOutputs" },
+                      this.state.quarters
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "form-group well col-md-2 ChangeOutputLabels alert alert-success" },
+                    _react2.default.createElement(
+                      "h1",
+                      { className: "changeLabels" },
+                      "Dimes"
+                    ),
+                    _react2.default.createElement(
+                      "p",
+                      { className: "lead changeOutputs" },
+                      this.state.dimes
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "form-group well col-md-2 ChangeOutputLabels alert alert-success" },
+                    _react2.default.createElement(
+                      "h1",
+                      { className: "changeLabels" },
+                      "Nickels"
+                    ),
+                    _react2.default.createElement(
+                      "p",
+                      { className: "lead changeOutputs" },
+                      this.state.nickels
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "form-group well col-md-2 ChangeOutputLabels alert alert-success" },
+                    _react2.default.createElement(
+                      "h1",
+                      { className: "changeLabels" },
+                      "Pennies"
+                    ),
+                    _react2.default.createElement(
+                      "p",
+                      { className: "lead changeOutputs" },
+                      this.state.pennies
+                    )
+                  )
+                )
+              )
+            )
+          )
         )
       );
     }
   }]);
 
-  return Splash;
+  return ChangeCalc;
 }(_react.Component);
 
-exports.default = Splash;
+exports.default = ChangeCalc;
 
 /***/ }),
 
