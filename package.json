@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "background-process": "^1.0.0",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
     "connect-mongo": "^2.0.1",
@@ -55,7 +56,6 @@
     "eslint-plugin-react": "^7.9.1",
     "html-webpack-plugin": "^3.2.0",
     "morgan": "^1.9.0",
-    "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "webpack": "^4.12.0",
