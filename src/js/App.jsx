@@ -1,8 +1,6 @@
-import React, { Component } from "react";
-import { Router } from "react-router-dom";
-import { connect } from "react-redux";
-import "../css/style.scss"
-import AppRouter from "./Router";
+import React, { Component } from 'react';
+import '../css/style.less'
+import AppRouter from './Router';
 
 
 export default class App extends Component {

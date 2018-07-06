@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { authenticateUser } from "./LoginActions";
-import { getDate } from "../Date"
+import React, { Component } from 'react';
+import { authenticateUser } from './LoginActions';
+import { getDate } from '../Date';
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: ""
+      username: '',
+      password: ''
     }
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,8 +35,8 @@ export default class Login extends Component {
     if (pw.length === 0 || un.length === 0) {
       return (
         <button
-          type="submit"
-          className="btn btn-danger form-control loginBtn"
+          type='submit'
+          className='btn btn-danger form-control loginBtn'
           disabled>
           Submit
       </button>
@@ -44,8 +44,8 @@ export default class Login extends Component {
     } else {
       return (
         <button
-          type="submit"
-          className="btn btn-success form-control loginBtn">
+          type='submit'
+          className='btn btn-success form-control loginBtn'>
           Submit
         </button>
       )
@@ -54,43 +54,43 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="page">
-          <form onSubmit={this.handleSubmit} id="loginForm">
-            <div className="row">
-              <div className="col-12 text-center" id = "loginName">
+      <div className='container'>
+        <div className='page'>
+          <form onSubmit={this.handleSubmit} id='loginForm'>
+            <div className='row'>
+              <div className='col-12 text-center' id = 'loginName'>
                 <span>Log-In</span>
               </div>
             </div>
-            <div className="row">
-              <div className="col-8 inputs">
-                <div className="form-group">
-                  <input type="text"
+            <div className='row'>
+              <div className='col-8 inputs'>
+                <div className='form-group'>
+                  <input type='text'
                     onChange={this.handleInput}
-                    name="username"
-                    placeholder="Username"
+                    name='username'
+                    placeholder='Username'
                     value={this.state.username}
-                    id="username"
-                    className="form-control" />
+                    id='username'
+                    className='form-control'/>
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-8 inputs ">
-                <div className="form-group has-feedback">
-                  <input type="password"
+            <div className='row'>
+              <div className='col-8 inputs'>
+                <div className='form-group has-feedback'>
+                  <input type='password'
                     onChange={this.handleInput}
-                    name="password"
-                    id="password"
-                    placeholder="Password"
+                    name='password'
+                    id='password'
+                    placeholder='Password'
                     value={this.state.password}
-                    className="form-control" />
+                    className='form-control' />
                 </div>
               </div>
             </div>
-            <div className="row text-center">
-              <div className="col-8 inputs">
-                <div className="form-group">
+            <div className='row text-center'>
+              <div className='col-8 inputs'>
+                <div className='form-group'>
                   {this.submitButton()}
                 </div>
               </div>
@@ -100,4 +100,4 @@ export default class Login extends Component {
       </div>
     )
   }
-}
+};

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export default class EightKyu extends Component {
 
@@ -15,9 +15,9 @@ export default class EightKyu extends Component {
   }
   render() {
     return (
-      <div className = "container">
+      <div className = 'container'>
         {(this.props.showlist) ? this.defaultList() : this.fullList()}
       </div>
     )
   }
-}
+};

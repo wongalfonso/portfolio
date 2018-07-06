@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import ChangeCalc from "./projects/ChangeCalc"
-import Modal from "react-modal";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import ChangeCalc from './projects/ChangeCalc'
+import Modal from 'react-modal';
 
 export default class Projects extends Component {
   constructor(props) {
@@ -13,22 +13,22 @@ listenScrollEvent() {
 
   render() {
     return (
-      <div className="projectsPage">
-        <div className="row">
+      <div className='projectsPage'>
+        <div className='row'>
         </div>
-        <div className="container">
-          <div className="col-12 projectsHeader">
-            <div className="title">Projects</div>
+        <div className='container'>
+          <div className='col-12 projectsHeader'>
+            <div className='title'>Projects</div>
           </div>
-          <div className="row" id="calcContainer">
+          <div className='row' id='calcContainer'>
             
-              <div className="infoDiv" id = "infoDiv">
+              <div className='infoDiv' id = 'infoDiv'>
                 <p>
                   This is a simple React form that allos you to enter the total amount of an item and also enter the amount the person used to pay for that amount. This is not a form that is meant to be used for online shopping due to the fact that exact totals are usually charged, this is though meant to be used as a cash register form where amounts such as a whole Dollars can be accepted to pay for the item.
                 </p>
               </div>
             
-                <div id="changeCalcImage" className="projectImages" onFocus = {this.listenScrollEvent.bind(this)}>
+                <div id='changeCalcImage' className='projectImages' onFocus = {this.listenScrollEvent.bind(this)}>
                 </div>
           </div>
         </div>
@@ -36,4 +36,4 @@ listenScrollEvent() {
       </div>
     )
   }
-}
+};

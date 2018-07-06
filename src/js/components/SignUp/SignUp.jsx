@@ -1,17 +1,16 @@
-import React, { Component } from "react";
-import axios from "axios";
-import {createUser } from "../Login/LoginActions";
-import { connect } from "react-redux";
-import { Redirect } from "react-router-dom"
-import { getDate } from "../Date"
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createUser } from '../Login/LoginActions';
+import { Redirect } from 'react-router-dom'
+import { getDate } from '../Date'
 
 class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: "",
-      passwordConf: "",
+      username: '',
+      password: '',
+      passwordConf: '',
       redirect: false,
       response: []
     }
@@ -40,16 +39,16 @@ class SignUp extends Component {
     let un = this.state.username;
     if (pw.length === 0 || config.length === 0 || pw !== config || un.length === 0) {
       return (
-      <button type="submit" 
-              className= "btn btn-danger float-right"
+      <button type='submit' 
+              className= 'btn btn-danger float-right'
               disabled>
               Submit
       </button>
       )
     } else {
       return (
-        <button type = "submit"
-                className = "btn btn-success float-right">
+        <button type = 'submit'
+                className = 'btn btn-success float-right'>
                 Submit
         </button>
       )
@@ -60,55 +59,55 @@ class SignUp extends Component {
     console.log(user);
     const isLoggedIn = user.isLoggedIn
     return (
-      <div className="container">
-      {(isLoggedIn === true) && <Redirect from = "/signup" to = "/profile"/>}
-        <div className="row">
-          <div className="col-12 text-center">
+      <div className='container'>
+      {(isLoggedIn === true) && <Redirect from = '/signup' to = '/profile'/>}
+        <div className='row'>
+          <div className='col-12 text-center'>
             <h2>User Sign Up</h2>
           </div>
         </div>
 
         <form onSubmit={this.handleSubmit}>
-          <div className="row">
-            <div className="form-group col-12">
-              <label  htmlFor="username" 
-                      className = "control-label">
+          <div className='row'>
+            <div className='form-group col-12'>
+              <label  htmlFor='username' 
+                      className = 'control-label'>
                       Username
               </label>
-              <input  type="text" 
+              <input  type='text' 
                       onChange={this.handleInput} 
-                      name="username" 
+                      name='username' 
                       value={this.state.username} 
-                      id = "username" 
-                      className = ""/>
+                      id = 'username' 
+                      className = ''/>
             </div>
           </div>
-          <div className="row">
-            <div className="form-group has-feedback col-12">
-              <label  htmlFor="password" 
-                      className = "control-label" >
+          <div className='row'>
+            <div className='form-group has-feedback col-12'>
+              <label  htmlFor='password' 
+                      className = 'control-label' >
                       Password
               </label>
-              <input  type="password" 
+              <input  type='password' 
                       onChange={this.handleInput} 
-                      name="password" 
+                      name='password' 
                       value={this.state.password} />
             </div>
           </div>
-          <div className="row">
-            <div className="form-group has-feedback col-12">
-              <label  htmlFor="passwordConf" 
-                      className = "control-label">
+          <div className='row'>
+            <div className='form-group has-feedback col-12'>
+              <label  htmlFor='passwordConf' 
+                      className = 'control-label'>
                       Retype Password
               </label>
-              <input  type="passwordConf" 
+              <input  type='passwordConf' 
                       onChange={this.handleInput} 
-                      name="passwordConf" 
+                      name='passwordConf' 
                       value={this.state.passwordConf} />
             </div>
           </div>
-          <div className="row">
-            <div className="form-group has-feedback col-12">
+          <div className='row'>
+            <div className='form-group has-feedback col-12'>
               {this.submitButton()}
             </div>
           </div>
@@ -122,6 +121,6 @@ const mapStateToProps = (state) => {
   return {
     user: state.user
   }
-}
+};
 
 export default connect(mapStateToProps)(SignUp);

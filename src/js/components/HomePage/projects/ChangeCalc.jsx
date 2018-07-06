@@ -1,20 +1,20 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export default class ChangeCalc extends Component {
   constructor() {
     super();
     this.state = {
-      amountDue: "",
-      amountRec: "",
-      twenties: "0",
-      tens: "0",
-      fives: "0",
-      ones: "0",
-      quarters: "0",
-      dimes: "0",
-      nickels: "0",
-      pennies: "0",
-      output: "0",
+      amountDue: '',
+      amountRec: '',
+      twenties: '0',
+      tens: '0',
+      fives: '0',
+      ones: '0',
+      quarters: '0',
+      dimes: '0',
+      nickels: '0',
+      pennies: '0',
+      output: '0',
     }
     this.handleDue = this.handleDue.bind(this);
     this.handleRec = this.handleRec.bind(this);
@@ -126,41 +126,41 @@ export default class ChangeCalc extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className='container'>
         <header><h1>Change Calculator</h1></header>
-          <div className="row">
-            <div className="col-lg-4">
-              <div className="panel panel-default">
-                <div className="panel-heading">Enter Information</div>
-                <div className="panel-body">
-                    <label  className="changeInputLabel" 
-                            htmlFor="amountDue">
+          <div className='row'>
+            <div className='col-lg-4'>
+              <div className='panel panel-default'>
+                <div className='panel-heading'>Enter Information</div>
+                <div className='panel-body'>
+                    <label  className='changeInputLabel' 
+                            htmlFor='amountDue'>
                             How much is due?
                     </label>
-                    <input  name = "amountDue"
-                            className="form-control" 
-                            type = "text" 
-                            pattern = "^[0-9]*(\.[0-9]*)?$" 
+                    <input  name = 'amountDue'
+                            className='form-control' 
+                            type = 'text' 
+                            pattern = '^[0-9]*(\.[0-9]*)?$' 
                             value ={this.state.amountDue}  
                             onChange={this.handleDue} 
-                            id="amountDue"
+                            id='amountDue'
                              />
-                    <label  className="changeInputLabel" 
-                            htmlFor="received">
+                    <label  className='changeInputLabel' 
+                            htmlFor='received'>
                             How much was received?
                     </label>
-                    <input  name = "amountReceived"
-                            className="form-control" 
-                            type = "text" 
-                            pattern = "^[0-9]*(\.[0-9]*)?$" 
+                    <input  name = 'amountReceived'
+                            className='form-control' 
+                            type = 'text' 
+                            pattern = '^[0-9]*(\.[0-9]*)?$' 
                             value ={this.state.amountRec}  
                             onChange={this.handleRec}   
-                            id="received" />
+                            id='received' />
                 </div>
-                <div className="panel-footer">
-                  <div className = "form-group">
-                    <button className="btn btn-primary form-control" 
-                            type ="submit" 
+                <div className='panel-footer'>
+                  <div className = 'form-group'>
+                    <button className='btn btn-primary form-control' 
+                            type ='submit' 
                             onClick = {this.calculate}>
                             Calculate
                     </button>
@@ -169,48 +169,48 @@ export default class ChangeCalc extends Component {
               </div>
             </div>
 
-            <div className="col-lg-8">
-              <div className="panel">
-              <div className="panel-body">
-                <div className = "row">
-                  <div className="alert alert-success changeOutcome">The total change due is ${this.state.output}
+            <div className='col-lg-8'>
+              <div className='panel'>
+              <div className='panel-body'>
+                <div className = 'row'>
+                  <div className='alert alert-success changeOutcome'>The total change due is ${this.state.output}
                   </div>
                 </div>
-                <div className="row">
-                  <div className="form-group well col-md-2 ChangeOutputLabels alert alert-success">
-                    <h1 className="changeLabels">Twenties</h1>
-                    <p className = "lead changeOutputs">{this.state.twenties}</p>
+                <div className='row'>
+                  <div className='form-group well col-md-2 ChangeOutputLabels alert alert-success'>
+                    <h1 className='changeLabels'>Twenties</h1>
+                    <p className = 'lead changeOutputs'>{this.state.twenties}</p>
                   </div>
-                  <div className="form-group well col-md-2 ChangeOutputLabels alert alert-success">
-                    <h1 className="changeLabels">Tens</h1>
-                    <p className = "lead changeOutputs">{this.state.tens}</p>
+                  <div className='form-group well col-md-2 ChangeOutputLabels alert alert-success'>
+                    <h1 className='changeLabels'>Tens</h1>
+                    <p className = 'lead changeOutputs'>{this.state.tens}</p>
                   </div>
-                  <div className="form-group well col-md-2 ChangeOutputLabels alert alert-success">
-                    <h1 className="changeLabels">Fives</h1>
-                    <p className = "lead changeOutputs">{this.state.fives}</p>
+                  <div className='form-group well col-md-2 ChangeOutputLabels alert alert-success'>
+                    <h1 className='changeLabels'>Fives</h1>
+                    <p className = 'lead changeOutputs'>{this.state.fives}</p>
                   </div>
-                  <div className="form-group well col-md-2 ChangeOutputLabels alert alert-success">
-                    <h1 className="changeLabels">Ones</h1>
-                    <p className = "lead changeOutputs">{this.state.ones}</p>
+                  <div className='form-group well col-md-2 ChangeOutputLabels alert alert-success'>
+                    <h1 className='changeLabels'>Ones</h1>
+                    <p className = 'lead changeOutputs'>{this.state.ones}</p>
                   </div>
                 </div>
 
-                <div className="row">
-                  <div className="form-group well col-md-2 ChangeOutputLabels alert alert-success">
-                    <h1 className="changeLabels">Quarters</h1>
-                    <p className = "lead changeOutputs">{this.state.quarters}</p>
+                <div className='row'>
+                  <div className='form-group well col-md-2 ChangeOutputLabels alert alert-success'>
+                    <h1 className='changeLabels'>Quarters</h1>
+                    <p className = 'lead changeOutputs'>{this.state.quarters}</p>
                   </div>
-                  <div className="form-group well col-md-2 ChangeOutputLabels alert alert-success">
-                    <h1 className="changeLabels">Dimes</h1>
-                    <p className = "lead changeOutputs">{this.state.dimes}</p>
+                  <div className='form-group well col-md-2 ChangeOutputLabels alert alert-success'>
+                    <h1 className='changeLabels'>Dimes</h1>
+                    <p className = 'lead changeOutputs'>{this.state.dimes}</p>
                   </div>
-                  <div className="form-group well col-md-2 ChangeOutputLabels alert alert-success">
-                    <h1 className="changeLabels">Nickels</h1>
-                    <p className = "lead changeOutputs">{this.state.nickels}</p>
+                  <div className='form-group well col-md-2 ChangeOutputLabels alert alert-success'>
+                    <h1 className='changeLabels'>Nickels</h1>
+                    <p className = 'lead changeOutputs'>{this.state.nickels}</p>
                   </div>
-                  <div className="form-group well col-md-2 ChangeOutputLabels alert alert-success">
-                    <h1 className="changeLabels">Pennies</h1>
-                    <p className = "lead changeOutputs">{this.state.pennies}</p>
+                  <div className='form-group well col-md-2 ChangeOutputLabels alert alert-success'>
+                    <h1 className='changeLabels'>Pennies</h1>
+                    <p className = 'lead changeOutputs'>{this.state.pennies}</p>
                   </div>
                 </div>
                 </div>
@@ -221,4 +221,4 @@ export default class ChangeCalc extends Component {
 
     )
   }
-}
+};

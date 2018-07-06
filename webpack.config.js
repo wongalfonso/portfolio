@@ -1,18 +1,20 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/js/index.jsx",
-  output: {
-    path: path.join(__dirname, "/dist"),
-    filename: "bundle.js"
+  context: path.join(__dirname, '/src'),
+  entry: {
+    javascript: './js/index'
   },
-  devtool: "source-map",
+  output: {
+    path: path.join(__dirname, '/dist'),    
+    filename: 'bundle.js'
+  },
+  devtool: 'source-map',
   resolve: {
     alias: {
-      react: path.join(__dirname, "node_modules", "react")
+      react: path.join(__dirname, 'node_modules', 'react')
     },
-    extensions: [".js", ".jsx"],
-    modules: ["node_modules"]
+    extensions: ['.js', '.jsx']
   },
   devServer: {
     port: 3001
@@ -23,30 +25,38 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
-          {loader: "babel-loader"}
+          { loader: 'babel-loader' }
         ]
       },
       {
         test: /\.html$/,
-        loader: "file?name=[name].[ext]"
+        loader: 'file?name=[name].[ext]'
+      },
+      {
+        test: /\.less$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'less-loader' }
+        ]
       },
       {
         test: /\.mp4$/,
         use: [{
-          loader: "file-loader",
+          loader: 'file-loader',
           options: {
-            name: "[name].[ext]"
+            name: '[name].[ext]'
           }
         }]
       },
       {
         test: /\.(png|jpg)$/,
-        use: {loader: "file-loader"}        
+        use: { loader: 'file-loader' }
       },
       {
         test: /\.pdf$/,
-        loader: "file?name=[name].[ext]"
+        loader: 'file?name=[name].[ext]'
       }
     ]
   }
-}
+};

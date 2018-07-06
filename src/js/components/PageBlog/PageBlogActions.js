@@ -1,18 +1,16 @@
-import axios from "axios"
+import axios from 'axios';
 
-export const postBlog = (type, name, instructions, thinking, answer, username) => {
-  
-  const postChallenge = axios.post("/api/kyus", {type, name, instructions, thinking, answer, username})
-  return (dispatch, state) => {
+export const postBlog = (type, name, instructions, thinking, answer, username)=> {
+
+  const postChallenge = axios.post('/api/kyus', {
+    type, name, instructions, thinking, answer, username
+  });
+  return (dispatch) => {
     dispatch({
-      type: "POST_BLOG",
-      payload: 
+      type: 'POST_BLOG',
+      payload:
         postChallenge
-        .then((res) => {
-          console.log(res);       
-          return res
-        })        
-    })
-  }
-  
-}
+          .then(res => res)
+    });
+  };
+};

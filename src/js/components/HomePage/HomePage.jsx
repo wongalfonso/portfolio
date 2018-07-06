@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import Splash from "./Splash"
-import Bio from "./Bio"
-import Projects from "./Projects";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Splash from './Splash';
+import Bio from './Bio';
+import Projects from './Projects';
 
 
 export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      transform: ""
+      transform: ''
     }
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -32,11 +32,11 @@ export default class extends Component {
 
   render() {
     return (
-      <div className="fullSite">
+      <div className='fullSite'>
         <Splash />
         <Bio />
         <Projects />
       </div>
     )
   }
-}
+};
