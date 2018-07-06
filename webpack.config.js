@@ -29,14 +29,6 @@ module.exports = {
       {
         test: /\.html$/,
         loader: "file?name=[name].[ext]"
-      }
-      {
-        test: /\.less$/,
-        use: [
-          {loader: "style-loader"},
-          {loader: "css-loader"},
-          {loader: "sass-loader"}
-        ]
       },
       {
         test: /\.mp4$/,
