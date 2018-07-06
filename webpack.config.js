@@ -27,7 +27,11 @@ module.exports = {
         ]
       },
       {
-        test: /\.scss$/,
+        test: /\.html$/,
+        loader: "file?name=[name].[ext]"
+      }
+      {
+        test: /\.less$/,
         use: [
           {loader: "style-loader"},
           {loader: "css-loader"},
