@@ -30837,17 +30837,6 @@ module.exports = __webpack_require__.p + "397d57e6a5df13a08df753429fde84e6.png";
 
 /***/ }),
 
-/***/ "./src/assets/video/backgroundVideo.mp4":
-/*!**********************************************!*\
-  !*** ./src/assets/video/backgroundVideo.mp4 ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "backgroundVideo.mp4";
-
-/***/ }),
-
 /***/ "./src/css/style.scss":
 /*!****************************!*\
   !*** ./src/css/style.scss ***!
@@ -31727,11 +31716,9 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _backgroundVideo = __webpack_require__(/*! ./../../../assets/video/backgroundVideo.mp4 */ "./src/assets/video/backgroundVideo.mp4");
-
-var _backgroundVideo2 = _interopRequireDefault(_backgroundVideo);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import backgroundVid from "./../../../assets/video/backgroundVideo.mp4"
 
 var Splash = function Splash() {
   return _react2.default.createElement(
@@ -31740,7 +31727,7 @@ var Splash = function Splash() {
     _react2.default.createElement(
       "video",
       { id: "backgroundVid", loop: true, autoPlay: true, muted: true },
-      _react2.default.createElement("source", { src: _backgroundVideo2.default, type: "video/mp4" })
+      _react2.default.createElement("source", { src: backgroundVid, type: "video/mp4" })
     ),
     _react2.default.createElement(
       "div",

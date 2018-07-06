@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import backgroundVid from "./../../../assets/video/backgroundVideo.mp4"
+// import backgroundVid from "./../../../assets/video/backgroundVideo.mp4"
 
 const Splash = () => {  
     return (
