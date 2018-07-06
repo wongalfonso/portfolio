@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React, { Component } from "react";
-import backgroundVid from "./../../../assets/video/backgroundVideo.mp4"
-=======
 import React from 'react';
 import backgroundVid from './../../../../public/video/backgroundVideo.mp4';
->>>>>>> 248dd805cdacc9014c58ea61878549d58c74fbdb
 
 const Splash = () => {  
     return (
