@@ -1,24 +1,24 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  context: path.join(__dirname, '/src'),
+  // context: path.join(__dirname, '/src'),
   entry: {
-    javascript: './js/index'
+    javascript: './src/js/index.jsx'
   },
   output: {
-    path: path.join(__dirname, '/dist'),    
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: path.join(__dirname, '/dist'),
+    publicPath: '/'
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   resolve: {
     alias: {
       react: path.join(__dirname, 'node_modules', 'react')
     },
     extensions: ['.js', '.jsx']
   },
-  devServer: {
-    port: 3001
-  },
+  mode: "development",
   module: {
     rules: [
       {
@@ -58,5 +58,8 @@ module.exports = {
         loader: 'file?name=[name].[ext]'
       }
     ]
-  }
+  },
+  // plugins: [
+  //   new CleanWebpackPlugin(['dist']),
+  // ],
 }
