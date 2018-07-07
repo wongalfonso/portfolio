@@ -56,8 +56,5 @@ module.exports = {
         loader: 'file?name=[name].[ext]'
       }
     ]
-  },
-  plugins: [
-    new CleanWebpackPlugin(['dist']),
-  ],
+  }
 }

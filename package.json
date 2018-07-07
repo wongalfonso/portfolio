@@ -4,12 +4,12 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "npm run build && webpack --config webpack.dev.js",
+    "dev": "webpack --w --config webpack.dev.js",
     "start": "npm run build && webpack --config webpack.prod.js",
-    "build": "npm run less",
+    "build": "npm run less && webpack",
     "server": "node server/index.js",
     "less": "lessc src/css/style.less dist/css/style.css",
-    "watch": "npm run less && webpack --w --mode development",
+    "watch-less": "less-watcher -p src/css/style.less -d dist/css/style.css",
     "lint": "eslint ."
   },
   "author": "Alfonso Wong",
@@ -63,6 +63,7 @@
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.5.2",
     "less-plugin-autoprefix": "^1.5.1",
+    "less-watcher": "^1.2.0",
     "morgan": "^1.9.0",
     "style-loader": "^0.21.0",
     "webpack": "^4.12.0",

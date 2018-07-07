@@ -9,10 +9,8 @@ import EnsureLoggedIn from "./components/EnsureLoggedIn";
 import Profile from "./components/Profile";
 import ListEdit from "./components/ListEdit";
 import BlogSplashPage from "./components/BlogSplashPage";
-import { hostname } from 'os';
 
-
-class App extends Component {
+export default class App extends Component {
   render() {    
     return (
       <Router>
@@ -30,5 +28,3 @@ class App extends Component {
     )
   }
 }
-
-export default hot(module)(App);
