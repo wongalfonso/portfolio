@@ -7,7 +7,7 @@ export default class Bio extends Component {
       <div className='container bioContainer'>        
     <div className='row'>
           <div className='col-12 bioHeader'>
-            <div className='title'>Bio</div>
+            <div className='title'>About Me</div>
           </div>
         </div>
         <div className='row bioRow'>
