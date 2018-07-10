@@ -14,12 +14,12 @@ listenScrollEvent() {
   render() {
     return (
       <div className='projectsPage'>
-        <div className='row'>
-        </div>
         <div className='container'>
+        <div className='row'>
           <div className='col-12 projectsHeader'>
             <div className='title'>Projects</div>
           </div>
+        </div>
           <div className='row' id='calcContainer'>
             
               <div className='infoDiv' id = 'infoDiv'>

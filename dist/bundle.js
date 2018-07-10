@@ -1767,7 +1767,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".vidContainer {\n  position: relative;\n  width: 100vw;\n  height: 100vh;\n  bottom: 0;\n  overflow: hidden;\n}\n#backgroundVid {\n  position: fixed;\n  min-width: 100vw;\n  min-height: 100vh;\n  overflow: hidden;\n  bottom: 0;\n  right: 0;\n}\n.vidContainer:after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  z-index: 2;\n  animation-name: overlay;\n  animation-duration: 2s;\n  animation-delay: 2s;\n  animation-fill-mode: forwards;\n}\n@keyframes overlay {\n  0% {\n    background-color: rgba(0, 0, 0, 0);\n  }\n  100% {\n    background-color: rgba(0, 0, 0, 0.6);\n  }\n}\n.overlayText {\n  list-style: none;\n  position: absolute;\n  top: 40%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  text-align: center;\n  font-size: 70px;\n  width: 100%;\n  font-weight: bold;\n  color: #ffffff;\n  z-index: 20;\n}\n.overlayText li {\n  display: inline-block;\n  opacity: 0;\n}\n.overlayTextTitle {\n  margin-top: 80px;\n}\n.overlayTextName li:nth-child(7) {\n  margin-right: 30px;\n}\n.overlayTextName li:last-child {\n  margin-right: 0;\n}\n.overlayTextName li:nth-child(1) {\n  animation: 1.6s linear 3s first;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(2) {\n  animation: 1.6s linear 3.2s sec;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(3) {\n  animation: 1.6s linear 3.4s third;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(4) {\n  animation: 1.6s linear 3.6s fourth;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(5) {\n  animation: 1.6s linear 3.8s fifth;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(6) {\n  animation: 1.6s linear 4s sixth;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(7) {\n  animation: 1.6s linear 4.2s seventh;\n  animation-fill-mode: forwards;\n  margin-right: 30px;\n}\n.overlayTextName li:nth-child(8) {\n  animation: 1.6s linear 4.4s eighth;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(9) {\n  animation: 1.6s linear 4.6s ninth;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(10) {\n  animation: 1.6s linear 4.8s tenth;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(11) {\n  animation: 1.6s linear 5s eleventh;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(1) {\n  animation: 1s linear 3s firstT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(2) {\n  animation: 1s linear 3.2s secT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(3) {\n  animation: 1s linear 3.4s thirdT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(4) {\n  animation: 1s linear 3.6s fourthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(5) {\n  animation: 1s linear 3.8s fifthT;\n  animation-fill-mode: forwards;\n  margin-right: 30px;\n}\n.overlayTextTitle li:nth-child(6) {\n  animation: 1s linear 4s sixthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(7) {\n  animation: 1s linear 4.2s seventhT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(8) {\n  animation: 1s linear 4.4s eighthT;\n  animation-fill-mode: forwards;\n  margin-right: 30px;\n}\n.overlayTextTitle li:nth-child(9) {\n  animation: 1s linear 4.6s ninthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(10) {\n  animation: 1s linear 4.8s tenthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(11) {\n  animation: 1s linear 5s eleventhT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(12) {\n  animation: 1s linear 5.2s twelvethT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(13) {\n  animation: 1s linear 5.4s thirteenthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(14) {\n  animation: 1s linear 5.6s fourteenthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(15) {\n  animation: 1s linear 5.8s fifteenthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(16) {\n  animation: 1s linear 6s sixteenthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(17) {\n  animation: 1s linear 6.2s seventeenthT;\n  animation-fill-mode: forwards;\n}\n@keyframes first {\n  from {\n    transform: translate(0, 200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes sec {\n  from {\n    transform: translate(-200%, 0%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes third {\n  from {\n    transform: translate(-300%, 2%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fourth {\n  from {\n    transform: translate(-200%, -500%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fifth {\n  from {\n    transform: translate(-300%, -200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes sixth {\n  from {\n    transform: translate(20%, -100%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes seventh {\n  from {\n    transform: translate(-300%, -200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes eighth {\n  from {\n    transform: translate(700%, -200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes ninth {\n  from {\n    transform: translate(600%, -400%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes tenth {\n  from {\n    transform: translate(300%, -200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes eleventh {\n  from {\n    transform: translate(300%, -800%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes firstT {\n  from {\n    transform: translate(-300%, 800%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes secT {\n  from {\n    transform: translate(-600%, -600%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes thirdT {\n  from {\n    transform: translate(200%, 200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fourthT {\n  from {\n    transform: translate(600%, -20%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fifthT {\n  from {\n    transform: translate(-200%, -800%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes sixthT {\n  from {\n    transform: translate(-300%, -800%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes seventhT {\n  from {\n    transform: translate(-100%, -100%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes eighthT {\n  from {\n    transform: translate(-200%, 100%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes ninthT {\n  from {\n    transform: translate(-500%, 500%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes tenthT {\n  from {\n    transform: translate(90%, -90%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes eleventhT {\n  from {\n    transform: translate(100%, 100%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes twelvethT {\n  from {\n    transform: translate(-200%, 200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes thirteenthT {\n  from {\n    transform: translate(250%, 250%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fourteenthT {\n  from {\n    transform: translate(700%, 700%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fifteenthT {\n  from {\n    transform: translate(-500%, -500%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes sixteenthT {\n  from {\n    transform: translate(300%, 300%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes seventeenthT {\n  from {\n    transform: translate(-200%, -200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n.bioPage {\n  background-image: url(" + escape(__webpack_require__(/*! ../../public/images/OceanBeachPier.jpg */ "./public/images/OceanBeachPier.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  position: relative;\n  width: 100vw;\n  height: 100vh;\n}\n.bioHeader {\n  z-index: 20;\n}\n.bioPage:after {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  z-index: 10;\n}\n.bioRow {\n  background-color: rgba(255, 255, 255, 0.5);\n  border-radius: 100px;\n  border-left: solid white 4px;\n  border-top: solid white 4px;\n  border-bottom: solid white 4px;\n  z-index: 15;\n}\n.profilePicDiv {\n  padding: 0;\n}\n.profilePic {\n  position: relative;\n  float: none;\n  text-align: right;\n  background-image: url(" + escape(__webpack_require__(/*! ../../public/images/mainProfileImage.png */ "./public/images/mainProfileImage.png")) + ");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  display: block;\n  width: 100%;\n  height: 100%;\n  z-index: 100;\n  background-color: rgba(255, 255, 255, 0.2);\n  border-radius: 100px;\n}\n.profilePic:before {\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 200;\n  background: white;\n}\n.bioText {\n  margin-top: 1.5em;\n  text-indent: 2em;\n  letter-spacing: 1px;\n  font-size: 1em;\n  text-align: center;\n  line-height: 1.6;\n  color: white;\n  z-index: 100;\n}\n.bioRow {\n  margin-bottom: 4rem;\n}\n.resumeBtnDiv {\n  z-index: 20;\n}\n.resumeBtn {\n  float: none;\n  border-radius: 8px;\n  color: white;\n  background-color: #3a3af2;\n  height: 3.5em;\n  width: 300px;\n  z-index: 20;\n}\n.projectsPage {\n  background-image: url(" + escape(__webpack_require__(/*! ../../public/images/BalboaPark.jpg */ "./public/images/BalboaPark.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  position: relative;\n  width: 100vw;\n  height: 100vh;\n}\n.projectsPage:after {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  z-index: 10;\n}\n#infoDiv {\n  background: rgba(255, 255, 255, 0.3);\n  position: relative;\n  color: #ffffff;\n  text-align: center;\n  height: 100%;\n  width: 100%;\n  z-index: 20;\n  visibility: hidden;\n  opacity: 0;\n  transition: visibility 0s, opacity 0.5s linear;\n}\n.projectsHeader {\n  z-index: 20;\n}\n#changeCalcImage {\n  background-image: url(" + escape(__webpack_require__(/*! ../../public/images/ChangeCalc.jpg */ "./public/images/ChangeCalc.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  position: relative;\n  display: block;\n  width: 500px;\n  height: 300px;\n  margin-right: auto;\n  margin-left: auto;\n  z-index: 20;\n  -webkit-animation-name: moveRight;\n  -webkit-animation-duration: 2s;\n  -webkit-animation-timing-function: ease-in-out;\n  -webkit-animation-fill-mode: forwards;\n  animation-name: moveRight;\n  animation-duration: 2s;\n  animation-timing-function: ease-in-out;\n  animation-fill-mode: forwards;\n  animation-play-state: paused;\n}\n@keyframes moveRight {\n  0% {\n    margin-right: 50%;\n  }\n  100% {\n    margin-right: 0;\n  }\n}\n#changeCalcImage:hover {\n  animation-play-state: running;\n}\nheader {\n  color: white;\n  text-align: left;\n  border-bottom: 1px solid white;\n  margin-bottom: 2em;\n}\n.changeInputLabel {\n  color: black;\n  font-size: 1em;\n  text-decoration: bold;\n}\n.ChangeOutputLabels {\n  text-align: center;\n  font-size: 1.25em;\n  text-decoration: bold;\n  background-color: lightgrey;\n  width: 22.5%;\n  height: 10em;\n  margin: 8px;\n  border-radius: 8px;\n}\n.changeLabels {\n  font-size: 1em;\n  text-decoration: bold;\n  vertical-align: middle;\n  line-height: 70px;\n}\n.changeOutputs {\n  text-decoration: bold;\n  color: black;\n  margin-top: -1.5em;\n}\n.changeOutcome {\n  text-align: center;\n  height: 4%;\n  width: 100%;\n}\n/******** Full Site Grid *********/\nhtml,\nbody {\n  margin: 0;\n  height: 100%;\n}\nbody {\n  font-family: 'Open Sans', sans-serif;\n}\n.fullPage {\n  position: relative;\n  height: 100vh;\n  width: 100vw;\n  display: flex;\n  flex-direction: column;\n}\n.title {\n  margin-top: 4rem;\n  margin-bottom: 4rem;\n  text-align: center;\n  font-size: 4rem;\n  font-weight: bold;\n  color: #ffffff;\n  background-color: rgba(255, 255, 255, 0.3);\n  border-bottom: 4px solid rgba(255, 255, 255, 0.5);\n  border-radius: 120px;\n}\n.page {\n  border: solid #e9e7e7;\n  background-color: #e9e7e7;\n  border-radius: 8px;\n  margin-top: 6rem;\n  margin-left: 15rem;\n  margin-right: 15rem;\n}\n#loginForm {\n  margin-top: 8rem;\n  margin-bottom: 8rem;\n}\n#loginName {\n  margin-bottom: 4rem;\n}\n#loginName li {\n  font-size: 50px;\n  color: #838383;\n}\n.inputs {\n  width: 100%;\n  float: none;\n  margin: auto;\n}\n#username,\n#password {\n  width: 400px;\n  margin: auto;\n  float: none;\n}\n.loginBtn {\n  width: 400px;\n  margin: auto;\n  float: none;\n}\n#blogHeader {\n  padding-top: 2rem;\n  margin-bottom: 2rem;\n  color: black;\n  height: 7rem;\n}\n.blogText {\n  height: 10rem;\n  text-decoration-color: #ffffff;\n}\nform.blogText textarea {\n  color: #ffffff;\n}\n.submitBtn,\n.cancelBtn {\n  width: 10rem;\n}\n.modalBtn {\n  width: 10rem;\n}\n.textModal {\n  padding-bottom: 2rem;\n}\n#userList li li {\n  display: block;\n  float: left;\n}\n.userListLine {\n  height: 50px;\n}\n#userList li li.userListName {\n  width: 300px;\n  display: inline-block;\n}\n#userList li li.userListType {\n  width: 100px;\n  display: inline-block;\n}\n#userList li li.userListDate {\n  width: 200px;\n  display: inline-block;\n}\n#userList li button.expandBtn {\n  width: 200px;\n  display: inline-block;\n}\n", ""]);
+exports.push([module.i, ".vidContainer {\n  position: relative;\n  width: 100vw;\n  height: 100vh;\n  bottom: 0;\n  overflow: hidden;\n}\n#backgroundVid {\n  position: fixed;\n  min-width: 100vw;\n  min-height: 100vh;\n  overflow: hidden;\n  bottom: 0;\n  right: 0;\n}\n.vidContainer:after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  z-index: 2;\n  animation-name: overlay;\n  animation-duration: 2s;\n  animation-delay: 2s;\n  animation-fill-mode: forwards;\n}\n@keyframes overlay {\n  0% {\n    background-color: rgba(0, 0, 0, 0);\n  }\n  100% {\n    background-color: rgba(0, 0, 0, 0.6);\n  }\n}\n.overlayText {\n  list-style: none;\n  position: absolute;\n  top: 40%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  text-align: center;\n  font-size: 70px;\n  width: 100%;\n  font-weight: bold;\n  color: #ffffff;\n  z-index: 20;\n}\n.overlayText li {\n  display: inline-block;\n  opacity: 0;\n}\n.overlayTextTitle {\n  margin-top: 80px;\n}\n.overlayTextName li:nth-child(7) {\n  margin-right: 30px;\n}\n.overlayTextName li:last-child {\n  margin-right: 0;\n}\n.overlayTextName li:nth-child(1) {\n  animation: 1.6s linear 3s first;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(2) {\n  animation: 1.6s linear 3.2s sec;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(3) {\n  animation: 1.6s linear 3.4s third;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(4) {\n  animation: 1.6s linear 3.6s fourth;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(5) {\n  animation: 1.6s linear 3.8s fifth;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(6) {\n  animation: 1.6s linear 4s sixth;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(7) {\n  animation: 1.6s linear 4.2s seventh;\n  animation-fill-mode: forwards;\n  margin-right: 30px;\n}\n.overlayTextName li:nth-child(8) {\n  animation: 1.6s linear 4.4s eighth;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(9) {\n  animation: 1.6s linear 4.6s ninth;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(10) {\n  animation: 1.6s linear 4.8s tenth;\n  animation-fill-mode: forwards;\n}\n.overlayTextName li:nth-child(11) {\n  animation: 1.6s linear 5s eleventh;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(1) {\n  animation: 1s linear 3s firstT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(2) {\n  animation: 1s linear 3.2s secT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(3) {\n  animation: 1s linear 3.4s thirdT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(4) {\n  animation: 1s linear 3.6s fourthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(5) {\n  animation: 1s linear 3.8s fifthT;\n  animation-fill-mode: forwards;\n  margin-right: 30px;\n}\n.overlayTextTitle li:nth-child(6) {\n  animation: 1s linear 4s sixthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(7) {\n  animation: 1s linear 4.2s seventhT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(8) {\n  animation: 1s linear 4.4s eighthT;\n  animation-fill-mode: forwards;\n  margin-right: 30px;\n}\n.overlayTextTitle li:nth-child(9) {\n  animation: 1s linear 4.6s ninthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(10) {\n  animation: 1s linear 4.8s tenthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(11) {\n  animation: 1s linear 5s eleventhT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(12) {\n  animation: 1s linear 5.2s twelvethT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(13) {\n  animation: 1s linear 5.4s thirteenthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(14) {\n  animation: 1s linear 5.6s fourteenthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(15) {\n  animation: 1s linear 5.8s fifteenthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(16) {\n  animation: 1s linear 6s sixteenthT;\n  animation-fill-mode: forwards;\n}\n.overlayTextTitle li:nth-child(17) {\n  animation: 1s linear 6.2s seventeenthT;\n  animation-fill-mode: forwards;\n}\n@keyframes first {\n  from {\n    transform: translate(0, 200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes sec {\n  from {\n    transform: translate(-200%, 0%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes third {\n  from {\n    transform: translate(-300%, 2%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fourth {\n  from {\n    transform: translate(-200%, -500%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fifth {\n  from {\n    transform: translate(-300%, -200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes sixth {\n  from {\n    transform: translate(20%, -100%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes seventh {\n  from {\n    transform: translate(-300%, -200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes eighth {\n  from {\n    transform: translate(700%, -200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes ninth {\n  from {\n    transform: translate(600%, -400%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes tenth {\n  from {\n    transform: translate(300%, -200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes eleventh {\n  from {\n    transform: translate(300%, -800%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes firstT {\n  from {\n    transform: translate(-300%, 800%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes secT {\n  from {\n    transform: translate(-600%, -600%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes thirdT {\n  from {\n    transform: translate(200%, 200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fourthT {\n  from {\n    transform: translate(600%, -20%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fifthT {\n  from {\n    transform: translate(-200%, -800%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes sixthT {\n  from {\n    transform: translate(-300%, -800%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes seventhT {\n  from {\n    transform: translate(-100%, -100%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes eighthT {\n  from {\n    transform: translate(-200%, 100%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes ninthT {\n  from {\n    transform: translate(-500%, 500%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes tenthT {\n  from {\n    transform: translate(90%, -90%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes eleventhT {\n  from {\n    transform: translate(100%, 100%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes twelvethT {\n  from {\n    transform: translate(-200%, 200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes thirteenthT {\n  from {\n    transform: translate(250%, 250%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fourteenthT {\n  from {\n    transform: translate(700%, 700%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes fifteenthT {\n  from {\n    transform: translate(-500%, -500%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes sixteenthT {\n  from {\n    transform: translate(300%, 300%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes seventeenthT {\n  from {\n    transform: translate(-200%, -200%);\n  }\n  to {\n    opacity: 1;\n  }\n}\n.bioPage {\n  background-image: url(" + escape(__webpack_require__(/*! ../../public/images/OceanBeachPier.jpg */ "./public/images/OceanBeachPier.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  position: relative;\n  width: 100vw;\n  height: 100vh;\n}\n.bioHeader {\n  z-index: 20;\n}\n.bioPage:after {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  z-index: 10;\n}\n.bioRow {\n  background-color: rgba(255, 255, 255, 0.5);\n  border-radius: 100px;\n  border-left: solid white 4px;\n  border-top: solid white 4px;\n  border-bottom: solid white 4px;\n  z-index: 15;\n}\n.profilePicDiv {\n  padding: 0;\n}\n.profilePic {\n  position: relative;\n  float: none;\n  text-align: right;\n  background-image: url(" + escape(__webpack_require__(/*! ../../public/images/mainProfileImage.png */ "./public/images/mainProfileImage.png")) + ");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  display: block;\n  width: 100%;\n  height: 100%;\n  z-index: 100;\n  background-color: rgba(255, 255, 255, 0.2);\n  border-radius: 100px;\n}\n.profilePic:before {\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 200;\n  background: white;\n}\n.bioText {\n  margin-top: 1.5em;\n  text-indent: 2em;\n  letter-spacing: 1px;\n  font-size: 1em;\n  text-align: center;\n  line-height: 1.6;\n  color: white;\n  z-index: 100;\n}\n.bioRow {\n  margin-bottom: 4rem;\n}\n.resumeBtnDiv {\n  z-index: 20;\n}\n.resumeBtn {\n  float: none;\n  border-radius: 8px;\n  color: white;\n  background-color: #3a3af2;\n  height: 3.5em;\n  width: 300px;\n  z-index: 20;\n}\n.projectsPage {\n  background-image: url(" + escape(__webpack_require__(/*! ../../public/images/BalboaPark.jpg */ "./public/images/BalboaPark.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  position: relative;\n  width: 100vw;\n  height: 100vh;\n}\n.projectsPage:after {\n  content: '';\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  z-index: 10;\n}\n#infoDiv {\n  background: rgba(255, 255, 255, 0.3);\n  position: relative;\n  color: #ffffff;\n  text-align: center;\n  height: 100%;\n  width: 100%;\n  z-index: 20;\n  visibility: hidden;\n  opacity: 0;\n  transition: visibility 0s, opacity 0.5s linear;\n}\n.projectsHeader {\n  z-index: 20;\n}\n#changeCalcImage {\n  background-image: url(" + escape(__webpack_require__(/*! ../../public/images/ChangeCalc.jpg */ "./public/images/ChangeCalc.jpg")) + ");\n  background-position: center;\n  background-size: cover;\n  background-repeat: no-repeat;\n  position: relative;\n  display: block;\n  width: 500px;\n  height: 300px;\n  margin-right: auto;\n  margin-left: auto;\n  z-index: 20;\n  -webkit-animation-name: moveRight;\n  -webkit-animation-duration: 2s;\n  -webkit-animation-timing-function: ease-in-out;\n  -webkit-animation-fill-mode: forwards;\n  animation-name: moveRight;\n  animation-duration: 2s;\n  animation-timing-function: ease-in-out;\n  animation-fill-mode: forwards;\n  animation-play-state: paused;\n}\n@keyframes moveRight {\n  0% {\n    margin-right: 50%;\n  }\n  100% {\n    margin-right: 0;\n  }\n}\n#changeCalcImage:hover {\n  animation-play-state: running;\n}\nheader {\n  color: white;\n  text-align: left;\n  border-bottom: 1px solid white;\n  margin-bottom: 2em;\n}\n.changeInputLabel {\n  color: black;\n  font-size: 1em;\n  text-decoration: bold;\n}\n.ChangeOutputLabels {\n  text-align: center;\n  font-size: 1.25em;\n  text-decoration: bold;\n  background-color: lightgrey;\n  width: 22.5%;\n  height: 10em;\n  margin: 8px;\n  border-radius: 8px;\n}\n.changeLabels {\n  font-size: 1em;\n  text-decoration: bold;\n  vertical-align: middle;\n  line-height: 70px;\n}\n.changeOutputs {\n  text-decoration: bold;\n  color: black;\n  margin-top: -1.5em;\n}\n.changeOutcome {\n  text-align: center;\n  height: 4%;\n  width: 100%;\n}\n/******** Full Site Grid *********/\nhtml,\nbody {\n  margin: 0;\n  height: 100%;\n  max-width: 100%;\n}\nbody {\n  font-family: 'Open Sans', sans-serif;\n}\n.fullPage {\n  position: relative;\n  height: 100vh;\n  width: 100vw;\n  display: flex;\n  flex-direction: column;\n}\n.title {\n  margin-top: 4rem;\n  margin-bottom: 4rem;\n  text-align: center;\n  font-size: 4rem;\n  font-weight: bold;\n  color: #ffffff;\n  background-color: rgba(255, 255, 255, 0.3);\n  border-bottom: 4px solid rgba(255, 255, 255, 0.5);\n  border-radius: 120px;\n}\n.page {\n  border: solid #e9e7e7;\n  background-color: #e9e7e7;\n  border-radius: 8px;\n  margin-top: 6rem;\n  margin-left: 15rem;\n  margin-right: 15rem;\n}\n#loginForm {\n  margin-top: 8rem;\n  margin-bottom: 8rem;\n}\n#loginName {\n  margin-bottom: 4rem;\n}\n#loginName li {\n  font-size: 50px;\n  color: #838383;\n}\n.inputs {\n  width: 100%;\n  float: none;\n  margin: auto;\n}\n#username,\n#password {\n  width: 400px;\n  margin: auto;\n  float: none;\n}\n.loginBtn {\n  width: 400px;\n  margin: auto;\n  float: none;\n}\n#blogHeader {\n  padding-top: 2rem;\n  margin-bottom: 2rem;\n  color: black;\n  height: 7rem;\n}\n.blogText {\n  height: 10rem;\n  text-decoration-color: #ffffff;\n}\nform.blogText textarea {\n  color: #ffffff;\n}\n.submitBtn,\n.cancelBtn {\n  width: 10rem;\n}\n.modalBtn {\n  width: 10rem;\n}\n.textModal {\n  padding-bottom: 2rem;\n}\n#userList li li {\n  display: block;\n  float: left;\n}\n.userListLine {\n  height: 50px;\n}\n.footerContainer {\n  position: relative;\n  background-color: black;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 20;\n  height: 100%;\n}\n.footerRow {\n  width: 100vw;\n  height: 100%;\n  padding-top: 1rem;\n}\n.footerId {\n  font-size: 2rem;\n}\n.footerId p {\n  position: absolute;\n  top: 15%;\n  left: 50%;\n}\n.footerDiv {\n  text-align: center;\n  font-size: 1.2rem;\n}\n.left-mid-footer {\n  border-right: solid #646363;\n}\n#userList li li.userListName {\n  width: 300px;\n  display: inline-block;\n}\n#userList li li.userListType {\n  width: 100px;\n  display: inline-block;\n}\n#userList li li.userListDate {\n  width: 200px;\n  display: inline-block;\n}\n#userList li button.expandBtn {\n  width: 200px;\n  display: inline-block;\n}\n", ""]);
 
 // exports
 
@@ -31337,7 +31337,156 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Footer = function Footer() {
-  return _react2.default.createElement("footer", null);
+  return _react2.default.createElement(
+    "div",
+    { className: "footerContainer" },
+    _react2.default.createElement(
+      "div",
+      { className: "row footerRow" },
+      _react2.default.createElement(
+        "div",
+        { className: "col-md-3 footerEdge footerDiv" },
+        _react2.default.createElement(
+          "div",
+          { className: "footerId" },
+          _react2.default.createElement(
+            "a",
+            { href: "/" },
+            _react2.default.createElement(
+              "p",
+              { className: "text-center text-muted", id: "portfolioId" },
+              "Alfonso Wongs Portfolio"
+            )
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "col-md-3 left-mid-footer footerDiv" },
+        _react2.default.createElement(
+          "div",
+          null,
+          _react2.default.createElement(
+            "a",
+            null,
+            _react2.default.createElement("p", null)
+          ),
+          _react2.default.createElement(
+            "a",
+            { href: "http://origincodeacademy.com/", target: "_blank" },
+            _react2.default.createElement(
+              "p",
+              { className: "text-center text-muted foot" },
+              _react2.default.createElement(
+                "u",
+                null,
+                "Origin Code Academy"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "a",
+            { href: "/files/Alfonso_Wong_Resume.pdf", download: true },
+            _react2.default.createElement(
+              "p",
+              { className: "text-center text-muted foot" },
+              _react2.default.createElement(
+                "u",
+                null,
+                "Download Resume"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "a",
+            { href: "/contact" },
+            _react2.default.createElement(
+              "p",
+              { className: "text-center text-muted foot" },
+              _react2.default.createElement(
+                "u",
+                null,
+                "Contact Me"
+              )
+            )
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "col-md-3 footerDiv" },
+        _react2.default.createElement(
+          "div",
+          { className: "footerId" },
+          _react2.default.createElement(
+            "p",
+            { className: "text-center text-muted", id: "socialId" },
+            "Social Media"
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "col-md-3 footerDiv" },
+        _react2.default.createElement(
+          "div",
+          null,
+          _react2.default.createElement(
+            "a",
+            { href: "https://www.linkedin.com/in/alfonso-wong/", target: "_blank" },
+            _react2.default.createElement(
+              "p",
+              { className: "text-center text-muted foot" },
+              _react2.default.createElement(
+                "u",
+                null,
+                "Linkedin"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "a",
+            { href: "https://twitter.com/wongalfonz", target: "_blank" },
+            _react2.default.createElement(
+              "p",
+              { className: "text-center text-muted foot" },
+              _react2.default.createElement(
+                "u",
+                null,
+                "Twitter"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "a",
+            { href: "https://www.youtube.com/channel/UCvS2AW-WTQOwsndcS4HPQcQ", target: "_blank" },
+            _react2.default.createElement(
+              "p",
+              { className: "text-center text-muted foot" },
+              _react2.default.createElement(
+                "u",
+                null,
+                "YouTube"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "a",
+            { href: "https://www.flickr.com/photos/144073524@N03/", target: "_blank" },
+            _react2.default.createElement(
+              "p",
+              { className: "text-center text-muted foot" },
+              _react2.default.createElement(
+                "u",
+                null,
+                "Flickr"
+              )
+            )
+          )
+        )
+      )
+    )
+  );
 };
 
 exports.default = Footer;
@@ -31389,20 +31538,20 @@ var Bio = function (_Component) {
         { className: 'bioPage', refs: 'bioPage' },
         _react2.default.createElement(
           'div',
-          { className: 'row' },
+          { className: 'container bioContainer' },
           _react2.default.createElement(
             'div',
-            { className: 'col-12 bioHeader' },
+            { className: 'row' },
             _react2.default.createElement(
               'div',
-              { className: 'title' },
-              'Bio'
+              { className: 'col-12 bioHeader' },
+              _react2.default.createElement(
+                'div',
+                { className: 'title' },
+                'Bio'
+              )
             )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'container bioContainer' },
+          ),
           _react2.default.createElement(
             'div',
             { className: 'row bioRow' },
@@ -31632,17 +31781,20 @@ var Projects = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'projectsPage' },
-        _react2.default.createElement('div', { className: 'row' }),
         _react2.default.createElement(
           'div',
           { className: 'container' },
           _react2.default.createElement(
             'div',
-            { className: 'col-12 projectsHeader' },
+            { className: 'row' },
             _react2.default.createElement(
               'div',
-              { className: 'title' },
-              'Projects'
+              { className: 'col-12 projectsHeader' },
+              _react2.default.createElement(
+                'div',
+                { className: 'title' },
+                'Projects'
+              )
             )
           ),
           _react2.default.createElement(

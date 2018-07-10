@@ -593,6 +593,7 @@ html,
 body {
   margin: 0;
   height: 100%;
+  max-width: 100%;
 }
 body {
   font-family: 'Open Sans', sans-serif;
@@ -679,6 +680,36 @@ form.blogText textarea {
 }
 .userListLine {
   height: 50px;
+}
+.footerContainer {
+  position: relative;
+  background-color: black;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  height: 100%;
+}
+.footerRow {
+  width: 100vw;
+  height: 100%;
+}
+.footerId {
+  font-size: 2rem;
+}
+.footerId p {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+}
+.footerDiv {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.left-mid-footer {
+  border-right: solid #646363;
+  height: 100%;
 }
 #userList li li.userListName {
   width: 300px;
