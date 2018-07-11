@@ -5,6 +5,9 @@ This is my personal portfolio built with React/Redux. The reason why Redux is be
 ## Installing
   ```
   npm install
+  ```
+## Start 
+  ```
   run MongoD
   ```
 
@@ -12,5 +15,7 @@ This is my personal portfolio built with React/Redux. The reason why Redux is be
   ```
   Deployed using Heroku for development and AWS for production
   ```
-
+### Notes
+  ```
+  Running bcrypt, currently there is a dependency that has vulnerabilities for an older version. Version 3.0.0 works fine but you need node@10.6.0
 
