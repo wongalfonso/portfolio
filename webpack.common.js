@@ -35,7 +35,9 @@ module.exports = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
-          { loader: 'less-loader' }
+          { loader: 'less-loader' },
+          { loader: 'url-loader' },
+          { loader: 'file-loader' },
         ]
       },
       {
@@ -49,7 +51,10 @@ module.exports = {
       },
       {
         test: /\.(png|jpg)$/,
-        use: { loader: 'file-loader' }
+        use: [
+          { loader: 'url-loader' },
+          { loader: 'file-loader' }
+        ]
       },
       {
         test: /\.pdf$/,
