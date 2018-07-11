@@ -4,4 +4,4 @@ deployment:
     heroku: 
       appname: Portfolio-React
   machine: 
-    node: version 8.8.1
+    node: version 10.6.0
