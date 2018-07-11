@@ -5,8 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack --w --config webpack.dev.js",
-    "start": "npm run build && webpack --config webpack.prod.js",
-    "build": "npm run less && webpack",
+    "start": "npm run build && node server/index.js",
+    "build": "npm run less && webpack --config webpack.prod.js",
     "server": "node server/index.js",
     "less": "lessc src/css/style.less dist/css/style.css",
     "watch-less": "less-watcher -p src/css/style.less -d dist/css/style.css",

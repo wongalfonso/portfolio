@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Splash from './Splash';
 import Bio from './Bio';
 import Projects from './Projects';
+import Footer from '../Footer';
 
 
 export default class extends Component {
@@ -36,6 +37,7 @@ export default class extends Component {
         <Splash />
         <Bio />
         <Projects />
+        <Footer/>
       </div>
     )
   }

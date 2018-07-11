@@ -4,12 +4,12 @@ export default class Bio extends Component {
   render() {
   return (
     <div className='bioPage' refs = 'bioPage'>
+      <div className='container bioContainer'>        
     <div className='row'>
           <div className='col-12 bioHeader'>
-            <div className='title'>Bio</div>
+            <div className='title'>About Me</div>
           </div>
         </div>
-      <div className='container bioContainer'>        
         <div className='row bioRow'>
           <div className='col-6 bioText'>
             <p>
