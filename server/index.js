@@ -1,5 +1,5 @@
 const server = require('./server');
 
-const PORT = 8080;
+const PORT = process.env.PORT || 3001;
 
 server.listen(PORT, () => console.log(`Server is listening on ${PORT}`));
