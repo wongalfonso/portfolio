@@ -3,7 +3,7 @@ import backgroundVid from './../../../../public/video/backgroundVideo.mp4';
 
 const Splash = () => {  
     return (
-      <div className='vidContainer'>
+      <div className='vidContainer section'>
       <video id='backgroundVid' loop autoPlay muted>
           <source src={backgroundVid} type='video/mp4' />
         </video>

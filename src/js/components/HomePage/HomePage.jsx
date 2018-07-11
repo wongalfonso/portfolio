@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Splash from './Splash';
-import Bio from './Bio';
+import About from './About';
 import Projects from './Projects';
 import Footer from '../Footer';
 
@@ -33,9 +33,9 @@ export default class extends Component {
 
   render() {
     return (
-      <div className='fullSite'>
+      <div className='fullSite' id='fullpage'>
         <Splash />
-        <Bio />
+        <About />
         <Projects />
         <Footer/>
       </div>

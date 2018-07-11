@@ -22,16 +22,21 @@ const Footer = () => {
                 <u>Origin Code Academy</u>
               </p>
             </a>
-            <a href="/files/Alfonso_Wong_Resume.pdf" download>
+            <a href="/files/AlfonsoWongResume.pdf" download>
               <p className="text-center text-muted foot">
                 <u>Download Resume</u>
               </p>
             </a>
-            <a href="/contact">
+            <a href = 'mailto:alfonsowongsd@gmail.com' target = '_blank'>
+              <p className = 'text-center text-muted foot'>
+                <u>Email</u>
+              </p>
+            </a>
+            {/* <a href="/contact">
               <p className="text-center text-muted foot">
                 <u>Contact Me</u>
               </p>
-            </a>
+            </a> */}
           </div>
         </div>
 
