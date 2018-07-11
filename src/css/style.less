@@ -1,5 +1,5 @@
 @import './splash.less';
-@import './bio.less';
+@import './about.less';
 @import './projects.less';
 @import './changeCalc.less';
 
@@ -13,16 +13,24 @@
 
 
 
-html, body {margin: 0; height: 100%;}
+html, body {
+  margin: 0; 
+  right: 0;
+  height: 100%; 
+  max-width: 100vw; 
+}
 
 body {font-family: 'Open Sans', sans-serif;}
 
 .fullPage {
-  position: relative;
   height: 100vh;
   width: 100vw;
-  display: flex;
-  flex-direction: column;
+  overflow-x: hidden;
+}
+.scroller {
+  scroll-snap-type: mandatory;
+  scroll-snap-destination: 0% 100%;
+  scroll-snap-points-y: repeat(100%);
 }
 .title {
   margin-top: 4rem;
@@ -98,6 +106,39 @@ form.blogText textarea {
 }
 .userListLine {
   height: 50px;
+}
+.footerContainer {
+  position: relative;
+  background-color: black;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  height: 100%;
+  
+}
+.footerRow {    
+  width: 100vw;
+  height: 100%;
+  padding-top: 1rem;
+}
+
+.footerId {
+  font-size: 2rem;
+}
+.footerId p{
+  position: absolute;
+  top: 15%;
+  left: 50%;
+}
+.footerDiv {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.left-mid-footer {
+  border-right: solid rgb(100, 99, 99);  
 }
 
 #userList li li.userListName{width: 300px; display: inline-block}

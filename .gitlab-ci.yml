@@ -1,0 +1,14 @@
+image: node: 8.8.1
+
+before_script: 
+  -npm install
+
+stages: 
+  -deploy
+
+deployToAWS:
+  only:
+    -master
+stage: deploy
+script: 
+  -bash deploy/deploy.sh
