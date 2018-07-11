@@ -23,7 +23,7 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
-          { loader: 'babel-loader' }          
+          { loader: 'babel-loader' }
         ]
       },
       {
@@ -31,18 +31,17 @@ module.exports = {
         loader: 'file?name=[name].[ext]'
       },
       {
-        test: /\.(png|jpg)$/,
-        use: [
-          { loader: 'url-loader' },
-          { loader: 'file-loader' }
-        ]
-      },
-      {
         test: /\.less$/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
           { loader: 'less-loader' },
+        ]
+      },
+      {
+        test: /\.(png|jpg)$/,
+        use: [          
+          { loader: 'file-loader' }
         ]
       },
       {
