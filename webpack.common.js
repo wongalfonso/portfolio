@@ -31,13 +31,18 @@ module.exports = {
         loader: 'file?name=[name].[ext]'
       },
       {
+        test: /\.(png|jpg)$/,
+        use: [
+          { loader: 'url-loader' },
+          { loader: 'file-loader' }
+        ]
+      },
+      {
         test: /\.less$/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
           { loader: 'less-loader' },
-          { loader: 'url-loader' },
-          { loader: 'file-loader' },
         ]
       },
       {
@@ -48,13 +53,6 @@ module.exports = {
             name: '[name].[ext]'
           }
         }]
-      },
-      {
-        test: /\.(png|jpg)$/,
-        use: [
-          { loader: 'url-loader' },
-          { loader: 'file-loader' }
-        ]
       },
       {
         test: /\.pdf$/,
