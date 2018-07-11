@@ -17,7 +17,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "background-process": "^1.0.0",
-    "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "clean-webpack-plugin": "^0.1.19",
     "connect-mongo": "^2.0.1",
