@@ -18,10 +18,7 @@
     "axios": "^0.18.0",
     "babel-preset-latest": "^6.24.1",
     "background-process": "^1.0.0",
-<<<<<<< HEAD
     "bcrypt": "^3.0.0",
-=======
->>>>>>> 7704e6a33ba040f20c6c271090c42adbef9b9701
     "body-parser": "^1.18.3",
     "clean-webpack-plugin": "^0.1.19",
     "connect-mongo": "^2.0.1",
