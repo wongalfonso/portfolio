@@ -7,7 +7,7 @@ const path = require('path');
 const MongoStore = require('connect-mongo')(session);
 const webpackDevMiddleware = require('webpack-dev-middleware');
 
-mongoose.connect('mongodb://localhost/codewars');
+mongoose.connect('mongodb://localhost/codewars' || process.env.MONGO_URL);
 mongoose.Promise = Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind('connection error:'));
