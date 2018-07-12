@@ -47,8 +47,8 @@ export default class ChangeCalc extends Component {
     amountRet3 = amountRet3.toFixed(2);
 
 
-    
-    if (amount > 1999) {      
+
+    if (amount > 1999) {
       twenties = amount / 2000
       amountLeft = amount % 2000;
       twenties = Math.floor(twenties)
@@ -134,6 +134,11 @@ export default class ChangeCalc extends Component {
       alert = 'alert alert-danger changeOutcome';
       leftOver = 'You owe a balance of $';
     }
+    if (this.state.amountRec === "") {
+      received = 'form-group has-feedback has-error'
+    } else {
+      received = 'form-group has-feedback'
+    }
     return (
       <div id='changeCalcProject'>
         <div className='container changeContainer'>
@@ -145,29 +150,19 @@ export default class ChangeCalc extends Component {
               <div className='card card-default'>
                 <div className='card-header changeText'>Enter Information</div>
                 <div className='card-body'>
-                  <label className='changeInputLabel' htmlFor='amountDue'>
-                    How much is due?
-                  </label>
+                  <div className="form-group has-success has-feedback">
 
-                  <input name='amountDue'
-                    className='form-control'
-                    type='text'
-                    pattern='[1-9][0-9]*(\\.[0-9]{2})?|\\0?\\.[0-9][0-9])'
-                    value={this.state.amountDue}
-                    onChange={this.handleDue}
-                    id='amountDue'
-                  />
-                  <label className='changeInputLabel'
-                    htmlFor='received'>
-                    How much was received?
-                    </label>
-                  <input name='amountReceived'
-                    className='form-control'
-                    type='number'
-                    pattern='^[0-9]*(\.[0-9]{2})?$'
-                    value={this.state.amountRec}
-                    onChange={this.handleRec}
-                    id='received' />
+                    <label className='changeInputLabel' htmlFor='amountDue'>How much is due?</label>
+                    <input name='amountDue' className='form-control' type='text' pattern='^[0-9]*(\.[0-9]{0,2})?$' value={this.state.amountDue} onChange={this.handleDue} id='amountDue' required />
+                    <span className="glyphicon glyphicon-remove form-control-feedback"></span>
+                  </div>
+
+                  <div className={"form-group has-feedback"}>
+                    <label className='changeInputLabel' htmlFor='received'> How much was received?</label>
+                    <input name='amountReceived' className='form-control' type='text' pattern='^[0-9]*(\.[0-9]{0,2})?$' value={this.state.amountRec} onChange={this.handleRec} id='received' required />
+                    <span className="glyphicon glyphicon-remove form-control-feedback"></span>
+                  </div>
+
                 </div>
                 <div className='card-footer'>
                   <div className='form-group'>
@@ -230,7 +225,7 @@ export default class ChangeCalc extends Component {
           </div>
           <div className='row closeRow'>
             <div className="col-12">
-              <button className = 'btn btn-danger float-right form-control-xl closeBtn' onClick = {this.props.close}>Close</button>
+              <button className='btn btn-danger float-right form-control-xl closeBtn' onClick={this.props.close}>Close</button>
             </div>
           </div>
         </div >
