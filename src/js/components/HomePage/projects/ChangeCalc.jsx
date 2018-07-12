@@ -30,7 +30,17 @@ export default class ChangeCalc extends Component {
 
     this.setState({ amountRec });
   }
-
+  button() {
+    if (this.state.amountRec.length > 0 && this.state.amountDue.length > 0) {
+      return (
+        <button className='btn btn-primary form-control' type='submit' onClick={this.calculate}>Calculate</button>
+      )
+    } else {
+      return (
+        <button className='btn btn-primary form-control' type='submit' onClick={this.calculate} disabled>Calculate</button>
+      )
+    }
+  }
   calculate(e) {
     e.preventDefault();
     let twenties, tens, fives, ones, quarters, dimes, nickels, pennies, amountLeft;
@@ -125,7 +135,7 @@ export default class ChangeCalc extends Component {
 
 
   render() {
-    var alert, leftOver;
+    var alert, leftOver, received;
     if (this.state.output > -1) {
       alert = 'alert alert-success changeOutcome';
       leftOver = 'The total change due is $';
@@ -150,25 +160,22 @@ export default class ChangeCalc extends Component {
               <div className='card card-default'>
                 <div className='card-header changeText'>Enter Information</div>
                 <div className='card-body'>
-                  <div className="form-group has-success has-feedback">
+                  <form>
+                    <div className="form-group has-success has-feedback">
+                      <label className='changeInputLabel' htmlFor='amountDue'>How much is due?</label>
+                      <input name='amountDue' className='form-control form-control-success' type='text' pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' value={this.state.amountDue} onChange={this.handleDue} id='amountDue' required />                      
+                    </div>
 
-                    <label className='changeInputLabel' htmlFor='amountDue'>How much is due?</label>
-                    <input name='amountDue' className='form-control' type='text' pattern='^[0-9]*(\.[0-9]{0,2})?$' value={this.state.amountDue} onChange={this.handleDue} id='amountDue' required />
-                    <span className="glyphicon glyphicon-remove form-control-feedback"></span>
-                  </div>
-
-                  <div className={"form-group has-feedback"}>
-                    <label className='changeInputLabel' htmlFor='received'> How much was received?</label>
-                    <input name='amountReceived' className='form-control' type='text' pattern='^[0-9]*(\.[0-9]{0,2})?$' value={this.state.amountRec} onChange={this.handleRec} id='received' required />
-                    <span className="glyphicon glyphicon-remove form-control-feedback"></span>
-                  </div>
-
+                    <div className={"form-group has-feedback"}>
+                      <label className='changeInputLabel' htmlFor='received'> How much was received?</label>
+                      <input name='amountReceived' className='form-control' type='text' pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' value={this.state.amountRec} onChange={this.handleRec} id='received' required />
+                      <span className="glyphicon glyphicon-remove form-control-feedback"></span>
+                    </div>
+                  </form>
                 </div>
                 <div className='card-footer'>
                   <div className='form-group'>
-                    <button className='btn btn-primary form-control' type='submit' onClick={this.calculate}>
-                      Calculate
-                    </button>
+                    {this.button()}
                   </div>
                 </div>
               </div>
@@ -225,7 +232,14 @@ export default class ChangeCalc extends Component {
           </div>
           <div className='row closeRow'>
             <div className="col-12">
-              <button className='btn btn-danger float-right form-control-xl closeBtn' onClick={this.props.close}>Close</button>
+              <div className="col-8">
+                <a href="https://github.com/wongalfonso/startnow-react100-change-calculator" target="_blank">
+                  <img className="gitMark float-left" src="/images/github.png" />
+                </a>
+              </div>
+              <div className="col-4 closeCol float-right">
+                <button className='btn btn-danger float-right form-control-xl closeBtn' onClick={this.props.close}>Close</button>
+              </div>
             </div>
           </div>
         </div >
