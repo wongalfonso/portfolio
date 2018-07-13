@@ -233,7 +233,7 @@ export default class ChangeCalc extends Component {
           <div className='row closeRow'>
             <div className="col-12">
               <div className="col-8">
-                <a href="https://github.com/wongalfonso/startnow-react100-change-calculator" target="_blank">
+                <a href="https://github.com/wongalfonso/React-Change-Calculator" target="_blank">
                   <img className="gitMark float-left" src="/images/github.png" />
                 </a>
               </div>

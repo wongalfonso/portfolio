@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import ChangeCalc from './projects/ChangeCalc';
+import VSTDA from './projects/Vstda';
+import AstroWeight from './projects/AstroWeight';
 
 const modalStyle = {
   content: {    
@@ -14,6 +16,7 @@ const modalStyle = {
     maxWidth: '1800px',
     maxHeight: '1000px',
     borderRadius: '20px',
+    overflow: 'hidden'
     // opacity: 0,    
   },
   overlay: {
@@ -46,10 +49,6 @@ export default class Projects extends Component {
   }
 
   modalTemplate() {
-    let project;
-    project = (this.state.selected == 'Change' ) && <ChangeCalc close = {this.closeModal}/>
-    // project = (this.state.selected == 'VSTDA' ) && <VSTDA close = {this.closeModal}/>
-    // project = (this.state.selected == 'Astro' ) && <VSTDA close = {this.closeModal}/>
     return (
       <Modal
           isOpen={this.state.modalIsOpen}
@@ -58,7 +57,9 @@ export default class Projects extends Component {
           ariaHideApp= {false}
           style = {modalStyle}      
           >
-          {project}               
+          {(this.state.selected === 'Change') && <ChangeCalc close = {this.closeModal}/>}
+          {(this.state.selected == 'VSTDA' ) && <VSTDA close = {this.closeModal}/>}
+          {(this.state.selected == 'Astro' ) && <AstroWeight close = {this.closeModal}/>}
         </Modal>
     )
   }
@@ -105,7 +106,7 @@ export default class Projects extends Component {
           </div>
           <div id='astroWeightImage' className='projectImages' onClick={() => this.openModal('Astro')}>
           </div>
-        </div>
+        </div>        
       </div>
     )
   }
