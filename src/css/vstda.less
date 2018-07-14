@@ -1,15 +1,10 @@
 
-.vstdaProject {
+#vstdaProject {
   background: #136a8a; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #89c1c6, #6281c9);
   background: linear-gradient(to left, #89c1c6, #6281c9);
-  height: 726px;
   }
-.vstdaContainer {
-  max-width: 1140px;
-  width: 100%;
-  padding: 20px;
-}
+
 #vstdaHeader {
   color: white;
 }
@@ -19,10 +14,23 @@
   margin-bottom: 20px;
   padding-bottom: 10px;
 }
-#listCard {
-  border: none !important;
+#List {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
-
+#ListCard {
+  border: none !important;
+  max-height: 428px;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  // padding-right: 17px;
+  box-sizing: content-box;
+}
+#todoHeader {
+  width: 100%;
+}
 .create-todo-text {
   width: 100%;
   max-width: 100%;
@@ -42,17 +50,6 @@
   width: 150px;  
   bottom: 0;
 }
-// strong + small {
-//     display: block;
-// }
-
-// input[type=checkbox] {
-//   margin-right: 1em;
-// }
-
-// div.pull-right a {
-//   margin-left: 1em;
-// }
 .todoListText {
   width: 60%
 }

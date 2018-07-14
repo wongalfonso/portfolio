@@ -32,11 +32,11 @@ const Footer = () => {
                 <u>Email</u>
               </p>
             </a>
-            {/* <a href="/contact">
+            <a href="https://github.com/wongalfonso" target = '_blank'>
               <p className="text-center text-muted foot">
-                <u>Contact Me</u>
+                <u>Git Hub</u>
               </p>
-            </a> */}
+            </a>
           </div>
         </div>
 

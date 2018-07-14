@@ -1,14 +1,20 @@
 import React from 'react'
 
-export const List = ({ editing, onEdit, onRemove, updateToDo, updatePrior, list, handleChecked }) => {
+export const List = ({ onEdit, onRemove, updateToDo, list}) => {
 
-  const edit = () => {
+  const edit = (e) => {
+    e.preventDefault()
     onEdit(list.id, true);
   }
-  let _newText, _priority, _checked, style;
+  let _newText, _priority, _checked;
 
-  const remove = () => {
+  const remove = (e) => {
+    e.preventDefault()
     onRemove(list.id)
+  }
+  const cancel = (e) => {
+    e.preventDefault()    
+    onEdit(list.id, false);
   }
   const save = () => {
     updateToDo(_newText.value, _priority.value, list.id)
@@ -32,7 +38,10 @@ export const List = ({ editing, onEdit, onRemove, updateToDo, updatePrior, list,
               <option value='list-group-item-danger'>High Priority</option>
             </select>
           </div>
-          <div className='form-group col-6'>
+          <div className='form-group col-3'>
+            <button className='update-todo-btn btn btn-warning float-right' onClick={cancel}>Cancel</button>
+          </div>
+          <div className='form-group col-3'>
             <button className='update-todo-btn btn btn-success float-right' onClick={save}>Save</button>
           </div>
         </div>
@@ -45,7 +54,7 @@ export const List = ({ editing, onEdit, onRemove, updateToDo, updatePrior, list,
       <li className={'list-group-item ' + list.priority} id='list'>
         <span className='todoListText'> {list.toDo} </span>
         <span className='float-right todoListDelete'>
-          <a href='#' className='delete-todo' ref={input => _newText = list.toDo} onClick={remove} style={{ color: 'red' }}>
+          <a href='#' className='delete-todo' ref={() => _newText = list.toDo} onClick={remove} style={{ color: 'red' }}>
             <i className='far fa-trash-alt float-right'></i>
           </a>
         </span>
