@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { getCity, updateCitySearch, updateInput } from './WeatherFormActions';
 
 
-export default class Form extends Component {
+class Form extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -60,23 +61,25 @@ export default class Form extends Component {
   }
   renderSuccess() {
     const { data } = this.props;
-    var weatherArr = data.slice(0, 1);
+    // var weatherArr = data.slice(0, 1);
+
     return (
-      <div id='errors' className='alert alert-success'>
-        {weatherArr.map((weather, i) => {
-          return (
-            <div className='text-center' key={i}>
-              {`We found the city...${weather.data.name} in ${weather.data.sys.country}`}
-            </div>
-          )
-        })}
-      </div>
+      <div className = 'warnings'></div>
+      // <div id='feedbackSuccess' className='alert alert-success col-12'>
+      //   {weatherArr.map((weather, i) => {
+      //     return (
+      //       <div className='text-center' key={i}>
+      //         {`We found the city...${weather.data.name} in ${weather.data.sys.country}`}
+      //       </div>
+      //     )
+      //   })}
+      // </div>
     )
   }
   renderWarning() {
     const { input } = this.props;
     return (
-      <div id='errors' className='alert alert-danger col-12'>
+      <div id='feedbackError' className='alert alert-danger col-12 warnings'>
         <div className='text-center'>
           {`Please enter a Valid City Name, ${input} is not a valid input`}
         </div>
@@ -84,12 +87,12 @@ export default class Form extends Component {
     )
   }
 
-  renderBasic() {
-    return (
-      <div className = 'col-12'>
-      </div>
-    )
-  }
+  // renderBasic() {
+  //   return (
+  //     <div id = 'feedback' className = 'col-12 warnings'>
+  //     </div>
+  //   )
+  // }
   render() {
     const { throwErr, input, success } = this.props;
     return (
@@ -114,8 +117,7 @@ export default class Form extends Component {
             </button>
           </span>
         </div>
-        {(throwErr === true) ? this.renderWarning() : this.renderBasic()}
-        {(success === true) ? this.renderSuccess() : this.renderBasic()}
+        {(throwErr === true) ? this.renderWarning() : this.renderSuccess()}        
         <div>
 
         </div>
@@ -124,3 +126,14 @@ export default class Form extends Component {
     )
   }
 }
+
+
+function mapStateToProps(state) {
+  return {
+    input: state.weather.input,
+    data: state.weather.data,
+    throwErr: state.weather.throwErr,
+  }
+}
+
+export default connect(mapStateToProps)(Form);

@@ -12,7 +12,8 @@ export default class VSTDA extends Component {
       id: '',
       newTodo: '',
       completed: false,
-      editing: false
+      editing: false,
+      overflow: '',
     };
     this.createToDo = this.createToDo.bind(this);
     this.handleText = this.handleText.bind(this);
@@ -22,6 +23,17 @@ export default class VSTDA extends Component {
     this.handlePrior = this.handlePrior.bind(this);    
   }
 
+  componentDidUpdate() {
+    const list = this.listElement;  
+    const card = this.cardElement;  
+    const hasOverflow = list.offsetHeight < list.scrollHeight;    
+    if (hasOverflow && this.state.overflow !== 'scroll') {
+      this.setState({overflow: 'scroll'})
+    }
+    if (card.scrollHeight === card.offsetHeight && this.state.overflow === 'scroll') {
+      this.setState({overflow: ''})
+    }
+  }
   createToDo(event) {
     event.preventDefault();
     this.setState({
@@ -102,6 +114,10 @@ export default class VSTDA extends Component {
 
 
   render() {
+    // let overflow;
+    // const list = this.listElement;    
+    // const hasOverflow = list.offsetHeight < list.scrollHeight;
+    // (hasOverflow) ? overflow = {overflowY : 'scroll'} : overflow = {overflowY : 'hidden'}    
     return (
 
       <div id='vstdaProject' className='allProjectModals'>
@@ -117,8 +133,10 @@ export default class VSTDA extends Component {
               <div className='row'>
                 <ToDoForm createToDo={this.createToDo} toDo={this.state.toDo} handleText={this.handleText} priority={this.state.priority} handlePrior={this.handlePrior}
                 />
-                <div className='col-8' id = 'List'>
-                  <div className='card' id='ListCard'>
+                <div className='col-8' id = 'List' ref = {(listEl) => {this.listElement = listEl}}>
+                  <div className='card' id='ListCard' 
+                  style = {{"overflowY" : this.state.overflow}} 
+                  ref = {(card) => {this.cardElement = card}}>                    
                     <div className='card-header' id = 'todoHeader'>View Todos</div>
                     <ul className='list-group'>
                       {this.state.lists.map((list, i) => {
@@ -136,14 +154,18 @@ export default class VSTDA extends Component {
             </div>
           </div>
           <div className='row closeRow'>
-            <div className='col-12'>
-              <div className='col-8'>
-                <a href='https://github.com/wongalfonso/VSTDA' target='_blank'>
-                  <img className='gitMark float-left' src='/images/github.png' />
+            <div className="col-12">
+              <div className="row">
+              <div className="col-3">
+              <a href='https://github.com/wongalfonso/VSTDA' target='_blank'>
+                  <img className="gitMark" src="/images/github.png" />
                 </a>
               </div>
-              <div className='col-4 closeCol float-right'>
-                <button className='btn btn-danger float-right form-control-xl closeBtn' onClick={this.props.close}>Close</button>
+                <div className="col-3"></div>
+                <div className="col-3"></div>
+              <div className="col-3 closeCol ">
+                <button className='btn btn-danger form-control-xl closeBtn' onClick={this.props.close}>Close</button>
+              </div>
               </div>
             </div>
           </div>
@@ -152,5 +174,6 @@ export default class VSTDA extends Component {
     )
   }
 }
+
 
 

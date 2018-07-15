@@ -6,6 +6,9 @@ const session = require('express-session');
 const path = require('path');
 const MongoStore = require('connect-mongo')(session);
 const webpackDevMiddleware = require('webpack-dev-middleware');
+const axios = require('axios');
+const dotenv = require('dotenv');
+dotenv.config();
 
 mongoose.connect('mongodb://localhost/codewars' || process.env.MONGO_URL);
 mongoose.Promise = Promise;
@@ -32,6 +35,14 @@ app.use(webpackDevMiddleware(compiler, {
 //     mongooseConnection: db
 //   })
 // }))
+app.get("/api/weather/:input", (req, res) => {
+  console.log(req.params.input);
+  const key = process.env.API_KEY;
+  const search = req.params.input;
+  console.log(search);
+  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=imperial&APPID=${process.env.WEATHER_KEY}`)
+    .then(response => res.send(response.data));
+})
 
 app.use('/api/users', require('./routes/Users'));
 app.use('/api/kyus', require('./routes/Kyus'));

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Img from 'react-image';
 import { connect } from 'react-redux';
 
-class CityInfo extends React.Component {
+class CityInfo extends Component {
 
   renderCitySuccess() {
     const { data } = this.props;
@@ -15,12 +15,14 @@ class CityInfo extends React.Component {
             <div className='card-body weatherInfoBody' key={i}>
               <div className='row iconRow'>
                   <div className='col-md-12 text-center iconRow'>
-                    <h2><Img src={'http://openweathermap.org/img/w/' + icon + '.png'} height={50} width={50} />
-                    {weather.data.name}, {weather.data.sys.country}</h2>
+                    <h3><Img src={'http://openweathermap.org/img/w/' + icon + '.png'} height={50} width={50} />
+                    {weather.data.name}, {weather.data.sys.country}</h3>
                   </div>
-                <div className='col-md-12'>
-                  <span>Lat/Long: {weather.data.coord.lat},{weather.data.coord.lon}</span>
-                  <div className='discription'>{weather.data.weather[0].description}</div>
+                <div className='col-12'>
+                  <div className="row">
+                  <div className = 'col-6'>Lat/Long: {weather.data.coord.lat},{weather.data.coord.lon}</div>
+                  <div className='col-6 discription'>{weather.data.weather[0].description}</div>
+                  </div>
                   <hr />
                 </div>
               </div>
@@ -76,7 +78,7 @@ class CityInfo extends React.Component {
           City Information
         </div>
         {(success === true) ? this.renderCitySuccess() : this.renderCityBasic()}
-        {(throwErr !== true) ? this.renderCityBasic : ''}
+        {(throwErr !== true) ? this.renderCityBasic() : ''}
       </div>
     )
   }

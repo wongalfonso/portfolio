@@ -4,7 +4,7 @@ export function getCity(input, date, time) {
 
   return {
     type: "GET_WEATHER",
-    payload: axios.get(`/weather/${input}`)
+    payload: axios.get(`/api/weather/${input}`)
       .then(res => {
         return { data: res.data, date, time };
       })
