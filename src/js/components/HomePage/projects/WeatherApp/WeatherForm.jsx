@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { getCity, updateCitySearch, updateInput } from './WeatherFormActions';
+import { getCity } from './WeatherFormActions';
 
 
 class Form extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      input: ''
+    }
     this.handleClick = this.handleClick.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleInputButton = this.handleInputButton.bind(this);
@@ -34,50 +37,50 @@ class Form extends Component {
     var sec = today.getSeconds();
     var time = (' ' + hh + ':' + min + ':' + sec)
     const { dispatch } = this.props;
-    dispatch(getCity(search, date, time))
+    dispatch(getCity(search, date, time));
+    this.setState({input: ''});
   }
 
   handleInput(e) {
-    var value = e.target.value
-    value = value.toLowerCase();
-    const { dispatch } = this.props;
-    dispatch(updateInput(value))
+    this.setState({input: e.target.value})
   }
 
-  handleInputButton(e) {
-    //input Button
-    // e.preventDefault();
-    const { input } = this.props;
+  handleInputButton() {
+    const { input } = this.state;    
     this.getDate(input);
   }
 
-  handleClick(e) {
-    //Button Clicks
+  handleClick(e) {    
     e.preventDefault();
     var input = e.target.value;
     input = input.toLowerCase();
-    const { dispatch } = this.props;
     this.getDate(input);
   }
   renderSuccess() {
     const { data } = this.props;
-    // var weatherArr = data.slice(0, 1);
-
-    return (
-      <div className = 'warnings'></div>
-      // <div id='feedbackSuccess' className='alert alert-success col-12'>
-      //   {weatherArr.map((weather, i) => {
-      //     return (
-      //       <div className='text-center' key={i}>
-      //         {`We found the city...${weather.data.name} in ${weather.data.sys.country}`}
-      //       </div>
-      //     )
-      //   })}
-      // </div>
-    )
+    var weatherArr = data.slice(0, 1);
+    if (weatherArr[0].data.cod === 200) {
+      return (
+        <div id='feedbackSuccess' className='alert alert-success col-12'>
+        {weatherArr.map((weather, i) => {
+          return (
+            <div className='text-center' key={i}>
+              {`We found the city...${weather.data.name} in ${weather.data.sys.country}`}
+            </div>
+          )
+        })}
+      </div>
+      )
+    } 
+    if (weatherArr[0].data.cod === undefined) {
+      return (
+        <div></div>
+      )
+    }
   }
   renderWarning() {
     const { input } = this.props;
+    console.log(input);
     return (
       <div id='feedbackError' className='alert alert-danger col-12 warnings'>
         <div className='text-center'>
@@ -110,11 +113,13 @@ class Form extends Component {
             Tokyo</button>
         </div>
         <div className='input-group'>
-          <input className='form-control input' onChange={this.handleInput} type='text'/>
+          <input className='form-control input' onChange={this.handleInput} value = {this.state.input}type='text'/>
           <span className='input-group-btn'>
-            <button className='btn btn-secondary' type='submit' onClick = {this.handleInputButton}>
+            {(this.state.input.length > 2 ) ? <button className='btn btn-secondary' type='submit' onClick = {this.handleInputButton}>
               Go!
-            </button>
+            </button> : <button className='btn btn-secondary' type='submit' onClick = {this.handleInputButton} disabled>
+              Go!
+            </button>}
           </span>
         </div>
         {(throwErr === true) ? this.renderWarning() : this.renderSuccess()}        
@@ -129,6 +134,7 @@ class Form extends Component {
 
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     input: state.weather.input,
     data: state.weather.data,

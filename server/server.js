@@ -35,14 +35,14 @@ app.use(webpackDevMiddleware(compiler, {
 //     mongooseConnection: db
 //   })
 // }))
-app.get("/api/weather/:input", (req, res) => {
-  console.log(req.params.input);
-  const key = process.env.API_KEY;
+app.get("/api/weather/:input", (req, res) => {  
   const search = req.params.input;
-  console.log(search);
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=imperial&APPID=${process.env.WEATHER_KEY}`)
-    .then(response => res.send(response.data));
-})
+    .then(response => {      
+      res.send(response.data)
+    })
+    .catch(err => res.send(err.response.data))
+});
 
 app.use('/api/users', require('./routes/Users'));
 app.use('/api/kyus', require('./routes/Kyus'));
@@ -51,7 +51,7 @@ app.get('*.js', (req,res, next) => {
   req.url = req.url + '.gz';
   res.set('Content-Encoding', 'gzip');
   next();
-})
+});
 app.get('*', (req, res) => {
   res.sendFile(path.resolve('public', 'index.html'));
 });

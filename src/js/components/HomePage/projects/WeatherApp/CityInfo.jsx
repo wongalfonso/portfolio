@@ -28,15 +28,15 @@ class CityInfo extends Component {
               </div>
               <div className='row'>
                 <div className='col-4 text-center weatherInfo'>
-                  <label htmlFor='temp'><b>Temperature (F)</b></label>
+                  <label><b>Temperature (F)</b></label>
                   <div id='temp' className='text-success weatherTextSuccess'>{weather.data.main.temp}F</div>
                 </div>
                 <div className='col-4 text-center weatherInfo'>
-                  <label htmlFor='pressure'><b>Pressure</b></label>
+                  <label><b>Pressure</b></label>
                   <div id='pressure' className='text-success weatherTextSuccess'>{weather.data.main.pressure}</div>
                 </div>
                 <div className='col-4 text-center weatherInfo'>
-                  <label htmlFor='humidity'><b>Humdity</b></label>
+                  <label><b>Humdity</b></label>
                   <div id='humidity' className='text-success weatherTextSuccess'>{weather.data.main.humidity}</div>
                 </div>
 
@@ -44,15 +44,15 @@ class CityInfo extends Component {
 
               <div className='row'>
                 <div className='col-4 text-center weatherInfo'>
-                  <label htmlFor='lowTemp'><b>Lowest Temp(F)</b></label>
+                  <label><b>Lowest Temp(F)</b></label>
                   <div className='lowTemp text-success weatherTextSuccess'>{weather.data.main.temp_min}F</div>
                 </div>
                 <div className='col-4 text-center weatherInfo'>
-                  <label htmlFor><b>Highest Temp (F)</b></label>
+                  <label><b> Highest Temp (F)</b></label>
                   <div className='hiTemp text-success weatherTextSuccess' >{weather.data.main.temp_max}F</div>
                 </div>
                 <div className='col-4 text-center weatherInfo'>
-                  <label htmlFor='wind'><b>Wind Speed</b></label>
+                  <label><b>Wind Speed</b></label>
                   <div className='wind text-success weatherTextSuccess'>{weather.data.wind.speed}mph</div>
                 </div>
               </div>
@@ -69,7 +69,6 @@ class CityInfo extends Component {
     )
   }
 
-
   render() {
     const { data, success, throwErr } = this.props;
     return (
@@ -79,6 +78,7 @@ class CityInfo extends Component {
         </div>
         {(success === true) ? this.renderCitySuccess() : this.renderCityBasic()}
         {(throwErr !== true) ? this.renderCityBasic() : ''}
+        {(throwErr === true) && this.renderCitySuccess()}
       </div>
     )
   }
