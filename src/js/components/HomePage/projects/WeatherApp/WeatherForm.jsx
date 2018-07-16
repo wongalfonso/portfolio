@@ -80,7 +80,6 @@ class Form extends Component {
   }
   renderWarning() {
     const { input } = this.props;
-    console.log(input);
     return (
       <div id='feedbackError' className='alert alert-danger col-12 warnings'>
         <div className='text-center'>
@@ -90,14 +89,8 @@ class Form extends Component {
     )
   }
 
-  // renderBasic() {
-  //   return (
-  //     <div id = 'feedback' className = 'col-12 warnings'>
-  //     </div>
-  //   )
-  // }
   render() {
-    const { throwErr, input, success } = this.props;
+    const { throwErr } = this.props;
     return (
       <div className = 'col-12'>
         <div className='btn-group' role='group' aria-label='Basic example'>
@@ -134,7 +127,6 @@ class Form extends Component {
 
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     input: state.weather.input,
     data: state.weather.data,

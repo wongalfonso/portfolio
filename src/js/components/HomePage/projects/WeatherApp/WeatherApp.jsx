@@ -32,7 +32,7 @@ export default class WeatherApp extends React.Component {
             <div className="col-12">
               <div className="row">
               <div className="col-3">
-                <a href="https://github.com/wongalfonso/React-Change-Calculator" target="_blank">
+                <a href="https://github.com/wongalfonso/Weather-App" target="_blank">
                   <img className="gitMark" src="/images/github.png" />
                 </a>
               </div>

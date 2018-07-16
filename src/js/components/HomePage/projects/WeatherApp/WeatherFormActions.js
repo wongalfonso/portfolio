@@ -6,8 +6,7 @@ export function getCity(input, date, time) {
     dispatch({
       type: 'GET_WEATHER',
       payload: axios.get(`/api/weather/${city}`)
-        .then(res => {
-          console.log(res);
+        .then(res => {          
           return { data: res.data, date, time, input };
         })
     })
