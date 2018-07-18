@@ -4,10 +4,10 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --config webpack.dev.js",
+    "dev": "webpack -w --config webpack.dev.js",
     "start": "npm run build && node server/index.js",
     "build": "npm run less && webpack --config webpack.prod.js",
-    "server": "node server/index.js",
+    "server": "npm run less && nodemon server/index.js",
     "less": "lessc src/css/style.less dist/css/style.css",
     "watch-less": "less-watcher -p src/css/style.less -d dist/css/style.css",
     "lint": "eslint ."
@@ -29,6 +29,7 @@
     "html-loader": "^0.5.5",
     "less-loader": "^4.1.0",
     "mongoose": "^5.0.4",
+    "nodemon": "^1.18.3",
     "pm2": "^3.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
