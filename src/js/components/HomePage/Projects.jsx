@@ -84,6 +84,7 @@ export default class Projects extends Component {
             <p>
               This is not a form that is meant to be used for online shopping due to the fact that exact totals are usually charged, this is though meant to be used as a cash register form where amounts such as a whole Dollars can be accepted to pay for the item.
               </p>
+              <p className = 'downloadRepo'>If you'd like to try this app out just click on the image, if you really like this repo you can download it from my github</p>
           </div>
           <div id='changeCalcImage' className='projectImages' onClick={() => this.openModal('Change')}></div>
         </div>
