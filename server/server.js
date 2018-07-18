@@ -8,7 +8,7 @@ const MongoStore = require('connect-mongo')(session);
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const axios = require('axios');
 const dotenv = require('dotenv');
-dotenv.config();
+if (process.env.NODE_ENV !== 'production') {dotenv.config();}
 
 mongoose.connect('mongodb://localhost/codewars' || process.env.MONGO_URL);
 mongoose.Promise = Promise;
