@@ -1,8 +1,6 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  // context: path.join(__dirname, '/src'),
   entry: {
     javascript: './src/js/index.jsx'
   },

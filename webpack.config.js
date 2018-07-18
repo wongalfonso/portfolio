@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = {  
+module.exports = {
   entry: {
     javascript: './src/js/index.jsx'
   },
@@ -9,14 +9,12 @@ module.exports = {
     path: path.join(__dirname, '/dist'),
     publicPath: '/'
   },
-  devtool: 'inline-source-map',
   resolve: {
     alias: {
       react: path.join(__dirname, 'node_modules', 'react')
     },
     extensions: ['.js', '.jsx']
   },
-  mode: "development",
   module: {
     rules: [
       {
@@ -35,7 +33,7 @@ module.exports = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
-          { loader: 'less-loader' }          
+          { loader: 'less-loader' }
         ]
       },
       {
@@ -49,7 +47,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg)$/,
-        use: [          
+        use: [
           { loader: 'file-loader' },
         ]
       },
@@ -57,6 +55,6 @@ module.exports = {
         test: /\.pdf$/,
         loader: 'file?name=[name].[ext]'
       }
-    ]
-  }  
+    ],
+  }
 }
