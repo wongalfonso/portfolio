@@ -58,6 +58,7 @@ export default class Projects extends Component {
         {/* {(this.state.selected == 'VSTDA') && <VSTDA close={this.closeModal} />} */}
         {(this.state.selected == 'Astro') && <AstroWeight close={this.closeModal} />}
         {/* {(this.state.selected == 'Weather') && <WeatherApp close={this.closeModal} />} */}
+        
       </Modal>
     )
   }
