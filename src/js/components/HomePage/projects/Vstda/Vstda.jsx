@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { List } from './List'
-import { ToDoForm } from './ToDoForm'
+import React, { Component } from 'react';
+import { List } from './List';
+import { ToDoForm } from './ToDoForm';
 
 export default class VSTDA extends Component {
   constructor(props) {

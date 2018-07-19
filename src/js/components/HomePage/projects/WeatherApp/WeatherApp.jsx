@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Form from "./WeatherForm";
 import CityInfo from "./CityInfo";
 import Search from "./Search";
 
-export default class WeatherApp extends React.Component {
+export default class WeatherApp extends Component {
   render() {
     return (
       <div id="weatherProject" className='allProjectModals'>
