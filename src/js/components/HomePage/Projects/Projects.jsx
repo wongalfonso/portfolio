@@ -14,7 +14,7 @@ const modalStyle = {
   overlay: {
     zIndex: 99
   }
-}
+} 
 Modal.setAppElement('#app');
 
 export default class Projects extends Component {
