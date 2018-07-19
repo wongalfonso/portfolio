@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { getCity } from './WeatherFormActions.js';
+import { getCity } from './WeatherFormActions';
 
 
 class Form extends Component {

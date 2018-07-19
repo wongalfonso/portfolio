@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Form from './WeatherForm.jsx';
-import CityInfo from './CityInfo.jsx';
-import Search from './Search.jsx';
+import Form from './WeatherForm';
+import CityInfo from './CityInfo';
+import Search from './Search';
 
 export default class Weather extends Component {
 
   render() {
-    
+
     return (
       <div id='weatherProject' className='allProjectModals'>
         <div className='container weatherContainer allProjectModalsContainer'>
