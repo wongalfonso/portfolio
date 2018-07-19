@@ -4,6 +4,7 @@ import CityInfo from "./CityInfo";
 import Search from "./Search";
 
 export default class Weather extends Component {
+  
   render() {
     return (
       <div id="weatherProject" className='allProjectModals'>
