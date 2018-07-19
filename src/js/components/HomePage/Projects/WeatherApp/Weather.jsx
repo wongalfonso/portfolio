@@ -6,6 +6,7 @@ import Search from './Search.jsx';
 export default class Weather extends Component {
 
   render() {
+    
     return (
       <div id='weatherProject' className='allProjectModals'>
         <div className='container weatherContainer allProjectModalsContainer'>
