@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
-import ChangeCalc from './ChangeCalc/ChangeCalc.jsx';
-import VSTDA from './VstdaApp/Vstda.jsx';
-import AstroWeight from './AstroWeight/AstroWeight.jsx';
-import Weather from './WeatherApp/Weather.jsx';
+import ChangeCalc from './ChangeCalc/ChangeCalc';
+import VSTDA from './VstdaApp/Vstda';
+import AstroWeight from './AstroWeight/AstroWeight';
+import Weather from './Weather/WeatherApp';
 import GitHub from './../../../../../public/images/gitHub_Mark.png'
 import ChangeCalcImage from './../../../../../public/images/ChangeCalc.jpg'
 import VSTDAImage from './../../../../../public/images/VSTDAReact.jpg'

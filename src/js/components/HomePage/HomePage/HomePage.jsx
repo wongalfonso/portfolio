@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Splash from '../Splash/Splash.jsx';
-import About from '../About/About.jsx';
-import Projects from '../Projects/Projects.jsx';
-import Footer from '../../Footer.jsx';
+import React, { Component } from '../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react';
+import { connect } from '../../../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-redux';
+import Splash from '../Splash/Splash';
+import About from '../About/About';
+import Projects from '../Projects/Projects';
+import Footer from '../../Footer';
 import NavBar from '../NavBar/NavBar';
 
 
