@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { List } from './List.jsx'
-import { ToDoForm } from './ToDoForm.jsx'
+import React, { Component } from 'react'
+import { List } from './List'
+import { ToDoForm } from './ToDoForm'
 
 export default class VSTDA extends Component {
   constructor(props) {
@@ -114,10 +114,6 @@ export default class VSTDA extends Component {
 
 
   render() {
-    // let overflow;
-    // const list = this.listElement;    
-    // const hasOverflow = list.offsetHeight < list.scrollHeight;
-    // (hasOverflow) ? overflow = {overflowY : 'scroll'} : overflow = {overflowY : 'hidden'}    
     return (
 
       <div id='vstdaProject' className='allProjectModals'>

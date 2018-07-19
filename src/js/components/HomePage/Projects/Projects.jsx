@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
-import ChangeCalc from './projects/ChangeCalc';
-import VSTDA from './projects/Vstda/Vstda';
-import AstroWeight from './projects/AstroWeight';
-import WeatherApp from './projects/WeatherApp/WeatherApp';
+import ChangeCalc from './ChangeCalc/ChangeCalc';
+import VSTDA from './Vstda/Vstda';
+import AstroWeight from './AstroWeight/AstroWeight';
+import WeatherApp from './WeatherApp/WeatherApp';
 
 const modalStyle = {
   content: {    

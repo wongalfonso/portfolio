@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createUser } from '../Login/LoginActions';
 import { Redirect } from 'react-router-dom'
-import { getDate } from '../Date'
+import { getDate } from './../../Date'
 
 class SignUp extends Component {
   constructor(props) {

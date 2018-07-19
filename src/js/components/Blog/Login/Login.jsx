@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { authenticateUser } from './LoginActions';
-import { getDate } from '../Date';
+import { getDate } from './../../Date';
 
 export default class Login extends Component {
   constructor(props) {

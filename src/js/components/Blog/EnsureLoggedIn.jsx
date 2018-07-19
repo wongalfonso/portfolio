@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-import Login from './Login';
+import Login from './Login/Login';
 
 class EnsureLoggedIn extends Component {
   constructor(props) {
