@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/style.less'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import HomePage from './components/HomePage/HomePage/HomePage';
+import HomePage from './components/HomePage/HomePage/HomePageApp';
 import PageBlog from './components/Blog/PageBlog';
 import SignUp from './components/Blog/SignUp/SignUp';
 import Login from './components/Blog/Login';
