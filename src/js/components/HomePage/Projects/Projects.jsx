@@ -11,20 +11,6 @@ import AstroImage from './../../../../../public/images/AstroWeightCalc.jpg'
 import WeatherImage from './../../../../../public/images/WeatherApp.jpg'
 
 const modalStyle = {
-  // content: {
-  //   top: '50%',
-  //   left: '50%',
-  //   right: 'auto',
-  //   bottom: 'auto',
-  //   padding: 0,
-  //   transform: 'translate(-50%, -50%)',
-  //   width: '70%',
-  //   maxWidth: '1800px',
-  //   maxHeight: '1000px',
-  //   borderRadius: '20px',
-  //   overflow: 'hidden'
-  //   // opacity: 0,    
-  // },
   overlay: {
     zIndex: 99
   }

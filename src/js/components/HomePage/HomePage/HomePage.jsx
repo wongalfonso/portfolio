@@ -4,6 +4,7 @@ import Splash from '../Splash/Splash';
 import About from '../About/About';
 import Projects from '../Projects/Projects';
 import Footer from '../../Footer';
+import NavBar from '../NavBar/NavBar';
 
 
 class HomePage extends Component {
@@ -20,6 +21,7 @@ class HomePage extends Component {
     const { screen } = this.props;
     return (
       <div className='fullSite' id='fullpage' ref={(screen) => this.screen = screen}>
+        {/* <NavBar/> */}
         <Splash screen={screen} />
         <About screen={screen} />
         <Projects screen={screen} />
