@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios';
 
 export function getCity(input, date, time) {
   const city = input.toLowerCase();

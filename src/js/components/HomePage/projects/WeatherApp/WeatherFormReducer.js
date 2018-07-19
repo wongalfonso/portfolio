@@ -1,28 +1,28 @@
 const defaultState = {
   loading: false,
   loaded: false,
-  date: "",
-  time: "",
-  input: "",
-  cityInput: "",
+  date: '',
+  time: '',
+  input: '',
+  cityInput: '',
   throwErr: false,
   success: false,
   data: [{
     data: {
-      name: "Search A City...",
+      name: 'Search A City...',
       coord: { 
-        lat: "", lon: "" 
+        lat: '', lon: '' 
     },
     weather: { 
       0: { 
-        description: "", 
-        icon: ""
+        description: '', 
+        icon: ''
       } 
     },
     main: { 
-      temp: "", pressure: "", humidity: "", temp_min: "", temp_max: "" },
-      wind: { speed: "" },
-      sys: {country: ""},
+      temp: '', pressure: '', humidity: '', temp_min: '', temp_max: '' },
+      wind: { speed: '' },
+      sys: {country: ''},
     }
   }],
   errors: [],
@@ -33,7 +33,7 @@ export default function FormReducer(state = defaultState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case "GET_WEATHER_PENDING": {
+    case 'GET_WEATHER_PENDING': {
       return {
         ...state,
         loading: true,
@@ -41,7 +41,7 @@ export default function FormReducer(state = defaultState, action) {
       };
     }
 
-    case "GET_WEATHER_FULFILLED": {
+    case 'GET_WEATHER_FULFILLED': {
       if (payload.data.cod === 200) {
         return {
           data: [
@@ -59,24 +59,24 @@ export default function FormReducer(state = defaultState, action) {
         }
       }
     }
-    case "GET_WEATHER_REJECTED": {  
+    case 'GET_WEATHER_REJECTED': {  
       return {
         data: [{
           data: {
             name: payload.input,
             coord: { 
-              lat: "82.8628", lon: "135.0000" 
+              lat: '82.8628', lon: '135.0000' 
             },
             weather: { 
             0: { 
-              description: "maybe you mispelled the city name", 
-              icon: "13n"
+              description: 'maybe you mispelled the city name', 
+              icon: '13n'
             } 
           },
           main: { 
-            temp: "-1000", pressure: "0", humidity: "0", temp_min: "-2000", temp_max: "-99" },
-            wind: { speed: "99" },
-            sys: {country: "Its Own Country"},
+            temp: '-1000', pressure: '0', humidity: '0', temp_min: '-2000', temp_max: '-99' },
+            wind: { speed: '99' },
+            sys: {country: 'Its Own Country'},
           },
             date: payload.date,
             time: payload.time
@@ -90,7 +90,7 @@ export default function FormReducer(state = defaultState, action) {
       };
     }
 
-    case "UPDATE_INPUT": {
+    case 'UPDATE_INPUT': {
       return { ...state, input: payload.input, 
       };
     }
