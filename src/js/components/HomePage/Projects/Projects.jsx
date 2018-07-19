@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import ChangeCalc from './ChangeCalc/ChangeCalc';
 import VSTDA from './VstdaApp/Vstda';
 import AstroWeight from './AstroWeight/AstroWeight';
-// import WeatherApp from './WeatherApp/WeatherApp';
+import Weather from './WeatherApp/Weather';
 import GitHub from './../../../../../public/images/gitHub_Mark.png'
 import ChangeCalcImage from './../../../../../public/images/ChangeCalc.jpg'
 import VSTDAImage from './../../../../../public/images/VSTDAReact.jpg'
@@ -57,7 +57,7 @@ export default class Projects extends Component {
         {(this.state.selected === 'Change') && <ChangeCalc close={this.closeModal} />}
         {(this.state.selected == 'VSTDA') && <VSTDA close={this.closeModal} />}
         {(this.state.selected == 'Astro') && <AstroWeight close={this.closeModal} />}
-        {/* {(this.state.selected == 'Weather') && <WeatherApp close={this.closeModal} />} */}
+        {(this.state.selected == 'Weather') && <Weather close={this.closeModal} />}
 
       </Modal>
     )
