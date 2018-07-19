@@ -3,10 +3,6 @@ import backgroundVid from './../../../../../public/video/backgroundVideo.mp4';
 
 
 export default class Splash extends Component {
-  componentDidMount() {
-    // const vid = this.vid;
-    // console.log(vid.offsetWidth);
-  }
   smallScreen() {
     return (
       <div id="splashPage">
