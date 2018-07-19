@@ -12,6 +12,7 @@ class HomePage extends Component {
     const { dispatch } = this.props;
     const screen = this.screen;
     if (screen.offsetWidth) {
+      console.log(screen.offsetHeight)
       dispatch(exportScreenSize(screen.offsetWidth))
     }
   }
