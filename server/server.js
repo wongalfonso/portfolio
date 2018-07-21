@@ -13,10 +13,10 @@ if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
 }
 
-mongoose.connect('mongodb://localhost/codewars' || process.env.MONGO_URL);
-mongoose.Promise = Promise;
-const db = mongoose.connection;
-db.on('error', console.error.bind('connection error:'));
+// mongoose.connect('mongodb://localhost/codewars' || process.env.MONGO_URL);
+// mongoose.Promise = Promise;
+// const db = mongoose.connection;
+// db.on('error', console.error.bind('connection error:'));
 
 app.use(morgan('dev'));
 app.use(express.static('public'));

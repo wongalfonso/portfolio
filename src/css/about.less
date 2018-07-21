@@ -7,10 +7,10 @@
   max-width: 100%;
   overflow-x: hidden;
 }
-
 .aboutHeader {
   z-index: 20;
 }
+
 .aboutPage:after {
   content: '';
   position: absolute;
@@ -19,7 +19,6 @@
   bottom: 0;
   left: 0;
   background-color: rgba(0,0,0,0.6);
-  overflow-x: hidden;
   z-index: 10;
 }
 
@@ -31,7 +30,6 @@
 .profilePic {
   position: relative;
   float: none;
-  // text-align: right;
   background-image: url('./../../public/images/mainProfileImage.png');
   background-size: cover;
   background-position: center;
@@ -76,12 +74,16 @@
 @media (max-width: @sm) {
   .aboutPage {
     height: 100%;
+    max-width: 100vw;
+  }
+  .aboutPage:after {
+    height: 100%;
   }
   .profile {
     height: 100%;
   }
   .aboutText {
-    line-height: 1.2;
+    line-height: 1.5;
   }
 
   .profilePic:before {
@@ -109,19 +111,19 @@
 }
 
 @media (min-width: @md) {
-
+  .aboutPage {
+    height: 100vh;
+  }
   .aboutRow {
     border-radius: 100px;
     border-left: solid white 4px;
     border-top: solid white 4px;
     border-bottom: solid white 4px;
+    margin-bottom: 4rem;
+    
   }
   .aboutText {
     line-height: 1.6;
-  }
-  
-  .aboutRow {
-    margin-bottom: 4rem;
   }
   
   .profilePic:before {
@@ -141,6 +143,7 @@
 @media screen and (max-height: 700px) {
   .aboutPage {
     height: 100%;
+    max-width: 100%; 
   }
 }
 @media screen and (min-height: 700px) {

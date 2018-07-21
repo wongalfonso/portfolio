@@ -12,9 +12,6 @@ class Search extends React.Component {
     (searchArr.length > 4) ? history = searchArr.slice(0,5) : history = searchArr;
     return(
     <div className='card weatherCard'>
-      <div className='card-header weatherCardHeader'>
-        Search History
-      </div>
       <div className='card-body weatherSearchBody'>
         <table className='table'>
           <tbody>          

@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 export default class About extends Component {
 
+  componentDidMount() {
+    const about = document.getElementById('aboutPage');about.onmouseenter = () => this.props.enter('about');
+    about.onmouseleave = () => this.props.exit('about');
+  }
+  
   aboutText(style) {
 
     return (
@@ -29,9 +35,9 @@ export default class About extends Component {
 
   largeScreen() {
     return (
-      <div className='row aboutRow'>
-        {this.aboutText('col-xl-6 col-lg-8 aboutText')}
-        <div className='col-xl-6 col-lg-4 profilePic'>
+      <div className='row aboutRow' >
+        {this.aboutText('col-6 aboutText')}
+        <div className='col-6 profilePic'>
         </div>
       </div>
     )
@@ -43,8 +49,8 @@ export default class About extends Component {
   render() {
     const { screen } = this.props;
     return (
-      <div className='aboutPage' refs='aboutPage'>
-        <div className='container aboutContainer'>
+      <div className='aboutPage' id = 'aboutPage' ref = 'aboutPage'>
+        <div className='container aboutContainer' id = 'aboutContainer'>
           <div className='row'>
             <div className='col-12 aboutHeader'>
               <div className='title'>About Me</div>

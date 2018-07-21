@@ -4,7 +4,8 @@ import ChangeCalc from './ChangeCalc/ChangeCalc';
 import VSTDA from './VstdaApp/Vstda';
 import AstroWeight from './AstroWeight/AstroWeight';
 import Weather from './Weather/WeatherApp';
-import GitHub from './../../../../../public/images/gitHub_Mark.png'
+import GitHub from './../../../../../public/images/gitHub.png'
+import GitHubWhite from './../../../../../public/images/gitHubWhite.png'
 import ChangeCalcImage from './../../../../../public/images/ChangeCalc.jpg'
 import VSTDAImage from './../../../../../public/images/VSTDAReact.jpg'
 import AstroImage from './../../../../../public/images/AstroWeightCalc.jpg'
@@ -33,6 +34,11 @@ export default class Projects extends Component {
     this.aboutVSTDA = this.aboutVSTDA.bind(this);
     this.aboutWeather = this.aboutWeather.bind(this);
     this.aboutAstro = this.aboutAstro.bind(this);
+  }
+
+  componentDidMount() {
+    const project = document.getElementById('projectPage');project.onmouseenter = () => this.props.enter('project');
+    project.onmouseleave = () => this.props.exit('project');
   }
 
   openModal(project) {
@@ -64,14 +70,14 @@ export default class Projects extends Component {
   }
   gitHub(link) {
     return (
-      <a href={link} target='_blank'><img src={GitHub} className='gitHubImage' /></a>
+      <a href={link} target='_blank'><img src={GitHubWhite} className='gitHubImage' /></a>
     )
   }
   aboutCalc(calcStyle) {
     return (
       <div className={calcStyle}>
-        <p>This is a simple React form that allos you to enter the total amount of an item and the amount the person used to pay for that amount. This React project is a simple JavaScript project that was easy to reproduce with some basic math logic. This is not a form that is meant to be used for online shopping due to the fact that exact totals are usually charged, this is though meant to be used as a cash register form where amounts such as a whole Dollars can be accepted to pay for the item.</p>
-        <p className='downloadRepo'>If you'd like to try this app out just click on the image, if you really like this repo you can download it from my github {this.gitHub('https://github.com/wongalfonso/React-Change-Calculator')}</p>
+        <p>This is a simple React form that allos you to enter the total amount of an item and the amount the person used to pay for that amount. This React project is a simple JavaScript project that was easy to reproduce with some basic math logic. This is not a form that is meant to be used for online shopping due to the fact that exact totals are usually charged, this is though meant to be used as a cash register form where amounts such as a whole Dollars can be accepted to pay for the item. If you'd like to try this app out just click on the image, if you really like this repo you can download it from my github </p>
+        <p> {this.gitHub('https://github.com/wongalfonso/React-Change-Calculator')}</p>
       </div>
     )
   }
@@ -79,8 +85,8 @@ export default class Projects extends Component {
   aboutVSTDA(vstdaStyle) {
     return (
       <div className={vstdaStyle}>
-        <p>This React project is called Very Simple ToDo App. The main purpose of this application is to create a list and use basic CRUD operations within React state. With this application you have the ability to Add an item to the list and select a priority. Once the item has been added, the user has the ability to Update the lists priority or description and then Delete it once it is no longer needed.</p>
-        <p>When I was first learning React, CRUD operations within React was a new concept that it took me a while to wrap my brain around. Finally learning this concept help grasp the idea and true power within React. {this.gitHub('https://github.com/wongalfonso/VSTDA')}</p>
+        <p>This React project is called Very Simple ToDo App. The main purpose of this application is to create a list and use basic CRUD operations within React state. With this application you have the ability to Add an item to the list and select a priority. Once the item has been added, the user has the ability to Update the lists priority or description and then Delete it once it is no longer needed. When I was first learning React, CRUD operations within React was a new concept that it took me a while to wrap my brain around. Finally learning this concept help grasp the idea and true power within React.</p>
+        <p>{this.gitHub('https://github.com/wongalfonso/VSTDA')}</p>
       </div>
     )
   }
@@ -88,7 +94,8 @@ export default class Projects extends Component {
   aboutAstro(astroStyle) {
     return (
       <div className={astroStyle}>
-        <p>This form is a basic JavaScript form that I modified into a React form. The main purpose of this form is for the user to input their current weight and the form will adjust the users weight depending on the planet they choose from the list. The Sun and Moon are also possibilities to choose from since they are part of our solar system. I added a feature to remove Pluto from the list since it has been downgraded from a planet to a Dwarf Planet. This is one of the first JavaScript projects that I worked on and the toughest part for me was trying to understand objects and arrays. Reading from an array was fairly simple, but modifying one seemed to be challenging. {this.gitHub('https://github.com/wongalfonso/Astro-Weight-React')} </p>
+        <p>This form is a basic JavaScript form that I modified into a React form. The main purpose of this form is for the user to input their current weight and the form will adjust the users weight depending on the planet they choose from the list. The Sun and Moon are also possibilities to choose from since they are part of our solar system. I added a feature to remove Pluto from the list since it has been downgraded from a planet to a Dwarf Planet. This is one of the first JavaScript projects that I worked on and the toughest part for me was trying to understand objects and arrays. Reading from an array was fairly simple, but modifying one seemed to be challenging. </p>
+        <p>{this.gitHub('https://github.com/wongalfonso/Astro-Weight-React')} </p>
       </div>
     )
   }
@@ -96,7 +103,8 @@ export default class Projects extends Component {
   aboutWeather(weatherStyle) {
     return (
       <div className={weatherStyle}>
-        <p>This is the first Redux application that I built while at Origin Code Academy. This application helped me understand the true power of Redux and the potential of the framework. The toughest part for me to grasp was the seperation of React into a simple view component and allowing Redux to handle all of the grunt work. Handling errors in Redux was also another hurdle for me due to the fact that when using Redux Promise Middleware, errors now had to be dealt with in state as opposed to just being dealt with in the server. After understanding the possibilities of what Redux can do, I decided to build this portfolio in that framework. {this.gitHub('https://github.com/wongalfonso/Weather-App')}</p>
+        <p>This is the first Redux application that I built while at Origin Code Academy. This application helped me understand the true power of Redux and the potential of the framework. The toughest part for me to grasp was the seperation of React into a simple view component and allowing Redux to handle all of the grunt work. Handling errors in Redux was also another hurdle for me due to the fact that when using Redux Promise Middleware, errors now had to be dealt with in state as opposed to just being dealt with in the server. After understanding the possibilities of what Redux can do, I decided to build this portfolio in that framework.</p>
+        <p> {this.gitHub('https://github.com/wongalfonso/Weather-App')}</p>
       </div>
     )
   }
@@ -182,7 +190,7 @@ export default class Projects extends Component {
   render() {
     const { screen } = this.props;
     return (
-      <div className='projectsPage'>
+      <div className='projectsPage' id = 'projectPage' ref = {(project) => this._project = project} >
         <div className='container'>
           <div className='row'>
             <div className='col-12 projectsHeader'>

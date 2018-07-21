@@ -10,24 +10,12 @@
   max-width: 1800px;
   max-height: 1000px;
   border-radius: 20px;
+  height: 100%;
   overflow: hidden;
 }
-// .ReactModal__Content--after-open {
-//   top: '50%',
-//     left: '50%',
-//     right: 'auto',
-//     bottom: 'auto',
-//     padding: 0,
-//     transform: 'translate(-50%, -50%)',
-//     width: '70%',
-//     maxWidth: '1800px',
-//     maxHeight: '1000px',
-//     borderRadius: '20px',
-//     overflow: 'hidden'
-// }
+
 .projectsPage {
   background-image: url('./../../public/images/GoldenGateBridge.jpg');
-  // background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -36,6 +24,7 @@
   width: 100vw;
   max-width: 100%;
   height: 100%;
+  max-height: 100%;
   overflow-x: hidden;
 }
 
@@ -50,6 +39,7 @@
   z-index: 10;
   max-width: 100%;
   height: 100%;
+  max-height: 100%;
   overflow-x: hidden;
 }
 .projectsHeader {
@@ -62,7 +52,7 @@
   border-radius: 20px;
   text-align: center;
   z-index: 15;
-  padding: 15px;
+  padding: 10px;
 }
 .projectImages {
   border-radius: 20px;
@@ -77,18 +67,23 @@
 
 @media (max-width: @sm){
   .projectContainer {
-    height: 100vh;
+    height: 100%;
+    max-width: 100vw;
   }
 
   .infoDiv { 
     position: relative;
-    line-height: 1.2rem;
+    line-height: 1.5rem;
   }
   .projectImages{
     position: relative;
     margin-top: 1rem;
     margin-bottom: 1rem;
     width: 100%;
+  }
+  .gitHubImage {
+    width: 80px;
+    height: 40px;
   }
 
 }
@@ -103,7 +98,9 @@
     cursor: pointer;
     transition: all 1s ease;  
   }
-
+  #feedbackSuccess {
+    display: block;
+  }
   .projectContainer {
     height: 300px;
     margin-bottom: 1rem;
@@ -134,7 +131,7 @@
   }
   
   .allProjectModals {
-      height: 726px;
+      height: 100%;
   }
   .modalBody { 
     height: 600px;
@@ -155,6 +152,10 @@
   .closeBtn {
     width: 200px;
     margin-right: 0;
+  }
+  .gitHubImage {
+    width: 80px;
+    height: 40px;
   }
   .gitMark {
     width: 100px;

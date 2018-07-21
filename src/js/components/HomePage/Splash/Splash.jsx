@@ -3,6 +3,10 @@ import backgroundVid from './../../../../../public/video/backgroundVideo.mp4';
 
 
 export default class Splash extends Component {
+  componentDidMount(){
+    const about = document.getElementById('splashPage');about.onmouseenter = () => this.props.enter('splash');
+    about.onmouseleave = () => this.props.exit('splash');
+  }
   smallScreen() {
     return (
       <div id="splashPage">
@@ -41,7 +45,7 @@ export default class Splash extends Component {
 
   largeScreen() {
     return (
-      <div className='vidContainer section'>
+      <div className='vidContainer section' id = 'vidContainer'>
         <video id='backgroundVid' loop autoPlay muted>
           <source src={backgroundVid} type='video/mp4' />
         </video>
