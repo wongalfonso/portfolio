@@ -2,6 +2,6 @@ deployment:
   prod:
     branch: master
     heroku: 
-      appname: Portfolio-React
+      appname: aw-portfolio-dev
   machine: 
     node: version 10.6.0

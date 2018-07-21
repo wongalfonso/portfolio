@@ -35,7 +35,7 @@ export default class Weather extends Component {
               <div className='row'>
               <div className='col-3'>
                 <a href='https://github.com/wongalfonso/Weather-App' target='_blank'>
-                  <img className='gitMark' src='/images/github.png' />
+                  <img className='gitMark' src='/images/GitHub.png' />
                 </a>
               </div>
                 <div className='col-3'></div>

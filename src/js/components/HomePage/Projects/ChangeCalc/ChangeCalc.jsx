@@ -239,7 +239,7 @@ export default class ChangeCalc extends Component {
               <div className="row">
                 <div className="col-3">
                   <a href="https://github.com/wongalfonso/React-Change-Calculator" target="_blank">
-                    <img className="gitMark" src="/images/github.png" />
+                    <img className="gitMark" src="/images/GitHub.png" />
                   </a>
                 </div>
                 <div className="col-3"></div>
