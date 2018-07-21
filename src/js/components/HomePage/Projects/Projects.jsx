@@ -4,7 +4,6 @@ import ChangeCalc from './ChangeCalc/ChangeCalc';
 import VSTDA from './VstdaApp/Vstda';
 import AstroWeight from './AstroWeight/AstroWeight';
 import Weather from './Weather/WeatherApp';
-import GitHub from './../../../../../public/images/GitHub.png'
 import GitHubWhite from './../../../../../public/images/GitHubWhite.png'
 import ChangeCalcImage from './../../../../../public/images/ChangeCalc.jpg'
 import VSTDAImage from './../../../../../public/images/VSTDAReact.jpg'
