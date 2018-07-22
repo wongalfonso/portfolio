@@ -45,11 +45,14 @@ export default class Splash extends Component {
 
   largeScreen() {
     return (
-      <div className='vidContainer section' id = 'vidContainer'>
-        <video id='backgroundVid' loop autoPlay muted>
+      <div 
+        className='vidContainer section' 
+        id = 'vidContainer'
+        >
+        <video id='backgroundVid' loop autoPlay muted >
           <source src={backgroundVid} type='video/mp4' />
         </video>
-        <div id="splashPage">
+        <div id="splashPage" >
           <div className="container">
             <div className='overlay'>
               <ul className='overlayText overlayTextName'>

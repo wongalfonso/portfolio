@@ -70,7 +70,7 @@ class CityInfo extends Component {
   }
 
   render() {
-    const { data, success, throwErr } = this.props;
+    const { success, throwErr } = this.props;
     return (
       <div className='card weatherCard mb-3 text-center'>
         {(success === true) ? this.renderCitySuccess() : this.renderCityBasic()}

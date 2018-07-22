@@ -49,7 +49,10 @@ export default class About extends Component {
   render() {
     const { screen } = this.props;
     return (
-      <div className='aboutPage' id = 'aboutPage' ref = 'aboutPage'>
+      <div 
+        className='aboutPage' 
+        id = 'aboutPage' 
+        >
         <div className='container aboutContainer' id = 'aboutContainer'>
           <div className='row'>
             <div className='col-12 aboutHeader'>

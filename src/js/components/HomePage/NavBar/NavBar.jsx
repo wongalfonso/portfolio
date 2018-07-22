@@ -8,19 +8,19 @@ export default class NavBar extends Component {
 
 
   render() {
-    const { active, isActive } = this.props;
+    const { active, scroll } = this.props;
     return (
       <div>
         <ul className='navBar'>
           <li>
             {
               (active === 'splash') ?
-                <a href='#vidContainer'>
+                <a className = 'pages'>
                   Top
-                <img id='topActive' src={Active} />
+                <img id='topActive' src={Active} onClick = {scroll.bind(this, 'vidContainer')}/>
                 </a> :
-                <a href='#vidContainer'>
-                  <img id='topMenu' src={Menu} onClick = {() => isActive('splash')}/>
+                <a >
+                  <img id='topMenu' src={Menu} onClick = {scroll.bind(this,'vidContainer')}/>
                 </a>
             }
           </li>
@@ -28,12 +28,12 @@ export default class NavBar extends Component {
           <li>
             {
               (active === 'about') ?
-                <a href='#aboutPage'>
+                <a className = 'pages'>
                   About
-                  <img id='aboutActive' src={Active}/>
+                  <img id='aboutActive' src={Active} onClick = {scroll.bind(this, 'aboutPage')}/>
                 </a> :
-                <a href='#aboutPage'>
-                  <img id='aboutMenu' src={Menu} onClick = {() => isActive('about')}/>
+                <a >
+                  <img id='aboutMenu' src={Menu} onClick = {scroll.bind(this, 'aboutPage')}/>
                 </a>
             }
           </li>
@@ -41,12 +41,12 @@ export default class NavBar extends Component {
           <li>
             {
               (active === 'project') ?
-                <a href='#projectPage'>
+                <a className = 'pages'>
                   Projects
-                  <img id = 'projectActive' src={Active} />
+                  <img id = 'projectActive' src={Active} onClick = {() => scroll.bind(this, 'projectPage')}/>
                 </a> :
-                <a href='#projectPage'>
-                  <img src={Menu} onClick = {() => isActive('project')}/>
+                <a >
+                  <img src={Menu} onClick = {scroll.bind(this, 'projectPage')}/>
                 </a>
             }
           </li>
