@@ -1,7 +1,0 @@
-deployment: 
-  prod:
-    branch: master
-    heroku: 
-      appname: aw-portfolio-dev
-  machine: 
-    node: version 10.6.0
