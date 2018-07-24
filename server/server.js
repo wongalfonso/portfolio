@@ -62,4 +62,5 @@ app.get('*.js', (req,res, next) => {
 app.get('*', (req, res) => {
   res.sendFile(path.resolve('public', 'index.html'));
 });
+
 module.exports = app;

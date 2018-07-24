@@ -6,11 +6,7 @@ node_modules
 logs
 coverage
 dist
-<<<<<<< HEAD
-*config
-=======
-config
->>>>>>> 458e972ba9eb1f014e739557c4986ef6edb52799
+/config
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
