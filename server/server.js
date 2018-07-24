@@ -35,15 +35,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //   })
 // }))
 app.get("/api/weather/:input", (req, res) => {  
-  let weatherKey;
-  console.log(NODE);
+  let weatherKey;;
   if (NODE === 'production') {
     weatherKey = process.env.WEATHER_KEY;
     
   } else {
     weatherKey = config.WEATHER_KEY
-  }
-  console.log(weatherKey);
+  };
 
   const search = req.params.input;
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=imperial&APPID=${weatherKey}`)
