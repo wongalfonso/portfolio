@@ -12,29 +12,37 @@ export default class Splash extends Component {
       <div id="splashPage">
         <div className="container splashContainer">
           <div className='overlayText'>
-            <div className="row">
+          <div className="row topTextRow">
+              <div className="col-12">
+              </div>
+            </div>
+            <div className="row textRow">
               <div className="col-12">
                 ALFONSO
               </div>
             </div>
-            <div className="row">
+            <div className="row textRow">
               <div className="col-12">
                 WONG
               </div>
             </div>
-            <div className="row">
+            <div className="row textRow">
               <div className="col-12">
                 FRONT
               </div>
             </div>
-            <div className="row">
+            <div className="row textRow">
               <div className="col-12">
                 END
               </div>
             </div>
-            <div className="row">
+            <div className="row textRow">
               <div className="col-12">
                 DEVELOPER
+              </div>
+            </div>
+            <div className="row botTextRow">
+              <div className="col-12">
               </div>
             </div>
           </div>
