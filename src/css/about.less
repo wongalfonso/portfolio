@@ -114,8 +114,12 @@
 
 @media (min-width: @md) {
   .aboutPage {
+    height: 100%;
+  }
+  .aboutPage when (height >= 700px){  
     height: 100vh;
   }
+
   .aboutRow {
     border-radius: 100px;
     border-left: solid white 4px;
