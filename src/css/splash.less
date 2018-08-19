@@ -1,6 +1,4 @@
-@media (max-width: @sm){
-  
-  #splashPage {
+#splash-page {
   background-image: url('./../../public/images/DowntownBackground.jpg');
   background-position: center;
   background-size: cover;
@@ -8,67 +6,14 @@
   position: relative;
   height: 100vh;
   overflow-x: hidden;
-  }
-  .splashContainer {
-    height: 100%;
-  }
-  .splashContainer:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100vw;
-    max-width: 100vw;
-    height: 100%;
-    overflow: hidden;
-    z-index: 2;
-    background-color: rgba(0,0,0,0.6)
-  }
-
-  .overlayText {
-    position: absolute;
-    align-self: center;
-    margin: auto;
-    left: 0;  
-    font-size: 40px; 
-    text-align: center; 
-    width: 100vw;
-    font-weight: bold;
-    line-height: 5rem;
-    color: rgb(255,255,255);  
-    z-index: 20;
-  }
-
-
 }
-
-@media (min-width: @md) {
-
-
-.vidContainer {  
-  position: relative;  
+.overlay {
+  position: absolute;
+  height: 100%;
   width: 100%;
-  height: 100vh;
-  bottom: 0; 
-  max-width: 100vw;
-  overflow: hidden;  
 }
-
-#backgroundVid {    
-  position: relative; 
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-width: 100vw;    
-  min-height: 100vh;
-  overflow: hidden;
-  bottom: 0;
-  right: 0;
-}
-
-.vidContainer:after {
-  content: "";
+.overlay:after {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -79,470 +24,563 @@
   height: 100%;
   overflow: hidden;
   z-index: 2;
-  @animation-name: overlay;
-  @animation-duration: 2s;
-  @animation-delay: 2s;
-  @animation-fill-mode: forwards;
-  animation-name: overlay;
-  animation-duration: 2s;
-  animation-delay: 2s;
-  animation-fill-mode: forwards;
+  background-color: rgba(0,0,0,0.5)
 }
 
-@keyframes overlay {
-  0% {background-color: rgba(0,0,0,0)}
-  100% {background-color: rgba(0,0,0,0.6)}
-}
-@-webkit-keyframes overlay {
-  0% {background-color: rgba(0,0,0,0)}
-  100% {background-color: rgba(0,0,0,0.6)}
-}
-
-.overlayText {
+.overlay-text {
   list-style: none;
-  position: absolute;  
-  top: 40%;  
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);      
-  text-align: center; 
-  font-size: 70px;
   width: 100%;
+  height: 100%;
+  text-align: center;
   font-weight: bold;
-  color: rgb(255,255,255);  
+  text-shadow: 4px 3px rgb(38, 38, 38);
+  color: rgb(255,255,255);
   z-index: 20;
 }
-
-.overlayText li {display: inline-block;opacity: 0;}
-.overlayTextTitle {margin-top: 80px;}
-.overlayTextName li:nth-child(7) {margin-right: 30px;}
-.overlayTextName li:last-child {margin-right: 0;}
-
-
-.overlayTextName li:nth-child(1) {
-  animation: 1.6s linear 3s first;
-  @animation: 1.6s linear 3s first;
-  @webfillmode: forwards;
-  animation-fill-mode: forwards;
+#splash-vid {  
+  display: none;
 }
-.overlayTextName li:nth-child(2) {
-  @animation: 1.6s linears 3.2s sec;
-  @webfillmode: forwards;
-  animation: 1.6s linear 3.2s sec;
-  animation-fill-mode: forwards;
+.splash-container {
+  height: 100%;
+  width: 100%;
 }
-.overlayTextName li:nth-child(3) {
-  @animation: 1.6s linear 3.4s third;
-  @webfillmode: forwards;
-  animation: 1.6s linear 3.4s third;
-  animation-fill-mode: forwards;
+.overlay-text-name {
+  position: relative;
 }
-.overlayTextName li:nth-child(4) {
-  @animation: 1.6s linear 3.6s fourth;
-  @webfillmode: forwards;
-  animation: 1.6s linear 3.6s fourth;
-  animation-fill-mode: forwards;
+.overlay-text ul {
+  padding: 0;
 }
-.overlayTextName li:nth-child(5) {
-  @animation: 1.6s linear 3.8s fifth;
-  @webfillmode: forwards;
-  animation: 1.6s linear 3.8s fifth;
-  animation-fill-mode: forwards;
-}
-.overlayTextName li:nth-child(6) {
-  @animation: 1.6s linear 4s sixth;
-  @webfillmode: forwards;
-  animation: 1.6s linear 4s sixth;
-  animation-fill-mode: forwards;
-}
-.overlayTextName li:nth-child(7) {
-  @animation: 1.6s linear 4.2s seventh;
-  @webfillmode: forwards;
-  animation: 1.6s linear 4.2s seventh;
-  animation-fill-mode: forwards;
-  margin-right: 30px;
-}
-.overlayTextName li:nth-child(8) {
-  @animation: 1.6s linear 4.4s eighth;
-  @webfillmode: forwards;
-  animation: 1.6s linear 4.4s eighth;
-  animation-fill-mode: forwards;
-}
-.overlayTextName li:nth-child(9) {
-  @animation: 1.6s linear 4.6s ninth;
-  @webfillmode: forwards;
-  animation: 1.6s linear 4.6s ninth;
-  animation-fill-mode: forwards;
-}
-.overlayTextName li:nth-child(10) {
-  @animation: 1.6s linear 4.8s tenth;
-  @webfillmode: forwards;
-  animation: 1.6s linear 4.8s tenth;
-  animation-fill-mode: forwards;
-}
-.overlayTextName li:nth-child(11) {
-  @animation: 1.6s linear 5s eleventh;
-  @webfillmode: forwards;
-  animation: 1.6s linear 5s eleventh;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(1) {
-  @animation: 1s linear 3s firstT;
-  @webfillmode: forwards;
-  animation: 1s linear 3s firstT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(2) {
-  @animation: 1s linear 3.2s secT;
-  @webfillmode: forwards;
-  animation: 1s linear 3.2s secT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(3) {
-  @animation: 1s linear 3.5s thirdT;
-  @webfillmode: forwards;
-  animation: 1s linear 3.4s thirdT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(4) {
-  @animation: 1s linear 3.6s fourthT;
-  @webfillmode: forwards;
-  animation: 1s linear 3.6s fourthT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(5) {
-  @animation: 1s linear 3.8s fifthT;
-  @webfillmode: forwards;
-  animation: 1s linear 3.8s fifthT;
-  animation-fill-mode: forwards;
-  margin-right: 30px;
-}
-.overlayTextTitle li:nth-child(6) {
-  @animation: 1s linear 4s sixthT;
-  @webfillmode: forwards;
-  animation: 1s linear 4s sixthT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(7) {
-  @animation: 1s linear 4.2s seventhT;
-  @webfillmode: forwards;
-  animation: 1s linear 4.2s seventhT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(8) {
-  @animation: 1s linear 4.4s eighthT;
-  @webfillmode: forwards;
-  animation: 1s linear 4.4s eighthT;
-  animation-fill-mode: forwards;
-  margin-right: 30px;
-}
-.overlayTextTitle li:nth-child(9) {
-  @animation: 1s linear 4.6s ninthT;
-  @webfillmode: forwards;
-  animation: 1s linear 4.6s ninthT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(10) {
-  @animation: 1s linear 4.8s tenthT;
-  @webfillmode: forwards;
-  animation: 1s linear 4.8s tenthT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(11) {
-  @animation: 1s linear 5s eleventhT;
-  @webfillmode: forwards;
-  animation: 1s linear 5s eleventhT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(12) {
-  @animation: 1s linear 5.2s twelvethT;
-  @webfillmode: forwards;
-  animation: 1s linear 5.2s twelvethT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(13) {
-  @animation: 1s linear 5.4s thirteenthT;
-  @webfillmode: forwards;
-  animation: 1s linear 5.4s thirteenthT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(14) {
-  @animation: 1s linear 5.6s fourteenthT;
-  @webfillmode: forwards;
-  animation: 1s linear 5.6s fourteenthT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(15) {
-  @animation: 1s linear 5.8s fifteenthT;
-  @webfillmode: forwards;
-  animation: 1s linear 5.8s fifteenthT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(16) {
-  @animation: 1s linear 6s sixteenthT;
-  @webfillmode: forwards;
-  animation: 1s linear 6s sixteenthT;
-  animation-fill-mode: forwards;
-}
-.overlayTextTitle li:nth-child(17) {
-  @animation: 1s linear 6.2s seventeenthT;
-  @webfillmode: forwards;
-  animation: 1s linear 6.2s seventeenthT;
-  animation-fill-mode: forwards;
-}
+.overlay-text li {display: inline-block;}
 
 
-@keyframes first {
-  from {
-  @transform: translate(0, 200%); 
-  @mtransform: translate(0, 200%);
-  transform: translate(0, 200%);
+@media screen and (max-width: @md) {
+  
+  #splash-vid {  
+    display: none;
+  }
+  .text-row-top {
+    height: 15%;
+  }
+  .text-row-middle {
+    height: 70%;
+  }
+  .text-row-bottom {
+    height: 15%;
+  }
+  .overlay-text {
+    line-height: 12vh;
+    font-size: 14vw;
+    opacity: .8;
+  }
 }
-to {
-  opacity: 1;
-}}
-@keyframes sec {
-  from {
-    @transform: translate(-200%, 0%);
-    @mtransform: translate(-200%, 0%);
-    transform: translate(-200%, 0%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes third {
-  from {
-    @transform: translate(-300%, 2%);
-    @mtransform: translate(-300%, 2%);
-    transform: translate(-300%, 2%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes fourth {
-  from {
-    @transform: translate(-200%, -500%);
-    @mtransform: translate(-200%, -500%);
-    transform: translate(-200%, -500%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes fifth {
-  from {
-    @transform: translate(-300%, -200%);
-    @mtransform: translate(-300%, -200%);
-    transform: translate(-300%, -200%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes sixth {
-  from {
-    @transform: translate(20%, -100%);
-    @mtransform: translate(20%, -100%);
-    transform: translate(20%, -100%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes seventh {
-  from {
-    @transform: translate(-300%, -200%);
-    @mtransform: translate(-300%, -200%);
-    transform: translate(-300%, -200%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes eighth {
-  from {
-    @transform: translate(700%, -200%);
-    @mtransform: translate(700%, -200%);
-    transform: translate(700%, -200%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes ninth {
-  from {
-    @transform: translate(600%, -400%);
-    @mtransform: translate(600%, -400%);
-    transform: translate(600%, -400%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes tenth {
-  from {
-    @transform: translate(300%, -200%);
-    @mtransform: translate(300%, -200%);
-    transform: translate(300%, -200%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes eleventh {
-  from {
-    @transform: translate(300%, -800%);
-    @mtransform: translate(300%, -800%);
-    transform: translate(300%, -800%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes firstT {
-  from {
-    @transform: translate(-300%, 800%);
-    @mtransform: translate(-300%, 800%);
-    transform: translate(-300%, 800%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes secT {
-  from {
-    @transform: translate(-600%, -600%);
-    @mtransform: translate(-600%, -600%);
-    transform: translate(-600%, -600%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes thirdT {
-  from {
-    @transform: translate(200%, 200%);
-    @mtransform: translate(200%, 200%);
-    transform: translate(200%, 200%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes fourthT {
-  from {
-    @transform: translate(600%, -20%);
-    @mtransform: translate(600%, -20%);
-    transform: translate(600%, -20%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes fifthT {
-  from {
-    @transform: translate(-200%, -800%);
-    @mtransform: translate(-200%, -800%);
-    transform: translate(-200%, -800%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes sixthT {
-  from {
-    @transform: translate(-300%, -800%);
-    @mtransform: translate(-300%, -800%);
-    transform: translate(-300%, -800%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes seventhT {
-  from {
-    @transform: translate(-100%, -100%);
-    @mtransform: translate(-100%, -100%);
-    transform: translate(-100%, -100%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes eighthT {
-  from {
-    @transform: translate(-200%, 100%);
-    @mtransform: translate(-200%, 100%);
-    transform: translate(-200%, 100%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes ninthT {
-  from {
-    @transform: translate(-500%, 500%);
-    @mtransform: translate(-500%, 500%);
-    transform: translate(-500%, 500%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes tenthT {
-  from {
-    @transform: translate(90%, -90%);
-    @mtransform: translate(90%, -90%);
-    transform: translate(90%, -90%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes eleventhT {
-  from {
-    @transform: translate(100%, 100%);
-    @mtransform: translate(100%, 100%);
-    transform: translate(100%, 100%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes twelvethT {
-  from {
-    @transform: translate(-200%, 200%);
-    @mtransform: translate(-200%, 200%);
-    transform: translate(-200%, 200%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes thirteenthT {
-  from {
-    @transform: translate(250%, 250%);
-    @mtransform: translate(250%, 250%);
-    transform: translate(250%, 250%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes fourteenthT {
-  from {
-    @transform: translate(700%, 700%);
-    @mtransform: translate(700%, 700%);
-    transform: translate(700%, 700%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes fifteenthT {
-  from {
-    @transform: translate(-500%, -500%);
-    @mtransform: translate(-500%, -500%);
-    transform: translate(-500%, -500%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes sixteenthT {
-  from {
-    @transform: translate(300%, 300%);
-    @mtransform: translate(300%, 300%);
-    transform: translate(300%, 300%);
-  }
-  to {
-    opacity: 1;
-  }}
-@keyframes seventeenthT {
-  from {
-    @transform: translate(-200%, -200%);
-    @mtransform: translate(-200%, -200%);
-    transform: translate(-200%, -200%);
-  }
-  to {
-    opacity: 1;
-  }}
 
+@media screen and (min-width: calc(@md + 1px)) and (max-width: @lg) {
+  #splash-vid {  
+    display: none;
+  }
+  .text-row-top {
+    height: 15%;
+  }
+  .text-row-middle {
+    height: 70%;
+  }
+  .text-row-bottom {
+    height: 15%;
+  }
+  .overlay-text {
+    line-height: 12vh;
+    font-size: 10vw;
+    opacity: .8;
+  }
 }
+
+// @media screen and (min-width: (@lg + 1)) and (-webkit-min-device-pixel-ratio: 2), 
+//   screen and (min--moz-device-pixel-ratio: 2) {
+//     #splash-img {  
+//       display: none;
+//     }
+//     .text-row-top {
+//       height: 15%;
+//     }
+//     .text-row-middle {
+//       height: 70%;
+//     }
+//     .text-row-bottom {
+//       height: 15%;
+//     }
+//     .overlay-text {
+//       line-height: 12vh;
+//       font-size: 10vw;
+//       opacity: .8;
+//     }
+
+//     @keyframes overlay {
+//       0% {background-color: rgba(0,0,0,0)}
+//       100% {background-color: rgba(0,0,0,0.6)}
+//     }
+//     @-webkit-keyframes overlay {
+//       0% {background-color: rgba(0,0,0,0)}
+//       100% {background-color: rgba(0,0,0,0.6)}
+//     }
+//     .overlayText li {
+//       display: inline-block;
+//       opacity: 0;
+//     }
+//     .overlayTextTitle {
+//       margin-top: 80px;
+//     }
+//     .overlayTextName li:nth-child(7) {
+//       margin-right: 30px;
+//     }
+//     .overlayTextName li:last-child {
+//       margin-right: 0;
+//     }
+    
+    
+//     .overlayTextName li:nth-child(1) {
+//       animation: 1.6s linear 3s first;
+//       @animation: 1.6s linear 3s first;
+//       @webfillmode: forwards;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextName li:nth-child(2) {
+//       @animation: 1.6s linears 3.2s sec;
+//       @webfillmode: forwards;
+//       animation: 1.6s linear 3.2s sec;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextName li:nth-child(3) {
+//       @animation: 1.6s linear 3.4s third;
+//       @webfillmode: forwards;
+//       animation: 1.6s linear 3.4s third;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextName li:nth-child(4) {
+//       @animation: 1.6s linear 3.6s fourth;
+//       @webfillmode: forwards;
+//       animation: 1.6s linear 3.6s fourth;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextName li:nth-child(5) {
+//       @animation: 1.6s linear 3.8s fifth;
+//       @webfillmode: forwards;
+//       animation: 1.6s linear 3.8s fifth;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextName li:nth-child(6) {
+//       @animation: 1.6s linear 4s sixth;
+//       @webfillmode: forwards;
+//       animation: 1.6s linear 4s sixth;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextName li:nth-child(7) {
+//       @animation: 1.6s linear 4.2s seventh;
+//       @webfillmode: forwards;
+//       animation: 1.6s linear 4.2s seventh;
+//       animation-fill-mode: forwards;
+//       margin-right: 30px;
+//     }
+//     .overlayTextName li:nth-child(8) {
+//       @animation: 1.6s linear 4.4s eighth;
+//       @webfillmode: forwards;
+//       animation: 1.6s linear 4.4s eighth;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextName li:nth-child(9) {
+//       @animation: 1.6s linear 4.6s ninth;
+//       @webfillmode: forwards;
+//       animation: 1.6s linear 4.6s ninth;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextName li:nth-child(10) {
+//       @animation: 1.6s linear 4.8s tenth;
+//       @webfillmode: forwards;
+//       animation: 1.6s linear 4.8s tenth;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextName li:nth-child(11) {
+//       @animation: 1.6s linear 5s eleventh;
+//       @webfillmode: forwards;
+//       animation: 1.6s linear 5s eleventh;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(1) {
+//       @animation: 1s linear 3s firstT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 3s firstT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(2) {
+//       @animation: 1s linear 3.2s secT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 3.2s secT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(3) {
+//       @animation: 1s linear 3.5s thirdT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 3.4s thirdT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(4) {
+//       @animation: 1s linear 3.6s fourthT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 3.6s fourthT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(5) {
+//       @animation: 1s linear 3.8s fifthT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 3.8s fifthT;
+//       animation-fill-mode: forwards;
+//       margin-right: 30px;
+//     }
+//     .overlayTextTitle li:nth-child(6) {
+//       @animation: 1s linear 4s sixthT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 4s sixthT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(7) {
+//       @animation: 1s linear 4.2s seventhT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 4.2s seventhT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(8) {
+//       @animation: 1s linear 4.4s eighthT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 4.4s eighthT;
+//       animation-fill-mode: forwards;
+//       margin-right: 30px;
+//     }
+//     .overlayTextTitle li:nth-child(9) {
+//       @animation: 1s linear 4.6s ninthT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 4.6s ninthT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(10) {
+//       @animation: 1s linear 4.8s tenthT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 4.8s tenthT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(11) {
+//       @animation: 1s linear 5s eleventhT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 5s eleventhT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(12) {
+//       @animation: 1s linear 5.2s twelvethT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 5.2s twelvethT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(13) {
+//       @animation: 1s linear 5.4s thirteenthT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 5.4s thirteenthT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(14) {
+//       @animation: 1s linear 5.6s fourteenthT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 5.6s fourteenthT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(15) {
+//       @animation: 1s linear 5.8s fifteenthT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 5.8s fifteenthT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(16) {
+//       @animation: 1s linear 6s sixteenthT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 6s sixteenthT;
+//       animation-fill-mode: forwards;
+//     }
+//     .overlayTextTitle li:nth-child(17) {
+//       @animation: 1s linear 6.2s seventeenthT;
+//       @webfillmode: forwards;
+//       animation: 1s linear 6.2s seventeenthT;
+//       animation-fill-mode: forwards;
+//     }
+    
+    
+//     @keyframes first {
+//       from {
+//       @transform: translate(0, 200%); 
+//       @mtransform: translate(0, 200%);
+//       transform: translate(0, 200%);
+//     }
+//     to {
+//       opacity: 1;
+//     }}
+//     @keyframes sec {
+//       from {
+//         @transform: translate(-200%, 0%);
+//         @mtransform: translate(-200%, 0%);
+//         transform: translate(-200%, 0%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes third {
+//       from {
+//         @transform: translate(-300%, 2%);
+//         @mtransform: translate(-300%, 2%);
+//         transform: translate(-300%, 2%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes fourth {
+//       from {
+//         @transform: translate(-200%, -500%);
+//         @mtransform: translate(-200%, -500%);
+//         transform: translate(-200%, -500%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes fifth {
+//       from {
+//         @transform: translate(-300%, -200%);
+//         @mtransform: translate(-300%, -200%);
+//         transform: translate(-300%, -200%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes sixth {
+//       from {
+//         @transform: translate(20%, -100%);
+//         @mtransform: translate(20%, -100%);
+//         transform: translate(20%, -100%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes seventh {
+//       from {
+//         @transform: translate(-300%, -200%);
+//         @mtransform: translate(-300%, -200%);
+//         transform: translate(-300%, -200%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes eighth {
+//       from {
+//         @transform: translate(700%, -200%);
+//         @mtransform: translate(700%, -200%);
+//         transform: translate(700%, -200%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes ninth {
+//       from {
+//         @transform: translate(600%, -400%);
+//         @mtransform: translate(600%, -400%);
+//         transform: translate(600%, -400%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes tenth {
+//       from {
+//         @transform: translate(300%, -200%);
+//         @mtransform: translate(300%, -200%);
+//         transform: translate(300%, -200%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes eleventh {
+//       from {
+//         @transform: translate(300%, -800%);
+//         @mtransform: translate(300%, -800%);
+//         transform: translate(300%, -800%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes firstT {
+//       from {
+//         @transform: translate(-300%, 800%);
+//         @mtransform: translate(-300%, 800%);
+//         transform: translate(-300%, 800%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes secT {
+//       from {
+//         @transform: translate(-600%, -600%);
+//         @mtransform: translate(-600%, -600%);
+//         transform: translate(-600%, -600%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes thirdT {
+//       from {
+//         @transform: translate(200%, 200%);
+//         @mtransform: translate(200%, 200%);
+//         transform: translate(200%, 200%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes fourthT {
+//       from {
+//         @transform: translate(600%, -20%);
+//         @mtransform: translate(600%, -20%);
+//         transform: translate(600%, -20%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes fifthT {
+//       from {
+//         @transform: translate(-200%, -800%);
+//         @mtransform: translate(-200%, -800%);
+//         transform: translate(-200%, -800%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes sixthT {
+//       from {
+//         @transform: translate(-300%, -800%);
+//         @mtransform: translate(-300%, -800%);
+//         transform: translate(-300%, -800%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes seventhT {
+//       from {
+//         @transform: translate(-100%, -100%);
+//         @mtransform: translate(-100%, -100%);
+//         transform: translate(-100%, -100%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes eighthT {
+//       from {
+//         @transform: translate(-200%, 100%);
+//         @mtransform: translate(-200%, 100%);
+//         transform: translate(-200%, 100%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes ninthT {
+//       from {
+//         @transform: translate(-500%, 500%);
+//         @mtransform: translate(-500%, 500%);
+//         transform: translate(-500%, 500%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes tenthT {
+//       from {
+//         @transform: translate(90%, -90%);
+//         @mtransform: translate(90%, -90%);
+//         transform: translate(90%, -90%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes eleventhT {
+//       from {
+//         @transform: translate(100%, 100%);
+//         @mtransform: translate(100%, 100%);
+//         transform: translate(100%, 100%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes twelvethT {
+//       from {
+//         @transform: translate(-200%, 200%);
+//         @mtransform: translate(-200%, 200%);
+//         transform: translate(-200%, 200%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes thirteenthT {
+//       from {
+//         @transform: translate(250%, 250%);
+//         @mtransform: translate(250%, 250%);
+//         transform: translate(250%, 250%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes fourteenthT {
+//       from {
+//         @transform: translate(700%, 700%);
+//         @mtransform: translate(700%, 700%);
+//         transform: translate(700%, 700%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes fifteenthT {
+//       from {
+//         @transform: translate(-500%, -500%);
+//         @mtransform: translate(-500%, -500%);
+//         transform: translate(-500%, -500%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes sixteenthT {
+//       from {
+//         @transform: translate(300%, 300%);
+//         @mtransform: translate(300%, 300%);
+//         transform: translate(300%, 300%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//     @keyframes seventeenthT {
+//       from {
+//         @transform: translate(-200%, -200%);
+//         @mtransform: translate(-200%, -200%);
+//         transform: translate(-200%, -200%);
+//       }
+//       to {
+//         opacity: 1;
+//       }}
+//   }
+
+
+
+
+
+// .overlayText {
+//   list-style: none;
+//   position: absolute;  
+//   top: 40%;  
+//   left: 50%;
+//   -webkit-transform: translate(-50%, -50%);
+//   transform: translate(-50%, -50%);      
+//   text-align: center; 
+//   font-size: 70px;
+//   width: 100%;
+//   font-weight: bold;
+//   color: rgb(255,255,255);  
+//   z-index: 20;
+// }
+
+

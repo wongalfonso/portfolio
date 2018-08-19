@@ -17,10 +17,10 @@ export default class NavBar extends Component {
               (active === 'splash') ?
                 <a className = 'pages'>
                   Top
-                <img id='topActive' src={Active} onClick = {scroll.bind(this, 'vidContainer')}/>
+                <img id='topActive' src={Active} onClick = {scroll.bind(this, 'splash-page')}/>
                 </a> :
                 <a >
-                  <img id='topMenu' src={Menu} onClick = {scroll.bind(this,'vidContainer')}/>
+                  <img id='topMenu' src={Menu} onClick = {scroll.bind(this,'splash-page')}/>
                 </a>
             }
           </li>
