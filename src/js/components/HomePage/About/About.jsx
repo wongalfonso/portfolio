@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 export default class About extends Component {
 
   componentDidMount() {
-    const about = document.getElementById('aboutPage');about.onmouseenter = () => this.props.enter('about');
+    const about = document.getElementById('aboutPage'); about.onmouseenter = () => this.props.enter('about');
     about.onmouseleave = () => this.props.exit('about');
   }
-  
+
   aboutText(style) {
 
     return (
@@ -19,49 +18,33 @@ export default class About extends Component {
     )
   }
 
-  smallScreen() {
-    return (
-      <div className='profile'>
-        <div className="row">
-          <div className='col-12 profilePic text-center'>
-          </div>
-        </div>
-        <div className="row">
-          {this.aboutText('col-12 aboutText text-center')}
-        </div>
-      </div>
-    )
-  }
-
-  largeScreen() {
-    return (
-      <div className='row aboutRow' >
-        {this.aboutText('col-6 aboutText')}
-        <div className='col-6 profilePic'>
-        </div>
-      </div>
-    )
-  }
-
-
-
-
   render() {
-    const { screen } = this.props;
+    // const { screen } = this.props;
     return (
-      <div 
-        className='aboutPage' 
-        id = 'aboutPage' 
-        >
-        <div className='container aboutContainer' id = 'aboutContainer'>
-          <div className='row'>
+      <div className='aboutPage' id='aboutPage'>
+        <div className='container about-container' id='aboutContainer'>
+
+          <div className='row about-row-top'>
             <div className='col-12 aboutHeader'>
               <div className='title'>About Me</div>
             </div>
           </div>
-          {(screen > 992) ? this.largeScreen() : this.smallScreen()}
-          <div className='row'>
-            <div className='col-12 text-center resumeBtnDiv'>
+          <div className="row about-row-middle">
+            <div className='profile col-lg-12'>
+
+              <div className="row about-photo-row">
+                <div className='col-lg-12 text-center' id = 'profile-pic'>
+                </div>
+              </div>
+
+              <div className="row about-text-row">
+                {this.aboutText('col-lg-12 about-text text-center')}
+              </div>
+            </div>
+
+          </div>
+          <div className='row about-row-bottom'>
+            <div className='col-lg-12 text-center resumeBtnDiv'>
               <a href='/files/AlfonsoWongResume.pdf' download>
                 <button className='btn btn-default resumeBtn'>
                   Download Resume

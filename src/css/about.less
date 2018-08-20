@@ -1,157 +1,176 @@
-// .aboutPage {
-//   background-image: url('./../../public/images/OceanBeachPier.jpg');
-//   background-position: center;
-//   background-size: cover;
-//   background-repeat: no-repeat;
-//   position: relative;
-//   max-width: 100%;
-//   overflow-x: hidden;
-// }
-// .aboutHeader {
-//   z-index: 20;
-// }
+.aboutPage {
+  background-image: url('./../../public/images/OceanBeachPier.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.aboutHeader {
+  z-index: 20;
+}
 
-// .aboutPage:after {
-//   content: '';
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   background-color: rgba(0,0,0,0.6);
-//   z-index: 10;
-// }
+.aboutPage:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 10;
+}
 
-// .aboutRow {
-//   background-color: rgba(255, 255, 255, .5);  
-//   z-index: 15;
-// }
+.aboutRow {
+  background-color: rgba(255, 255, 255, .5);  
+  z-index: 15;
+}
 
-// .profilePic {
-//   position: relative;
-//   float: none;
-//   background-image: url('./../../public/images/mainProfileImage.png');
-//   background-size: cover;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   display: block;
-//   z-index: 50;
-//   background-color: rgba(255, 255, 255, 0.2);
-//   border-radius: 100px;
-// }
-// .profilePic:before {
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   z-index: 200;
-//   background: white;  
-// }
-// .aboutText {
-//   margin-top: 1.5em;
-//   text-indent: 2em;
-//   letter-spacing: 1px;
-//   font-size: 1em;
-//   text-align: center;
-//   color: white;
-//   z-index: 50;
-// }
+#profile-pic {
+  position: relative;
+  float: none;
+  background-image: url('./../../public/images/mainProfileImage.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+}
+#profile-pic:before {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  background: white;  
+}
+.about-text {
+  margin-top: 1.5em;
+  text-indent: 2em;
+  letter-spacing: 1px;
+  font-size: 1em;
+  text-align: center;
+  color: white;
+  z-index: 50;
+}
 
-// .resumeBtnDiv {
-//   z-index: 20;
-// }
-// .resumeBtn {
-//   float: none;
-//   border-radius: 8px;
-//   color: white;
-//   background-color: #3a3af2;
-//   height: 3.5em;
-//   width: 300px;
-//   z-index: 20;
-//   margin-bottom: 2rem;
-// }
+.resumeBtnDiv {
+  z-index: 20;
+}
+.resumeBtn {
+  float: none;
+  border-radius: 8px;
+  color: white;
+  background-color: #3a3af2;
+  height: 3.5em;
+  width: 300px;
+  z-index: 20;
+  margin-bottom: 2rem;
+}
 
-// @media (max-width: @sm) {
-//   .aboutPage {
-//     height: 100%;
-//     max-width: 100vw;
-//   }
-//   .aboutPage:after {
-//     height: 100%;
-//   }
-//   .profile {
-//     height: 100%;
-//   }
-//   .aboutText {
-//     line-height: 1.5;
-//   }
+@media screen and (max-width: calc(@md - 1px)) {
 
-//   .profilePic:before {
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     left: 0;
-//     z-index: 200;
-//     background: white;  
-//   }
-//   .profilePic {
-//     margin-top: 1rem;
-//     height: 250px;
-//     margin-right: auto;
-//     margin-left: auto;
-//     max-width: 300px;
-//     max-height: 300px;
-//   }
-//   .resumeBtn {
-//     height: 2.5em;
-//     width: 200px;
-//     margin-bottom: 2rem;
-//   }
+  .aboutPage {
+    height: 100%;
+    max-width: 100vw;
+  }
+  .aboutPage:after {
+    height: 100%;
+  }
   
-// }
+  .profile {
+    height: 100%;
+  }
+  .about-text {
+    line-height: 1.5;
+  }
 
-// @media (min-width: @md) {
-//   .aboutPage {
-//     height: 100vh;
-//   }
-//   .aboutRow {
-//     border-radius: 100px;
-//     border-left: solid white 4px;
-//     border-top: solid white 4px;
-//     border-bottom: solid white 4px;
-//     margin-bottom: 4rem;
-    
-//   }
-//   .aboutText {
-//     line-height: 1.6;
-//   }
+  #profile-pic:before {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+    background: white;  
+  }
+  #profile-pic {
+    margin-top: 1rem;
+    height: 250px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 300px;
+    max-height: 300px;
+  }
+  .resumeBtn {
+    height: 2.5em;
+    width: 200px;
+    margin-bottom: 2rem;
+  }
   
-//   .profilePic:before {
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     left: 0;
-//     z-index: 200;
-//     background: white;  
-//   }
-  
-//   .resumeBtn {
-//     height: 3.5em;
-//     width: 300px;
-//   }
-// }
-// @media screen and (max-height: 700px) {
-//   .aboutPage {
-//     height: 100%;
-//     max-width: 100%; 
-//   }
-// }
-// @media screen and (min-height: 700px) {
-//   .aboutPage {
-//     height: 100vh;
-//   }
-//   .profilePic {
-//     width: 100%;
-//   }
+}
 
-// }
+@media screen and (min-width: @md) and (max-width: calc(@lg - 1px)) {
+  .aboutPage {
+    height: 100vh;
+  }
+  .about-container {
+    height: 100%;
+  }
+  .about-row-top {
+    height: 10%;
+  }
+  .about-row-middle {
+    height: 65%;
+  }
+  .about-row-bottom {
+    height: 25%;
+  }
+  .about-photo-row {
+    height: 35%;
+  }
+  .about-text-row {
+    height: 65%;
+  }
+  .about-text {
+    line-height: 1.6;
+  }
+  
+  #profile-pic:before {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+    background: white;  
+  }
+  #profile-pic {
+    height: 100%;
+    max-width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .resumeBtn {
+    height: 3.5em;
+    width: 300px;
+  }
+}
+@media screen and (min-width: @lg) and (max-width: calc(@xl + 1px)) {
+  .aboutPage {
+    height: 100%;
+    max-width: 100%; 
+  }
+}
+@media screen and (min-width: calc(@xl + 1)){
+
+  .aboutPage {
+    height: 100vh;
+  }
+  #profile-pic {
+    width: 100%;
+  }
+
+}

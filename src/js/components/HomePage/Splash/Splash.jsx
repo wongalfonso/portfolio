@@ -21,7 +21,7 @@ export default class Splash extends Component {
               </div>
               <div className="row text-row-middle">
                 <div className="overlay-text">
-                  <div className="col-lg-12">
+                  <div className="col-lg-12 overlay-text-col">
                     <ul className='overlay-text-name' id='name-first'>
                       <li>A</li>
                       <li>L</li>
