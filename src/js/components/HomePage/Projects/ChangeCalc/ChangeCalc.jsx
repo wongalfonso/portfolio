@@ -162,80 +162,80 @@ export default class ChangeCalc extends Component {
 
           <div className="row project-modal-body">
             <div className="col-sm-12 col-xl-4">
-              
-                  <div className='card card-default'>
-                    <div className='card-header changeText'>Enter Information</div>
-                    <div className='card-body'>
-                      <form>
-                        <div className="form-group has-success has-feedback">
-                          <label className='changeInputLabel' htmlFor='amountDue'>How much is due?</label>
-                          <input name='amountDue' className='form-control form-control-success' type='text' pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' value={this.state.amountDue} onChange={this.handleDue} id='amountDue' required />
-                        </div>
 
-                        <div className={"form-group has-feedback"}>
-                          <label className='changeInputLabel' htmlFor='received'> How much was received?</label>
-                          <input name='amountReceived' className='form-control' type='text' pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' value={this.state.amountRec} onChange={this.handleRec} id='received' required />
-                          <span className="glyphicon glyphicon-remove form-control-feedback"></span>
-                        </div>
-                      </form>
+              <div className='card card-default'>
+                <div className='card-header changeText'>Enter Information</div>
+                <div className='card-body'>
+                  <form>
+                    <div className="form-group has-success has-feedback">
+                      <label className='changeInputLabel' htmlFor='amountDue'>How much is due?</label>
+                      <input name='amountDue' className='form-control form-control-success' type='text' pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' value={this.state.amountDue} onChange={this.handleDue} id='amountDue' required />
                     </div>
-                    <div className='card-footer'>
-                      <div className='form-group'>
-                        {this.button()}
+
+                    <div className={"form-group has-feedback"}>
+                      <label className='changeInputLabel' htmlFor='received'> How much was received?</label>
+                      <input name='amountReceived' className='form-control' type='text' pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' value={this.state.amountRec} onChange={this.handleRec} id='received' required />
+                      <span className="glyphicon glyphicon-remove form-control-feedback"></span>
+                    </div>
+                  </form>
+                </div>
+                <div className='card-footer'>
+                  <div className='form-group'>
+                    {this.button()}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className='col-sm-12 col-xl-8'>
+              <div className='card'>
+                <div className='card-body'>
+
+                  <div className='row'>
+                    <div className="col-lg-12">
+                      <div className={alert}> {leftOver + this.state.output}
                       </div>
+                    </div>
+                  </div>
+                  <div className='row'>
+                    <div className='well ChangeOutputLabels alert alert-success'>
+                      <h1 className='changeLabels'>Twenties</h1>
+                      <p className='lead changeOutputs'>{this.state.twenties}</p>
+                    </div>
+                    <div className='well ChangeOutputLabels alert alert-success'>
+                      <h1 className='changeLabels'>Tens</h1>
+                      <p className='lead changeOutputs'>{this.state.tens}</p>
+                    </div>
+                    <div className='well ChangeOutputLabels alert alert-success'>
+                      <h1 className='changeLabels'>Fives</h1>
+                      <p className='lead changeOutputs'>{this.state.fives}</p>
+                    </div>
+                    <div className='well ChangeOutputLabels alert alert-success'>
+                      <h1 className='changeLabels'>Ones</h1>
+                      <p className='lead changeOutputs'>{this.state.ones}</p>
+                    </div>
+                  </div>
+
+                  <div className='row'>
+                    <div className='form-group well ChangeOutputLabels alert alert-success'>
+                      <h1 className='changeLabels'>Quarters</h1>
+                      <p className='lead changeOutputs'>{this.state.quarters}</p>
+                    </div>
+                    <div className='form-group well ChangeOutputLabels alert alert-success'>
+                      <h1 className='changeLabels'>Dimes</h1>
+                      <p className='lead changeOutputs'>{this.state.dimes}</p>
+                    </div>
+                    <div className='form-group well ChangeOutputLabels alert alert-success'>
+                      <h1 className='changeLabels'>Nickels</h1>
+                      <p className='lead changeOutputs'>{this.state.nickels}</p>
+                    </div>
+                    <div className='form-group well ChangeOutputLabels alert alert-success'>
+                      <h1 className='changeLabels'>Pennies</h1>
+                      <p className='lead changeOutputs'>{this.state.pennies}</p>
                     </div>
                   </div>
                 </div>
-
-                <div className='col-sm-12 col-xl-8'>
-                  <div className='card'>
-                    <div className='card-body'>
-
-                      <div className='row'>
-                        <div className="col-lg-12">
-                        <div className={alert}> {leftOver + this.state.output}
-                        </div>
-                        </div>
-                      </div>
-                      <div className='row'>
-                        <div className='well ChangeOutputLabels alert alert-success'>
-                          <h1 className='changeLabels'>Twenties</h1>
-                          <p className='lead changeOutputs'>{this.state.twenties}</p>
-                        </div>
-                        <div className='well ChangeOutputLabels alert alert-success'>
-                          <h1 className='changeLabels'>Tens</h1>
-                          <p className='lead changeOutputs'>{this.state.tens}</p>
-                        </div>
-                        <div className='well ChangeOutputLabels alert alert-success'>
-                          <h1 className='changeLabels'>Fives</h1>
-                          <p className='lead changeOutputs'>{this.state.fives}</p>
-                        </div>
-                        <div className='well ChangeOutputLabels alert alert-success'>
-                          <h1 className='changeLabels'>Ones</h1>
-                          <p className='lead changeOutputs'>{this.state.ones}</p>
-                        </div>
-                      </div>
-
-                      <div className='row'>
-                        <div className='form-group well ChangeOutputLabels alert alert-success'>
-                          <h1 className='changeLabels'>Quarters</h1>
-                          <p className='lead changeOutputs'>{this.state.quarters}</p>
-                        </div>
-                        <div className='form-group well ChangeOutputLabels alert alert-success'>
-                          <h1 className='changeLabels'>Dimes</h1>
-                          <p className='lead changeOutputs'>{this.state.dimes}</p>
-                        </div>
-                        <div className='form-group well ChangeOutputLabels alert alert-success'>
-                          <h1 className='changeLabels'>Nickels</h1>
-                          <p className='lead changeOutputs'>{this.state.nickels}</p>
-                        </div>
-                        <div className='form-group well ChangeOutputLabels alert alert-success'>
-                          <h1 className='changeLabels'>Pennies</h1>
-                          <p className='lead changeOutputs'>{this.state.pennies}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              </div>
             </div>
           </div>
 

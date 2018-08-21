@@ -71,9 +71,16 @@
 .update-label {
   text-align: left;
 }
-
-@media (max-width: 1500px) {
+@media screen and (min-width: @xl) and (max-width: 1499px) {
   #ListCard {
     max-height: 23.5rem;
+  }
+}
+@media screen and (min-width: 1500px) {
+  #vstda-row-header {
+    height: 20%;
+  }
+  #vstda-row-body {
+    height: 70%;
   }
 }

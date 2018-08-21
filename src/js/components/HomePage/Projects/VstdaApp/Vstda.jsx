@@ -20,31 +20,31 @@ export default class VSTDA extends Component {
     this.handleToDo = this.handleToDo.bind(this);
     this.remove = this.remove.bind(this);
     this.edit = this.edit.bind(this);
-    this.handlePrior = this.handlePrior.bind(this);    
+    this.handlePrior = this.handlePrior.bind(this);
   }
 
   componentDidUpdate() {
-    const list = this.listElement;  
-    const card = this.cardElement;  
-    const hasOverflow = list.offsetHeight < list.scrollHeight;    
+    const list = this.listElement;
+    const card = this.cardElement;
+    const hasOverflow = list.offsetHeight < list.scrollHeight;
     if (hasOverflow && this.state.overflow !== 'scroll') {
-      this.setState({overflow: 'scroll'})
+      this.setState({ overflow: 'scroll' })
     }
     if (card.scrollHeight === card.offsetHeight && this.state.overflow === 'scroll') {
-      this.setState({overflow: ''})
+      this.setState({ overflow: '' })
     }
   }
   createToDo(event) {
     event.preventDefault();
     this.setState({
       lists: [{
-          id: Date.now(),
-          toDo: this.state.toDo,
-          priority: this.state.priority,
-          editing: this.state.editing,
-          completed: this.state.completed
-        },
-        ...this.state.lists
+        id: Date.now(),
+        toDo: this.state.toDo,
+        priority: this.state.priority,
+        editing: this.state.editing,
+        completed: this.state.completed
+      },
+      ...this.state.lists
       ],
       toDo: '',
     })
@@ -61,7 +61,7 @@ export default class VSTDA extends Component {
     if (event.target.value === '3') { val = 'list-group-item-danger' }
     if (event.target.value === '2') { val = 'list-group-item-warning' }
     if (event.target.value === '1') { val = 'list-group-item-success' }
-    this.setState({priority: val})
+    this.setState({ priority: val })
   }
 
   edit(id, bool) {
@@ -91,7 +91,7 @@ export default class VSTDA extends Component {
     });
   }
 
-  handleToDo(newText, newName, id) {    
+  handleToDo(newText, newName, id) {
     this.setState({
       lists: this.state.lists.map((todo) => {
         if (todo.id === id) {
@@ -118,38 +118,41 @@ export default class VSTDA extends Component {
 
       <div id='vstdaProject' className='allProjectModals'>
         <div className='container vstdaContainer allProjectModalsContainers'>
-          <div className="row modalBody">
-            <div className="col-12">
-              <div className='row'>
-                <div id='vstdaHeader' className='col-12'>
-                  <h1>Very Simple Todo App</h1>
-                  <h4 className='vstdah4'>Track All of the Things</h4>
-                </div>
-              </div>
-              <div className='row'>
-                <ToDoForm createToDo={this.createToDo} toDo={this.state.toDo} handleText={this.handleText} priority={this.state.priority} handlePrior={this.handlePrior}
-                />
-                <div className='col-8' id = 'List' ref = {(listEl) => {this.listElement = listEl}}>
-                  <div className='card' id='ListCard' 
-                  style = {{"overflowY" : this.state.overflow}} 
-                  ref = {(card) => {this.cardElement = card}}>                    
-                    <div className='card-header' id = 'todoHeader'>View Todos</div>
-                    <ul className='list-group'>
-                      {this.state.lists.map((list, i) => {
-                        return (
-                          <List key={list.id} list={list} updateToDo={this.handleToDo} onRemove={this.remove.bind(this, list.id)} onEdit={this.edit}
-                          >
-                            {list.toDo}
-                          </List>
-                        )
-                      })}
-                    </ul>
-                  </div>
-                </div>
+          <div className="row project-headers" id = 'vstda-row-header'>
+            <div className="col-xl-12">
+              <div id='vstdaHeader' className='col-xl-12'>
+                <h1>Very Simple Todo App</h1>
+                <h4 className='vstdah4'>Track All of the Things</h4>
               </div>
             </div>
           </div>
-          <div className='row closeRow'>
+
+          <div className="row project-modal-body" id = 'vstda-row-body'>
+            <ToDoForm createToDo={this.createToDo} toDo={this.state.toDo} handleText={this.handleText} priority={this.state.priority} handlePrior={this.handlePrior}
+            />
+
+            <div className='col-sm-12 col-xl-8' id='List' ref={(listEl) => { this.listElement = listEl }}>
+              <div className='card' id='ListCard'
+                style={{ "overflowY": this.state.overflow }}
+                ref={(card) => { this.cardElement = card }}>
+                <div className='card-header' id='todoHeader'>View Todos</div>
+                <ul className='list-group'>
+                  {this.state.lists.map((list, i) => {
+                    return (
+                      <List key={list.id} list={list} updateToDo={this.handleToDo} onRemove={this.remove.bind(this, list.id)} onEdit={this.edit}
+                      >
+                        {list.toDo}
+                      </List>
+                    )
+                  })}
+                </ul>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div className='row project-close-row'>
             <div className="col-xl-6">
               <a href="https://github.com/wongalfonso/VSTDA" target="_blank">
                 <img className="gitMark" src="/images/GitHub.png" />

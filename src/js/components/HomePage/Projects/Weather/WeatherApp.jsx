@@ -9,14 +9,18 @@ export default class Weather extends Component {
 
     return (
       <div id='weatherProject' className='allProjectModals'>
-        <div className='container weatherContainer allProjectModalsContainer'>
-          <div className='row modalBody'>
-            <div className='col-12'>
-              <div className='row'>
-                <div className='col-12' id = 'weatherHeader'>
-                  <h1 id = 'weatherH4'>Weather Application</h1>                  
-                </div>
+        <div className='container weatherContainer allProjectModalsContainers'>
+
+          <div className="row project-headers">
+            <div className="col-xl-12">
+              <div className='col-xl-12' id='weatherHeader'>
+                <h1 id='weatherH4'>Weather Application</h1>
               </div>
+            </div>
+          </div>
+
+          <div className='row project-modal-body'>
+            <div className='col-xl-12'>
               <div className='row'>
                 <Form />
               </div>
@@ -30,7 +34,8 @@ export default class Weather extends Component {
               </div>
             </div>
           </div>
-          <div className='row closeRow'>
+
+          <div className='row project-close-row'>
             <div className="col-xl-6">
               <a href="https://github.com/wongalfonso/Weather-App" target="_blank">
                 <img className="gitMark" src="/images/GitHub.png" />

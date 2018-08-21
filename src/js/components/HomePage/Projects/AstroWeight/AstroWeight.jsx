@@ -57,13 +57,13 @@ class AstroWeight extends Component {
     const { weight, planetValue, planetName } = this.state;
     let planetWeight = Number(weight) * Number(planetValue)
     planetWeight = planetWeight.toFixed(2);
-    
-  
+
+
     message = 'If you were on ' + planetName + '. You would weigh ' + planetWeight + ' lbs';
     if (planetName === 'Earth') { message = 'If you Chose "Earth", Then you should weigh ' + planetWeight + ' lbs'; }
     if (planetName === 'Pluto') { message = 'If you were on the tiny Planet Pluto, then you would weigh ' + planetWeight + ' lbs'; }
 
-    this.setState({ newWeight: planetWeight, output: message})
+    this.setState({ newWeight: planetWeight, output: message })
   }
 
 
@@ -73,59 +73,64 @@ class AstroWeight extends Component {
     let list, labelStyle;
     if (checked) { list = planetList.slice(); list.splice(11, 1) }
     if (checked === false) { list = planetList };
-    if (screen < 992) { labelStyle = 'astroLabels float-right'} else { labelStyle = 'astroLabels'} 
+    if (screen < 992) { labelStyle = 'astroLabels float-right' } else { labelStyle = 'astroLabels' }
     return (
-      <div id='astroWeightProject' className=' allProjectModals'>
+
+      <div id='astroWeightProject' className='allProjectModals'>
         <div className='container astroWeightContainer allProjectModalsContainers'>
-          <div className='row modalBody'>
-            <div className='col-12'>
-              <div className='row'>
-                <div className='col-12' id='astroHeader'> <h1>Astro Weight Calculator</h1> </div>
-              </div>
-              <div className='row'>
-                <form onSubmit={this.submit} id='astroForm' className='col-12'>
-                  <div className='form-row align-items-center '>
-                    <div className='form-group col-3'>
-                      <label htmlFor='inputWeight' className={labelStyle}> Enter Your Weight</label>
-                      <input className='form-control' type='text' placeholder='Weight(lbs)' id='inputWeight' onChange={this.handleWeight} value={this.state.weight} pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' />
-                    </div>
-                    <div className='form-group col-3'>
-                      <label className={labelStyle}> Select A Planet </label>
-                      <select className='form-control' onChange={this.handlePlanets}>
-                        {list.map((planet, i) => {
-                          if (planet === 'a') return <option key={i} hidden>Planets</option>
-                          return (
-                            <option key={i} value={planet}>
-                              {planet[0]}
-                            </option>
-                          )
-                        })}
-                      </select>
-                    </div>
-
-                    <div className='form-group checkGroup col-3'>
-                      <div className='form-check checkForm'>
-                        <input type='checkbox' className='checkBox' id='formCheck' onChange={this.handleChecked} />
-                        <label className='astroLabels' htmlFor='formCheck'>
-                          {(this.state.checked) ? 'How Dare you Remove Pluto!' : 'Check to remove Pluto'}
-                        </label>
-                      </div>
-                    </div>
-
-                    <div className='form-group col-3'>
-                      {
-                        (this.state.weight.length > 0 && this.state.planetName !== '') ? <button className='btn btn-primary form-control' type='submit' id='astroCalculate'> Calculate </button> : <button className='btn btn-primary form-control' type='submit' id='astroCalculate' disabled> Calculate</button>
-                      }
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div className='row'>
-                <div className='col-12' id='astroOutput'>{(this.state.newWeight) ? output : ''}</div>
+          <div className="row project-headers">
+            <div className="col-xl-12">
+              <div className='col-xl-12' id='astroHeader'>
+                <h1>Astro Weight Calculator</h1>
               </div>
             </div>
           </div>
-          <div className='row closeRow'>
+
+          <div className='row project-modal-body'>
+            <div className="col-xl-12">
+              <form onSubmit={this.submit} id='astroForm'>
+                <div className='form-row align-items-center '>
+                  <div className='form-group col-3'>
+                    <label htmlFor='inputWeight' className={labelStyle}> Enter Your Weight</label>
+                    <input className='form-control' type='text' placeholder='Weight(lbs)' id='inputWeight' onChange={this.handleWeight} value={this.state.weight} pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' />
+                  </div>
+                  <div className='form-group col-3'>
+                    <label className={labelStyle}> Select A Planet </label>
+                    <select className='form-control' onChange={this.handlePlanets}>
+                      {list.map((planet, i) => {
+                        if (planet === 'a') return <option key={i} hidden>Planets</option>
+                        return (
+                          <option key={i} value={planet}>
+                            {planet[0]}
+                          </option>
+                        )
+                      })}
+                    </select>
+                  </div>
+
+                  <div className='form-group checkGroup col-3'>
+                    <div className='form-check checkForm'>
+                      <input type='checkbox' className='checkBox' id='formCheck' onChange={this.handleChecked} />
+                      <label className='astroLabels' htmlFor='formCheck'>
+                        {(this.state.checked) ? 'How Dare you Remove Pluto!' : 'Check to remove Pluto'}
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className='form-group col-3'>
+                    {
+                      (this.state.weight.length > 0 && this.state.planetName !== '') ? <button className='btn btn-primary form-control' type='submit' id='astroCalculate'> Calculate </button> : <button className='btn btn-primary form-control' type='submit' id='astroCalculate' disabled> Calculate</button>
+                    }
+                  </div>
+                </div>
+              </form>
+
+              <div className='row'>
+                <div className='col-xl-12' id='astroOutput'>{(this.state.newWeight) ? output : ''}</div>
+              </div>
+            </div>
+          </div>
+          <div className='row project-close-row'>
             <div className="col-xl-6">
               <a href="https://github.com/wongalfonso/Astro-Weight-React" target="_blank">
                 <img className="gitMark" src="/images/GitHub.png" />
