@@ -47,15 +47,15 @@
   width: 100%;
   margin-bottom: 0;
 }
-@media (max-width: 1500px) {
-  .ReactModal_Content  {
-    width: 90%;
-    height: 90%;
+@media screen and (min-width: @xl) and (max-width: 1499px) {
+  .changeLabels, .changeOutputs {
+    font-size: 1em;
+    line-height: 2.5em;
   }
-  .ReactModal_Content--after-open {
-    width: 90%;
-    height: 90%;
-  }
+  
+}
+@media screen and (max-width: 1500px) {
+ 
   .ChangeOutputLabels{
     height: 7rem;
   }

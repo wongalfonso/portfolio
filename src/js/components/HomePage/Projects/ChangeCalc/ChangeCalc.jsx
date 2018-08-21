@@ -152,13 +152,17 @@ export default class ChangeCalc extends Component {
     return (
       <div id='changeCalcProject' className='allProjectModals'>
         <div className='container changeContainer allProjectModalsContainers'>
-          <div className="row modalBody">
-            <div className="col-12">
-              <div className="row">
-                <div id='changeHeader' className='col-12'><h1>Change Calculator</h1></div>
+          <div className="row project-headers">
+            <div className="col-xl-12">
+              <div id='changeHeader' className='col-xl-12'>
+                <h1>Change Calculator</h1>
               </div>
-              <div className='row'>
-                <div className='col-4'>
+            </div>
+          </div>
+
+          <div className="row project-modal-body">
+            <div className="col-sm-12 col-xl-4">
+              
                   <div className='card card-default'>
                     <div className='card-header changeText'>Enter Information</div>
                     <div className='card-body'>
@@ -183,12 +187,14 @@ export default class ChangeCalc extends Component {
                   </div>
                 </div>
 
-                <div className='col-8'>
+                <div className='col-sm-12 col-xl-8'>
                   <div className='card'>
                     <div className='card-body'>
 
                       <div className='row'>
+                        <div className="col-lg-12">
                         <div className={alert}> {leftOver + this.state.output}
+                        </div>
                         </div>
                       </div>
                       <div className='row'>
@@ -230,11 +236,10 @@ export default class ChangeCalc extends Component {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
             </div>
           </div>
-          <div className='row closeRow'>
+
+          <div className='row project-close-row'>
             <div className="col-xl-6">
               <a href="https://github.com/wongalfonso/React-Change-Calculator" target="_blank">
                 <img className="gitMark" src="/images/GitHub.png" />
