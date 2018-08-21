@@ -5,3 +5,25 @@ deployment:
       appname: aw-portfolio-dev
   machine: 
     node: version 10.6.0
+
+  deploy:
+    docker:
+      - image: circleci/node:10.6
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:4840bb6c-6c3b-4e0b-b0dd-14e139fc0b7d@git.heroku.com/aw-portfolio-dev.git master
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
