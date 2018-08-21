@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { findDOMNode } from 'react-dom';
 import { connect } from 'react-redux';
 import Splash from '../Splash/Splash';
 import About from '../About/About';

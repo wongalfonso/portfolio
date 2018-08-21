@@ -7,11 +7,14 @@ const path = require('path');
 const MongoStore = require('connect-mongo')(session);
 const axios = require('axios');
 const app = express();
+const config = require('../config/config');
+const NODE = process.env.NODE_ENV;
 
-if (process.env.NODE_ENV !== 'production') {
+if (NODE !== 'production') {
   const dotenv = require('dotenv')
   dotenv.config();
 }
+
 
 // mongoose.connect('mongodb://localhost/codewars' || process.env.MONGO_URL);
 // mongoose.Promise = Promise;
@@ -32,8 +35,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //   })
 // }))
 app.get("/api/weather/:input", (req, res) => {  
+  let weatherKey;;
+  if (NODE === 'production') {
+    weatherKey = process.env.WEATHER_KEY;
+    
+  } else {
+    weatherKey = config.WEATHER_KEY
+  };
+
   const search = req.params.input;
-  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=imperial&APPID=${process.env.WEATHER_KEY}`)
+  axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=imperial&APPID=${weatherKey}`)
     .then(response => {      
       res.send(response.data)
     })
@@ -51,4 +62,5 @@ app.get('*.js', (req,res, next) => {
 app.get('*', (req, res) => {
   res.sendFile(path.resolve('public', 'index.html'));
 });
+
 module.exports = app;
