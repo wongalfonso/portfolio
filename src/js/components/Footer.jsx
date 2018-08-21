@@ -7,7 +7,8 @@ class Footer extends Component {
     return (
       <div className="footerContainer" id='footer'>
         <div className="row footerRow">
-          <div className="col-md-3 footerEdge footerDiv">
+
+          <div className="col-sm-12 col-md-3 footerEdge footerDiv">
             <div className="footerId">
               <a href="/">
                 <p className="text-center text-muted" id="portfolioId">Alfonso Wongs Portfolio</p>
@@ -15,7 +16,7 @@ class Footer extends Component {
             </div>
           </div>
 
-          <div className="col-md-3 left-mid-footer footerDiv">
+          <div className="col-sm-12 col-md-3 left-mid-footer footerDiv">
             <div>
               <a><p></p></a>
               <a href="http://origincodeacademy.com/" target="_blank">
@@ -38,13 +39,13 @@ class Footer extends Component {
             </div>
           </div>
 
-          <div className="col-md-3 footerDiv">
+          <div className="col-sm-12 col-md-3 footerDiv">
             <div className="footerId">
               <p className="text-center text-muted" id="socialId">Social Media</p>
             </div>
           </div>
 
-          <div className="col-md-3 footerDiv">
+          <div className="col-sm-12 col-md-3 footerDiv">
             <div>
               <a href="https://www.linkedin.com/in/alfonso-wong/" target="_blank">
                 <p className="text-center text-muted foot">
