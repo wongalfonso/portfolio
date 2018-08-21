@@ -6,7 +6,7 @@ node_modules
 logs
 coverage
 dist
-
+.yml
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
