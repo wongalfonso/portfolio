@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 var planets = [
   ['Pluto', 0.06],
@@ -14,7 +15,7 @@ var planets = [
   ['The Sun', 27.9]
 ];
 
-export default class AstroWeight extends Component {
+class AstroWeight extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,10 +69,11 @@ export default class AstroWeight extends Component {
 
   render() {
     let { planetList, checked, output } = this.state;
-    let list;
+    const { screen } = this.props;
+    let list, labelStyle;
     if (checked) { list = planetList.slice(); list.splice(11, 1) }
     if (checked === false) { list = planetList };
-
+    if (screen < 992) { labelStyle = 'astroLabels float-right'} else { labelStyle = 'astroLabels'} 
     return (
       <div id='astroWeightProject' className=' allProjectModals'>
         <div className='container astroWeightContainer allProjectModalsContainers'>
@@ -84,11 +86,11 @@ export default class AstroWeight extends Component {
                 <form onSubmit={this.submit} id='astroForm' className='col-12'>
                   <div className='form-row align-items-center '>
                     <div className='form-group col-3'>
-                      <label htmlFor='inputWeight' className='astroLabels float-right'> Enter Your Weight</label>
+                      <label htmlFor='inputWeight' className={labelStyle}> Enter Your Weight</label>
                       <input className='form-control' type='text' placeholder='Weight(lbs)' id='inputWeight' onChange={this.handleWeight} value={this.state.weight} pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' />
                     </div>
                     <div className='form-group col-3'>
-                      <label className='astroLabels float-right'> Select A Planet </label>
+                      <label className={labelStyle}> Select A Planet </label>
                       <select className='form-control' onChange={this.handlePlanets}>
                         {list.map((planet, i) => {
                           if (planet === 'a') return <option key={i} hidden>Planets</option>
@@ -138,3 +140,11 @@ export default class AstroWeight extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    screen: state.home.screen
+  }
+}
+
+export default connect(mapStateToProps)(AstroWeight);

@@ -7,6 +7,7 @@ logs
 coverage
 dist
 .yml
+.circleci
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

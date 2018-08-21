@@ -9,15 +9,13 @@
   color: white;
   text-align: left;
   border-bottom: 1px solid white;
-  // margin-bottom: 2em;
   margin-top: 3rem;
-  text-align: right;
 }
 
 .astroLabels {
   color: white;
   font-weight: none;
-  text-align: right;
+  text-align: left;
 }
 #astroForm {
   margin-top: 13rem;
@@ -50,4 +48,8 @@
 }
 
 
-
+@media (min-width: @sm) {
+  #astroHeader {
+    text-align: right;
+  }
+}
