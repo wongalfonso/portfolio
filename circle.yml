@@ -20,10 +20,10 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
+      - npm run build
       - deploy:
           requires:
-            - build
+            - npm run build
           filters:
             branches:
               only: master
