@@ -22,10 +22,8 @@
   font-size: 1.25em;
   text-decoration: bold;
   background-color: lightgrey;
-  width: 22.5%;
-  height: 10em;
-  margin: 8px;
   border-radius: 8px;
+  height: 7rem;
 }
 .changeText {  
   font-size: 1.2rem;
@@ -36,6 +34,9 @@
   text-decoration: bold;
   vertical-align: middle;
   line-height: 70px;
+}
+.change-output-row {
+  margin-top: .5em;
 }
 .changeOutputs {
   text-decoration: bold;
@@ -48,24 +49,34 @@
   margin-bottom: 0;
 }
 @media screen and (max-width: calc(@md - 1px)) {
-  
+  .card-body {
+    padding: 1rem;
+  }
+  .change-rows {
+    display: none;
+  }
+  .ChangeOutputLabels{
+    width: 100%;
+  }
+  .project-close-row {
+    text-align: center;
+  }
 }
 @media screen and (min-width: @md) and (max-width: calc(@lg - 1px)) {
-
+  
 }
 @media screen and (min-width: @lg) and (max-width: calc(@xl - 1px)) {
-
+  
 }
 @media screen and (min-width: @xl) and (max-width: 1499px) {
   .changeLabels, .changeOutputs {
     font-size: 1em;
     line-height: 2.5em;
   }
-  
 }
-@media screen and (max-width: 1500px) {
+@media screen and (min-width: 1500px) {
  
   .ChangeOutputLabels{
-    height: 7rem;
+    height: 10rem;
   }
 }

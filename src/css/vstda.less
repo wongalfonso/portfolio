@@ -22,8 +22,7 @@
 #ListCard {
   border: none !important;
   max-height: 428px;
-  width: 100%;
-  // overflow-y: scroll;  
+  width: 100%;  
   box-sizing: content-box;
 }
 #todoHeader {
@@ -69,6 +68,22 @@
 }
 .update-label {
   text-align: left;
+}
+@media screen and (min-width: @md) and (max-width: calc(@lg - 1px)) {
+  .create-todo-text {
+    min-height: 1em;
+  }
+  #ListCard {
+    overflow-y: scroll
+  }
+}
+@media screen and (min-width: @lg) and (max-width: calc(@xl - 1px)) {
+  .create-todo-text {
+    min-height: 1em;
+  }
+  #ListCard {
+    overflow-y: scroll
+  }
 }
 @media screen and (min-width: @xl) and (max-width: 1499px) {
   #vstda-row-header {

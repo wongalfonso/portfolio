@@ -152,7 +152,7 @@ export default class ChangeCalc extends Component {
     return (
       <div id='changeCalcProject' className='allProjectModals'>
         <div className='container changeContainer allProjectModalsContainers'>
-        
+
           <div className="row project-headers">
             <div className="col-xl-12">
               <div id='changeHeader' className='col-xl-12'>
@@ -198,41 +198,57 @@ export default class ChangeCalc extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className='row'>
-                    <div className='well ChangeOutputLabels alert alert-success'>
-                      <h1 className='changeLabels'>Twenties</h1>
-                      <p className='lead changeOutputs'>{this.state.twenties}</p>
+                  <div className='row change-output-row'>
+                    <div className='col-3 ChangeOutputContainer'>
+                      <div className='ChangeOutputLabels'>
+                        <h1 className='changeLabels'>Twenties</h1>
+                        <p className='lead changeOutputs'>{this.state.twenties}</p>
+                      </div>
                     </div>
-                    <div className='well ChangeOutputLabels alert alert-success'>
-                      <h1 className='changeLabels'>Tens</h1>
-                      <p className='lead changeOutputs'>{this.state.tens}</p>
+                    <div className='col-3 ChangeOutputContainer'>
+                      <div className="ChangeOutputLabels">
+                        <h1 className='changeLabels'>Tens</h1>
+                        <p className='lead changeOutputs'>{this.state.tens}</p>
+                      </div>
                     </div>
-                    <div className='well ChangeOutputLabels alert alert-success'>
-                      <h1 className='changeLabels'>Fives</h1>
-                      <p className='lead changeOutputs'>{this.state.fives}</p>
+                    <div className='col-3 ChangeOutputContainer'>
+                      <div className="ChangeOutputLabels">
+                        <h1 className='changeLabels'>Fives</h1>
+                        <p className='lead changeOutputs'>{this.state.fives}</p>
+                      </div>
                     </div>
-                    <div className='well ChangeOutputLabels alert alert-success'>
-                      <h1 className='changeLabels'>Ones</h1>
-                      <p className='lead changeOutputs'>{this.state.ones}</p>
+                    <div className='col-3 ChangeOutputContainer'>
+                      <div className="ChangeOutputLabels">
+                        <h1 className='changeLabels'>Ones</h1>
+                        <p className='lead changeOutputs'>{this.state.ones}</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className='row'>
-                    <div className='form-group well ChangeOutputLabels alert alert-success'>
-                      <h1 className='changeLabels'>Quarters</h1>
-                      <p className='lead changeOutputs'>{this.state.quarters}</p>
+                  <div className='row change-output-row'>
+                    <div className='col-3 form-group ChangeOutputContainer'>
+                      <div className="ChangeOutputLabels">
+                        <h1 className='changeLabels'>Quarters</h1>
+                        <p className='lead changeOutputs'>{this.state.quarters}</p>
+                      </div>
                     </div>
-                    <div className='form-group well ChangeOutputLabels alert alert-success'>
-                      <h1 className='changeLabels'>Dimes</h1>
-                      <p className='lead changeOutputs'>{this.state.dimes}</p>
+                    <div className='col-3 form-group ChangeOutputContainer'>
+                      <div className="ChangeOutputLabels">
+                        <h1 className='changeLabels'>Dimes</h1>
+                        <p className='lead changeOutputs'>{this.state.dimes}</p>
+                      </div>
                     </div>
-                    <div className='form-group well ChangeOutputLabels alert alert-success'>
-                      <h1 className='changeLabels'>Nickels</h1>
-                      <p className='lead changeOutputs'>{this.state.nickels}</p>
+                    <div className='col-3 form-group ChangeOutputContainer'>
+                      <div className="ChangeOutputLabels">
+                        <h1 className='changeLabels'>Nickels</h1>
+                        <p className='lead changeOutputs'>{this.state.nickels}</p>
+                      </div>
                     </div>
-                    <div className='form-group well ChangeOutputLabels alert alert-success'>
-                      <h1 className='changeLabels'>Pennies</h1>
-                      <p className='lead changeOutputs'>{this.state.pennies}</p>
+                    <div className='col-3 form-group ChangeOutputContainer'>
+                      <div className="ChangeOutputLabels">
+                        <h1 className='changeLabels'>Pennies</h1>
+                        <p className='lead changeOutputs'>{this.state.pennies}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -241,12 +257,12 @@ export default class ChangeCalc extends Component {
           </div>
 
           <div className='row project-close-row'>
-            <div className="col-xl-6">
+            <div className="col-sm-6 col-xl-6">
               <a href="https://github.com/wongalfonso/React-Change-Calculator" target="_blank">
                 <img className="gitMark" src="/images/GitHub.png" />
               </a>
             </div>
-            <div className="col-xl-6 closeCol ">
+            <div className="col-sm-6 col-xl-6 closeCol ">
               <button className='btn btn-danger form-control-xl closeBtn' onClick={this.props.close}>Close</button>
             </div>
           </div>

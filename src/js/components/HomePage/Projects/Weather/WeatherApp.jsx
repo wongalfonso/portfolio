@@ -26,12 +26,12 @@ export default class Weather extends Component {
           </div>
 
           <div className='row project-close-row'>
-            <div className="col-xl-6">
+            <div className="col-sm-6 col-xl-6">
               <a href="https://github.com/wongalfonso/Weather-App" target="_blank">
                 <img className="gitMark" src="/images/GitHub.png" />
               </a>
             </div>
-            <div className="col-xl-6 closeCol ">
+            <div className="col-sm-6 col-xl-6 closeCol ">
               <button className='btn btn-danger form-control-xl closeBtn' onClick={this.props.close}>Close</button>
             </div>
           </div>

@@ -91,10 +91,12 @@ class AstroWeight extends Component {
             <div className="col-xl-12">
               <form onSubmit={this.submit} id='astroForm'>
                 <div className='form-row align-items-center '>
-                  <div className='form-group col-3'>
+
+                  <div className='form-group col-xl-3'>
                     <label htmlFor='inputWeight' className={labelStyle}> Enter Your Weight</label>
                     <input className='form-control' type='text' placeholder='Weight(lbs)' id='inputWeight' onChange={this.handleWeight} value={this.state.weight} pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' />
                   </div>
+
                   <div className='form-group col-xl-3'>
                     <label className={labelStyle}> Select A Planet </label>
                     <select className='form-control' onChange={this.handlePlanets}>
@@ -134,12 +136,12 @@ class AstroWeight extends Component {
             </div>
           </div>
           <div className='row project-close-row'>
-            <div className="col-xl-6">
+            <div className="col-sm-6 col-xl-6">
               <a href="https://github.com/wongalfonso/Astro-Weight-React" target="_blank">
-                <img className="gitMark" src="/images/GitHub.png" />
+                <img className="gitMark" src="/images/GitHubWhite.png" />
               </a>
             </div>
-            <div className="col-xl-6 closeCol ">
+            <div className="col-sm-6 col-xl-6 closeCol ">
               <button className='btn btn-danger form-control-xl closeBtn' onClick={this.props.close}>Close</button>
             </div>
           </div>
