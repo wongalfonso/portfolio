@@ -30,19 +30,19 @@ export const List = ({ onEdit, onRemove, updateToDo, list}) => {
         <textarea className='update-todo-text' ref={input => _newText = input} type='text' defaultValue={list.toDo}></textarea>
 
         <div className='row'>
-          <div className='form-group col-6'>
-            <label className = 'col-4 col-form-label' htmlFor = 'updateToDoPriority' id='update-label'>Priority</label>
-            <select className='col-8 update-todo-priority' id = 'updateToDoPriority' ref={input => _priority = input} defaultValue={list.priority}>
+          <div className='form-group col-xl-6'>
+            <label className = 'col-sm-12 col-xl-4 col-form-label' htmlFor = 'updateToDoPriority' id='update-label'>Priority</label>
+            <select className='col-sm-12 col-xl-8 update-todo-priority' id = 'updateToDoPriority' ref={input => _priority = input} defaultValue={list.priority}>
               <option value='list-group-item-success'>Low Priority</option>
               <option value='list-group-item-warning'>Medium Priority</option>
               <option value='list-group-item-danger'>High Priority</option>
             </select>
           </div>
-          <div className='form-group col-3'>
-            <button className='update-todo-btn btn btn-warning float-right' onClick={cancel}>Cancel</button>
+          <div className='form-group col-sm-12 col-xl-3'>
+            <button className='update-todo-btn btn btn-warning form-control float-right' onClick={cancel}>Cancel</button>
           </div>
-          <div className='form-group col-3'>
-            <button className='update-todo-btn btn btn-success float-right' onClick={save}>Save</button>
+          <div className='form-group col-sm-12 col-xl-3'>
+            <button className='update-todo-btn btn btn-success float-right form-control' onClick={save}>Save</button>
           </div>
         </div>
       </li>

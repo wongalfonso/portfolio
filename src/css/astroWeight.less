@@ -47,10 +47,17 @@
 }
 
 
-@media (min-width: @sm) {
+@media (max-width: calc(@md - 1px)) {
   #astroHeader {
     text-align: right;
   }
+  #astroForm {
+    margin: 0;
+  }
+  #astroCalculate {
+    position: relative;
+  }
+
 }
 @media screen and (min-width: @xl) and (max-width: 1499px) {
   #astroCalculate {

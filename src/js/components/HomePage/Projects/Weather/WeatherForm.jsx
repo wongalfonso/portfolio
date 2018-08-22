@@ -92,17 +92,17 @@ class Form extends Component {
   render() {
     const { throwErr } = this.props;
     return (
-      <div className = 'col-xl-12'>
-        <div className='btn-group' role='group' aria-label='Basic example'>
-          <button className='btn btn-primary' onClick={this.handleClick} value='San Diego'>
+      <div className = 'col-sm-12 col-xl-12'>
+        <div className='btn-group weather-btn-group' role='group' aria-label='Basic example'>
+          <button className='btn btn-primary form-control' onClick={this.handleClick} value='San Diego'>
             San Diego</button>
-          <button className='btn btn-primary' onClick={this.handleClick} value='New York'>
+          <button className='btn btn-primary form-control' onClick={this.handleClick} value='New York'>
             New York</button>
-          <button className='btn btn-primary' onClick={this.handleClick} value='Washington'>
+          <button className='btn btn-primary form-control' onClick={this.handleClick} value='Washington'>
             Washington D.C.</button>
-          <button className='btn btn-primary' onClick={this.handleClick} value='London' >
+          <button className='btn btn-primary form-control' onClick={this.handleClick} value='London' >
             London</button>
-          <button className='btn btn-primary' onClick={this.handleClick} value='Tokyo'>
+          <button className='btn btn-primary form-control' onClick={this.handleClick} value='Tokyo'>
             Tokyo</button>
         </div>
         <div className='input-group'>
@@ -127,6 +127,7 @@ class Form extends Component {
 
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     input: state.weather.input,
     data: state.weather.data,
