@@ -152,6 +152,7 @@ export default class ChangeCalc extends Component {
     return (
       <div id='changeCalcProject' className='allProjectModals'>
         <div className='container changeContainer allProjectModalsContainers'>
+        
           <div className="row project-headers">
             <div className="col-xl-12">
               <div id='changeHeader' className='col-xl-12'>

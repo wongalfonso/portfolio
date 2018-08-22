@@ -61,7 +61,7 @@ class Form extends Component {
     var weatherArr = data.slice(0, 1);
     if (weatherArr[0].data.cod === 200) {
       return (
-        <div id='feedbackSuccess' className='alert alert-success col-12'>
+        <div id='feedbackSuccess' className='alert alert-success col-lg-12'>
         {weatherArr.map((weather, i) => {
           return (
             <div className='text-center' key={i}>
@@ -81,7 +81,7 @@ class Form extends Component {
   renderWarning() {
     const { input } = this.props;
     return (
-      <div id='feedbackError' className='alert alert-danger col-12 warnings'>
+      <div id='feedbackError' className='alert alert-danger col-lg-12 warnings'>
         <div className='text-center'>
           {`Please enter a Valid City Name, ${input} is not a valid input`}
         </div>
@@ -92,7 +92,7 @@ class Form extends Component {
   render() {
     const { throwErr } = this.props;
     return (
-      <div className = 'col-12'>
+      <div className = 'col-xl-12'>
         <div className='btn-group' role='group' aria-label='Basic example'>
           <button className='btn btn-primary' onClick={this.handleClick} value='San Diego'>
             San Diego</button>

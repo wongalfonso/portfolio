@@ -14,14 +14,15 @@ class CityInfo extends Component {
           return (
             <div className='card-body weatherInfoBody' key={i}>
               <div className='row iconRow'>
-                  <div className='col-md-12 text-center iconRow'>
-                    <h3><Img src={'http://openweathermap.org/img/w/' + icon + '.png'} height={50} width={50} />
-                    {weather.data.name}, {weather.data.sys.country}</h3>
-                  </div>
+                <div className='col-md-12 text-center iconRow'>
+                  <span id = 'icon-row-header'><Img src={'http://openweathermap.org/img/w/' + icon + '.png'} height={50} width={50} />
+                    {weather.data.name}, {weather.data.sys.country}
+                    </span>
+                </div>
                 <div className='col-12'>
                   <div className="row">
-                  <div className = 'col-6'>Lat/Long: {weather.data.coord.lat},{weather.data.coord.lon}</div>
-                  <div className='col-6 discription'>{weather.data.weather[0].description}</div>
+                    <div className='col-6'>Lat/Long: {weather.data.coord.lat},{weather.data.coord.lon}</div>
+                    <div className='col-6 discription'>{weather.data.weather[0].description}</div>
                   </div>
                   <hr />
                 </div>
@@ -65,17 +66,19 @@ class CityInfo extends Component {
 
   renderCityBasic() {
     return (
-      <div></div>
+      <div className = 'empty-search'></div>
     )
   }
 
   render() {
     const { success, throwErr } = this.props;
     return (
-      <div className='card weatherCard mb-3 text-center'>
-        {(success === true) ? this.renderCitySuccess() : this.renderCityBasic()}
-        {(throwErr !== true) ? this.renderCityBasic() : ''}
-        {(throwErr === true) && this.renderCitySuccess()}
+      <div className="col-xl-6">
+        <div className='card weatherCard mb-3 text-center'>
+          {(success === true) ? this.renderCitySuccess() : this.renderCityBasic()}
+          {(throwErr !== true) ? this.renderCityBasic() : ''}
+          {(throwErr === true) && this.renderCitySuccess()}
+        </div>
       </div>
     )
   }

@@ -94,7 +94,10 @@
   margin-bottom: 1rem;
   display: flex;
 }
-
+.allProjectModals {
+  position: relative;
+  height: 100%;
+}
 .allProjectModalsContainers {
   padding: 20px;
   height: 100%;
@@ -225,13 +228,26 @@
     opacity: .7;
   }
 }
-@media screen and (min-width: @lg) and (max-width: 1499px) {
-  .ReactModal__Content--after-open {
-    width: 90%;
-  }
+@media screen and (min-width: @lg) and (max-width: calc(@xl - 1px)) {
   
 }
 
+@media screen and (min-width: @xl) and (max-width: 1499px) {
+  
+  .ReactModal__Content--after-open {
+    width: 90%;
+    height: 90%;
+  }
+  .project-headers {
+    height: 15%;
+  }
+  .project-modal-body {
+    height: 75%;
+  }
+  .project-close-row {
+    height: 10%;
+  }
+}
 @media screen and (min-width: 1500px) {
   .project-rows {
     padding: auto;

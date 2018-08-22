@@ -20,19 +20,9 @@ export default class Weather extends Component {
           </div>
 
           <div className='row project-modal-body'>
-            <div className='col-xl-12'>
-              <div className='row'>
-                <Form />
-              </div>
-              <div className='row weahterCardsRow'>
-                <div className='col-6'>
-                  <CityInfo />
-                </div>
-                <div className='col-6'>
-                  <Search />
-                </div>
-              </div>
-            </div>
+            <Form />
+            <CityInfo />
+            <Search />
           </div>
 
           <div className='row project-close-row'>

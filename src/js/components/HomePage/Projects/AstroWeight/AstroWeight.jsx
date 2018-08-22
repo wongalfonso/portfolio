@@ -78,6 +78,7 @@ class AstroWeight extends Component {
 
       <div id='astroWeightProject' className='allProjectModals'>
         <div className='container astroWeightContainer allProjectModalsContainers'>
+        
           <div className="row project-headers">
             <div className="col-xl-12">
               <div className='col-xl-12' id='astroHeader'>
@@ -94,7 +95,7 @@ class AstroWeight extends Component {
                     <label htmlFor='inputWeight' className={labelStyle}> Enter Your Weight</label>
                     <input className='form-control' type='text' placeholder='Weight(lbs)' id='inputWeight' onChange={this.handleWeight} value={this.state.weight} pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' />
                   </div>
-                  <div className='form-group col-3'>
+                  <div className='form-group col-xl-3'>
                     <label className={labelStyle}> Select A Planet </label>
                     <select className='form-control' onChange={this.handlePlanets}>
                       {list.map((planet, i) => {
@@ -108,7 +109,7 @@ class AstroWeight extends Component {
                     </select>
                   </div>
 
-                  <div className='form-group checkGroup col-3'>
+                  <div className='form-group checkGroup col-xl-3'>
                     <div className='form-check checkForm'>
                       <input type='checkbox' className='checkBox' id='formCheck' onChange={this.handleChecked} />
                       <label className='astroLabels' htmlFor='formCheck'>
@@ -117,7 +118,7 @@ class AstroWeight extends Component {
                     </div>
                   </div>
 
-                  <div className='form-group col-3'>
+                  <div className='form-group col-xl-3'>
                     {
                       (this.state.weight.length > 0 && this.state.planetName !== '') ? <button className='btn btn-primary form-control' type='submit' id='astroCalculate'> Calculate </button> : <button className='btn btn-primary form-control' type='submit' id='astroCalculate' disabled> Calculate</button>
                     }
@@ -126,7 +127,9 @@ class AstroWeight extends Component {
               </form>
 
               <div className='row'>
-                <div className='col-xl-12' id='astroOutput'>{(this.state.newWeight) ? output : ''}</div>
+                <div className='col-xl-12'>
+                <div id='astroOutput'>{(this.state.newWeight) ? output : ''}</div>
+                </div>
               </div>
             </div>
           </div>
