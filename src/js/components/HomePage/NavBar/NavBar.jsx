@@ -43,10 +43,10 @@ export default class NavBar extends Component {
               (active === 'project') ?
                 <a className = 'pages'>
                   Projects
-                  <img id = 'projectActive' src={Active} onClick = {() => scroll.bind(this, 'projectPage')}/>
+                  <img id = 'projectActive' src={Active} onClick = {() => scroll.bind(this, 'project-page')}/>
                 </a> :
                 <a >
-                  <img src={Menu} onClick = {scroll.bind(this, 'projectPage')}/>
+                  <img src={Menu} onClick = {scroll.bind(this, 'project-page')}/>
                 </a>
             }
           </li>
