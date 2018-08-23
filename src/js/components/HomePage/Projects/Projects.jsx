@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
-import { Link } from 'react-router'
 import ChangeCalc from './ChangeCalc/ChangeCalc';
 import VSTDA from './VstdaApp/Vstda';
 import AstroWeight from './AstroWeight/AstroWeight';
