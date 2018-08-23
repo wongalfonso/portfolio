@@ -66,7 +66,6 @@ class CityInfo extends Component {
   }
 
   renderCityBasic(style) {
-    console.log('style', style)
     return (
       <div className={style}></div>
     )
@@ -74,11 +73,9 @@ class CityInfo extends Component {
 
   render() {
     const { success, throwErr } = this.props;
-    console.log(success);
     return (
       <div className="col-xl-6">
         {(success === true || throwErr === true) ? this.renderCitySuccess() : this.renderCityBasic('empty-search')}
-        {/* {(throwErr === true) && this.renderCitySuccess()} */}
       </div>
     )
   }

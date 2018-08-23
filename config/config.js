@@ -1,3 +1,7 @@
 module.exports = {
+<<<<<<< HEAD
   WEATHER_KEY: '248b9f706d27cc555005194e01c80359'
+=======
+  // WEATHER_KEY: '248b9f706d27cc555005194e01c80359'
+>>>>>>> 768713abeec5553812e506f4acd94f25400e35ca
 };
