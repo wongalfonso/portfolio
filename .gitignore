@@ -8,6 +8,8 @@ coverage
 dist
 .yml
 .circleci
+config.js
+/config
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
