@@ -16,7 +16,7 @@ export class ToDoForm extends Component {
 
   render() {
     return (
-      <div className = "col-4">
+      <div className = "col-sm-12 col-xl-4">
         <form onSubmit={this.props.createToDo}>
           <div className="card card-default">
             <div className="card-header">Add New Todo</div>

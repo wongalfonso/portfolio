@@ -24,7 +24,7 @@ class HomePage extends Component {
     if (screen.offsetWidth) {
       dispatch(exportScreenSize(screen.offsetWidth))
     } 
-    setTimeout(() => {this.scroll('aboutPage')}, 8000)
+    // setTimeout(() => {this.scroll('aboutPage')}, 8000)
   }
   
   mouseEnter(page) {

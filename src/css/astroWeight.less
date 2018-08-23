@@ -9,15 +9,12 @@
   color: white;
   text-align: left;
   border-bottom: 1px solid white;
-  // margin-bottom: 2em;
-  margin-top: 3rem;
-  text-align: right;
 }
 
 .astroLabels {
   color: white;
   font-weight: none;
-  text-align: right;
+  text-align: left;
 }
 #astroForm {
   margin-top: 13rem;
@@ -50,4 +47,24 @@
 }
 
 
+@media (max-width: calc(@md - 1px)) {
+  #astroHeader {
+    text-align: right;
+  }
+  #astroForm {
+    margin: 0;
+  }
+  #astroCalculate {
+    position: relative;
+  }
 
+}
+@media screen and (min-width: @xl) and (max-width: 1499px) {
+  #astroCalculate {
+    position: relative;
+    margin-top: 35px;
+  }
+}
+@media screen and (min-width: 1500px) {
+
+}

@@ -6,7 +6,8 @@ node_modules
 logs
 coverage
 dist
-config
+.yml
+.circleci
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
