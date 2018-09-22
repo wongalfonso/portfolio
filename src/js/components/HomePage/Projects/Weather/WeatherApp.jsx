@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 import Form from './WeatherForm';
 import CityInfo from './CityInfo';
 import Search from './Search';
 
 export default class Weather extends Component {
+  gitHub() {
+    ReactGA.event({
+      category: 'Visited GitHub from Modal',
+      action: 'From Weather Modal'
+    })
+  }
 
   render() {
 
@@ -27,7 +34,7 @@ export default class Weather extends Component {
 
           <div className='row project-close-row'>
             <div className="col-sm-6 col-xl-6">
-              <a href="https://github.com/wongalfonso/Weather-App" target="_blank">
+              <a href="https://github.com/wongalfonso/Weather-App" target="_blank" onClick = {this.gitHub}>
                 <img className="gitMark" src="/images/GitHub.png" />
               </a>
             </div>

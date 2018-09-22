@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 import { List } from './List';
 import { ToDoForm } from './ToDoForm';
 
@@ -33,6 +34,12 @@ export default class VSTDA extends Component {
     if (card.scrollHeight === card.offsetHeight && this.state.overflow === 'scroll') {
       this.setState({ overflow: '' })
     }
+  }
+  gitHub() {
+    ReactGA.event({
+      category: 'Visited GitHub from Modal',
+      action: 'From VSTDA Modal'
+    })
   }
   createToDo(event) {
     event.preventDefault();
@@ -154,7 +161,7 @@ export default class VSTDA extends Component {
 
           <div className='row project-close-row'>
             <div className="col-sm-6 col-xl-6">
-              <a href="https://github.com/wongalfonso/VSTDA" target="_blank">
+              <a href="https://github.com/wongalfonso/VSTDA" target="_blank" onClick = {this.gitHub}>
                 <img className="gitMark" src="/images/GitHub.png" />
               </a>
             </div>
