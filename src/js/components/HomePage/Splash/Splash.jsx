@@ -4,7 +4,8 @@ import backgroundVid from './../../../../../public/video/backgroundVideo.mp4';
 
 export default class Splash extends Component {
   componentDidMount() {
-    const about = document.getElementById('splash-page');about.onmouseenter = () => this.props.enter('splash');
+    const about = document.getElementById('splash-page');
+    about.onmouseenter = () => this.props.enter('splash');
     about.onmouseleave = () => this.props.exit('splash');
   }
 
@@ -73,11 +74,5 @@ export default class Splash extends Component {
         </div>
       </div>
     )
-    // const { screen } = this.props;
-    // if (screen > 992) {
-    //   return this.largeScreen();
-    // } else {
-    //   return this.smallScreen();
-    // }
   }
 }
