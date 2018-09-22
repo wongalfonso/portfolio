@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 
 export default class ChangeCalc extends Component {
   constructor(props) {
@@ -21,6 +22,12 @@ export default class ChangeCalc extends Component {
     this.calculate = this.calculate.bind(this);
   }
 
+  gitHub() {
+    ReactGA.event({
+      category: 'Visited GitHub from Modal',
+      action: 'From Change Modal'
+    })
+  }
   handleDue(event) {
     const amountDue = (event.target.validity.valid) ? event.target.value : this.state.amountDue;
     this.setState({ amountDue });
@@ -258,7 +265,7 @@ export default class ChangeCalc extends Component {
 
           <div className='row project-close-row'>
             <div className="col-sm-6 col-xl-6">
-              <a href="https://github.com/wongalfonso/React-Change-Calculator" target="_blank">
+              <a href="https://github.com/wongalfonso/React-Change-Calculator" target="_blank" onClick = {this.gitHub}>
                 <img className="gitMark" src="/images/GitHub.png" />
               </a>
             </div>

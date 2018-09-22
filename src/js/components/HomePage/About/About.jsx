@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 
 export default class About extends Component {
 
@@ -6,7 +7,12 @@ export default class About extends Component {
     const about = document.getElementById('aboutPage'); about.onmouseenter = () => this.props.enter('about');
     about.onmouseleave = () => this.props.exit('about');
   }
-
+  downloadResume() {
+    ReactGA.event({
+      category: 'Clicked About Page Button',
+      action: 'downloaded Resume'
+    })
+  }
   aboutText() {
 
     return (
@@ -40,10 +46,10 @@ export default class About extends Component {
 
           <div className='row about-row-bottom'>
             <div className='col-lg-12 text-center resumeBtnDiv'>
-              <a href='/files/AlfonsoWongResume.pdf' download>
+              <a href='/files/AlfonsoWongResume.pdf' download onClick = {this.downloadResume}>
                 <button className='btn btn-default resumeBtn'>
                   Download Resume
-            </button>
+                </button>
               </a>
             </div>
           </div>

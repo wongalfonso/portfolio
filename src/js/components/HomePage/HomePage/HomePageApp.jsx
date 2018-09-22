@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactGA from 'react-ga';
 import Splash from '../Splash/Splash';
 import About from '../About/About';
 import Projects from '../Projects/Projects';
@@ -19,6 +20,7 @@ class HomePage extends Component {
     this.scroll = this.scroll.bind(this);
   }
   componentDidMount() {
+    ReactGA.initialize('UA-126168783-1');
     const { dispatch } = this.props;
     const screen = this.screen; 
     if (screen.offsetWidth) {

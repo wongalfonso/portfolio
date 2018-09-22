@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactGA from 'react-ga';
 
 var planets = [
   ['Pluto', 0.06],
@@ -65,7 +66,12 @@ class AstroWeight extends Component {
 
     this.setState({ newWeight: planetWeight, output: message })
   }
-
+  gitHub() {
+    ReactGA.event({
+      category: 'Visited GitHub from Modal',
+      action: 'From Astro Modal'
+    })
+  }
 
   render() {
     let { planetList, checked, output } = this.state;
@@ -137,7 +143,7 @@ class AstroWeight extends Component {
           </div>
           <div className='row project-close-row'>
             <div className="col-sm-6 col-xl-6">
-              <a href="https://github.com/wongalfonso/Astro-Weight-React" target="_blank">
+              <a href="https://github.com/wongalfonso/Astro-Weight-React" target="_blank" onClick = {this.gitHub}>
                 <img className="gitMark" src="/images/GitHubWhite.png" />
               </a>
             </div>
