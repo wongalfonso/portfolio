@@ -34,28 +34,28 @@
   animation-fill-mode: forwards;
 }
 
-.overlay-text {
-  list-style: none;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-weight: bold;
-  text-shadow: 4px 3px rgb(38, 38, 38);
-  color: rgb(255,255,255);
-  z-index: 20;
-}
-
 .splash-container {
   height: 100%;
   width: 100%;
 }
-.overlay-text-name {
-  position: relative;
+.overlay-text {  
+  position: fixed;
+  font-size: 2.5em;
+  color: white;  
+  background-color: rgba(255,255,255,.2);
+  padding: 10px;
+  z-index: 20;
 }
-.overlay-text ul {
-  padding: 0;
+.overlay-title {
+  position: fixed;  
+  font-size: 5em;
+  color: white;
+  font-weight: bold;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
 }
-.overlay-text li {display: inline-block;}
 @keyframes overlay {
   0% {background-color: rgba(0,0,0,0)}
   100% {background-color: rgba(0,0,0,0.6)}
@@ -65,26 +65,10 @@
   100% {background-color: rgba(0,0,0,0.6)}
 }
 
-@media screen and (max-width: @md) {
-
-  
+@media screen and (max-width: @md) {  
   #splash-vid {  
     display: none;
-  }
-  .text-row-top {
-    height: 15%;
-  }
-  .text-row-middle {
-    height: 70%;
-  }
-  .text-row-bottom {
-    height: 15%;
-  }
-  .overlay-text {
-    line-height: 12vh;
-    font-size: 14vw;
-    opacity: .8;
-  }
+  }  
 }
 
 @media screen and (min-width: @md) and (max-width: calc(@lg - 1px)) {
@@ -99,11 +83,6 @@
   }
   .text-row-bottom {
     height: 15%;
-  }
-  .overlay-text {
-    line-height: 12vh;
-    font-size: 10vw;
-    opacity: .8;
   }
 }
 @media screen and (min-width: @lg) and (max-width: calc(@xl - 1px)) {
@@ -133,12 +112,7 @@
       right:0;
       bottom:0;
       left:0;
-    }
-    .overlay-text {
-      line-height: 12vh;
-      font-size: 10vw;
-      opacity: .8;
-    }
+    }    
   }
 @media screen and (min-width: @xl) and (max-width: 1499px){
   #splash-page {
@@ -167,30 +141,6 @@
     right:0;
     bottom:0;
     left:0;
-  }
-  .overlay-text {
-    line-height: 29vh;
-    font-size: 6vw;
-    opacity: .8;
-  }
-  .overlay-text ul {
-    display: inline-block;
-  }
-  .overlay-text-name li {
-    opacity: 0;
-  }
-  .overlay-text-title li {
-    opacity: 0;
-  }
-  
-  .overlay-text-name {
-    margin-right: 30px;
-  }
-  .overlay-text-title {
-    margin-right: 30px;
-  }
-  .overlay-text-name li:last-child {
-    margin-right: 0;
   }
 }
      
@@ -222,29 +172,5 @@
     right:0;
     bottom:0;
     left:0;
-  }
-  .overlay-text {
-    line-height: 20vh;
-    font-size: 6vw;
-    opacity: .8;
-  }
-  .overlay-text ul {
-    display: inline-block;
-  }
-  .overlay-text-name li {
-    opacity: 0;
-  }
-  .overlay-text-title li {
-    opacity: 0;
-  }
-  
-  .overlay-text-name {
-    margin-right: 30px;
-  }
-  .overlay-text-title {
-    margin-right: 30px;
-  }
-  .overlay-text-name li:last-child {
-    margin-right: 0;
   }
 }

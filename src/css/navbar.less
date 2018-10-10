@@ -1,0 +1,34 @@
+// .scroller {
+//   scroll-snap-type: mandatory;
+//   scroll-snap-destination: 0% 100%;
+//   scroll-snap-points-x: repeat(100%);
+
+// }
+// .page {
+//   scroll-snap-align: start;
+// }
+
+.navBar {
+  position: fixed;
+  right: 2%;
+  top: 50%;
+  z-index: 30;
+  list-style: none;
+  text-align: right;
+  margin-top: -100px;
+  margin-bottom: auto;
+}
+
+.navBar li img {
+  width: 25px;
+  opacity: .5;
+  margin: .4rem;
+}
+
+#aboutMenu {
+  transition: .5s;
+  & .is-active {
+    opacity: 0
+  }
+    
+}

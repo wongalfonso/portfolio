@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Active from './../../../../../public/images/ActiveButton.png';
-import Menu from './../../../../../public/images/MenuButton.png';
+import Active from './../../../../public/images/ActiveButton.png';
+import Menu from './../../../../public/images/MenuButton.png';
 
 
 export default class NavBar extends Component {

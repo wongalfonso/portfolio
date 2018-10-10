@@ -11,7 +11,7 @@ export default function ProfileReducer(state = defaultState, action) {
     case 'GET_ALL_BLOGS_PENDING': {
       return { ...state, loading: true };
     }
-    case 'GET_ALL_BLOGS_FULFILLED': {
+    case 'GET_ALL_BLOGS_FULFILLED': {      
       return { ...state, blogs: payload, loading: false };
     }
     case 'GET_ALL_BLOGS_REJECTED': {

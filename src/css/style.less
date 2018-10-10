@@ -7,6 +7,7 @@
 @import './astroWeight.less';
 @import './weather.less';
 @import './animation.less';
+@import './navbar.less';
 
 
 html, body {
@@ -18,7 +19,7 @@ html, body {
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   overflow-x: hidden;
 }
 
@@ -42,33 +43,12 @@ body {
   text-align: center;
 }
 
-.navBar {
-  position: fixed;
-  right: 2%;
-  top: 50%;
-  z-index: 30;
-  list-style: none;
-  text-align: right;
-  margin-top: -100px;
-  margin-bottom: auto;
-}
+
 .pages {
   color: white !important;
   font-size: 20px !important;
 }
-.navBar li img {
-  width: 25px;
-  opacity: .5;
-  margin: .4rem;
-}
 
-#aboutMenu {
-  transition: .5s;
-  & .is-active {
-    opacity: 0
-  }
-    
-}
 
 #aboutActive, #topActive, #projectActive{
   width: 40px;
@@ -222,7 +202,7 @@ form.blogText textarea {
   
 
 }
-@media screen and (min-width: calc(@xl - 1px)) and (max-width: 1499px) {
+@media screen and (min-width: @lg) and (max-width: calc(@xl - 1px)) {
   .title {
     margin-top: 1rem;
     margin-bottom: 4rem;
@@ -235,7 +215,7 @@ form.blogText textarea {
 #userList li button.expandBtn{width: 200px; display: inline-block}
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: @xl) {
 
   .title {
     margin-top: 4rem;
