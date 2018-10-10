@@ -1,18 +1,18 @@
-#splash-page {
+#splashImg {
   background-image: url('./../../public/images/DowntownBackground.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   height: 100vh;
-  overflow-x: hidden;
+  max-height: 100vh;
+  overflow-x: hidden;  
 }
-.overlay {
-  position: absolute;
-  height: 100%;
-  width: 100%;
+#splashVid {    
+  min-height: 100%;
+  overflow: hidden;
 }
-.overlay:after {
+#splashPage:after {
   content: '';
   position: absolute;
   top: 0;
@@ -24,153 +24,46 @@
   height: 100%;
   overflow: hidden;
   z-index: 2;
-  @animation-name: overlay;
-  @animation-duration: 2s;
-  @animation-delay: 2s;
-  @animation-fill-mode: forwards;
-  animation-name: overlay;
-  animation-duration: 2s;
-  animation-delay: 2s;
-  animation-fill-mode: forwards;
+  background-color: rgba(0,0,0,0.6) 
 }
-
-.splash-container {
-  height: 100%;
-  width: 100%;
-}
-.overlay-text {  
-  position: fixed;
-  font-size: 2.5em;
-  color: white;  
-  background-color: rgba(255,255,255,.2);
-  padding: 10px;
-  z-index: 20;
-}
-.overlay-title {
-  position: fixed;  
-  font-size: 5em;
-  color: white;
-  font-weight: bold;
-  top: 15%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 20;
-}
-@keyframes overlay {
-  0% {background-color: rgba(0,0,0,0)}
-  100% {background-color: rgba(0,0,0,0.6)}
-}
-@-webkit-keyframes overlay {
-  0% {background-color: rgba(0,0,0,0)}
-  100% {background-color: rgba(0,0,0,0.6)}
-}
-
-@media screen and (max-width: @md) {  
-  #splash-vid {  
+@media screen and (max-width: calc(@sm - 1px)) {  
+  #splashVid {  
     display: none;
   }  
 }
 
-@media screen and (min-width: @md) and (max-width: calc(@lg - 1px)) {
-  #splash-vid {  
+@media screen and (min-width: @sm) and (max-width: calc(@md - 1px)) {
+  #splashVid {  
     display: none;
   }
-  .text-row-top {
-    height: 15%;
-  }
-  .text-row-middle {
-    height: 70%;
-  }
-  .text-row-bottom {
-    height: 15%;
-  }
 }
-@media screen and (min-width: @lg) and (max-width: calc(@xl - 1px)) {
+@media screen and (min-width: @md) and (max-width: calc(@lg - 1px)) {
     #splash-page {
       background-image: none;
       overflow-x: hidden;
       width: 100vw;
       height: 100vh;
-    }
-    #splash-vid {  
-      display: block;
-      height: 100vh;
-      box-sizing: content-box;
-      overflow-y: scroll;
-    }
-    .text-row-top {
-      height: 15%;
-    }
-    .text-row-middle {
-      height: 70%;
-    }
-    .text-row-bottom {
-      height: 15%;
-    }
-    .overlay {
-      top:0;
-      right:0;
-      bottom:0;
-      left:0;
     }    
   }
-@media screen and (min-width: @xl) and (max-width: 1499px){
-  #splash-page {
-    background-image: none;
-    width: 100vw;
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
-  #splash-vid {  
-    display: block;
-    min-width: 100vw;
-    min-height: 100vh;
-    overflow: hidden;
-  }
-  .text-row-top {
-    height: 15%;
-  }
-  .text-row-middle {
-    height: 70%;
-  }
-  .text-row-bottom {
-    height: 15%;
-  }
-  .overlay {
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
+@media screen and (min-width: @lg) and (max-width: calc(@xl - 1px)){
+  #splashImg {
+    display: none;
   }
 }
      
-@media screen and (min-width: 1500px) {
-
-  #splash-page {
+@media screen and (min-width: @xl) {
+  #splashImg {
+    display: none;
+  }
+  #splashPage {
     background-image: none;
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
     overflow-y: hidden;
-  }
-  #splash-vid {  
-    display: block;
+  }  
+  #splashVid {
+    min-height: 100%;
     min-width: 100vw;
-    overflow: hidden;
-  }
-  .text-row-top {
-    height: 15%;
-  }
-  .text-row-middle {
-    height: 70%;
-  }
-  .text-row-bottom {
-    height: 15%;
-  }
-  .overlay {
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
   }
 }

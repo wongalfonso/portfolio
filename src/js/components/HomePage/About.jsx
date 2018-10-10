@@ -28,7 +28,7 @@ export default class About extends Component {
 
   render() {
     return (
-      <div className='aboutPage' id='aboutPage'>
+      <div className='about-page scroll-page' id='aboutPage'>
         <div className='container about-container' id='aboutContainer'>
 
           <div className='row about-row-top'>
