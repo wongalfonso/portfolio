@@ -1,0 +1,67 @@
+
+.header-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 5em;
+  z-index: 20;
+  text-align: center;
+  font-weight: bold;
+  .name-animation{
+    text-transform: uppercase;
+    opacity: 0;
+    animation: 3s ease-in 1s headerName;
+  }
+  .title-animation {
+    text-transform: uppercase;
+    opacity: 0;
+    animation: 3s ease-in 1s headerTitle;
+  }
+
+}
+.overlay-text {
+  position: fixed;
+  opacity: 0;
+  animation: 1s ease-in 4s title;
+  animation-fill-mode: forwards;
+}
+
+.overlay-name {
+  position: fixed;
+  color: white;
+  padding: 15px;
+  font-size: 2.3em;
+  top: 0;
+  left: 0;
+  padding-left: 1em;
+  z-index: 100;
+  background: rgba(255,255,255,.3);
+  opacity: 0;
+  animation: 1s ease-in 4s name;
+  animation-fill-mode: forwards;
+}
+
+@keyframes headerName {
+  0% {opacity: 0;transform: translateX(-3%);}
+  50% {opacity: 1;transform: translateX(0);}
+  99% {opacity: 0;transform: translateX(3%);}
+  100%{display: none;}
+}
+@keyframes headerTitle {
+  0% {opacity: 0;transform: translateX(3%);}
+  50% {opacity: 1;transform: translateX(0);}
+  99% {opacity: 0;transform: translateX(-3%);}
+  100%{display: none;}
+}
+
+@keyframes name {
+  0% {opacity: 0; transform: translateY(15%);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes title {
+  0% {opacity: 0; transform: translate(-50%,-10%);}
+  100% {opacity: 1; transform: translate(-50%, 0);}
+}

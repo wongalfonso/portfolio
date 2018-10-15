@@ -1,84 +1,83 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
-import { SectionsContainer, Section } from 'react-fullpage';
+import { FullPage, Slide } from 'react-full-page';
 import Splash from './Splash';
 import About from './About';
 import Projects from './Projects/Projects';
 import Footer from './../Footer';
+import Header from './../Header';
 import NavBar from './NavBar';
 
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: 1,
-      enter: 'splash',
-      exit: '', 
-    }    
-    this.mouseEnter = this.mouseEnter.bind(this);
-    this.mouseExit = this.mouseExit.bind(this);
+      currentPage: '#splash',
+      title: 'Web Developer'
+    }        
     this.scroll = this.scroll.bind(this);
   }
   componentWillMount() {
-    ReactGA.initialize('UA-126168783-1');              
+    ReactGA.initialize('UA-126168783-1');    
+    window.addEventListener("mousewheel", this.MouseWheelHandler, false);      
   }  
-  mouseEnter(page) {
-    this.setState({
-      enter: page
-    })
+  componentDidUpdate() {
+    if (this.state.currentPage !== window.location.hash) {this.setState({currentPage: window.location.hash})
+    }
+    if (this.state.currentPage === '#splash' && this.state.title !== 'Web Developer') {
+      setTimeout( () => this.setState({title: 'Web Developer'}),800);
+    }
+    if (this.state.currentPage === '#about' && this.state.title !== 'About') {
+      setTimeout( () => this.setState({title: 'About'}),800);
+    }
+    if (this.state.currentPage === '#projects' && this.state.title !== 'Projects') {
+      this.setState({title: 'Projects'})
+    }
+    
   }
-  mouseExit(page) {
-    this.setState({
-      exit: page
-    })
+  MouseWheelHandler() {
+    console.log(event);
   }
   scroll(target) {
     let page;
-    if (target === 'vidContainer') {page = 'splash'}
-    if (target === 'aboutPage') {page = 'about'}
-    if (target === 'projectPage') {page = 'project'}
-    if (this.state.enter === page) {
+    if (target === '#splash') {page = 'splashPage'}
+    if (target === '#about') {page = 'aboutPage'}
+    if (target === '#projects') {page = 'projectPage'}
+    if (this.state.currentPage === page) {
       return 
     } else {
       var id = document.getElementById(target).offsetTop
       window.scrollTo({top: id, behavior: 'smooth'})
-      this.setState({ enter: page })
+      this.setState({ currentPage: page })
     }
   }
 
-  render() {    
-    let options = {
-      sectionClassName:     'section',
-      anchors:              ['sectionOne', 'sectionTwo', 'sectionThree'],
-      scrollBar:            false,
-      navigation:           false,
-      verticalAlign:        false,            
-      arrowNavigation:      false
-    };
+  render() {       
+    console.log(this.props);   
+    const props = {
+      duration: '10000ms'
+    }
     return (      
       <div className='full-site'>
-        <NavBar 
-          active = {this.state.enter} 
-          menu = {this.state.exit} 
-          isActive = {this.mouseEnter}
-          scroll = {this.scroll}/>
+        {/* <NavBar 
+          active = {this.state.currentPage}          
+          scroll = {this.scroll}/> */}
+        <Header
+          title = {this.state.title}/>        
+        {/* <FullPage controlsProps = {{duration: "3000ms"}}> */}
+          {/* <Slide> */}
+            <Splash/>
+          {/* </Slide>
+          <Slide> */}
+            <About               
+              enter = {this.mouseEnter}/>
+          {/* </Slide> */}
+          {/* <Slide className = 'projects'>
+            <Projects 
+              enter = {this.mouseEnter}/>
+          </Slide>           */}
+        {/* </FullPage> */}
         
-        <SectionsContainer {...options}>
-          <Section>
-            <Splash 
-              screen={screen} 
-              enter = {this.mouseEnter} 
-              exit = {this.mouseExit}/>
-          </Section>
-          <Section>
-            <About 
-              screen={screen} 
-              enter = {this.mouseEnter} 
-              exit = {this.mouseExit}/>
-
-          </Section>
-          <Projects screen={screen} enter = {this.mouseEnter} exit = {this.mouseExit}/>
-        </SectionsContainer>
                   
         {/* <Footer /> */}
       </div>

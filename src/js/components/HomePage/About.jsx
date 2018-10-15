@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 
 export default class About extends Component {
-
-  componentDidMount() {
-    const about = document.getElementById('aboutPage'); about.onmouseenter = () => this.props.enter('about');
-    about.onmouseleave = () => this.props.exit('about');
-  }
   downloadResume() {
     ReactGA.event({
       category: 'Clicked About Page Button',
@@ -28,12 +23,12 @@ export default class About extends Component {
 
   render() {
     return (
-      <div className='about-page scroll-page' id='aboutPage'>
+      <div className='about-page' id='aboutPage'>
         <div className='container about-container' id='aboutContainer'>
 
           <div className='row about-row-top'>
             <div className='col-12 aboutHeader'>
-              <div className='title'>About Me</div>
+              <div className='about-me-title title'>About Me</div>
             </div>
           </div>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import backgroundVid from './../../../../public/video/backgroundVideo.mp4';
 
 
-const Splash = () => { 
+const Splash = () => {
     return (
       <div id="splashPage" className = 'full-page'>
         <video id='splashVid' loop autoPlay muted >
@@ -14,4 +14,4 @@ const Splash = () => {
     )  
 }
 
-export default Splash
+export default Splash;

@@ -34,8 +34,7 @@ export default class Projects extends Component {
   }
 
   componentDidMount() {
-    const project = document.getElementById('project-page'); project.onmouseenter = () => this.props.enter('project');
-    project.onmouseleave = () => this.props.exit('project');
+    const project = document.getElementById('projectPage'); project.onmouseenter = () => this.props.enter(3);
   }
 
   openModal(project) {
@@ -81,7 +80,7 @@ export default class Projects extends Component {
 
   render() {
     return (
-      <div className='projectsPage' id='project-page' ref={(project) => this._project = project} >
+      <div className='projects-page' id='projectPage' ref={(project) => this._project = project} >
         {this.modalTemplate()}
         <div className='container'>
           <div className='row'>
