@@ -6,8 +6,7 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.join(__dirname, '/dist'),
-    publicPath: '/'
+    path: path.join(__dirname, 'dist')
   },
   resolve: {
     alias: {
@@ -33,13 +32,7 @@ module.exports = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
-          { loader: 'less-loader' },
-        ]
-      },
-      {
-        test: /\.(png|jpg)$/,
-        use: [          
-          { loader: 'file-loader' }
+          { loader: 'less-loader' }
         ]
       },
       {
@@ -52,9 +45,16 @@ module.exports = {
         }]
       },
       {
+        test: /\.(png|jpg)$/,
+        use: [
+          { loader: 'url-loader' },
+          { loader: 'file-loader' },
+        ]
+      },
+      {
         test: /\.pdf$/,
         loader: 'file?name=[name].[ext]'
       }
-    ]
+    ],
   }
 }
