@@ -69,7 +69,7 @@
 .update-label {
   text-align: left;
 }
-@media screen and (max-width: calc(@md - 1px)) {
+@media screen and (max-width: $md - 1px) {
   #vstdaHeader {
     font-size: 1vw;
   }
@@ -100,7 +100,7 @@
     width: 10%;
   }
 }
-@media screen and (min-width: @md) and (max-width: calc(@lg - 1px)) {
+@media screen and (min-width: $md) and (max-width: $lg - 1px) {
   #vstda-row-header {
     height: 15%;
   }
@@ -117,7 +117,7 @@
     max-height: 332px;
   }
 }
-@media screen and (min-width: @lg) and (max-width: calc(@xl - 1px)) {
+@media screen and (min-width: $lg) and (max-width: $xl - 1px) {
   .create-todo-text {
     min-height: 1em;
   }
@@ -125,7 +125,7 @@
     overflow-y: scroll
   }
 }
-@media screen and (min-width: @xl) and (max-width: 1499px) {
+@media screen and (min-width: $xl) and (max-width: 1499px) {
   #vstda-row-header {
     height: 20%;
   }

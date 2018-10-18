@@ -1,5 +1,5 @@
 #splashImg {
-  background-image: url('./../../public/images/DowntownBackground.jpg');
+  background-image: url(/public/images/OceanBeachPier.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -29,18 +29,18 @@
   z-index: 2;
   background-color: rgba(0,0,0,0.6) 
 }
-@media screen and (max-width: calc(@sm - 1px)) {  
+@media screen and (max-width: $sm - 1px) {  
   #splashVid {  
     display: none;
   }  
 }
 
-@media screen and (min-width: @sm) and (max-width: calc(@md - 1px)) {
+@media screen and (min-width: $sm) and (max-width: $md - 1px) {
   #splashVid {  
     display: none;
   }
 }
-@media screen and (min-width: @md) and (max-width: calc(@lg - 1px)) {
+@media screen and (min-width: $md) and (max-width: $lg - 1px) {
     #splash-page {
       background-image: none;
       overflow-x: hidden;
@@ -48,13 +48,13 @@
       height: 100vh;
     }    
   }
-@media screen and (min-width: @lg) and (max-width: calc(@xl - 1px)){
+@media screen and (min-width: $lg) and (max-width: $xl - 1px){
   #splashImg {
     display: none;
   }
 }
      
-@media screen and (min-width: @xl) {
+@media screen and (min-width: $xl) {
   #splashImg {
     display: none;
   }

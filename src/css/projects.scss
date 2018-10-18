@@ -125,7 +125,7 @@
 .gitMark:hover {
   opacity: .7;
 }
-@media (max-width: calc(@md - 1px)){
+@media (max-width: $md - 1px){
   .ReactModal__Content--after-open {
     height: 100%;
     overflow: scroll;
@@ -166,7 +166,7 @@
   }
 }
 
-@media screen and (min-width: @md) and (max-width: calc(@lg - 1px)) {
+@media screen and (min-width: $md) and (max-width: $lg - 1px) {
   .project-images {
     position: relative;
     border-radius: 20px;
@@ -260,7 +260,7 @@
     height: 5%;
   }
 }
-@media screen and (min-width: @lg) and (max-width: calc(@xl - 1px)) {
+@media screen and (min-width: $lg) and (max-width: $xl - 1px) {
   .project-images {
     position: relative;
     border-radius: 20px;
@@ -290,7 +290,7 @@
   }
 }
 
-@media screen and (min-width: @xl) and (max-width: 1499px) {
+@media screen and (min-width: $xl) and (max-width: 1499px) {
   .project-images {
     transform: translateX(50%);
     transition: all 1s ease;  

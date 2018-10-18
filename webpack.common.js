@@ -27,18 +27,11 @@ module.exports = {
         loader: 'file?name=[name].[ext]'
       },
       {
-        test: /\.less$/,
+        test: /\.scss$/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
-          { loader: 'less-loader' },
-        ]
-      },
-      {
-        test: /\.(png|jpg)$/,
-        use: [
-          { loader: 'url-loader'},          
-          { loader: 'file-loader' }
+          { loader: 'sass-loader' }
         ]
       },
       {
@@ -51,9 +44,16 @@ module.exports = {
         }]
       },
       {
+        test: /\.(png|jpg)$/,
+        use: [
+          { loader: 'url-loader', options: {limit: 25000} },
+          { loader: 'file-loader', options: {name: "[path][name].[hash].[ext]"} },
+        ]
+      },
+      {
         test: /\.pdf$/,
         loader: 'file?name=[name].[ext]'
       }
-    ]
+    ],
   }
 }

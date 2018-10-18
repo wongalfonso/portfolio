@@ -1,14 +1,13 @@
-@import './variables.less';
-@import './splash.less';
-@import './about.less';
-@import './projects.less';
-@import './changeCalc.less';
-@import './vstda.less';
-@import './astroWeight.less';
-@import './weather.less';
-@import './animation.less';
-@import './navbar.less';
-@import './header.less';
+@import './variables.scss';
+@import './splash.scss';
+@import './about.scss';
+@import './projects.scss';
+@import './changeCalc.scss';
+@import './vstda.scss';
+@import './astroWeight.scss';
+@import './weather.scss';
+@import './animation.scss';
+@import './navbar.scss';
 
 
 html, body {
@@ -58,19 +57,8 @@ body {
 #footer {
   height: 100%;
 }
-.splash {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-}
-.about {
-  padding-top: 100vh;
-  position: relative;
-}
-.SectionContainer {
-  position: relative;
-}
-@media screen and (max-width: @md) {
+
+@media screen and (max-width: $md) {
 
   .fullPage {
     max-width: 100vw;
@@ -208,12 +196,12 @@ form.blogText textarea {
 .left-mid-footer {
   border-right: solid rgb(100, 99, 99);  
 }
-@media screen and (min-width: @md) and (max-width: calc(@lg - 1px)) {
+@media screen and (min-width: $md) and (max-width: $lg - 1px) {
 
   
 
 }
-@media screen and (min-width: @lg) and (max-width: calc(@xl - 1px)) {
+@media screen and (min-width: $lg) and (max-width: $xl - 1px) {
   .title {
     margin-top: 1rem;
     margin-bottom: 4rem;
@@ -226,7 +214,7 @@ form.blogText textarea {
 #userList li button.expandBtn{width: 200px; display: inline-block}
 }
 
-@media screen and (min-width: @xl) {
+@media screen and (min-width: $xl) {
 
   .title {
     margin-top: 4rem;

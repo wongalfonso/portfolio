@@ -48,7 +48,7 @@
   width: 100%;
   margin-bottom: 0;
 }
-@media screen and (max-width: calc(@md - 1px)) {
+@media screen and (max-width: $md - 1px) {
   .card-body {
     padding: 1rem;
   }
@@ -62,13 +62,13 @@
     text-align: center;
   }
 }
-@media screen and (min-width: @md) and (max-width: calc(@lg - 1px)) {
+@media screen and (min-width: $md) and (max-width: $lg - 1px) {
   
 }
-@media screen and (min-width: @lg) and (max-width: calc(@xl - 1px)) {
+@media screen and (min-width: $lg) and (max-width: $xl - 1px) {
   
 }
-@media screen and (min-width: @xl) and (max-width: 1499px) {
+@media screen and (min-width: $xl) and (max-width: 1499px) {
   .changeLabels, .changeOutputs {
     font-size: 1em;
     line-height: 2.5em;

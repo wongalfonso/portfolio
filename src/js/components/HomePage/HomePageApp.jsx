@@ -59,25 +59,27 @@ export default class HomePage extends Component {
     }
     return (      
       <div className='full-site'>
-        {/* <NavBar 
-          active = {this.state.currentPage}          
-          scroll = {this.scroll}/> */}
-        <Header
-          title = {this.state.title}/>        
-        {/* <FullPage controlsProps = {{duration: "3000ms"}}> */}
-          {/* <Slide> */}
-            <Splash/>
-          {/* </Slide>
-          <Slide> */}
-            <About               
-              enter = {this.mouseEnter}/>
-          {/* </Slide> */}
-          {/* <Slide className = 'projects'>
-            <Projects 
-              enter = {this.mouseEnter}/>
-          </Slide>           */}
-        {/* </FullPage> */}
-        
+        <NavBar 
+          active = {this.state.enter} 
+          menu = {this.state.exit} 
+          isActive = {this.mouseEnter}
+          scroll = {this.scroll}/>        
+        <SectionsContainer {...options}>
+          <Section>
+            <Splash 
+              screen={screen} 
+              enter = {this.mouseEnter} 
+              exit = {this.mouseExit}/>
+          </Section>
+          <Section>
+            <About 
+              screen={screen} 
+              enter = {this.mouseEnter} 
+              exit = {this.mouseExit}/>
+
+          </Section>
+          <Projects screen={screen} enter = {this.mouseEnter} exit = {this.mouseExit}/>
+        </SectionsContainer>
                   
         {/* <Footer /> */}
       </div>
