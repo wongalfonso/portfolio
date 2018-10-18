@@ -47,7 +47,7 @@
 }
 
 
-@media (max-width: calc(@md - 1px)) {
+@media (max-width: calc($md - 1px)) {
   #astroHeader {
     text-align: right;
   }
@@ -59,7 +59,7 @@
   }
 
 }
-@media screen and (min-width: @xl) and (max-width: 1499px) {
+@media screen and (min-width: $xl) and (max-width: 1499px) {
   #astroCalculate {
     position: relative;
     margin-top: 35px;

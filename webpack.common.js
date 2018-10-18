@@ -28,11 +28,11 @@ module.exports = {
         loader: 'file?name=[name].[ext]'
       },
       {
-        test: /\.less$/,
+        test: /\.scss$/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
-          { loader: 'less-loader' }
+          { loader: 'sass-loader' }
         ]
       },
       {
