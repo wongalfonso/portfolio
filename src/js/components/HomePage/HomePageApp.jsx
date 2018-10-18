@@ -61,8 +61,7 @@ export default class HomePage extends Component {
           active = {this.state.enter} 
           menu = {this.state.exit} 
           isActive = {this.mouseEnter}
-          scroll = {this.scroll}/>
-        
+          scroll = {this.scroll}/>        
         <SectionsContainer {...options}>
           <Section>
             <Splash 
