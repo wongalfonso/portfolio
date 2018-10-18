@@ -6,9 +6,9 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.join(__dirname, '/dist'),
-    publicPath: '/'
+    path: path.join(__dirname, 'dist')
   },
+  devtool: 'source-map',
   resolve: {
     alias: {
       react: path.join(__dirname, 'node_modules', 'react')
@@ -20,9 +20,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: [
-          { loader: 'babel-loader' }
-        ]
+        use: [{ loader: 'babel-loader' }]
       },
       {
         test: /\.html$/,
