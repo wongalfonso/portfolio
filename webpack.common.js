@@ -32,18 +32,7 @@ module.exports = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
-<<<<<<< HEAD
-          { loader: 'less-loader' },
-        ]
-      },
-      {
-        test: /\.(png|jpg)$/,
-        use: [
-          { loader: 'url-loader'},          
-          { loader: 'file-loader' }
-=======
           { loader: 'less-loader' }
->>>>>>> 564034f3ccf26a9289476b3d1bb63d516365dc00
         ]
       },
       {
