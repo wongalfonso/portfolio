@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: [{ loader: 'babel-loader' }]
+        use: { loader: 'babel-loader' }
       },
       {
         test: /\.html$/,
@@ -35,6 +35,10 @@ module.exports = {
         ]
       },
       {
+        test: /\.(png|jpg)$/,
+        use: { loader: 'file-loader' }
+      },
+      {
         test: /\.mp4$/,
         use: [{
           loader: 'file-loader',
@@ -42,13 +46,6 @@ module.exports = {
             name: '[name].[ext]'
           }
         }]
-      },
-      {
-        test: /\.(png|jpg)$/,
-        use: [
-          { loader: 'url-loader', options: {limit: 25000} },
-          { loader: 'file-loader', options: {name: "[path][name].[hash].[ext]"} },
-        ]
       },
       {
         test: /\.pdf$/,

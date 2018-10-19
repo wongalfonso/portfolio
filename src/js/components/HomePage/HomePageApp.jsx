@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
-import { FullPage, Slide } from 'react-full-page';
+import { ScrollToTopOnMount, SectionsContainer, Section } from 'react-fullpage';
+import backgroundVid from '../../../../public/video/backgroundVideo.mp4';
 import Splash from './Splash';
 import About from './About';
 import Projects from './Projects/Projects';
@@ -19,7 +20,7 @@ export default class HomePage extends Component {
   }
   componentWillMount() {
     ReactGA.initialize('UA-126168783-1');    
-    window.addEventListener("mousewheel", this.MouseWheelHandler, false);      
+    // window.addEventListener("mousewheel", this.MouseWheelHandler, false);      
   }  
   componentDidUpdate() {
     if (this.state.currentPage !== window.location.hash) {this.setState({currentPage: window.location.hash})
@@ -36,7 +37,7 @@ export default class HomePage extends Component {
     
   }
   MouseWheelHandler() {
-    console.log(event);
+    
   }
   scroll(target) {
     let page;
@@ -53,32 +54,42 @@ export default class HomePage extends Component {
   }
 
   render() {       
-    console.log(this.props);   
-    const props = {
-      duration: '10000ms'
-    }
+    let options = {
+      activeClass:          'active', 
+      anchors:              ['Top', 'About', 'Projects'], 
+      arrowNavigation:      false,
+      className:            'SectionContainer',
+      delay:                1000, 
+      navigation:           false, 
+      scrollBar:            false,
+      sectionClassName:     'Section', 
+      sectionPaddingTop:    '0', 
+      sectionPaddingBottom: '0', 
+      verticalAlign:        false 
+    };
+    console.log(this.props)
     return (      
-      <div className='full-site'>
-        <NavBar 
+      <div  id = 'homePage' className='full-site'>
+        <video id='homeVid' loop autoPlay muted >
+          <source src={backgroundVid} type='video/mp4' />
+        </video>  
+        {/* <NavBar 
           active = {this.state.enter} 
           menu = {this.state.exit} 
           isActive = {this.mouseEnter}
-          scroll = {this.scroll}/>        
+          scroll = {this.scroll}/>     */}
+        <Header/>    
+        <ScrollToTopOnMount/>
         <SectionsContainer {...options}>
           <Section>
-            <Splash 
-              screen={screen} 
-              enter = {this.mouseEnter} 
-              exit = {this.mouseExit}/>
+            <Splash/>
           </Section>
           <Section>
-            <About 
-              screen={screen} 
-              enter = {this.mouseEnter} 
-              exit = {this.mouseExit}/>
+            <About/>
+              
 
           </Section>
-          <Projects screen={screen} enter = {this.mouseEnter} exit = {this.mouseExit}/>
+          {/* <Projects screen={screen} enter = {this.mouseEnter} exit = {this.mouseExit}/> */}
         </SectionsContainer>
                   
         {/* <Footer /> */}

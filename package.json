@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "webpack -w --config webpack.dev.js",
     "start": "npm run build && node server/index.js",
-    "build": "npm run less && webpack --config webpack.prod.js",
-    "server": "npm run less && nodemon server/index.js",
+    "build": "webpack --config webpack.prod.js",
+    "server": "nodemon server/index.js",
     "lint": "eslint ."
   },
   "author": "Alfonso Wong",
@@ -70,6 +70,7 @@
     "less-plugin-autoprefix": "^1.5.1",
     "morgan": "^1.9.0",
     "node-sass": "^4.9.4",
+    "postcss": "^7.0.5",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",

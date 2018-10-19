@@ -26,28 +26,9 @@ export default class About extends Component {
       <div className='about-page' id='aboutPage'>
         <div className='container about-container' id='aboutContainer'>
 
-          <div className='row about-row-top'>
-            <div className='col-12 aboutHeader'>
-              <div className='about-me-title title'>About Me</div>
-            </div>
-          </div>
+          About Me
 
-          <div className="row about-row-middle">
-              <div className='col-lg-12 col-lg-2 col-xl-5 text-center about-photo-row'>
-                <div id='profile-pic'></div>
-              </div>
-              {this.aboutText()}
-          </div>
-
-          <div className='row about-row-bottom'>
-            <div className='col-lg-12 text-center resumeBtnDiv'>
-              <a href='/files/AlfonsoWongResume.pdf' download onClick = {this.downloadResume}>
-                <button className='btn btn-default resumeBtn'>
-                  Download Resume
-                </button>
-              </a>
-            </div>
-          </div>
+          
         </div>
       </div>
     )

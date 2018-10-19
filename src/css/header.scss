@@ -1,0 +1,95 @@
+.header-page {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;  
+  color: white;
+  .header-home {
+    position: absolute;
+    font-size: 5vw;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .header-name {
+      opacity: 0;
+      animation: 2s ease-in .5s name;
+      animation-fill-mode: forwards;
+    }
+    .header-title {
+      opacity: 0;
+      animation: 2s ease-in .5s title;
+      animation-fill-mode: forwards;
+    }
+  }
+  .header-banner {
+    display: inline-block;
+    font-size: 2em;
+    padding: .5em;
+    text-align: center;
+    background: rgba(255,255,255,.3);    
+    animation: 1s ease-in 2.5s banner;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+  .banner-title {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 5em;
+    opacity: 0;
+    animation: 1s ease-in 2.5s bannerTitle;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes name {
+  0% {
+    opacity: 0;
+    transform: translateX(-1%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(1%);
+  }
+}
+@keyframes title {
+  0% {
+    opacity: 0;
+    transform: translateX(1%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-1%);
+  }
+}
+@keyframes banner {
+  0% {
+    opacity: 0;
+    transform: translateY(-1%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes bannerTitle {
+  0% {
+    opacity: 0;
+    top: 9%;    
+  }
+  100% {
+    opacity: 1;    
+    top: 10%;
+  }
+}
