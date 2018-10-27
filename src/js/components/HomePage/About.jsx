@@ -25,8 +25,9 @@ export default class About extends Component {
     return (
       <div className='about-page' id='aboutPage'>
         <div className='container about-container' id='aboutContainer'>
-
-          About Me
+          <div className="about-header">
+            About Me          
+          </div>
 
           
         </div>

@@ -83,11 +83,10 @@ export default class HomePage extends Component {
         <SectionsContainer {...options}>
           <Section>
             <Splash/>
+            <About/>
           </Section>
           <Section>
-            <About/>
-              
-
+            <Projects/>
           </Section>
           {/* <Projects screen={screen} enter = {this.mouseEnter} exit = {this.mouseExit}/> */}
         </SectionsContainer>
