@@ -1,12 +1,13 @@
 import React from 'react';
 
-
-
 const Splash = () => {
-    return (
-      <div id="splashPage" className = 'full-page'>                    
-      </div>      
-    )  
+  return (
+    <div className = 'full-page'>
+      <div className = 'banner-title'>
+        Web Developer
+      </div>
+    </div>
+  )
 }
 
 export default Splash;

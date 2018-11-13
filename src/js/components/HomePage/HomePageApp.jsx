@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import { ScrollToTopOnMount, SectionsContainer, Section } from 'react-fullpage';
 import backgroundVid from '../../../../public/video/backgroundVideo.mp4';
+import Background from './Background';
 import Splash from './Splash';
-import About from './About';
+import About from './About/About';
 import Projects from './Projects/Projects';
 import Footer from './../Footer';
 import Header from './../Header';
@@ -20,8 +21,8 @@ export default class HomePage extends Component {
   }
   componentWillMount() {
     ReactGA.initialize('UA-126168783-1');    
-    // window.addEventListener("mousewheel", this.MouseWheelHandler, false);      
   }  
+  
   componentDidUpdate() {
     if (this.state.currentPage !== window.location.hash) {this.setState({currentPage: window.location.hash})
     }
@@ -33,12 +34,10 @@ export default class HomePage extends Component {
     }
     if (this.state.currentPage === '#projects' && this.state.title !== 'Projects') {
       this.setState({title: 'Projects'})
-    }
-    
+    }    
   }
-  MouseWheelHandler() {
-    
-  }
+
+  
   scroll(target) {
     let page;
     if (target === '#splash') {page = 'splashPage'}
@@ -52,7 +51,13 @@ export default class HomePage extends Component {
       this.setState({ currentPage: page })
     }
   }
+  blankPage() {
+    return(
+      <div className = 'fullPage'>
 
+      </div>
+    )
+  }
   render() {       
     let options = {
       activeClass:          'active', 
@@ -82,11 +87,12 @@ export default class HomePage extends Component {
         <ScrollToTopOnMount/>
         <SectionsContainer {...options}>
           <Section>
-            <Splash/>
-            <About/>
+            <Background/>
+            <Splash/>            
           </Section>
           <Section>
-            <Projects/>
+            <About/>
+            {/* <Projects/> */}
           </Section>
           {/* <Projects screen={screen} enter = {this.mouseEnter} exit = {this.mouseExit}/> */}
         </SectionsContainer>

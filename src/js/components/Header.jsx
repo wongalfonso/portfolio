@@ -14,9 +14,7 @@ const Header = ({title}) => {
       <div className="header-banner">
         Alfonso Wong
       </div>
-      <div className = 'banner-title'>
-        Web Developer
-      </div>
+      
     </div>
   )
 }
