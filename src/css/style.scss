@@ -33,13 +33,15 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
 .pages {
   color: white !important;
   font-size: 20px !important;
 }
-.section {
+.section-container {
   z-index: 50;
+}
+.section {
+  overflow: hidden !important;
 }
 .title {    
   position: fixed;
@@ -61,7 +63,12 @@ body {
 #footer {
   height: 100%;
 }
-
+@media screen and (max-width: $sm) {
+  .container {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}
 @media screen and (max-width: $md) {
 
   .fullPage {

@@ -82,15 +82,21 @@ export default class HomePage extends Component {
           scroll = {this.scroll}/>     */}
         <ScrollToTopOnMount/>
         <Header/>    
-        <SectionsContainer {...options} className = 'section'>
-          <Section>                        
+        <SectionsContainer {...options} className = 'section-container'>
+          <Section className = 'section'>                        
             <Splash 
             title = {title}/>                        
           </Section>
-          <Section>
+          <Section className = 'section'>
             <About
             title = {title}/>
             {/* <Projects/> */}
+          </Section>
+          <Section className = 'section'>
+
+          </Section>
+          <Section className = 'section'>
+
           </Section>
           {/* <Projects screen={screen} enter = {this.mouseEnter} exit = {this.mouseExit}/> */}
         </SectionsContainer>

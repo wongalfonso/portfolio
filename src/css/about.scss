@@ -1,11 +1,105 @@
 .about-container {
   height: 100vh;
   width: 100vw;  
-  .row {
-    .about-text-row {
-      z-index: 50;      
-      .about-text {
+  color: white;
+  .about-row {
+    border: 2px white solid;
+    border-radius: 20px;
+    padding: 20px;
+    background: rgba(255,255,255,.1);
+  }
+  .row{
+    display: flex;
+    .about-header {
+      flex: 1;      
+      margin-top: 1em;
+      text-align: center;
+      font-size: 5em;
+      width: 100%;      
+    }    
+    .image-container {
+      flex: 1 0 70px;
+      padding: 0 15px;      
+      .image-column {
+        height: 100%;
+        text-align: -webkit-center;      
+        background-color: rgba(255,255,255,.3);
+        border-radius: 20px;        
+        .profile-image {
+          height:100%;
+          text-align: center;
+          background-image: url('./../../public/images/mainProfileImage.png');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          width:80%;
+        }
+      }
+    }
+    .about-text-row {  
+      flex: 1 0 300px;    
+      .about-text { 
+        .lg-paragraph {
+          display: block;
+        }       
+      }
+    }
+    .download-btn{
+      flex: 1 0 200px;
+      text-align: center;
+      margin-top: 1em;
+      #downloadBtn {
         color: white;
+        background-color: #d80000;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid #f72626;
+        width: 80%;
+      }
+      #downloadBtn:hover {
+        background-color: rgb(250, 86, 86);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $xs) {
+  .about-container {
+    .about-row {
+      border: none;
+      border-radius: none;
+      background: none;
+    }
+    .row {
+      .about-header {
+        font-size: 3.5em;
+      }
+      .image-container{
+        .image-column {
+          .profile-image {
+            height: 160px;
+          }
+        }
+      }
+      .about-text-row {
+        .about-text {
+          .lg-paragraph {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: $sm) and (max-width: $md - 1px) {
+  .about-container {
+    .row {
+      .image-container {
+        .image-column {
+          .profileImage {
+            width: 35%;
+          }
+        }
       }
     }
   }
