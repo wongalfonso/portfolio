@@ -14,7 +14,7 @@ export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: '#splash',
+      currentPage: '#Top',
       title: 'Web Developer'
     }        
     this.scroll = this.scroll.bind(this);
@@ -24,15 +24,16 @@ export default class HomePage extends Component {
   }  
   
   componentDidUpdate() {
-    if (this.state.currentPage !== window.location.hash) {this.setState({currentPage: window.location.hash})
+    if (this.state.currentPage !== this.props.location.hash) {
+      this.setState({currentPage: this.props.location.hash})
     }
-    if (this.state.currentPage === '#splash' && this.state.title !== 'Web Developer') {
+    if (this.state.currentPage === '#Top' && this.state.title !== 'Web Developer') {
       setTimeout( () => this.setState({title: 'Web Developer'}),800);
     }
-    if (this.state.currentPage === '#about' && this.state.title !== 'About') {
-      setTimeout( () => this.setState({title: 'About'}),800);
+    if (this.state.currentPage === '#About' && this.state.title !== 'About Me') {
+      setTimeout( () => this.setState({title: 'About Me'}),800);
     }
-    if (this.state.currentPage === '#projects' && this.state.title !== 'Projects') {
+    if (this.state.currentPage === '#Projects' && this.state.title !== 'Projects') {
       this.setState({title: 'Projects'})
     }    
   }
@@ -51,13 +52,6 @@ export default class HomePage extends Component {
       this.setState({ currentPage: page })
     }
   }
-  blankPage() {
-    return(
-      <div className = 'fullPage'>
-
-      </div>
-    )
-  }
   render() {       
     let options = {
       activeClass:          'active', 
@@ -71,8 +65,9 @@ export default class HomePage extends Component {
       sectionPaddingTop:    '0', 
       sectionPaddingBottom: '0', 
       verticalAlign:        false 
-    };
-    console.log(this.props)
+    };  
+    console.log(this.state.currentPage)
+    const { title } = this.state;
     return (      
       <div  id = 'homePage' className='full-site'>
         <div className="vid-container">
@@ -87,12 +82,14 @@ export default class HomePage extends Component {
           scroll = {this.scroll}/>     */}
         <ScrollToTopOnMount/>
         <Header/>    
-        <SectionsContainer {...options}>
+        <SectionsContainer {...options} className = 'section'>
           <Section>                        
-            <Splash/>                        
+            <Splash 
+            title = {title}/>                        
           </Section>
           <Section>
-            <About/>
+            <About
+            title = {title}/>
             {/* <Projects/> */}
           </Section>
           {/* <Projects screen={screen} enter = {this.mouseEnter} exit = {this.mouseExit}/> */}

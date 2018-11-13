@@ -38,7 +38,9 @@ body {
   color: white !important;
   font-size: 20px !important;
 }
-
+.section {
+  z-index: 50;
+}
 .title {    
   position: fixed;
   top: 5%;

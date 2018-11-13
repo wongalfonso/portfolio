@@ -1,12 +1,12 @@
 .about-container {
   height: 100vh;
-  width: 100vw;
-  color: white;  
-  .about-header {
-    position: absolute;
-    top:10%;
-    left: 50%;
-    text-align: center;
-    font-size: 5vw;
+  width: 100vw;  
+  .row {
+    .about-text-row {
+      z-index: 50;      
+      .about-text {
+        color: white;
+      }
+    }
   }
 }

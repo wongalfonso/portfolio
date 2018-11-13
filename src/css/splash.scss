@@ -3,21 +3,33 @@
   width: 100vw;
   font-size: 5em;
   text-align: center; 
-  color: white;   
   z-index: 50;
   .splash-text {
     position: absolute;
     top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: white;   
     .splash-name {      
       opacity: 0;
-      animation: 2s ease-in .5s name;
+      animation: 3s ease-in-out .5s name;
       animation-fill-mode: forwards;
     }
     .splash-title {
       opacity: 0;
-      animation: 2s ease-in .5s title;
+      animation: 3s ease-in-out .5s title;
+      animation-fill-mode: forwards;
+    }
+  }
+  .splash-header {
+    position:absolute;
+    top:25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    .splash-head {
+      opacity: 0;
+      animation: 1s ease-in-out 3.5s header;
       animation-fill-mode: forwards;
     }
   }
@@ -52,7 +64,16 @@
     transform: translateX(-1%);
   }
 }
-
+@keyframes header {
+  0% {
+    opacity: 0;
+    transform: translateX(2%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
 @media screen and (max-width: $sm) {
   .splash-home {
     font-size: 3.5em;

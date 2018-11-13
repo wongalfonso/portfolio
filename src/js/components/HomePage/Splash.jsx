@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Splash = () => {
+const Splash = ({title}) => {  
   return (
     <div className="splash-home" id = 'splashPage'>  
       <div className="splash-text">
@@ -10,7 +10,12 @@ const Splash = () => {
         <div className="splash-title">
           Web Developer
         </div>            
-      </div>    
+      </div>  
+      <div className="splash-header">
+        <div className="splash-head">
+          {title}
+        </div>
+      </div>  
     </div>
   )
 }
