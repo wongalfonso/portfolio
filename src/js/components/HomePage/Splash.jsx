@@ -2,10 +2,15 @@ import React from 'react';
 
 const Splash = () => {
   return (
-    <div className = 'full-page'>
-      <div className = 'banner-title'>
-        Web Developer
-      </div>
+    <div className="splash-home" id = 'splashPage'>  
+      <div className="splash-text">
+        <div className="splash-name">
+          Alfonso Wong
+        </div>
+        <div className="splash-title">
+          Web Developer
+        </div>            
+      </div>    
     </div>
   )
 }

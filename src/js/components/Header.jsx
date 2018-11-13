@@ -2,10 +2,13 @@ import React from 'react';
 
 const Header = ({title}) => {
   return (
-    <div className = 'header-page'>   
-      <div className="header-banner">
+    <div className = 'header-page'>         
+      <div className="banner-header">
         Alfonso Wong
-      </div>      
+      </div>
+      <div className = 'banner-title'>
+        Web Developer
+      </div>
     </div>
   )
 }

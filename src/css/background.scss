@@ -1,15 +1,14 @@
-#homePage {  
-  position: relative;
-  overflow: hidden;  
-  height: 100vh;
+.vid-container {    
+  overflow: hidden;    
   #homeVid {
     position: fixed; 
-    top: 0;   
+    bottom: 0;   
+    left: 0;
     min-width: 100vw;
     min-height: 100vh;    
   }
 }
-#homePage:after {
+.vid-container:after {
   content: '';
   position: absolute;
   top: 0;
@@ -18,4 +17,12 @@
   left: 0;
   background-color: rgba(0,0,0,0.6);
   z-index: 10;
+}
+
+@media screen and (max-width: $xs) {
+  .vid-container {
+    #homeVid {
+      left: -180%;
+    }
+  }
 }

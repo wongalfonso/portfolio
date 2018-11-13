@@ -1,22 +1,60 @@
-
-.banner-title {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
+.splash-home {  
+  height: 100vh;
+  width: 100vw;
   font-size: 5em;
-  opacity: 0;
-  animation: 1s ease-in 2.5s bannerTitle;
-  animation-fill-mode: forwards;
+  text-align: center; 
+  color: white;   
+  z-index: 50;
+  .splash-text {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .splash-name {      
+      opacity: 0;
+      animation: 2s ease-in .5s name;
+      animation-fill-mode: forwards;
+    }
+    .splash-title {
+      opacity: 0;
+      animation: 2s ease-in .5s title;
+      animation-fill-mode: forwards;
+    }
+  }
 }
-@keyframes bannerTitle {
+
+
+@keyframes name {
   0% {
     opacity: 0;
-    top: 9%;    
+    transform: translateX(-1%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%);
   }
   100% {
-    opacity: 1;    
-    top: 10%;
+    opacity: 0;
+    transform: translateX(1%);
+  }
+}
+@keyframes title {
+  0% {
+    opacity: 0;
+    transform: translateX(1%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-1%);
+  }
+}
+
+@media screen and (max-width: $sm) {
+  .splash-home {
+    font-size: 3.5em;
   }
 }

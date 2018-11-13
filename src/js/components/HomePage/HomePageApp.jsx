@@ -75,20 +75,21 @@ export default class HomePage extends Component {
     console.log(this.props)
     return (      
       <div  id = 'homePage' className='full-site'>
-        <video id='homeVid' loop autoPlay muted >
-          <source src={backgroundVid} type='video/mp4' />
-        </video>  
+        <div className="vid-container">
+          <video id='homeVid' loop autoPlay muted >
+            <source src={backgroundVid} type='video/mp4' />
+          </video>  
+        </div>
         {/* <NavBar 
           active = {this.state.enter} 
           menu = {this.state.exit} 
           isActive = {this.mouseEnter}
           scroll = {this.scroll}/>     */}
-        <Header/>    
         <ScrollToTopOnMount/>
+        <Header/>    
         <SectionsContainer {...options}>
-          <Section>
-            <Background/>
-            <Splash/>            
+          <Section>                        
+            <Splash/>                        
           </Section>
           <Section>
             <About/>
