@@ -15,12 +15,13 @@ export default class HomePage extends Component {
     super(props);
     this.state = {
       currentPage: '#Top',
-      title: 'Web Developer'
+      title: 'Web Developer',
+      width: ''
     }        
     this.scroll = this.scroll.bind(this);
   }
   componentWillMount() {
-    ReactGA.initialize('UA-126168783-1');    
+    ReactGA.initialize('UA-126168783-1');      
   }  
   
   componentDidUpdate() {
@@ -37,7 +38,12 @@ export default class HomePage extends Component {
       this.setState({title: 'Projects'})
     }    
   }
-
+  componentDidMount() {
+    const screen = this.screen; 
+    if (screen.clientWidth) {
+      this.setState({width: screen.clientWidth})      
+    }
+  }
   
   scroll(target) {
     let page;
@@ -52,34 +58,20 @@ export default class HomePage extends Component {
       this.setState({ currentPage: page })
     }
   }
-  render() {       
-    let options = {
-      activeClass:          'active', 
-      anchors:              ['Top', 'About', 'Projects'], 
-      arrowNavigation:      false,
-      className:            'SectionContainer',
-      delay:                1000, 
-      navigation:           false, 
-      scrollBar:            false,
-      sectionClassName:     'Section', 
-      sectionPaddingTop:    '0', 
-      sectionPaddingBottom: '0', 
-      verticalAlign:        false 
-    };  
-    console.log(this.state.currentPage)
-    const { title } = this.state;
-    return (      
-      <div  id = 'homePage' className='full-site'>
-        <div className="vid-container">
-          <video id='homeVid' loop autoPlay muted >
-            <source src={backgroundVid} type='video/mp4' />
-          </video>  
-        </div>
-        {/* <NavBar 
-          active = {this.state.enter} 
-          menu = {this.state.exit} 
-          isActive = {this.mouseEnter}
-          scroll = {this.scroll}/>     */}
+  smallScreen(title) {
+    return (
+      <div>
+        <Header/>  
+        <Splash 
+            title = {title}/>
+        <About
+            title = {title}/>                      
+      </div>
+    )
+  }
+  largeScreen(title, options) {
+    return (
+      <div>
         <ScrollToTopOnMount/>
         <Header/>    
         <SectionsContainer {...options} className = 'section-container'>
@@ -100,7 +92,38 @@ export default class HomePage extends Component {
           </Section>
           {/* <Projects screen={screen} enter = {this.mouseEnter} exit = {this.mouseExit}/> */}
         </SectionsContainer>
-                  
+      </div>
+    )
+  }
+  render() {       
+    let options = {
+      activeClass:          'active', 
+      anchors:              ['Top', 'About', 'Projects'], 
+      arrowNavigation:      false,
+      className:            'SectionContainer',
+      delay:                1000, 
+      navigation:           false, 
+      scrollBar:            false,
+      sectionClassName:     'Section', 
+      sectionPaddingTop:    '0', 
+      sectionPaddingBottom: '0', 
+      verticalAlign:        false 
+    };  
+    console.log(this.state.currentPage)
+    const { title } = this.state;
+    return (      
+      <div  id = 'homePage' className='full-site' ref={(screen) => this.screen = screen}>
+        <div className="vid-container">
+          <video id='homeVid' loop autoPlay muted >
+            <source src={backgroundVid} type='video/mp4' />
+          </video>  
+        </div>
+        {/* <NavBar 
+          active = {this.state.enter} 
+          menu = {this.state.exit} 
+          isActive = {this.mouseEnter}
+          scroll = {this.scroll}/>     */}
+        {(this.state.width > 321) ? this.largeScreen(title, options) : this.smallScreen(title)}
         {/* <Footer /> */}
       </div>
     )
