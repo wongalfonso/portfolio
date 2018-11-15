@@ -20,7 +20,7 @@ const About = ({title}) => {
             </div>
           </div>   
           <div className="row about-row">
-            <p className = 'about-text'>
+            <div className = 'about-text'>
               <div className = 'image-container'>
                 <img src = {profileImage} className = 'profile-image'/>
               </div>
@@ -33,7 +33,7 @@ const About = ({title}) => {
             I hope you enjoy my page.
             <br/>
             <div className = 'about-name'>- Alfonso </div>
-            </p>
+            </div>
           </div>
           <div className="row">
             <div className="download-btn">

@@ -82,10 +82,10 @@ export default class HomePage extends Component {
           <Section className = 'section'>
             <About
             title = {title}/>
-            {/* <Projects/> */}
           </Section>
           <Section className = 'section'>
-
+            <Projects
+            title = {title}/>
           </Section>
           <Section className = 'section'>
 
