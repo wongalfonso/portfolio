@@ -14,36 +14,23 @@
       flex: 1;      
       margin-top: 1em;
       text-align: center;
-      font-size: 5em;
+      font-size: 4em;
       width: 100%;      
-    }    
-    .image-container {
-      flex: 1 0 70px;
-      padding: 0 15px;      
-      .image-column {
-        height: 100%;
-        text-align: -webkit-center;      
-        background-color: rgba(255,255,255,.3);
-        border-radius: 20px;        
+    }     
+    .about-text {
+      .image-container {
         .profile-image {
-          height:100%;
-          text-align: center;
-          background-image: url('./../../public/images/mainProfileImage.png');
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          width:80%;
+          width: 250px;        
+          background-color: rgba(255,255,255,.3);
+          border-radius: 20px 20px 8px 8px;      
+          float: left;
+          margin-right: 15px;
         }
       }
-    }
-    .about-text-row {  
-      flex: 1 0 300px;    
-      .about-text { 
-        .lg-paragraph {
-          display: block;
-        }       
+      .about-name {
+        text-align: center;
       }
-    }
+    } 
     .download-btn{
       flex: 1 0 200px;
       text-align: center;
@@ -54,7 +41,7 @@
         padding: 10px;
         border-radius: 8px;
         border: 2px solid #f72626;
-        width: 80%;
+        width: 250px;
       }
       #downloadBtn:hover {
         background-color: rgb(250, 86, 86);
@@ -64,28 +51,26 @@
 }
 
 @media screen and (max-width: $xs) {
-  .about-container {
-    .about-row {
-      border: none;
-      border-radius: none;
-      background: none;
-    }
+  .about-container {    
     .row {
       .about-header {
         font-size: 3.5em;
-      }
-      .image-container{
-        .image-column {
+      }      
+      .about-text {
+        .image-container {
+          text-align: center;
           .profile-image {
-            height: 160px;
+            width: 190px;
+            float: none;            
           }
-        }
+        } 
+        .lg-paragraph {
+          display: none;
+        }       
       }
-      .about-text-row {
-        .about-text {
-          .lg-paragraph {
-            display: none;
-          }
+      .download-btn {
+        #downloadBtn {
+          width: 100%;
         }
       }
     }
@@ -94,12 +79,13 @@
 @media screen and (min-width: $sm) and (max-width: $md - 1px) {
   .about-container {
     .row {
-      .image-container {
-        .image-column {
-          .profileImage {
-            width: 35%;
-          }
-        }
+      .about-text {
+        // .image-container {
+        //   text-align: center;
+        //   .profile-image {
+        //     float: none;            
+        //   }
+        // }
       }
     }
   }
