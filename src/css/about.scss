@@ -3,28 +3,29 @@
   width: 100vw;  
   color: white;
   .about-row {
-    border: 2px white solid;
-    border-radius: 20px;
-    padding: 20px;
+    border: .2rem white solid;
+    border-radius: 2rem;
+    padding: 2rem;
     background: rgba(255,255,255,.1);
   }
   .row{
     display: flex;
     .about-header {
       flex: 1;      
-      margin-top: 1em;
+      margin-top: 4.5rem;
       text-align: center;
-      font-size: 4em;
+      font-size: 3.2rem;
       width: 100%;      
     }     
     .about-text {
+      font-size: 1.1rem;
       .image-container {
         .profile-image {
           width: 250px;        
           background-color: rgba(255,255,255,.3);
-          border-radius: 20px 20px 8px 8px;      
+          border-radius: 2rem 2rem .8rem .8rem;      
           float: left;
-          margin-right: 15px;
+          margin-right: 1.5rem;
         }
       }
       .about-name {
@@ -34,14 +35,14 @@
     .download-btn{
       flex: 1 0 200px;
       text-align: center;
-      margin-top: 1em;
+      margin-top: 1.6rem;
       #downloadBtn {
         color: white;
         background-color: #d80000;
-        padding: 10px;
-        border-radius: 8px;
-        border: 2px solid #f72626;
-        width: 250px;
+        padding: .8rem;
+        border-radius: .8rem;
+        border: .2rem solid #f72626;
+        width: 25rem;
       }
       #downloadBtn:hover {
         background-color: rgb(250, 86, 86);
@@ -54,11 +55,14 @@
   .about-container {    
     .row {
       .about-header {
-        font-size: 3.5em;
+        font-size: 3.5rem;
+        margin-top: 4.5rem;
       }      
       .about-text {
+        font-size: 1rem;
         .image-container {
           text-align: center;
+          margin-bottom: 1rem;
           .profile-image {
             width: 190px;
             float: none;            
@@ -79,14 +83,18 @@
 @media screen and (min-width: $sm) and (max-width: $md - 1px) {
   .about-container {
     .row {
-      .about-text {
-        // .image-container {
-        //   text-align: center;
-        //   .profile-image {
-        //     float: none;            
-        //   }
-        // }
-      }
+    }
+  }
+}
+@media screen and (min-width: $md) and (max-width: $lg - 1px) {
+
+}
+@media screen and (min-width: $lg) and (max-width: $xl - 1px) {
+
+}
+@media screen and (min-width: $xl) {
+  .about-container {
+    .row {
     }
   }
 }

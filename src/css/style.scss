@@ -56,17 +56,20 @@ body {
   text-align: center;     
 }
 #aboutActive, #topActive, #projectActive{
-  width: 40px;
-  height: 40px;
+  width: 4rem;
+  height: 4rem;
   transition: all .2s;
 }
 #footer {
   height: 100%;
 }
 @media screen and (max-width: $sm) {
+  html {
+    font-size: 14px;
+  }
   .container {
-    padding-right: 25px;
-    padding-left: 25px;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
   }
 }
 @media screen and (max-width: $md) {
@@ -114,7 +117,7 @@ body {
 .page {
   border: solid rgb(233, 231, 231);
   background-color: rgb(233, 231, 231);
-  border-radius: 8px;
+  border-radius: .8rem;
   margin-top: 6rem;
   margin-left: 15rem;
   margin-right: 15rem;
@@ -126,7 +129,9 @@ body {
 #loginName {
   margin-bottom: 4rem;
 }
-#loginName li {font-size: 50px; color: rgb(131, 131, 131)}
+#loginName li {
+  font-size: 50px; 
+  color: rgb(131, 131, 131)}
 
 .inputs {
   width: 100%;
@@ -213,6 +218,9 @@ form.blogText textarea {
 
 }
 @media screen and (min-width: $lg) and (max-width: $xl - 1px) {
+  html {
+    font-size: 16px;
+  }
   .title {
     margin-top: 1rem;
     margin-bottom: 4rem;
@@ -226,7 +234,9 @@ form.blogText textarea {
 }
 
 @media screen and (min-width: $xl) {
-
+  html {
+    font-size: 16px;
+  }
   .title {
     margin-top: 4rem;
     margin-bottom: 1rem;
