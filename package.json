@@ -4,11 +4,12 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "webpack -w --config webpack.dev.js",
+    "dev": "webpack -w --config webpack.dev.js && npm run build-css",
     "start": "npm run build && node server/index.js",
     "build": "webpack --config webpack.prod.js",
     "server": "nodemon server/index.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build-css": "node-sass --include-path scss src/scss/main.scss dist/css/main.css"    
   },
   "author": "Alfonso Wong",
   "license": "ISC",

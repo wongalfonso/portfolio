@@ -80,8 +80,8 @@ export default class Projects extends Component {
             </div>
           </div>
         <div className="row">
-          {/* <FormProjects
-            gitHub = {this.gitHub}/> */}
+          <FormProjects
+            gitHub = {this.gitHub}/>
         </div>
       </div>
     )

@@ -22,5 +22,21 @@
       font-size: 3.5rem;
       width: 100%
     }
+    .project-div {
+      perspective: 150rem;
+      -moz-perspective: 150rem;
+      &.project-info {
+        height: 20rem;
+        width: 20rem;
+        background-color: red;
+        transition: all .8s;        
+      }
+      &:hover &.project-info{
+        transform: rotateY(180deg);
+      }
+      // .project-images {
+      //   height: 15rem;
+      // }
+    }
   }
 }
