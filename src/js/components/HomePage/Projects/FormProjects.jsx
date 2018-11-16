@@ -11,38 +11,33 @@ const FormProjects = ({gitHub}) => {
   }
 
   return (
-    <div className='container'>
-          <div className='row'>
-            <div className='projectsHeader'>
-              <div className='title'>Form Projects</div>
-            </div>
+    <div className='projects-form'>            
+      <div className="projects">
+        <div className='projects-div'>
+          <img src={ChangeCalcImage} className='projects-div-info projects-div-info--front' id = 'changeCalc' onClick={() => this.openModal('Change')} />
+          <div className="projects-div-info projects-div-info--back projects-div-info--changeCalc"> 
+            <p className='projects-div-info-title'> 
+              <u>Change Calculator</u> 
+                {gitHubLink('https://github.com/wongalfonso/React-Change-Calculator', 'change')}
+            </p>
+            <p className = 'projects-div-info-text'>
+                This is a simple React form that allows you to enter the total amount of an item and the amount the person used to pay for that amount. This React project is a simple JavaScript project that was easy to reproduce with some basic math logic. This is not a form that is meant to be used for online shopping due to the fact that exact totals are usually charged, this is though meant to be used as a cash register form where amounts such as a whole Dollars can be accepted to pay for the item. If you'd like to try this app out just click on the image, if you really like this repo you can download it from my github.  
+            </p>
           </div>
-          <div className='row'>
-            <div className='project-div'>
-              {/* <img src={ChangeCalcImage} className='project-images' onClick={() => this.openModal('Change')} /> */}
-              <div className="project-info">
-                TEXT
-                {/* <p className='projects-title'> 
-                  <u>Change Calculator</u> 
-                    {gitHubLink('https://github.com/wongalfonso/React-Change-Calculator', 'change')}
-                </p> */}
-                {/* <p>This is a simple React form that allows you to enter the total amount of an item and the amount the person used to pay for that amount. This React project is a simple JavaScript project that was easy to reproduce with some basic math logic. This is not a form that is meant to be used for online shopping due to the fact that exact totals are usually charged, this is though meant to be used as a cash register form where amounts such as a whole Dollars can be accepted to pay for the item. If you'd like to try this app out just click on the image, if you really like this repo you can download it from my github.
-                </p> */}
-              </div>
-            </div>            
+        </div>
+        <div className='projects-div'>          
+          <img src={VSTDAImage} className='projects-div-info projects-div-info--front' id = 'vstdaImage' onClick={() => this.openModal('VSTDA')} />
+          <div className="projects-div-info projects-div-info--back projects-div-info--vstda"> 
+            <p className='projects-div-info-title'> 
+              <u>VSTDA</u>
+                {gitHubLink('https://github.com/wongalfonso/VSTDA', 'vstda')}
+            </p>
+            <p className = 'projects-div-info-text'>
+              This React project is called Very Simple ToDo App. The main purpose of this application is to create a list and use basic CRUD operations within React state. With this application you have the ability to Add an item to the list and select a priority. Once the item has been added, the user has the ability to Update the lists priority or description and then Delete it once it is no longer needed. When I was first learning React, CRUD operations within React was a new concept that it took me a while to wrap my brain around. Finally learning this concept help grasp the idea and true power within React.
+            </p>
           </div>
-
-          {/* <div className='row project-rows'>
-            <div className='col-sm-12 col-xl-6'>
-              <img src={VSTDAImage} className='project-images' onClick={() => this.openModal('VSTDA')} />
-            </div>
-            <div className="col-sm-12 col-xl-6">
-              <div className='info-div'>
-                <p className='infoTitle'> <u>VSTDA</u> {this.gitHubLink('https://github.com/wongalfonso/VSTDA', 'vstda')}</p>
-                <p>This React project is called Very Simple ToDo App. The main purpose of this application is to create a list and use basic CRUD operations within React state. With this application you have the ability to Add an item to the list and select a priority. Once the item has been added, the user has the ability to Update the lists priority or description and then Delete it once it is no longer needed. When I was first learning React, CRUD operations within React was a new concept that it took me a while to wrap my brain around. Finally learning this concept help grasp the idea and true power within React.</p>
-              </div>
-            </div>
-          </div> */}
+        </div>            
+      </div>
 
           {/* <div className='row project-rows' >
             <div className='col-sm-12 col-xl-6'>

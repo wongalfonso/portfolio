@@ -14,29 +14,88 @@
   color: white;
   height: 100vh;
   width: 100vw;
+  padding: 0 7rem;
   .row {
-    display: flex;
+    display: flex;   
+    text-align: center;
     .projects-header {
       margin-top: 4.5rem;
       text-align: center;
       font-size: 3.5rem;
       width: 100%
     }
-    .project-div {
-      perspective: 150rem;
-      -moz-perspective: 150rem;
-      &.project-info {
-        height: 20rem;
-        width: 20rem;
-        background-color: red;
-        transition: all .8s;        
-      }
-      &:hover &.project-info{
-        transform: rotateY(180deg);
-      }
-      // .project-images {
-      //   height: 15rem;
-      // }
+    .projects-title {
+      font-size: 2rem;
+      width: 100%;
     }
+    .projects-form {
+      width: 100%;
+      .projects {
+        display: flex;
+        justify-content: space-between;
+        .projects-div {
+          flex: 1 0 600px;
+          position: relative;
+          perspective: 150rem;
+          -webkit-perspective: 150rem;
+          -moz-perspective: 150rem;
+          .projects-div-info {    
+            text-align: left;        
+            width: 600px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all .8s;                    
+            backface-visibility: hidden;    
+            border-radius: 20px;   
+            &--changeCalc {
+              background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);
+              background: linear-gradient(to right, #3a6073, #3a7bd5);
+            }
+            &--vstda {
+              background: #136a8a; /* fallback for old browsers */
+              background: -webkit-linear-gradient(to left, #89c1c6, #6281c9);
+              background: linear-gradient(to left, #89c1c6, #6281c9);
+            }
+            &--front {
+              opacity: .9;
+            }     
+            &--back {
+              padding: 1rem;
+              transform: rotateY(180deg);
+            }
+            &-title {
+              text-align: center;
+              font-size: 1.6rem;
+            }
+            &-text {
+              font-size: 1rem;
+            }
+          }
+          &:hover .projects-div-info--front {
+            transform: rotateY(180deg);
+          }
+          &:hover .projects-div-info--back {
+            transform: rotateY(0);
+          }
+          
+        }
+      }
+    }    
   }
+}
+
+.gitHubImage {
+  position:absolute;
+  right: 0;
+  margin-right: 10px;
+  width: 100px;
+}
+@media screen and (max-width: $xs - 1px) {
+  .projects-page {
+    padding: 0 3rem;
+  }
+}
+@media screen and (min-width: $xs) and (max-width: $sm - 1px) {
+
 }
