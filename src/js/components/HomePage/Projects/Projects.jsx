@@ -72,23 +72,14 @@ export default class Projects extends Component {
   render() {
     const { title } = this.props;
     return (
-      <div className='projects-page' id='projectPage' ref={(project) => this._project = project} >
-        {/* {this.modalTemplate()} */}
-        <div className="row">
-          <div className="projects-header">
-                {title}              
-          </div>
-        </div>
-        <div className="row">
-          <div className="projects-title">
-            Form Projects
-          </div>
-        </div>
-        <div className="row">
+      <div  className='projects-page' 
+            id='projectPage' 
+            ref={(project) => this._project = project} >        
+          {/* {this.modalTemplate()} */}          
           <FormProjects
             gitHub = {this.gitHub}
-          />        
-        </div>
+            title = {title}
+          />                
       </div>
     )
   }
