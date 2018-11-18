@@ -6,6 +6,7 @@ import ChangeCalc from './ChangeCalc/ChangeCalc';
 import VSTDA from './VSTDAApp/Vstda';
 import AstroWeight from './AstroWeight/AstroWeight';
 import GitHubWhite from './../../../../../public/images/GitHubWhite.png'
+import ApiProjects from './ApiProjects';
 
 
 
@@ -60,10 +61,10 @@ export default class Projects extends Component {
   //   )
   // }
   gitHub(link, github) {
-    ReactGA.event({
-      category: 'visited GitHub',
-      action: github
-    });
+    // ReactGA.event({
+    //   category: 'visited GitHub',
+    //   action: github
+    // });
     return (
       <a href={link} target='_blank'><img src={GitHubWhite} className='gitHubImage' /></a>
     )
@@ -79,7 +80,11 @@ export default class Projects extends Component {
           <FormProjects
             gitHub = {this.gitHub}
             title = {title}
-          />                
+          />       
+          <ApiProjects  
+            gitHub = {this.gitHub}
+            title = {title}
+          />         
       </div>
     )
   }

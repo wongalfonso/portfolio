@@ -11,7 +11,7 @@ const FormProjects = ({ gitHub, title }) => {
   }
 
   return (
-    <div className='projects-form full-page'>
+    <div className='projects full-page'>
         <div className="projects-header">
           {title}
         </div>

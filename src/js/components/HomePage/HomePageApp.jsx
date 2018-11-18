@@ -6,6 +6,8 @@ import Background from './Background';
 import Splash from './Splash';
 import About from './About/About';
 import Projects from './Projects/Projects';
+import FormProjects from './Projects/FormProjects';
+import ApiProjects from './Projects/ApiProjects';
 import Footer from './../Footer';
 import Header from './../Header';
 import NavBar from './NavBar';
@@ -98,7 +100,7 @@ export default class HomePage extends Component {
   render() {       
     let options = {
       activeClass:          'active', 
-      anchors:              ['Top', 'About', 'Projects'], 
+      anchors:              ['Top', 'About', 'Form Projects', 'API Projects'], 
       arrowNavigation:      false,
       className:            'SectionContainer',
       delay:                1000, 
