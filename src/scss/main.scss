@@ -1,6 +1,10 @@
-@import './variables.scss';
+
+@import './abstracts/variables';
+@import './abstracts/_mixins.scss';
+
 @import './animation.scss';
-@import './grid.scss';
+
+@import './layout/grid';
 
 @import './components/background.scss';
 @import './components/splash.scss';
@@ -53,16 +57,9 @@ body {
   height: 4rem;
   transition: all .2s;
 }
-#footer {
-  height: 100%;
-}
 @media screen and (max-width: $sm - 1px) {
   html {
     font-size: 14px;
-  }
-  .container {
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
   }
 }
 @media screen and (min-width: $sm) and (max-width: $md - 1px) {
@@ -70,29 +67,15 @@ body {
 }
 
 @media screen and (min-width: $md) and (max-width: $lg - 1px) {
-
-  .container {
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-
 }
 @media screen and (min-width: $lg) and (max-width: $xl - 1px) {
   html {
     font-size: 16px;
-  }
-  .container {
-    max-width: 1140px;
-    margin: 0 auto;
   }
 }
 
 @media screen and (min-width: $xl) {
   html {
     font-size: 16px;
-  }
-  .container {
-    max-width: 1140px;
-    margin: 0 auto;
-  }
+  } 
 }

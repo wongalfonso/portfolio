@@ -14,70 +14,71 @@
   height: 100vh;
   width: 100vw;
   .projects-form {
-    &-container {
-      height: 100%;
-      width: 100%;
-      .row {    
-        text-align: center;
-        .projects-header {
-          margin-top: 3.5rem;
-          text-align: center;
-          font-size: 3.5rem;
-          width: 100%
-        }
-        .projects-title {
-          font-size: 2rem;
-          width: 100%;
-        }
-        .projects-div-col {
-          position: relative;
-          perspective: 150rem;
-          -webkit-perspective: 150rem;
-          -moz-perspective: 150rem;
-          height:300px;
-          &-img {
-            position: relative;
-            width: 100%;
+    .projects-header {
+      margin-top: 3.5rem;
+      margin-bottom: 0;
+      text-align: center;
+      font-size: 3.5rem;
+      width: 100%
+    }
+    .row {    
+      text-align: center;
+      .projects-title {
+        margin-bottom: 0;
+        font-size: 2rem;
+        width: 100%;
+      }
+      .projects-div {
+        position: relative;
+        width: 550px;
+        height: 280px;
+        perspective: 150rem;
+        -webkit-perspective: 150rem;
+        -moz-perspective: 150rem;
+        .projects-div-info {    
+          text-align: left;                    
+          position: absolute;
+          top: 0;
+          left: 0;
+          max-width: 550px;
+          max-height: 275px;          
+          transition: all .8s;                    
+          backface-visibility: hidden;    
+          border-radius: 20px;   
+          &--changeCalc {
+            background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);
+            background: linear-gradient(to right, #3a6073, #3a7bd5);
           }
-          &-info {    
-            text-align: left;        
-            width: 600px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: all .8s;                    
-            backface-visibility: hidden;    
-            border-radius: 20px;   
-            &--changeCalc {
-              background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);
-              background: linear-gradient(to right, #3a6073, #3a7bd5);
-            }
-            &--vstda {
-              background: #136a8a; /* fallback for old browsers */
-              background: -webkit-linear-gradient(to left, #89c1c6, #6281c9);
-              background: linear-gradient(to left, #89c1c6, #6281c9);
-            }
-            &--front {
-              opacity: .9;
-            }     
-            &--back {
-              padding: 1rem;
-              transform: rotateY(180deg);
-            }
-            &-title {
-              text-align: center;
-              font-size: 1.6rem;
-            }
-            &-text {
-              font-size: 1rem;
-            }
+          &--vstda {
+            background: #136a8a; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #89c1c6, #6281c9);
+            background: linear-gradient(to left, #89c1c6, #6281c9);
           }
-          &:hover .projects-div-info--front {
+          &--astro {
+            background: -webkit-linear-gradient(to left, #020202, #717171);
+            background: linear-gradient(to left, #020202, #717171);
+          }
+          &--front {
+            opacity: .9;
+          }     
+          &--back {
+            height: 275px;
+            padding: .9rem;
             transform: rotateY(180deg);
           }
-          &:hover .projects-div-info--back {
-            transform: rotateY(0);
-          }       
+          &-title {
+            text-align: center;
+            font-size: 1.6rem;
+          }
+          &-text {
+            font-size: .9rem;
+          }
+        }
+        &:hover .projects-div-info--front {
+          transform: rotateY(180deg);
+        }
+        &:hover .projects-div-info--back {
+          transform: rotateY(0);     
         }
       }
     }    

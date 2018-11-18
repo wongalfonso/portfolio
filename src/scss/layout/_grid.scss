@@ -1,31 +1,46 @@
+.row {
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;    
+  }
+
+  @include clearfix;
+    
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal})/ 2);
+    float: left;
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;            
+    }    
+  }
+
+}
+
 @media screen and (max-width: $sm - 1px) {
-  .container {
+  .row {
     max-width: 540px;
   }
 }
 @media screen and (min-width: $sm) and (max-width: $md - 1px) {
-  .container {
+  .row {
     max-width: 720px;
-    margin: 0 auto;
   }
 }
 
 @media screen and (min-width: $md) and (max-width: $lg - 1px) {
-  .container {
+  .row {
     max-width: 960px;
-    margin: 0 auto;
   }
 }
 @media screen and (min-width: $lg) and (max-width: $xl - 1px) {
-  .container {
+  .row {
     max-width: 1140px;
-    margin: 0 auto;
   }
 }
 
 @media screen and (min-width: $xl) {
-  .container {
+  .row {
     max-width: 1140px;
-    margin: 0 auto;
   }
 }
