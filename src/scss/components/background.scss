@@ -19,10 +19,25 @@
   z-index: 10;
 }
 
-@media screen and (max-width: $xs) {
+@media screen and (max-width: $xs - 1px) {
+  .vid-container {
+    text-align: center;
+    #homeVid {
+      transform: translateX(-45%);
+    }
+  }
+}
+@media screen and (min-width: $xs) and (max-width: $sm - 1px) {
   .vid-container {
     #homeVid {
-      left: -180%;
+      transform: translateX(-30%);
+    }
+  }
+}
+@media screen and (min-width: $sm) and (max-width: $md - 1px) {
+  .vid-container {
+    #homeVid {
+      transform: translateX(-20%);
     }
   }
 }
