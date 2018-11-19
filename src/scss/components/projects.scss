@@ -69,9 +69,18 @@
           &-title {
             text-align: center;
             font-size: 1.6rem;
+            &--github {
+              &:hover {
+                opacity: .8;
+              }
+            }
           }
           &-text {
             font-size: .9rem;
+          }
+          &--weatherApp {
+            background: -webkit-linear-gradient(to top, #bfe2f0, #3068eb);
+            background: linear-gradient(to top, #bfe2f0, #3068eb);
           }
         }
         &:hover .projects-div-info--front {

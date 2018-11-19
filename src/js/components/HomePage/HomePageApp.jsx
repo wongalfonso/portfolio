@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import { ScrollToTopOnMount, SectionsContainer, Section } from 'react-fullpage';
+import Modal from 'react-modal';
 import backgroundVid from '../../../../public/video/backgroundVideo.mp4';
 import Background from './Background';
 import Splash from './Splash';
@@ -11,11 +12,22 @@ import ApiProjects from './Projects/ApiProjects';
 import Footer from './../Footer';
 import Header from './../Header';
 import NavBar from './NavBar';
+import GitHubWhite from '../../../../public/images/GitHubWhite.png';
+
+// const modalStyle = {
+//   overlay: {
+//     zIndex: 99
+//   }
+// }
+// modalStyle.setAppElement('#app');
 
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      modalIsOpen: false,
+      selected: '',
+      hover: '',
       currentPage: '#Top',
       title: 'Web Developer',
       width: ''
@@ -60,6 +72,17 @@ export default class HomePage extends Component {
       this.setState({ currentPage: page })
     }
   }
+
+  gitHub(link, github) {
+    // ReactGA.event({
+    //   category: 'visited GitHub',
+    //   action: github
+    // });
+    return (
+      <a href={link} target='_blank'><img src={GitHubWhite} className='gitHubImage' /></a>
+    )
+  }
+
   smallScreen(title) {
     return (
       <div>
@@ -86,13 +109,25 @@ export default class HomePage extends Component {
             title = {title}/>
           </Section>
           <Section className = 'section'>
-            <Projects
-            title = {title}/>
+            <div  className="projects-page"
+                  id = 'formProjects'
+                  ref = {(project) => this._project = project}>
+              <FormProjects 
+                gitHub = {this.gitHub}
+                title = {title}/>
+            </div>
           </Section>
           <Section className = 'section'>
-
+          <div  className="projects-page"
+                  id = 'apiProjects'
+                  ref = {(project) => this._project = project}>
+            <ApiProjects 
+              gitHub = {this.gitHub}
+              title = {title}
+              />
+          </div>
           </Section>
-          {/* <Projects screen={screen} enter = {this.mouseEnter} exit = {this.mouseExit}/> */}
+          
         </SectionsContainer>
       </div>
     )

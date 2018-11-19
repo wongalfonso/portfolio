@@ -22,9 +22,12 @@ const ApiProjects = ({gitHub, title}) => {
           <div className="projects-div-info projects-div-info--back projects-div-info--weatherApp">
             <p className='projects-div-info-title'>
               <u> Weather App</u> 
-              {gitHubLink('https://github.com/wongalfonso/Weather-App', 'weather')}</p>
-              <p className = 'projects-div-info-text'>This is the first Redux application that I built while at Origin Code Academy. This application helped me understand the true power of Redux and the potential of the framework. The toughest part for me to grasp was the separation of React into a simple view component and allowing Redux to handle all of the grunt work. Handling errors in Redux was also another hurdle for me due to the fact that when using Redux Promise Middleware, errors now had to be dealt with in state as opposed to just being dealt with in the server. After understanding the possibilities of what Redux can do, I decided to build this portfolio in that framework.                
-              </p>
+              <span className = 'projects-div-info-title--github'>
+                {gitHubLink('https://github.com/wongalfonso/Weather-App', 'weather')}
+              </span>
+            </p>
+            <p className = 'projects-div-info-text'>This is the first Redux application that I built while at Origin Code Academy. This application helped me understand the true power of Redux and the potential of the framework. The toughest part for me to grasp was the separation of React into a simple view component and allowing Redux to handle all of the grunt work. Handling errors in Redux was also another hurdle for me due to the fact that when using Redux Promise Middleware, errors now had to be dealt with in state as opposed to just being dealt with in the server. After understanding the possibilities of what Redux can do, I decided to build this portfolio in that framework.                
+            </p>
           </div>
         </div>
       </div>
