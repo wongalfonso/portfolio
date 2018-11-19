@@ -20,6 +20,13 @@
 @media screen and (max-width: $sm - 1px) {
   .row {
     max-width: 540px;
+    .col-1-of-2 {
+      float: none;
+      margin: 0 auto;
+      &:not(:last-child) {
+        margin-right: auto;
+      }
+    }    
   }
 }
 @media screen and (min-width: $sm) and (max-width: $md - 1px) {
