@@ -53,9 +53,10 @@
   }
 }
 
-@media screen and (max-width: $xs) {
-  .about-container {    
+@media only screen and (max-width: $xs) {
+  .about-page {    
     .row {
+      margin-bottom: .5em;
       .about-header {
         font-size: 3.2rem;
       }      
@@ -66,13 +67,13 @@
           margin-bottom: 1rem;
           .profile-image {
             width: 190px;
-            float: none;            
-          }
-        } 
+            float: none;  
+          }        
+        }
         .lg-paragraph {
           display: none;
         }       
-      }
+    }
       .download-btn {
         #downloadBtn {
           width: 100%;
@@ -81,19 +82,31 @@
     }
   }
 }
-@media screen and (min-width: $sm) and (max-width: $md - 1px) {
-  .about-container {
+@media only screen and (min-width: $sm) and (max-width: $md - 1px) {
+  .about-page {    
     .row {
+      margin-bottom: .5em;
+      .about-header {
+        font-size: 3.2rem;
+      }      
+      .about-text {
+        font-size: 1rem;        
+      }
+      .download-btn {
+        #downloadBtn {
+          max-width: 25rem;
+        }
+      }
     }
   }
 }
-@media screen and (min-width: $md) and (max-width: $lg - 1px) {
+@media only screen and (min-width: $md) and (max-width: $lg - 1px) {
 
 }
-@media screen and (min-width: $lg) and (max-width: $xl - 1px) {
+@media only screen and (min-width: $lg) and (max-width: $xl - 1px) {
 
 }
-@media screen and (min-width: $xl) {
+@media only screen and (min-width: $xl) {
   .about-container {
     .row {
     }
