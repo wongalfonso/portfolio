@@ -177,10 +177,40 @@
           height: 21rem;
           max-width: 49rem;
           .projects-div-info {
-            width: 100%;
-            max-height: 220px;
+            max-height: 21rem;
+            &-title {
+              font-size: 2rem;
+            }
             &-text{
-              font-size: 1.2rem;
+              font-size: 1.4rem;
+            }
+            &--back {
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .gitHubImage {
+    width: 100px;
+  }
+}
+
+@media only screen and (min-width: $xl) {
+  .projects-page {
+    .projects {
+      .row {
+        .projects-div {
+          height: 21rem;
+          max-width: 49rem;
+          .projects-div-info {
+            max-height: 21rem;
+            &-title {
+              font-size: 2rem;
+            }
+            &-text{
+              font-size: 1.4rem;
             }
             &--back {
               height: 100%;

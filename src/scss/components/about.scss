@@ -112,5 +112,12 @@
   }
 }
 @media only screen and (min-width: $xl) {
- 
+  .about-page {    
+    font-size: 1.7rem;   
+    .row {
+      .about-header {
+        margin-top: 1rem;
+      }
+    }    
+  }
 }
