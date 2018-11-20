@@ -86,6 +86,11 @@
 @media only screen and (min-width: $sm) and (max-width: $md) {
   .about-page {    
     font-size: 1.3rem;   
+    .row {
+      .about-header {
+        margin-top: 4.5rem;
+      }
+    }
     .about-row {
       padding: 1rem;       
     }

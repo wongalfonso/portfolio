@@ -122,7 +122,8 @@
   .projects-page {
     .projects {
       .projects-header {
-        margin-top: 2.5rem;
+        margin-top: 6.5rem;
+        margin-bottom: 1rem;
       }
       .row {
         .projects-div {
@@ -147,7 +148,7 @@
 }
 @media only screen and (min-width: $md) and (max-width: $lg) {
   .projects-page {
-    .projects {
+    .projects {      
       .row {
         .projects-div {
           height: 20rem;
