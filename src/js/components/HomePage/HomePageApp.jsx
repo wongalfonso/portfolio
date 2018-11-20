@@ -9,6 +9,7 @@ import About from './About/About';
 import Projects from './Projects/Projects';
 import FormProjects from './Projects/FormProjects';
 import ApiProjects from './Projects/ApiProjects';
+import WebProjects from './Projects/WebProjects';
 import Footer from './../Footer';
 import Header from './../Header';
 import NavBar from './NavBar';
@@ -39,6 +40,8 @@ export default class HomePage extends Component {
   }  
   
   componentDidUpdate() {
+    // console.log(this.props.location.hash);
+    console.log(this.state.currentPage);
     if (this.state.currentPage !== this.props.location.hash) {
       this.setState({currentPage: this.props.location.hash})
     }
@@ -48,8 +51,14 @@ export default class HomePage extends Component {
     if (this.state.currentPage === '#About' && this.state.title !== 'About Me') {
       setTimeout( () => this.setState({title: 'About Me'}),800);
     }
-    if (this.state.currentPage === '#Projects' && this.state.title !== 'Projects') {
-      this.setState({title: 'Projects'})
+    if (this.state.currentPage === '#Form-Projects' && this.state.title !== 'Form Projects') {
+      setTimeout( () => this.setState({title: 'Form Projects'}),800);      
+    }    
+    if (this.state.currentPage === '#API-Projects' && this.state.title !== 'API Projects') {
+      setTimeout( () => this.setState({title: 'API Projects'}),800);
+    }    
+    if (this.state.currentPage === '#Web-Projects' && this.state.title !== 'Web Projects') {
+      setTimeout( () => this.setState({title: 'Web Projects'}),800);
     }    
   }
   componentDidMount() {
@@ -94,7 +103,9 @@ export default class HomePage extends Component {
       </div>
     )
   }
-  largeScreen(title, options) {
+  largeScreen(options) {
+    const { title } = this.state;
+    console.log(title);
     return (
       <div>
         <ScrollToTopOnMount/>
@@ -118,12 +129,21 @@ export default class HomePage extends Component {
             </div>
           </Section>
           <Section className = 'section'>
-          <div  className="projects-page"
+            <div  className="projects-page"
                   id = 'apiProjects'
                   ref = {(project) => this._project = project}>
             <ApiProjects 
               gitHub = {this.gitHub}
               title = {title}
+              />
+          </div>
+          </Section>
+          <Section className = 'section'>
+            <div  className="projects-page"
+                  id = 'apiProjects'
+                  ref = {(project) => this._project = project}>
+              <WebProjects
+                title = {title}
               />
           </div>
           </Section>
@@ -135,7 +155,7 @@ export default class HomePage extends Component {
   render() {       
     let options = {
       activeClass:          'active', 
-      anchors:              ['Top', 'About', 'Form Projects', 'API Projects'], 
+      anchors:              ['Top', 'About', 'Form-Projects', 'API-Projects', 'Web-Projects'], 
       arrowNavigation:      false,
       className:            'SectionContainer',
       delay:                1000, 
@@ -160,7 +180,7 @@ export default class HomePage extends Component {
           menu = {this.state.exit} 
           isActive = {this.mouseEnter}
           scroll = {this.scroll}/>     */}
-        {(this.state.width > 321) ? this.largeScreen(title, options) : this.smallScreen(title)}
+        {(this.state.width > 321) ? this.largeScreen(options) : this.smallScreen(title)}
         {/* <Footer /> */}
       </div>
     )

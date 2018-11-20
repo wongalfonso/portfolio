@@ -31,6 +31,9 @@ html, body {
   height: 100%; 
   width: 100%;  
 }
+html {
+  font-size: 16px;
+}
 body {
   font-family: 'Roboto Condensed', sans-serif;
   overflow-x: hidden;
@@ -57,30 +60,21 @@ body {
   height: 4rem;
   transition: all .2s;
 }
-@media only screen and (max-width: $xs - 1px) {
+
+@media screen and (max-width: $md) {
   html {
-    font-size: 12px;
-  }
-} 
-@media screen and (min-width: $xs) and (max-width: $sm - 1px) {
-  html {
-    font-size: 13px;
-  }
-}
-@media screen and (min-width: $sm) and (max-width: $md - 1px) {
-  html {
-    font-size: 14px;
+    font-size: 50%;
   }
 }
 
-@media screen and (min-width: $md) and (max-width: $lg - 1px) {
+@media screen and (max-width: $lg) {
   html {
-    font-size: 15px;
+    font-size: 56.25%;
   }
 }
-@media screen and (min-width: $lg) and (max-width: $xl - 1px) {
+@media screen and (max-width: $xl) {
   html {
-    font-size: 16px;
+    font-size: 75%;
   }
 }
 

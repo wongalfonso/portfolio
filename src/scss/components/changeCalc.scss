@@ -1,82 +1,82 @@
-#changeCalcProject {
-  background: #3a7bd5;
-  background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);
-  background: linear-gradient(to right, #3a6073, #3a7bd5);
-  padding: 20px;
-}
-.changeContainer {
-  padding: 20px;
-}
-#changeHeader {
-  color: white;
-  text-align: left;
-  border-bottom: 1px solid white;
-  margin-bottom: 1rem;
-}
-.changeInputLabel {
-  font-size: 1em;
-  text-decoration: bold;
-}
-.ChangeOutputLabels {    
-  text-align: center;
-  font-size: 1.25em;
-  text-decoration: bold;
-  background-color: lightgrey;
-  border-radius: 8px;
-  height: 7rem;
-}
-.changeText {  
-  font-size: 1.2rem;
-  text-align: center;
-}
-.changeLabels {
-  font-size: 1em;
-  text-decoration: bold;
-  vertical-align: middle;
-  line-height: 70px;
-}
-.change-output-row {
-  margin-top: .5em;
-}
-.changeOutputs {
-  text-decoration: bold;
-  color: black;
-  margin-top: -1.5em;
-}
-.changeOutcome {
-  text-align: center; 
-  width: 100%;
-  margin-bottom: 0;
-}
-@media screen and (max-width: $md - 1px) {
-  .card-body {
-    padding: 1rem;
-  }
-  .change-output-row {
-    display: none;
-  }
-  .ChangeOutputLabels{
-    width: 100%;
-  }
-  .project-close-row {
-    text-align: center;
-  }
-}
-@media screen and (min-width: $md) and (max-width: $lg - 1px) {
+// #changeCalcProject {
+//   background: #3a7bd5;
+//   background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);
+//   background: linear-gradient(to right, #3a6073, #3a7bd5);
+//   padding: 20px;
+// }
+// .changeContainer {
+//   padding: 20px;
+// }
+// #changeHeader {
+//   color: white;
+//   text-align: left;
+//   border-bottom: 1px solid white;
+//   margin-bottom: 1rem;
+// }
+// .changeInputLabel {
+//   font-size: 1em;
+//   text-decoration: bold;
+// }
+// .ChangeOutputLabels {    
+//   text-align: center;
+//   font-size: 1.25em;
+//   text-decoration: bold;
+//   background-color: lightgrey;
+//   border-radius: 8px;
+//   height: 7rem;
+// }
+// .changeText {  
+//   font-size: 1.2rem;
+//   text-align: center;
+// }
+// .changeLabels {
+//   font-size: 1em;
+//   text-decoration: bold;
+//   vertical-align: middle;
+//   line-height: 70px;
+// }
+// .change-output-row {
+//   margin-top: .5em;
+// }
+// .changeOutputs {
+//   text-decoration: bold;
+//   color: black;
+//   margin-top: -1.5em;
+// }
+// .changeOutcome {
+//   text-align: center; 
+//   width: 100%;
+//   margin-bottom: 0;
+// }
+// @media screen and (max-width: $md - 1px) {
+//   .card-body {
+//     padding: 1rem;
+//   }
+//   .change-output-row {
+//     display: none;
+//   }
+//   .ChangeOutputLabels{
+//     width: 100%;
+//   }
+//   .project-close-row {
+//     text-align: center;
+//   }
+// }
+// @media screen and (min-width: $md) and (max-width: $lg - 1px) {
   
-}
-@media screen and (min-width: $lg) and (max-width: $xl - 1px) {
+// }
+// @media screen and (min-width: $lg) and (max-width: $xl - 1px) {
   
-}
-@media screen and (min-width: $xl) and (max-width: 1499px) {
-  .changeLabels, .changeOutputs {
-    font-size: 1em;
-    line-height: 2.5em;
-  }
-}
-@media screen and (min-width: 1500px) {
+// }
+// @media screen and (min-width: $xl) and (max-width: 1499px) {
+//   .changeLabels, .changeOutputs {
+//     font-size: 1em;
+//     line-height: 2.5em;
+//   }
+// }
+// @media screen and (min-width: 1500px) {
  
-  .ChangeOutputLabels{
-    height: 10rem;
-  }
-}
+//   .ChangeOutputLabels{
+//     height: 10rem;
+//   }
+// }

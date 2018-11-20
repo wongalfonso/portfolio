@@ -19,22 +19,14 @@
   z-index: 10;
 }
 
-@media screen and (max-width: $xs - 1px) {
-  .vid-container {
-    text-align: center;
-    #homeVid {
-      transform: translateX(-45%);
-    }
-  }
-}
-@media screen and (min-width: $xs) and (max-width: $sm - 1px) {
+@media screen and (max-width: $sm) {
   .vid-container {
     #homeVid {
       transform: translateX(-30%);
     }
   }
 }
-@media screen and (min-width: $sm) and (max-width: $md - 1px) {
+@media screen and (max-width: $md) {
   .vid-container {
     #homeVid {
       transform: translateX(-20%);

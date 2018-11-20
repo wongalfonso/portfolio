@@ -28,9 +28,6 @@ const About = ({ title }) => {
           <span className='lg-paragraph'>
             This site is built with just that. I have added React and Redux to this site because it is much more then just a static web page. This site is also hosted on AWS, which gives me flexibility with my application. I have basic CRUD operations on the back end that allow me to communicate via Mongoose to MongoDB. These CRUD operations allow me to login, post, edit and delete a Blog that I have created for my solutions of Code Wars that I have completed.
             </span>
-          <br />
-          I hope you enjoy my page.
-            <br />
           <div className='about-name'>- Alfonso </div>
         </div>
       </div>

@@ -23,11 +23,6 @@
     }
     .row {    
       text-align: center;
-      .projects-title {
-        margin-bottom: 0;
-        font-size: 2rem;
-        width: 100%;
-      }
       .projects-div {
         position: relative;
         width: 550px;
@@ -79,8 +74,8 @@
             font-size: .9rem;
           }
           &--weatherApp {
-            background: -webkit-linear-gradient(to top, #bfe2f0, #3068eb);
-            background: linear-gradient(to top, #bfe2f0, #3068eb);
+            background: -webkit-linear-gradient(to top, #a2dbf2, #3068eb);
+            background: linear-gradient(to top, #a2dbf2, #3068eb);
           }
         }
         &:hover .projects-div-info--front {
@@ -101,23 +96,8 @@
   width: 80px;
 }
 
-@media only screen and (max-width: $xs - 1px) {
-  .projects-page {
-    .projects {
-      .row {
-        .projects-div {
-          max-height: 220px;
-          max-width: 360px;
-          .projects-div-info {
-            width: 100%;
-            max-height: 100%;
-          }
-        }
-      }
-  }
-  }
-}
-@media only screen and (min-width: $xs) and (max-width: $sm - 1px) {
+
+@media only screen and (max-width: $sm) {
   .projects-page {
     .projects {
       .row {
@@ -133,7 +113,7 @@
   }
   }
 }
-@media only screen and (min-width: $sm) and (max-width: $md - 1px) {
+@media only screen and (max-width: $md) {
   .projects-page {
     .projects {
       .row {
@@ -152,13 +132,20 @@
   }
 }
 }
-@media only screen and (min-width: $md) and (max-width: $lg - 1px) {
+@media only screen and (max-width: $lg) {
   .projects-page {
     .projects {
+      .projects-header {
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 3.5rem;
+        width: 100%
+      }
       .row {
         .projects-div {
           max-height: 220px;
-          max-width: 420px;
+          max-width: 460px;
           .projects-div-info {
             width: 100%;
             max-height: 220px;
@@ -173,7 +160,7 @@
     width: 100px;
   }
 }
-@media only screen and (min-width: $lg) and (max-width: $xl - 1px) {
+@media only screen and (min-width: $xl) {
   }
   .gitHubImage {
     width: 100px;
