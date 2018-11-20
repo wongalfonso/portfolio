@@ -53,7 +53,7 @@
 
 @media only screen and (max-width: $sm) {  
   .about-page {   
-    font-size: 1rem;
+    font-size: 1.2rem;
     .about-row {
       padding: 1rem;
     } 
@@ -77,28 +77,40 @@
       .download-btn {
         #downloadBtn {
           width: 100%;
+          max-width: 400px;
         }
       }
     }
   }
 }
-@media only screen and (max-width: $md) {
+@media only screen and (min-width: $sm) and (max-width: $md) {
   .about-page {    
-    font-size: 1.2rem;   
+    font-size: 1.3rem;   
     .about-row {
       padding: 1rem;       
     }
   }
 }
-@media only screen and (max-width: $lg) {
-
-}
-@media only screen and (max-width: $xl) {
-
-}
-@media only screen and (min-width: $xl) {
-  .about-container {
+@media only screen and (min-width: $md) and (max-width: $lg) {
+  .about-page {    
+    font-size: 1.5rem;   
     .row {
+      .about-header {
+        margin-top: 1rem;
+      }
     }
   }
+}
+@media only screen and (min-width: $lg) and (max-width: $xl) {
+  .about-page {    
+    font-size: 1.7rem;   
+    .row {
+      .about-header {
+        margin-top: 1rem;
+      }
+    }    
+  }
+}
+@media only screen and (min-width: $xl) {
+ 
 }

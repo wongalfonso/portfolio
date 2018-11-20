@@ -19,7 +19,7 @@
 
 @media screen and (max-width: $sm) {
   .row {
-    max-width: 540px;
+    max-width: 54rem;
     .col-1-of-2 {
       float: none;
       margin: 0 auto;
@@ -29,20 +29,20 @@
     }    
   }
 }
-@media screen and (max-width: $md) {
+@media screen and (min-width: $sm) and (max-width: $md) {
   .row {
-    max-width: 850px;
+    max-width: 68rem;
   }
 }
 
-@media screen and (max-width: $lg) {
+@media screen and (min-width: $md) and (max-width: $lg) {
   .row {
-    max-width: 960px;
+    max-width: 80rem;
   }
 }
 
-@media screen and (min-width: $xl) {
+@media screen and (min-width: $lg) and (max-width: $xl) {
   .row {
-    max-width: 1140px;
+    max-width: 95rem;
   }
 }
