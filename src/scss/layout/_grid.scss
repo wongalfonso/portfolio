@@ -41,13 +41,8 @@
   }
 }
 
-@media screen and (min-width: $lg) and (max-width: $xl) {
+@media screen and (min-width: $lg) {
   .row {
     max-width: 95rem;
   }
-}
-@media screen and (min-width: $xl) {
-  .row {
-    max-width: 102rem;
-  } 
 }

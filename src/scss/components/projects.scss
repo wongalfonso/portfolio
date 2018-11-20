@@ -35,8 +35,8 @@
           position: absolute;
           top: 0;
           left: 0;
-          max-width: 550px;
-          max-height: 275px;          
+          // max-width: 550px;
+          // max-height: 275px;          
           transition: all .8s;                    
           backface-visibility: hidden;    
           border-radius: 20px;   
@@ -54,7 +54,7 @@
             background: linear-gradient(to left, #020202, #717171);
           }
           &--front {
-            opacity: .9;
+            opacity: .7;
           }     
           &--back {
             padding: .9rem;
@@ -141,9 +141,9 @@
       }
     }
   }
-}
-.gitHubImage {
-  top: 6%;
+  .gitHubImage {
+    top: 6%;
+  }
 }
 @media only screen and (min-width: $md) and (max-width: $lg) {
   .projects-page {
@@ -202,15 +202,17 @@
     .projects {
       .row {
         .projects-div {
-          height: 21rem;
+          height: 49rem;
+          max-height: 21rem;
           max-width: 49rem;
           .projects-div-info {
-            max-height: 21rem;
+            max-width: 41rem;
+
             &-title {
               font-size: 2rem;
             }
             &-text{
-              font-size: 1.4rem;
+              font-size: 1.2rem;
             }
             &--back {
               height: 100%;
