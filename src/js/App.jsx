@@ -9,6 +9,7 @@ import EnsureLoggedIn from './components/Blog/EnsureLoggedIn';
 import Profile from './components/Blog/Profile';
 import ListEdit from './components/Blog/ListEdit';
 import BlogSplashPage from './components/Blog/BlogSplashPage';
+import ChangeCalc from './components/HomePage/Projects/ChangeCalc/ChangeCalc';
 
 export default class App extends Component {
   render() {    
@@ -16,6 +17,7 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route exact path='/' component={ HomePage } />
+          <Route path ='/project' component = { ChangeCalc } />
           <Route path ='/profile' component = { Profile } />
           <Route path ='/blogpost' component={ PageBlog } />
           <Route path ='/blogsplash' component = { BlogSplashPage } />   

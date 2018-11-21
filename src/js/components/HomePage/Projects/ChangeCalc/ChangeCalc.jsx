@@ -157,40 +157,38 @@ export default class ChangeCalc extends Component {
       received = 'form-group has-feedback'
     }
     return (
-      <div id='changeCalcProject' className='allProjectModals'>
-        <div className='container changeContainer allProjectModalsContainers'>
+      <div  id='changeCalcProject'
+            className='all-project-modals'>
+        <div className='project-change'>
 
           <div className="row project-headers">
-            <div className="col-xl-12">
-              <div id='changeHeader' className='col-xl-12'>
-                <h1>Change Calculator</h1>
-              </div>
+            <div id='project-change-header' className='col-xl-12'>
+              <h1>Change Calculator</h1>
             </div>
           </div>
 
-          <div className="row project-modal-body">
-            <div className="col-sm-12 col-xl-4">
-
-              <div className='card card-default'>
-                <div className='card-header changeText'>Enter Information</div>
-                <div className='card-body'>
-                  <form>
-                    <div className="form-group has-success has-feedback">
-                      <label className='changeInputLabel' htmlFor='amountDue'>How much is due?</label>
-                      <input name='amountDue' className='form-control form-control-success' type='text' pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' value={this.state.amountDue} onChange={this.handleDue} id='amountDue' required />
-                    </div>
-
-                    <div className={"form-group has-feedback"}>
-                      <label className='changeInputLabel' htmlFor='received'> How much was received?</label>
-                      <input name='amountReceived' className='form-control' type='text' pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' value={this.state.amountRec} onChange={this.handleRec} id='received' required />
-                      <span className="glyphicon glyphicon-remove form-control-feedback"></span>
-                    </div>
-                  </form>
-                </div>
-                <div className='card-footer'>
-                  <div className='form-group'>
-                    {this.button()}
+          <div className="project-modal-body">
+            <div className='card card-default'>
+              <div className='card-header change-text'>
+                Enter Information
+              </div>
+              <div className='card-body'>
+                <form>
+                  <div className="form-group has-success has-feedback">
+                    <label className='changeInputLabel' htmlFor='amountDue'>How much is due?</label>
+                    <input name='amountDue' className='form-control form-control-success' type='text' pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' value={this.state.amountDue} onChange={this.handleDue} id='amountDue' required />
                   </div>
+
+                  <div className={"form-group has-feedback"}>
+                    <label className='changeInputLabel' htmlFor='received'> How much was received?</label>
+                    <input name='amountReceived' className='form-control' type='text' pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' value={this.state.amountRec} onChange={this.handleRec} id='received' required />
+                    <span className="glyphicon glyphicon-remove form-control-feedback"></span>
+                  </div>
+                </form>
+              </div>
+              <div className='card-footer'>
+                <div className='form-group'>
+                  {this.button()}
                 </div>
               </div>
             </div>
@@ -265,7 +263,7 @@ export default class ChangeCalc extends Component {
 
           <div className='row project-close-row'>
             <div className="col-sm-6 col-xl-6">
-              <a href="https://github.com/wongalfonso/React-Change-Calculator" target="_blank" onClick = {this.gitHub}>
+              <a href="https://github.com/wongalfonso/React-Change-Calculator" target="_blank" onClick={this.gitHub}>
                 <img className="gitMark" src="/images/GitHub.png" />
               </a>
             </div>
