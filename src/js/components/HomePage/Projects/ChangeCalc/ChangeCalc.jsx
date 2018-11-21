@@ -165,8 +165,8 @@ export default class ChangeCalc extends Component {
       received = 'form-group has-feedback'
     }
     return (
-      <div className="all-project-modals" id='changeCalcProject'>
-        <div className="container">
+      <div className="all-project-pages" id='changeCalcProject'>
+        <div className="container change-container">
           <header className="header">
             Change Calculator
             </header>
@@ -241,6 +241,7 @@ export default class ChangeCalc extends Component {
                 </div>
 
                 <div className="change-output-body-row">
+                  
                   <div className="change-output-body-row-label">
                     <div className='changeLabels'>Quarters</div>
                     <p className=''>
@@ -278,7 +279,7 @@ export default class ChangeCalc extends Component {
             <div className="project-close-btn">
               <button className='close-btn' 
                       onClick={this.props.close}>
-                      Close
+                      Back
               </button>
             </div>
           </div>
@@ -287,72 +288,3 @@ export default class ChangeCalc extends Component {
     )
   }
 };
-
-
-
-
-{/* <div className='change-card'>
-                <div className='change-card-body'>
-                  <div className='row'>
-                    <div className="col-lg-12">
-                      <div className={alert}> {leftOver + this.state.output}
-                      </div>
-                    </div>
-                  </div>
-                  <div className='row change-output-row'>
-                    <div className='col-3 ChangeOutputContainer'>
-                      <div className='ChangeOutputLabels'>
-                        <h1 className='changeLabels'>Twenties</h1>
-                        <p className='lead changeOutputs'>{this.state.twenties}</p>
-                      </div>
-                    </div>
-                    <div className='col-3 ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Tens</h1>
-                        <p className='lead changeOutputs'>{this.state.tens}</p>
-                      </div>
-                    </div>
-                    <div className='col-3 ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Fives</h1>
-                        <p className='lead changeOutputs'>{this.state.fives}</p>
-                      </div>
-                    </div>
-                    <div className='col-3 ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Ones</h1>
-                        <p className='lead changeOutputs'>{this.state.ones}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='row change-output-row'>
-                    <div className='col-3 form-group ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Quarters</h1>
-                        <p className='lead changeOutputs'>{this.state.quarters}</p>
-                      </div>
-                    </div>
-                    <div className='col-3 form-group ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Dimes</h1>
-                        <p className='lead changeOutputs'>{this.state.dimes}</p>
-                      </div>
-                    </div>
-                    <div className='col-3 form-group ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Nickels</h1>
-                        <p className='lead changeOutputs'>{this.state.nickels}</p>
-                      </div>
-                    </div>
-                    <div className='col-3 form-group ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Pennies</h1>
-                        <p className='lead changeOutputs'>{this.state.pennies}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-{/* </div> */ }
-

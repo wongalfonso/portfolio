@@ -9,11 +9,7 @@
   border-radius: 20px;
   overflow: hidden;
 }
-.all-project-modals {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
+
 .projects-page {
   color: white;
   height: 100vh;
@@ -197,6 +193,11 @@
   .gitHubImage {
     width: 100px;
   }
+  .all-project-pages {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+  }
 }
 @media only screen and (min-width: $lg) and (max-width: $xl) {
   .projects-page {
@@ -223,6 +224,11 @@
   }
   .gitHubImage {
     width: 100px;
+  }
+  .all-project-pages {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
   }
 }
 
@@ -253,5 +259,10 @@
   }
   .gitHubImage {
     width: 100px;
+  }
+  .all-project-pages {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
   }
 }

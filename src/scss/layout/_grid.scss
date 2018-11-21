@@ -18,6 +18,9 @@
 }
 
 @media screen and (max-width: $sm) {
+  .container {
+    max-width: 54rem;
+  }
   .row {
     max-width: 54rem;
     .col-1-of-2 {
@@ -30,19 +33,37 @@
   }
 }
 @media screen and (min-width: $sm) and (max-width: $md) {
+  .container {
+    min-width: 54rem;
+    max-width: 68rem;
+  }
   .row {
     max-width: 68rem;
   }
 }
 
 @media screen and (min-width: $md) and (max-width: $lg) {
+  .container {
+    min-width: 68rem;
+    max-width: 85rem;
+  }
   .row {
     max-width: 80rem;
   }
 }
 
-@media screen and (min-width: $lg) {
+@media screen and (min-width: $lg) and (max-width: $xl) {
+  .container {
+    min-width: 80rem;
+    max-width: 95rem;
+  }
   .row {
     max-width: 95rem;
+  }
+}
+@media screen and (min-width: $xl) {
+  .container {
+    min-width: 95rem;
+    max-width: 120rem;
   }
 }
