@@ -99,7 +99,30 @@
   margin-right: 10px;
   width: 70px;
 }
-
+.project-close {
+  display: flex;
+  margin-top: 2rem;
+  padding: 1.6rem 0;
+  &-btn {
+    flex: 0 0 50%;
+    text-align: right;
+    button {
+      color: white;
+      font-size: 1.6rem;
+      width: 16rem;
+      background-color: red;
+      border: red;
+      border-radius: 8px;
+      padding: 1.6rem;
+    }
+  }
+  &-git {
+    flex: 0 0 50%;
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
 
 @media only screen and (max-width: $sm) {
   .projects-page {

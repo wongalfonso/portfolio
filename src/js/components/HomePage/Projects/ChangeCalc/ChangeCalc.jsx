@@ -269,14 +269,17 @@ export default class ChangeCalc extends Component {
               </div>              
             </div>
           </div>
-          <div className='row project-close-row'>
-            <div className="col-sm-6 col-xl-6">
+          <div className='project-close'>
+            <div className="project-close-git">
               <a href="https://github.com/wongalfonso/React-Change-Calculator" target="_blank" onClick={this.gitHub}>
                 <img className="gitMark" src="/images/GitHub.png" />
               </a>
             </div>
-            <div className="col-sm-6 col-xl-6 closeCol ">
-              <button className='btn btn-danger form-control-xl closeBtn' onClick={this.props.close}>Close</button>
+            <div className="project-close-btn">
+              <button className='close-btn' 
+                      onClick={this.props.close}>
+                      Close
+              </button>
             </div>
           </div>
         </div>
