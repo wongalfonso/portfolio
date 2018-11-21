@@ -9,7 +9,12 @@
   border-radius: 20px;
   overflow: hidden;
 }
-
+.all-project-pages {
+  min-height:100vh;
+  min-width: 100vw;
+  max-height: 100%;
+  max-width: 100%;    
+}
 .projects-page {
   color: white;
   height: 100vh;
@@ -193,11 +198,6 @@
   .gitHubImage {
     width: 100px;
   }
-  .all-project-pages {
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-  }
 }
 @media only screen and (min-width: $lg) and (max-width: $xl) {
   .projects-page {
@@ -224,11 +224,6 @@
   }
   .gitHubImage {
     width: 100px;
-  }
-  .all-project-pages {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
   }
 }
 
@@ -260,9 +255,5 @@
   .gitHubImage {
     width: 100px;
   }
-  .all-project-pages {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-  }
+ 
 }

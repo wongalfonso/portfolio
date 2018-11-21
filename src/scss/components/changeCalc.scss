@@ -4,7 +4,7 @@
   background: linear-gradient(to right, #3a6073, #3a7bd5);
 }
 .change-container {
-  margin: 8rem auto;  
+  margin: 0 auto;  
   min-height: 60rem;
   
 }
@@ -21,7 +21,7 @@
   font-size: 2rem;
   flex-wrap: wrap;
   .change-form {
-    flex: 0 0 38rem;    
+    flex: 0 0 28rem;    
     color: black;    
     background-color: rgb(227, 226, 226);
     margin-right: 2rem;
@@ -92,12 +92,13 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         &-label {  
-          flex: 1 0 18rem;        
+          flex: 1 0 12rem;        
           min-height: 16rem;        
           background-color: lightgrey;
           border-radius: .8rem;
-          padding: 5rem;
-          margin-bottom: 1rem;                   
+          padding: 4rem;
+          margin-bottom: 1rem; 
+          font-size: 1.8rem;                  
         }
       }
     }
@@ -111,17 +112,18 @@
     margin-bottom: 2rem;
   }
   .change-output {
-    &-body {        
+    &-body {
       &-row {        
-        &-label {            
-          &:not(:last-child){
-            margin-right: 0;
-          }          
+        &-label {                        
+          margin-right: 1rem;                      
         }
       }
     }
   }
 }
+}
+@media screen and (min-width: $sm) and (max-width: $md) {
+  
 }
 
 @media screen and (min-width: $md) and (max-width: $lg) {
@@ -132,10 +134,8 @@
     .change-output {
       &-body {
         &-row {        
-          &-label {            
-            
-              margin-right: 1rem;
-                      
+          &-label {                        
+            margin-right: 1rem;                      
           }
         }
       }
