@@ -2,7 +2,12 @@ import React from 'react';
 import Weather from './Weather/WeatherApp';
 import WeatherImage from './../../../../../public/images/WeatherApp.jpg'
 
-const ApiProjects = ({gitHub, title}) => {
+const ApiProjects = ({gitHub, title, openModal}) => {
+
+  let modal = (modal) => {  
+    console.log('modal', modal);  
+    openModal(modal);
+  }
 
   let gitHubLink = (link) => {
     return gitHub(link);
@@ -17,9 +22,9 @@ const ApiProjects = ({gitHub, title}) => {
         <div className='projects-div col-1-of-2'>
           <img  src={WeatherImage} 
                 className='projects-div-info projects-div-info--front' 
-                onClick={() => this.openModal('Weather')} 
           />
-          <div className="projects-div-info projects-div-info--back projects-div-info--weatherApp">
+          <div className="projects-div-info projects-div-info--back projects-div-info--weatherApp"
+                onClick={() => modal('Weather')}>
             <p className='projects-div-info-title'>
               <u> Weather App</u> 
               <span className = 'projects-div-info-title--github'>

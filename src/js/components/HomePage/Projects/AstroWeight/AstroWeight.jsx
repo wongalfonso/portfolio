@@ -33,13 +33,13 @@ class AstroWeight extends Component {
     this.handleChecked = this.handleChecked.bind(this);
     this.submit = this.submit.bind(this);
   }
-  componentDidMount() {
-    planets.push('a');
-    planets = planets.reverse()
-    this.setState({
-      planetList: planets,
-    })
-  }
+  // componentDidMount() {
+  //   planets.push('a');
+  //   planets = planets.reverse()
+  //   this.setState({
+  //     planetList: planets,
+  //   })
+  // }
   handleWeight(e) {
     const newWeight = (e.target.validity.valid) ? e.target.value : this.state.weight
     this.setState({ weight: newWeight })

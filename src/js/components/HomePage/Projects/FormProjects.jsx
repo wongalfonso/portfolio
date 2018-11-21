@@ -1,15 +1,17 @@
 import React from 'react';
-import GitHubWhite from './../../../../../public/images/GitHubWhite.png'
 import ChangeCalcImage from './../../../../../public/images/ChangeCalc.jpg'
 import VSTDAImage from './../../../../../public/images/VSTDAReact.jpg'
 import AstroImage from './../../../../../public/images/AstroWeightCalc.jpg'
 
-const FormProjects = ({ gitHub, title }) => {
+const FormProjects = ({ gitHub, title, openModal }) => {
 
   let gitHubLink = (link) => {
-    return gitHub(link)
+    gitHub(link)
   }
-
+  let modal = (modal) => {  
+    console.log('modal', modal);  
+    openModal(modal);
+  }
   return (
     <div className='projects full-page'>
         <div className="projects-header">
@@ -18,10 +20,10 @@ const FormProjects = ({ gitHub, title }) => {
       <div className="row">
         <div className='projects-div col-1-of-2'>
           <img src={ChangeCalcImage}
-            className='projects-div-info projects-div-info--front' id='changeCalc'
-            onClick={() => this.openModal('Change')}
+            className='projects-div-info projects-div-info--front' id='changeCalc'            
           />
-          <div className="projects-div-info projects-div-info--back projects-div-info--changeCalc">
+          <div className="projects-div-info projects-div-info--back projects-div-info--changeCalc" 
+                onClick={() => modal('Change')}>
             <p className='projects-div-info-title'>
               <u>Change Calculator</u>
               <span className = 'projects-div-info-title--github'>
@@ -35,9 +37,10 @@ const FormProjects = ({ gitHub, title }) => {
         </div>
         <div className='projects-div col-1-of-2'>
           <div className="projects-div-col-img">
-            <img src={VSTDAImage} className='projects-div-info projects-div-info--front' id='vstdaImage' onClick={() => this.openModal('VSTDA')} />
+            <img src={VSTDAImage} className='projects-div-info projects-div-info--front' id='vstdaImage'/>
           </div>
-          <div className="projects-div-info projects-div-info--back projects-div-info--vstda">
+          <div className="projects-div-info projects-div-info--back projects-div-info--vstda" 
+                onClick={() => modal('VSTDA')}>
             <p className='projects-div-info-title'>
               <u>VSTDA</u>
               <span className = 'projects-div-info-title--github'>
@@ -53,9 +56,11 @@ const FormProjects = ({ gitHub, title }) => {
       <div className="row">
         <div className='projects-div col-1-of-2'>
           <div className="projects-div-col-img">
-            <img src={AstroImage} className='projects-div-info projects-div-info--front' onClick={() => this.openModal('Astro')} />
+            <img src={AstroImage} className='projects-div-info projects-div-info--front'/>
           </div>
-          <div className="projects-div-info projects-div-info--back projects-div-info--astro">
+          <div  className="projects-div-info projects-div-info--back projects-div-info--astro"
+                onClick={() => modal('Astro')} 
+                >
             <p className='projects-div-info-title'>
               <u>Astro Calculator</u>
               <span className = 'projects-div-info-title--github'>
