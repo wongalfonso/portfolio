@@ -23,8 +23,7 @@
   .change-form {
     flex: 0 0 28rem;    
     color: black;    
-    background-color: rgb(227, 226, 226);
-    margin-right: 2rem;
+    background-color: rgb(227, 226, 226);    
     border-radius: .8rem;
     max-height: 31rem;
     &-head {
@@ -75,7 +74,7 @@
     }    
   }
   .change-output {
-    flex: 1;  
+    flex: 1 0 55%;  
     background-color: rgb(227, 226, 226); 
     text-align: center; 
     border-radius: .8rem;
@@ -105,17 +104,20 @@
   }
 }
 @media screen and (max-width:$sm) {
+  .header {
+    margin-top: 1rem;
+    text-align: center;
+  }
 .content {
   .change-form {
-    margin: 0 auto;
+    margin: 0 auto 2rem auto;
     max-width: 40rem;
-    margin-bottom: 2rem;
   }
   .change-output {
     &-body {
       &-row {        
-        &-label {                        
-          margin-right: 1rem;                      
+        &-label {  
+          margin-right: 1rem;                                       
         }
       }
     }
@@ -123,15 +125,30 @@
 }
 }
 @media screen and (min-width: $sm) and (max-width: $md) {
-  
+  .change-form {
+    margin: 0 auto 2rem auto;
+    max-width: 40rem;
+  }
+  .change-output {   
+    min-width: 59rem; 
+    &-body {
+      &-row {        
+        &-label {  
+          margin-right: 1rem;                                       
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: $md) and (max-width: $lg) {
+  
   .content {
     .change-form {
-      max-width: 40rem;
+      margin: 0 auto 2rem auto;
     }
     .change-output {
+      min-width: 65rem; 
       &-body {
         &-row {        
           &-label {                        
@@ -143,7 +160,10 @@
   }
 
 }
-@media screen and (min-width: $lg) and (max-width: $xl) {
+@media screen and (min-width: $lg) and (max-width: $xl) {  
+  .change-form {
+    margin-right: 2rem;
+  }
   .change-output {
     &-body {
       &-row {        
@@ -158,6 +178,9 @@
 }
 
 @media screen and (min-width: $xl) {
+  .change-form {
+    margin-right: 2rem;
+  }
   .change-output {
     &-body {
       &-row {        
