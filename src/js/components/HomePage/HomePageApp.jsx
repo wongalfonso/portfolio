@@ -125,7 +125,7 @@ export default class HomePage extends Component {
     //   action: github
     // });
     return (
-      <a href={link} target='_blank'><img src={GitHubWhite} className='gitHubImage' /></a>
+      <a href={link} target='_blank'><img src={GitHubWhite} className='github-image' /></a>
     )
   }
 

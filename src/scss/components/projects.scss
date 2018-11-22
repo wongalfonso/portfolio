@@ -19,86 +19,106 @@
   color: white;
   height: 100vh;
   width: 100vw;
-  .projects {
-    .projects-header {
-      margin-top: 3.5rem;
-      margin-bottom: 0;
-      text-align: center;
-      font-size: 3.5rem;
-      width: 100%
-    }
-    .row {    
-      text-align: center;
-      .projects-div {
-        position: relative;
-        // width: 550px;
-        // height: 280px;
-        perspective: 150rem;
-        -webkit-perspective: 150rem;
-        -moz-perspective: 150rem;
-        .projects-div-info {    
-          text-align: left;                    
-          position: absolute;
-          top: 0;
-          left: 0;
-          // max-width: 550px;
-          // max-height: 275px;          
-          transition: all .8s;                    
-          backface-visibility: hidden;    
-          border-radius: 20px;   
-          &--changeCalc {
-            background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);
-            background: linear-gradient(to right, #3a6073, #3a7bd5);
-          }
-          &--vstda {
-            background: #136a8a; /* fallback for old browsers */
-            background: -webkit-linear-gradient(to left, #89c1c6, #6281c9);
-            background: linear-gradient(to left, #89c1c6, #6281c9);
-          }
-          &--astro {
-            background: -webkit-linear-gradient(to left, #020202, #717171);
-            background: linear-gradient(to left, #020202, #717171);
-          }
-          &--front {
-            opacity: .7;
-          }     
-          &--back {
-            padding: .9rem;
-            transform: rotateY(180deg);
-          }
-          &-title {
-            text-align: center;
-            font-size: 1.6rem;
-            &--github {
-              &:hover {
-                opacity: .8;
+  font-size: 1.8rem;
+  .projects-page-form {
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .projects-header {
+        flex: 0 0 4rem;
+        margin-top: 7.5rem;
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 6rem;
+        width: 100%
+      }
+      .projects {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .projects-div {
+          flex: 1 0 38rem;
+          margin: 0 2rem;
+          flex-wrap: wrap;
+          max-width: 45rem;          
+          position: relative;
+          width: 100%;
+          perspective: 150rem;        
+          -webkit-perspective: 150rem;
+          -moz-perspective: 150rem;            
+          .projects-div-info {    
+            text-align: left;                    
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-height: 33rem;
+            margin-bottom: 1rem;
+            transition: all .8s;                    
+            backface-visibility: hidden;    
+            border-radius: 20px;  
+            &--changeCalc {
+              background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);
+              background: linear-gradient(to right, #3a6073, #3a7bd5);
+            }
+            &--vstda {
+              background: #136a8a; /* fallback for old browsers */
+              background: -webkit-linear-gradient(to left, #89c1c6, #6281c9);
+              background: linear-gradient(to left, #89c1c6, #6281c9);
+            }
+            &--astro {
+              background: -webkit-linear-gradient(to left, #020202, #717171);
+              background: linear-gradient(to left, #020202, #717171);
+            }
+            &--front {
+              opacity: .7;
+            }     
+            &--back {
+              // height: 100%;
+              padding: .9rem;
+              transform: rotateY(180deg);
+            }
+            &-title {
+              text-align: center;
+              font-size: 2rem;
+              &--github {
+                position:absolute;
+                right: 0;
+                margin-right: 1rem;  
+                height: 70px;
+                &:hover {
+                  opacity: .8;
+                }
               }
             }
+            &-text {
+              font-size: 1.5rem;
+            }
+            &--weatherApp {
+              background: -webkit-linear-gradient(to top, #a2dbf2, #3068eb);
+              background: linear-gradient(to top, #a2dbf2, #3068eb);
+            }
           }
-          &-text {
-            font-size: .9rem;
+          &:hover .projects-div-info--front {
+            transform: rotateY(180deg);
           }
-          &--weatherApp {
-            background: -webkit-linear-gradient(to top, #a2dbf2, #3068eb);
-            background: linear-gradient(to top, #a2dbf2, #3068eb);
+          &:hover .projects-div-info--back {
+            transform: rotateY(0);     
           }
-        }
-        &:hover .projects-div-info--front {
-          transform: rotateY(180deg);
-        }
-        &:hover .projects-div-info--back {
-          transform: rotateY(0);     
         }
       }
-    }    
-  }
+    }
+  }    
 }
 
-.gitHubImage {
+.github-image {
   position:absolute;
   right: 0;
-  margin-right: 10px;
-  width: 70px;
+  margin-right: 1rem;  
+  height: 70px;
 }
 
 //Back Button
@@ -131,26 +151,6 @@
 }
 
 @media only screen and (max-width: $sm) {
-  .projects-page {
-    .projects {
-      .projects-header {
-        margin-top: 3.5rem;
-      }
-      .row {
-        .projects-div {
-          width: 29rem;
-          height: 15rem;
-          .projects-div-info {
-            width: 100%;
-            max-height: 28rem;
-            &--back {
-              height: 100%;
-            }
-          }
-        }
-      }
-    }
-  }
 
   .project-close {
     justify-content: center;
@@ -162,111 +162,43 @@
 }
 @media only screen and (min-width: $sm) and (max-width: $md) {
   .projects-page {
-    .projects {
-      .projects-header {
-        margin-top: 6.5rem;
-        margin-bottom: 1rem;
-      }
-      .row {
-        .projects-div {
-          height: 22rem;          
-          .projects-div-info {
-            width: 100%;
-            max-height: 280px;
-            &-title {              
-              font-size: 2rem;              
-            }
-            &-text {
-              font-size: 1.1rem;
+    .projects-page-form {
+      .projects-container {
+        .projects {      
+          .projects-div {
+            .projects-div-info {
+              &-text{
+                font-size: 1.7rem;
+              }
             }
           }
         }
       }
     }
-  }
-  .gitHubImage {
-    top: 6%;
   }
 }
 @media only screen and (min-width: $md) and (max-width: $lg) {
-  .projects-page {
-    .projects {      
-      .row {
-        .projects-div {
-          height: 20rem;
-          .projects-div-info {
-            width: 100%;
-            max-height: 220px;
-            &-text{
-              font-size: 1.2rem;
-            }
-            &--back {
-              height: 100%;
-            }
-          }
-        }
-      }
-    }
-  }
-  .gitHubImage {
-    width: 100px;
-  }
+
 }
-@media only screen and (min-width: $lg) and (max-width: $xl) {
-  .projects-page {
-    .projects {
-      .row {
-        .projects-div {
-          height: 21rem;
-          max-width: 49rem;
-          .projects-div-info {
-            max-height: 21rem;
-            &-title {
-              font-size: 2rem;
-            }
-            &-text{
-              font-size: 1.4rem;
-            }
-            &--back {
-              height: 100%;
-            }
-          }
-        }
-      }
-    }
-  }
-  .gitHubImage {
-    width: 100px;
-  }
+@media only screen and (min-width: $lg) and (max-width: $xl) { 
+
 }
 
 @media only screen and (min-width: $xl) {
   .projects-page {
-    .projects {
-      .row {
-        .projects-div {
-          height: 49rem;
-          max-height: 21rem;
-          max-width: 49rem;
-          .projects-div-info {
-            max-width: 41rem;
-
-            &-title {
-              font-size: 2rem;
-            }
-            &-text{
-              font-size: 1.2rem;
-            }
-            &--back {
-              height: 100%;
+    .projects-page-form {
+      .projects-container {
+        .projects {      
+          .projects-div {
+            max-width: 59rem; 
+            .projects-div-info {
+              &-text{
+                font-size: 1.8rem;
+              }
             }
           }
         }
       }
     }
   }
-  .gitHubImage {
-    width: 100px;
-  }
- 
 }
