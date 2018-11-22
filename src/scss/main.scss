@@ -61,3 +61,24 @@ body {
   transition: all .2s;
 }
 
+@media screen and (max-width: $md) {
+  html {
+    font-size: .5rem;
+  }
+}
+@media screen and (min-width: $md) {
+  html {
+    font-size: .6rem;
+  }
+}
+
+@media screen and (min-width: $lg) {
+  html {
+    font-size: .6rem;
+  }
+}
+@media screen and (min-width: $xl) {
+  html {
+    font-size: .7rem;
+  }
+}

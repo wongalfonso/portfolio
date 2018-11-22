@@ -1,43 +1,15 @@
-.row {
+.container {
   margin: 0 auto;
-
-  &:not(:last-child) {
-    margin-bottom: $gutter-vertical;    
-  }
-
-  @include clearfix;
-    
-  .col-1-of-2 {
-    width: calc((100% - #{$gutter-horizontal})/ 2);
-    float: left;
-    &:not(:last-child) {
-      margin-right: $gutter-horizontal;            
-    }        
-  }
-
 }
 
 @media screen and (max-width: $sm) {
   .container {
     max-width: 54rem;
   }
-  .row {
-    max-width: 54rem;
-    .col-1-of-2 {
-      float: none;
-      margin: 0 auto;
-      &:not(:last-child) {
-        margin-right: auto;
-      }
-    }    
-  }
 }
 @media screen and (min-width: $sm) and (max-width: $md) {
   .container {
     min-width: 54rem;
-    max-width: 68rem;
-  }
-  .row {
     max-width: 68rem;
   }
 }
@@ -47,17 +19,11 @@
     min-width: 68rem;
     max-width: 85rem;
   }
-  .row {
-    max-width: 80rem;
-  }
 }
 
 @media screen and (min-width: $lg) and (max-width: $xl) {
   .container {
     min-width: 80rem;
-    max-width: 95rem;
-  }
-  .row {
     max-width: 95rem;
   }
 }

@@ -17,11 +17,11 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route exact path='/' component={ HomePage } />
-          <Route path ='/project' component = { ChangeCalc } />
           <Route path ='/profile' component = { Profile } />
           <Route path ='/blogpost' component={ PageBlog } />
           <Route path ='/blogsplash' component = { BlogSplashPage } />   
           <Route path='/codewars/:id' component = {ListEdit}/>
+          <Route path ='/project/change-calc' component = { ChangeCalc } />
           <Route path='/signup' component={ SignUp } />      
           <EnsureLoggedIn/>          
           <Route path='/login' component={Login} />              
