@@ -60,6 +60,9 @@
             transition: all .8s;                    
             backface-visibility: hidden;    
             border-radius: 20px;  
+            &--website {
+              color: white;
+            }
             &--changeCalc {
               background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);
               background: linear-gradient(to right, #3a6073, #3a7bd5);
@@ -77,7 +80,6 @@
               opacity: .7;
             }     
             &--back {
-              // height: 100%;
               padding: .9rem;
               transform: rotateY(180deg);
             }
@@ -100,6 +102,13 @@
             &--weatherApp {
               background: -webkit-linear-gradient(to top, #a2dbf2, #3068eb);
               background: linear-gradient(to top, #a2dbf2, #3068eb);
+            }
+            &--barberShop {
+              background: rgb(3,3,3);              
+            }
+            &--myLife {
+              background: -webkit-linear-gradient(to left, rgb(160, 160, 160), rgb(209,164,87));
+              background: linear-gradient(to left, rgb(160, 160, 160), rgb(209,164,87));
             }
           }
           &:hover .projects-div-info--front {

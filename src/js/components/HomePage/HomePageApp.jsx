@@ -40,6 +40,7 @@ export default class HomePage extends Component {
     // this.afterOpen = this.afterOpen.bind(this);
     // this.closeModal = this.closeModal.bind(this);
     this.modalTemplate = this.modalTemplate.bind(this);
+    this.goToSite = this.goToSite.bind(this);
   }
   componentWillMount() {
     ReactGA.initialize('UA-126168783-1');      
@@ -128,7 +129,12 @@ export default class HomePage extends Component {
       <a href={link} target='_blank'><img src={GitHubWhite} className='github-image' /></a>
     )
   }
-
+  goToSite(site) {
+    console.log('site', site);
+    return (
+      <a href = {site} target = '_blank'></a>
+    )
+  }
   smallScreen(title) {
     return (
       <div>
@@ -183,6 +189,7 @@ export default class HomePage extends Component {
                   ref = {(project) => this._project = project}>
               <WebProjects
                 title = {title}
+                goToSite = {this.goToSite}
               />
           </div>
           </Section>
