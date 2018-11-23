@@ -179,7 +179,7 @@ export default class HomePage extends Component {
           </Section>
           <Section className = 'section'>
             <div  className="projects-page"
-                  id = 'apiProjects'
+                  id = 'webProjects'
                   ref = {(project) => this._project = project}>
               <WebProjects
                 title = {title}
