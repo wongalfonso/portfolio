@@ -38,7 +38,7 @@ export default class HomePage extends Component {
     this.scroll = this.scroll.bind(this);
     this.openModal = this.openModal.bind(this);
     // this.afterOpen = this.afterOpen.bind(this);
-    // this.closeModal = this.closeModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
     this.modalTemplate = this.modalTemplate.bind(this);
     this.goToSite = this.goToSite.bind(this);
   }
@@ -83,11 +83,11 @@ export default class HomePage extends Component {
     })
   }
 
-  // closeModal() {
-  //   this.setState({
-  //     modalIsOpen: false
-  //   })
-  // }
+  closeModal() {
+    this.setState({
+      modalIsOpen: false
+    })
+  }
 
   modalTemplate() {
     return (

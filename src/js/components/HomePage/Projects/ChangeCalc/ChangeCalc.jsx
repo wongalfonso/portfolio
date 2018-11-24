@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
+import ProjectClose from './../../ProjectClose';
 
 export default class ChangeCalc extends Component {
   constructor(props) {
@@ -270,19 +271,10 @@ export default class ChangeCalc extends Component {
               </div>              
             </div>
           </div>
-          <div className='project-close'>
-            <div className="project-close-git">
-              <a href="https://github.com/wongalfonso/React-Change-Calculator" target="_blank" onClick={this.gitHub}>
-                <img className="gitMark" src="/images/GitHub.png" />
-              </a>
-            </div>
-            <div className="project-close-btn">
-              <button className='close-btn' 
-                      onClick={this.props.close}>
-                      Back
-              </button>
-            </div>
-          </div>
+          <ProjectClose
+            github = {this.github}
+            close = {this.props.close}
+          />
         </div>
       </div>
     )

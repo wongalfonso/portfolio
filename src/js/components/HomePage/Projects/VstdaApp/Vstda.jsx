@@ -123,22 +123,25 @@ export default class VSTDA extends Component {
   render() {
     return (
 
-      <div id='vstdaProject' className='allProjectModals'>
-        <div className='container vstdaContainer allProjectModalsContainers'>
-          <div className="row project-headers" id = 'vstda-row-header'>
-            <div className="col-xl-12">
-              <div id='vstdaHeader' className='col-xl-12'>
-                <h1>Very Simple Todo App</h1>
-                <h4 className='vstdah4'>Track All of the Things</h4>
-              </div>
-            </div>
+      <div id='vstdaProject' className='all-project-pages'>
+        <div className='container vstda-container'>          
+          <header className="header">
+            Very Simple Todo App
+            <div className='header-subheader'>Track All of the Things</div>
+          </header>
           </div>
 
-          <div className="row project-modal-body" id = 'vstda-row-body'>
-            <ToDoForm createToDo={this.createToDo} toDo={this.state.toDo} handleText={this.handleText} priority={this.state.priority} handlePrior={this.handlePrior}
+          <div className="content">
+            <ToDoForm createToDo={this.createToDo} 
+                      toDo={this.state.toDo} 
+                      handleText={this.handleText} 
+                      priority={this.state.priority} 
+                      handlePrior={this.handlePrior}
             />
 
-            <div className='col-sm-12 col-xl-8' id='List' ref={(listEl) => { this.listElement = listEl }}>
+            <div className='' 
+                  id='List' 
+                  ref={(listEl) => { this.listElement = listEl }}>
               <div className='card' id='ListCard'
                 style={{ "overflowY": this.state.overflow }}
                 ref={(card) => { this.cardElement = card }}>
@@ -170,7 +173,6 @@ export default class VSTDA extends Component {
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }
