@@ -1,50 +1,111 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import { ScrollToTopOnMount, SectionsContainer, Section } from 'react-fullpage';
+import Modal from 'react-modal';
 import backgroundVid from '../../../../public/video/backgroundVideo.mp4';
-import Background from './Background';
 import Splash from './Splash';
 import About from './About/About';
-import Projects from './Projects/Projects';
+import FormProjects from './Projects/FormProjects';
+import ApiProjects from './Projects/ApiProjects';
+import WebProjects from './Projects/WebProjects';
+import ChangeCalc from './Projects/ChangeCalc/ChangeCalc';
+import VSTDA from './Projects/VstdaApp/Vstda';
+import AstroWeight from './Projects/AstroWeight/AstroWeight';
 import Footer from './../Footer';
 import Header from './../Header';
 import NavBar from './NavBar';
+import GitHubWhite from '../../../../public/images/GitHubWhite.png';
+
+const modalStyle = {
+  overlay: {
+    zIndex: 99
+  }
+};
+Modal.setAppElement('#app');
 
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      modalIsOpen: false,
+      selected: '',
+      hover: '',
       currentPage: '#Top',
       title: 'Web Developer',
-      width: ''
+      width: '',
+      screen: '',
     }        
     this.scroll = this.scroll.bind(this);
+    this.openModal = this.openModal.bind(this);
+    // this.afterOpen = this.afterOpen.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.modalTemplate = this.modalTemplate.bind(this);
+    this.goToSite = this.goToSite.bind(this);
   }
   componentWillMount() {
     ReactGA.initialize('UA-126168783-1');      
   }  
   
   componentDidUpdate() {
-    if (this.state.currentPage !== this.props.location.hash) {
+    console.log(this.props.location.hash);
+    console.log(this.state.currentPage);
+    const { currentPage, title } = this.state;
+    if (currentPage !== this.props.location.hash) {
       this.setState({currentPage: this.props.location.hash})
     }
-    if (this.state.currentPage === '#Top' && this.state.title !== 'Web Developer') {
+    if (currentPage === '#Top' && title !== 'Web Developer') {
       setTimeout( () => this.setState({title: 'Web Developer'}),800);
     }
-    if (this.state.currentPage === '#About' && this.state.title !== 'About Me') {
+    if (currentPage === '#About' && title !== 'About Me') {
       setTimeout( () => this.setState({title: 'About Me'}),800);
     }
-    if (this.state.currentPage === '#Projects' && this.state.title !== 'Projects') {
-      this.setState({title: 'Projects'})
+    if (currentPage === '#Form-Projects' && title !== 'Form Projects') {
+      setTimeout( () => this.setState({title: 'Form Projects'}),800);      
+    }    
+    if (currentPage === '#API-Projects' && title !== 'API Projects') {
+      setTimeout( () => this.setState({title: 'API Projects'}),800);
+    }    
+    if (currentPage === '#Web-Projects' && title !== 'Web Projects') {
+      setTimeout( () => this.setState({title: 'Web Projects'}),800);
     }    
   }
-  componentDidMount() {
-    const screen = this.screen; 
-    if (screen.clientWidth) {
-      this.setState({width: screen.clientWidth})      
-    }
+  // componentDidMount() {
+  //   const screen = this.screen; 
+  //   if (screen.clientWidth) {
+  //     this.setState({width: screen.clientWidth})      
+  //   }
+  // }
+  openModal(project) {   
+    this.setState({
+      modalIsOpen: true, 
+      selected: project
+    })
   }
-  
+
+  closeModal() {
+    console.log('yes');
+    this.setState({
+      modalIsOpen: false
+    })
+  }
+
+  modalTemplate() {
+    return (
+      <Modal
+        isOpen = {this.state.modalIsOpen}
+        // onAfterOpen = {this.afterOpen}
+        onRequestClose = {this.closeModal}  
+        ariaHideApp={false}
+        className={'ReactModal_Content ReactModal_Content--after-open'}
+        style={modalStyle}    
+      >
+        {(this.state.selected === 'Change') && <ChangeCalc closeModal = {this.closeModal} />}
+        {(this.state.selected == 'VSTDA') && <VSTDA close={this.closeModal} />}
+        {(this.state.selected == 'Astro') && <AstroWeight close={this.closeModal} />}
+        {(this.state.selected == 'Weather') && <Weather close={this.closeModal} />}
+      </Modal>
+    )
+  }
   scroll(target) {
     let page;
     if (target === '#splash') {page = 'splashPage'}
@@ -58,6 +119,22 @@ export default class HomePage extends Component {
       this.setState({ currentPage: page })
     }
   }
+
+  gitHub(link, github) {
+    // ReactGA.event({
+    //   category: 'visited GitHub',
+    //   action: github
+    // });
+    return (
+      <a href={link} target='_blank'><img src={GitHubWhite} className='github-image' /></a>
+    )
+  }
+  goToSite(site) {
+    console.log('site', site);
+    return (
+      <a href = {site} target = '_blank'></a>
+    )
+  }
   smallScreen(title) {
     return (
       <div>
@@ -69,11 +146,13 @@ export default class HomePage extends Component {
       </div>
     )
   }
-  largeScreen(title, options) {
+  largeScreen(options) {
+    const { title } = this.state;    
     return (
       <div>
         <ScrollToTopOnMount/>
         <Header/>    
+        {this.modalTemplate()}
         <SectionsContainer {...options} className = 'section-container'>
           <Section className = 'section'>                        
             <Splash 
@@ -82,15 +161,39 @@ export default class HomePage extends Component {
           <Section className = 'section'>
             <About
             title = {title}/>
-            {/* <Projects/> */}
           </Section>
           <Section className = 'section'>
-
+            <div  className="projects-page"
+                  id = 'formProjects'
+                  ref = {(project) => this._project = project}>
+              <FormProjects 
+                gitHub = {this.gitHub}
+                title = {title}
+                openModal = {this.openModal}/>
+            </div>
           </Section>
           <Section className = 'section'>
-
+            <div  className="projects-page"
+                  id = 'apiProjects'
+                  ref = {(project) => this._project = project}>
+            <ApiProjects 
+              gitHub = {this.gitHub}
+              title = {title}
+              openModal = {this.openModal}
+              />
+          </div>
           </Section>
-          {/* <Projects screen={screen} enter = {this.mouseEnter} exit = {this.mouseExit}/> */}
+          <Section className = 'section'>
+            <div  className="projects-page"
+                  id = 'webProjects'
+                  ref = {(project) => this._project = project}>
+              <WebProjects
+                title = {title}
+                goToSite = {this.goToSite}
+              />
+          </div>
+          </Section>
+          
         </SectionsContainer>
       </div>
     )
@@ -98,7 +201,7 @@ export default class HomePage extends Component {
   render() {       
     let options = {
       activeClass:          'active', 
-      anchors:              ['Top', 'About', 'Projects'], 
+      anchors:              ['Top', 'About', 'Form-Projects', 'API-Projects', 'Web-Projects'], 
       arrowNavigation:      false,
       className:            'SectionContainer',
       delay:                1000, 
@@ -109,10 +212,10 @@ export default class HomePage extends Component {
       sectionPaddingBottom: '0', 
       verticalAlign:        false 
     };  
-    console.log(this.state.currentPage)
-    const { title } = this.state;
     return (      
-      <div  id = 'homePage' className='full-site' ref={(screen) => this.screen = screen}>
+      <div  id = 'homePage' 
+            className='full-site' 
+            ref={(screen) => this.screen = screen}>
         <div className="vid-container">
           <video id='homeVid' loop autoPlay muted >
             <source src={backgroundVid} type='video/mp4' />
@@ -123,7 +226,8 @@ export default class HomePage extends Component {
           menu = {this.state.exit} 
           isActive = {this.mouseEnter}
           scroll = {this.scroll}/>     */}
-        {(this.state.width > 321) ? this.largeScreen(title, options) : this.smallScreen(title)}
+          {this.largeScreen(options)}
+        {/* {(this.state.width > 400) ? this.largeScreen(options) : this.smallScreen()} */}
         {/* <Footer /> */}
       </div>
     )

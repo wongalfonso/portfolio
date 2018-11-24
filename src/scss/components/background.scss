@@ -19,10 +19,17 @@
   z-index: 10;
 }
 
-@media screen and (max-width: $xs) {
+@media screen and (max-width: $sm) {
   .vid-container {
     #homeVid {
-      left: -180%;
+      transform: translateX(-30%);
+    }
+  }
+}
+@media screen and (max-width: $md) {
+  .vid-container {
+    #homeVid {
+      transform: translateX(-20%);
     }
   }
 }

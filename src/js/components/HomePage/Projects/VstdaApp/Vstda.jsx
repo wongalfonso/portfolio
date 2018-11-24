@@ -24,17 +24,17 @@ export default class VSTDA extends Component {
     this.handlePrior = this.handlePrior.bind(this);
   }
 
-  componentDidUpdate() {
-    const list = this.listElement;
-    const card = this.cardElement;
-    const hasOverflow = list.offsetHeight < list.scrollHeight;
-    if (hasOverflow && this.state.overflow !== 'scroll') {
-      this.setState({ overflow: 'scroll' })
-    }
-    if (card.scrollHeight === card.offsetHeight && this.state.overflow === 'scroll') {
-      this.setState({ overflow: '' })
-    }
-  }
+  // componentDidUpdate() {
+  //   const list = this.listElement;
+  //   const card = this.cardElement;
+  //   const hasOverflow = list.offsetHeight < list.scrollHeight;
+  //   if (hasOverflow && this.state.overflow !== 'scroll') {
+  //     this.setState({ overflow: 'scroll' })
+  //   }
+  //   if (card.scrollHeight === card.offsetHeight && this.state.overflow === 'scroll') {
+  //     this.setState({ overflow: '' })
+  //   }
+  // }
   gitHub() {
     ReactGA.event({
       category: 'Visited GitHub from Modal',
@@ -123,22 +123,25 @@ export default class VSTDA extends Component {
   render() {
     return (
 
-      <div id='vstdaProject' className='allProjectModals'>
-        <div className='container vstdaContainer allProjectModalsContainers'>
-          <div className="row project-headers" id = 'vstda-row-header'>
-            <div className="col-xl-12">
-              <div id='vstdaHeader' className='col-xl-12'>
-                <h1>Very Simple Todo App</h1>
-                <h4 className='vstdah4'>Track All of the Things</h4>
-              </div>
+      <div id='vstdaProject' className='all-project-pages'>
+        <div className='container vstda-container'>          
+          <header className="vstda-header project-header">
+            Very Simple Todo App
+            <div className='vstda-header-subheader'>
+              Track All of the Things
             </div>
-          </div>
-
-          <div className="row project-modal-body" id = 'vstda-row-body'>
-            <ToDoForm createToDo={this.createToDo} toDo={this.state.toDo} handleText={this.handleText} priority={this.state.priority} handlePrior={this.handlePrior}
+          </header>
+          <div className="content">
+            <ToDoForm createToDo={this.createToDo} 
+                      toDo={this.state.toDo} 
+                      handleText={this.handleText} 
+                      priority={this.state.priority} 
+                      handlePrior={this.handlePrior}
             />
 
-            <div className='col-sm-12 col-xl-8' id='List' ref={(listEl) => { this.listElement = listEl }}>
+            <div className='' 
+                  id='List' 
+                  ref={(listEl) => { this.listElement = listEl }}>
               <div className='card' id='ListCard'
                 style={{ "overflowY": this.state.overflow }}
                 ref={(card) => { this.cardElement = card }}>
@@ -155,9 +158,9 @@ export default class VSTDA extends Component {
                 </ul>
               </div>
             </div>
-
-
           </div>
+        </div>
+
 
           <div className='row project-close-row'>
             <div className="col-sm-6 col-xl-6">
@@ -170,7 +173,6 @@ export default class VSTDA extends Component {
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }

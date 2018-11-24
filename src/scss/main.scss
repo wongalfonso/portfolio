@@ -1,0 +1,84 @@
+
+@import './abstracts/variables';
+@import './abstracts/_mixins.scss';
+
+@import './animation.scss';
+
+@import './layout/_grid.scss';
+
+@import './components/background.scss';
+@import './components/splash.scss';
+@import './components/about.scss';
+@import './components/projects.scss';
+@import './components/changeCalc.scss';
+@import './components/vstda.scss';
+@import './components/astroWeight.scss';
+@import './components/weather.scss';
+@import './components/header.scss';
+@import './components/navbar.scss';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html, body {
+  margin: 0; 
+  padding: 0;
+  right: 0;
+  height: 100%; 
+  width: 100%;  
+}
+html {
+  font-size: .625em;
+}
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.7;
+  box-sizing: border-box;
+}
+.full-page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.pages {
+  color: white !important;
+  font-size: 20px !important;
+}
+.section-container {
+  z-index: 50;
+}
+.section {
+  overflow: hidden !important;
+}
+#aboutActive, #topActive, #projectActive{
+  width: 4rem;
+  height: 4rem;
+  transition: all .2s;
+}
+
+@media screen and (max-width: $md) {
+  html {
+    font-size: .5rem;
+  }
+}
+@media screen and (min-width: $md) {
+  html {
+    font-size: .5rem;
+  }
+}
+
+@media screen and (min-width: $lg) {
+  html {
+    font-size: .5rem;
+  }
+}
+@media screen and (min-width: $xl) {
+  html {
+    font-size: .7rem;
+  }
+}

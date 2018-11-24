@@ -1,0 +1,149 @@
+#vstdaProject {
+  background: #136a8a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #89c1c6, #6281c9);
+  background: linear-gradient(to left, #89c1c6, #6281c9);
+  }
+.container {
+  .vstda-header {                
+    &-subheader {
+      font-size: 4rem;
+    }
+  }
+  
+}
+
+// .vstdah4 {
+//   border-bottom: solid white;
+//   margin-bottom: 20px;
+//   padding-bottom: 10px;
+// }
+// #List {
+//   height: 100%;
+//   width: 100%;  
+//   overflow: hidden;
+// }
+// #ListCard {
+//   border: none !important;
+//   max-height: 428px;
+//   width: 100%;  
+//   box-sizing: content-box;
+// }
+// #todoHeader {
+//   width: 100%;
+// }
+// .create-todo-text {
+//   width: 100%;
+//   max-width: 100%;
+//   min-height: 6em;
+//   max-height: 16em;
+// }
+// .update-todo-text {
+//   width: 100%;
+//   max-width: 100%;
+//   min-height: 6em;
+//   max-height: 16em;
+// }
+// .update-todo-priority {
+//   width: 200px;
+// }
+// .update-todo-btn {
+//   width: 150px;  
+//   bottom: 0;
+// }
+// .todoListText {
+//   width: 60%
+// }
+// .todoListEdit {
+//   display: inline-block;
+//   width: 20%
+// }
+// .todoListDelete {
+//   display: inline-block;
+//   width: 20%;
+//   margin-right: 50px;
+// }
+// #list {
+//   max-width: 100%;
+//   height: 3em;
+// }
+// #vstdaEdit {
+//   height: 17em;
+// }
+// .update-label {
+//   text-align: left;
+// }
+// @media screen and (max-width: $md - 1px) {
+//   #vstdaHeader {
+//     font-size: 1vw;
+//   }
+//   .create-todo-text {
+//     min-height: 1em;
+//     max-height: 1.5em;
+//   }
+//   #list {
+//     height: 100%;
+//   }
+//   .update-todo-btn {
+//     width: 100%;
+//   }
+//   .float-right {
+//     float: none !important;
+//   }
+//   #vstdaEdit {
+//     height: 100%;
+//   }
+//   .todoListDelete {
+//     margin-right: 0;
+//   }
+//   .todoListEdit {
+//     margin-right: .5em;
+//   }
+//   .todoListDelete, .todoListEdit {
+//     float: right !important;
+//     width: 10%;
+//   }
+// }
+// @media screen and (min-width: $md) and (max-width: $lg - 1px) {
+//   #vstda-row-header {
+//     height: 15%;
+//   }
+//   #vstda-row-body {
+//     height: 75%;
+//   }
+  
+//   .create-todo-text {
+//     min-height: 1em;
+//   }
+  
+//   #ListCard {
+//     overflow-y: scroll;
+//     max-height: 332px;
+//   }
+// }
+// @media screen and (min-width: $lg) and (max-width: $xl - 1px) {
+//   .create-todo-text {
+//     min-height: 1em;
+//   }
+//   #ListCard {
+//     overflow-y: scroll
+//   }
+// }
+// @media screen and (min-width: $xl) and (max-width: 1499px) {
+//   #vstda-row-header {
+//     height: 20%;
+//   }
+//   #vstda-row-body {
+//     height: 70%;
+//   }
+//   #ListCard {
+//     max-height: 23.5rem;
+//   }
+// }
+// @media screen and (min-width: 1500px) {
+//   #vstda-row-header {
+//     height: 20%;
+//   }
+//   #vstda-row-body {
+//     height: 70%;
+//   }
+// }

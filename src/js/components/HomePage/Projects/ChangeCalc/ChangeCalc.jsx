@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
+import ProjectClose from './../../ProjectClose';
 
 export default class ChangeCalc extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ export default class ChangeCalc extends Component {
     this.handleDue = this.handleDue.bind(this);
     this.handleRec = this.handleRec.bind(this);
     this.calculate = this.calculate.bind(this);
+    // this.closeModal = this.closeModal.bind(this);
   }
 
   gitHub() {
@@ -28,6 +30,10 @@ export default class ChangeCalc extends Component {
       action: 'From Change Modal'
     })
   }
+  // closeModal() {
+  //   consol
+  //   this.props.closeModal();
+  // }
   handleDue(event) {
     const amountDue = (event.target.validity.valid) ? event.target.value : this.state.amountDue;
     this.setState({ amountDue });
@@ -40,11 +46,19 @@ export default class ChangeCalc extends Component {
   button() {
     if (this.state.amountRec.length > 0 && this.state.amountDue.length > 0) {
       return (
-        <button className='btn btn-primary form-control' type='submit' onClick={this.calculate}>Calculate</button>
+        <button className='change-form-foot-btn change-form-foot-btn-active project-form-foot-btn project-form-foot-btn-active'
+          type='submit'
+          onClick={this.calculate}>
+          Calculate
+        </button>
       )
     } else {
       return (
-        <button className='btn btn-primary form-control' type='submit' onClick={this.calculate} disabled>Calculate</button>
+        <button className='change-form-foot-btn change-form-foot-btn-disabled project-form-foot-btn project-form-foot-btn-disabled'
+          type='submit'
+          disabled>
+          Calculate
+        </button>
       )
     }
   }
@@ -157,122 +171,113 @@ export default class ChangeCalc extends Component {
       received = 'form-group has-feedback'
     }
     return (
-      <div id='changeCalcProject' className='allProjectModals'>
-        <div className='container changeContainer allProjectModalsContainers'>
-
-          <div className="row project-headers">
-            <div className="col-xl-12">
-              <div id='changeHeader' className='col-xl-12'>
-                <h1>Change Calculator</h1>
+      <div className="all-project-pages" id='changeCalcProject'>
+        <div className="container change-container">
+          <header className="change-header">
+            Change Calculator
+            </header>
+          <div className="content">
+            <div className="change-form project-form">
+              <div className='change-form-head project-form-head'>
+                Enter Information
+                </div>
+              <form className='change-form-body project-form-body'>
+                <div className="change-form-body-group project-form-body-group form-group">
+                  <label className='change-input-label' htmlFor='amountDue'>
+                    How much is due?
+                  </label>
+                  <input
+                    type='text'
+                    pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$'
+                    value={this.state.amountDue}
+                    onChange={this.handleDue}
+                    id='amountDue'
+                    required
+                  />
+                </div>
+                <div className='change-form-body-group project-form-body-group form-group'>
+                  <label htmlFor='received'>
+                    How much was received?
+                  </label>
+                  <input
+                    type='text'
+                    pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$'
+                    value={this.state.amountRec}
+                    onChange={this.handleRec}
+                    id='received'
+                    required />                  
+                </div>
+              </form>
+              <div className='change-form-foot project-form-foot'>
+                {this.button()}
               </div>
             </div>
-          </div>
-
-          <div className="row project-modal-body">
-            <div className="col-sm-12 col-xl-4">
-
-              <div className='card card-default'>
-                <div className='card-header changeText'>Enter Information</div>
-                <div className='card-body'>
-                  <form>
-                    <div className="form-group has-success has-feedback">
-                      <label className='changeInputLabel' htmlFor='amountDue'>How much is due?</label>
-                      <input name='amountDue' className='form-control form-control-success' type='text' pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' value={this.state.amountDue} onChange={this.handleDue} id='amountDue' required />
-                    </div>
-
-                    <div className={"form-group has-feedback"}>
-                      <label className='changeInputLabel' htmlFor='received'> How much was received?</label>
-                      <input name='amountReceived' className='form-control' type='text' pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$' value={this.state.amountRec} onChange={this.handleRec} id='received' required />
-                      <span className="glyphicon glyphicon-remove form-control-feedback"></span>
-                    </div>
-                  </form>
-                </div>
-                <div className='card-footer'>
-                  <div className='form-group'>
-                    {this.button()}
-                  </div>
-                </div>
+            <div className='change-output'>
+              <div className="change-output-header">
+                {leftOver + this.state.output}
               </div>
-            </div>
-
-            <div className='col-sm-12 col-xl-8'>
-              <div className='card'>
-                <div className='card-body'>
-
-                  <div className='row'>
-                    <div className="col-lg-12">
-                      <div className={alert}> {leftOver + this.state.output}
-                      </div>
-                    </div>
+              <div className="change-output-body">
+                <div className="change-output-body-row">
+                  <div className="change-output-body-row-label">
+                    <div className='changeLabels'>Twenties</div>
+                    <p className=''>    
+                      {this.state.twenties}
+                    </p>
                   </div>
-                  <div className='row change-output-row'>
-                    <div className='col-3 ChangeOutputContainer'>
-                      <div className='ChangeOutputLabels'>
-                        <h1 className='changeLabels'>Twenties</h1>
-                        <p className='lead changeOutputs'>{this.state.twenties}</p>
-                      </div>
-                    </div>
-                    <div className='col-3 ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Tens</h1>
-                        <p className='lead changeOutputs'>{this.state.tens}</p>
-                      </div>
-                    </div>
-                    <div className='col-3 ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Fives</h1>
-                        <p className='lead changeOutputs'>{this.state.fives}</p>
-                      </div>
-                    </div>
-                    <div className='col-3 ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Ones</h1>
-                        <p className='lead changeOutputs'>{this.state.ones}</p>
-                      </div>
-                    </div>
+                  <div className="change-output-body-row-label">
+                    <div className='changeLabels'>Tens</div>
+                    <p className=''>
+                      {this.state.tens}
+                    </p>
                   </div>
-
-                  <div className='row change-output-row'>
-                    <div className='col-3 form-group ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Quarters</h1>
-                        <p className='lead changeOutputs'>{this.state.quarters}</p>
-                      </div>
-                    </div>
-                    <div className='col-3 form-group ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Dimes</h1>
-                        <p className='lead changeOutputs'>{this.state.dimes}</p>
-                      </div>
-                    </div>
-                    <div className='col-3 form-group ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Nickels</h1>
-                        <p className='lead changeOutputs'>{this.state.nickels}</p>
-                      </div>
-                    </div>
-                    <div className='col-3 form-group ChangeOutputContainer'>
-                      <div className="ChangeOutputLabels">
-                        <h1 className='changeLabels'>Pennies</h1>
-                        <p className='lead changeOutputs'>{this.state.pennies}</p>
-                      </div>
-                    </div>
+                  <div className="change-output-body-row-label">
+                    <div className='changeLabels'>Fives</div>
+                    <p className=''>
+                      {this.state.fives}
+                    </p>
+                  </div>
+                  <div className="change-output-body-row-label">
+                    <div className='changeLabels'>Ones</div>
+                    <p className=''>
+                      {this.state.ones}
+                    </p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          <div className='row project-close-row'>
-            <div className="col-sm-6 col-xl-6">
-              <a href="https://github.com/wongalfonso/React-Change-Calculator" target="_blank" onClick = {this.gitHub}>
-                <img className="gitMark" src="/images/GitHub.png" />
-              </a>
-            </div>
-            <div className="col-sm-6 col-xl-6 closeCol ">
-              <button className='btn btn-danger form-control-xl closeBtn' onClick={this.props.close}>Close</button>
+                <div className="change-output-body-row">
+                  
+                  <div className="change-output-body-row-label">
+                    <div className='changeLabels'>Quarters</div>
+                    <p className=''>
+                      {this.state.quarters}
+                    </p>
+                  </div>
+                  <div className="change-output-body-row-label">
+                    <div className='changeLabels'>Dimes</div>
+                    <p className=''>
+                      {this.state.dimes}
+                    </p>
+                  </div>
+                  <div className="change-output-body-row-label">
+                    <div className='changeLabels'>Nickels</div>
+                    <p className=''>
+                      {this.state.nickels}
+                    </p>
+                  </div>
+                  <div className="change-output-body-row-label">
+                    <div className='changeLabels'>Pennies</div>
+                    <p className=''>
+                      {this.state.pennies}
+                    </p>
+                  </div>
+                </div>
+              </div>              
             </div>
           </div>
+          <ProjectClose
+            github = {this.github}
+            close = {this.props.closeModal}
+          />
         </div>
       </div>
     )
