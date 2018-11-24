@@ -3,7 +3,7 @@ import ChangeCalcImage from './../../../../../public/images/ChangeCalc.jpg'
 import VSTDAImage from './../../../../../public/images/VSTDAReact.jpg'
 import AstroImage from './../../../../../public/images/AstroWeightCalc.jpg'
 
-const FormProjects = ({ gitHub, title, openModal }) => {
+const FormProjects = ({ gitHub, title, openModal, closeModal }) => {
 
   let gitHubLink = (link) => {
     gitHub(link)

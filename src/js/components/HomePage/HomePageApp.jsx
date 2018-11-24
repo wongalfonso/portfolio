@@ -76,7 +76,6 @@ export default class HomePage extends Component {
   //   }
   // }
   openModal(project) {   
-    console.log('project', project); 
     this.setState({
       modalIsOpen: true, 
       selected: project
@@ -84,6 +83,7 @@ export default class HomePage extends Component {
   }
 
   closeModal() {
+    console.log('yes');
     this.setState({
       modalIsOpen: false
     })
@@ -93,13 +93,13 @@ export default class HomePage extends Component {
     return (
       <Modal
         isOpen = {this.state.modalIsOpen}
-        onAfterOpen = {this.afterOpen}
+        // onAfterOpen = {this.afterOpen}
         onRequestClose = {this.closeModal}  
         ariaHideApp={false}
         className={'ReactModal_Content ReactModal_Content--after-open'}
         style={modalStyle}    
       >
-        {(this.state.selected === 'Change') && <ChangeCalc close={this.closeModal} />}
+        {(this.state.selected === 'Change') && <ChangeCalc closeModal = {this.closeModal} />}
         {(this.state.selected == 'VSTDA') && <VSTDA close={this.closeModal} />}
         {(this.state.selected == 'Astro') && <AstroWeight close={this.closeModal} />}
         {(this.state.selected == 'Weather') && <Weather close={this.closeModal} />}

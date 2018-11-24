@@ -21,6 +21,7 @@ export default class ChangeCalc extends Component {
     this.handleDue = this.handleDue.bind(this);
     this.handleRec = this.handleRec.bind(this);
     this.calculate = this.calculate.bind(this);
+    // this.closeModal = this.closeModal.bind(this);
   }
 
   gitHub() {
@@ -29,6 +30,10 @@ export default class ChangeCalc extends Component {
       action: 'From Change Modal'
     })
   }
+  // closeModal() {
+  //   consol
+  //   this.props.closeModal();
+  // }
   handleDue(event) {
     const amountDue = (event.target.validity.valid) ? event.target.value : this.state.amountDue;
     this.setState({ amountDue });
@@ -273,7 +278,7 @@ export default class ChangeCalc extends Component {
           </div>
           <ProjectClose
             github = {this.github}
-            close = {this.props.close}
+            close = {() => this.props.closeModal}
           />
         </div>
       </div>
