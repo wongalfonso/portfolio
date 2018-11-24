@@ -125,12 +125,12 @@ export default class VSTDA extends Component {
 
       <div id='vstdaProject' className='all-project-pages'>
         <div className='container vstda-container'>          
-          <header className="header">
+          <header className="vstda-header project-header">
             Very Simple Todo App
-            <div className='header-subheader'>Track All of the Things</div>
+            <div className='vstda-header-subheader'>
+              Track All of the Things
+            </div>
           </header>
-          </div>
-
           <div className="content">
             <ToDoForm createToDo={this.createToDo} 
                       toDo={this.state.toDo} 
@@ -158,9 +158,9 @@ export default class VSTDA extends Component {
                 </ul>
               </div>
             </div>
-
-
           </div>
+        </div>
+
 
           <div className='row project-close-row'>
             <div className="col-sm-6 col-xl-6">

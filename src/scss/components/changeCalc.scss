@@ -4,11 +4,9 @@
   background: linear-gradient(to right, #3a6073, #3a7bd5);
 }
 .change-container {
-  margin: 0 auto;  
-  min-height: 60rem;
-  
+  margin: 0 auto;
 }
-.header {
+.change-header {
   color: white;
   height: 7rem;
   border-bottom: 2px white solid;
@@ -18,9 +16,9 @@
 
 .content {
   display: flex;
-  font-size: 2rem;
+  font-size: 1.6rem;
   flex-wrap: wrap;
-  .change-form {
+  .project-form {
     flex: 0 0 28rem;    
     color: black;    
     background-color: rgb(227, 226, 226);    

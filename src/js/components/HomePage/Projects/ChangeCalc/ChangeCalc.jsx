@@ -46,7 +46,7 @@ export default class ChangeCalc extends Component {
   button() {
     if (this.state.amountRec.length > 0 && this.state.amountDue.length > 0) {
       return (
-        <button className='change-form-foot-btn change-form-foot-btn-active'
+        <button className='change-form-foot-btn change-form-foot-btn-active project-form-foot-btn project-form-foot-btn-active'
           type='submit'
           onClick={this.calculate}>
           Calculate
@@ -54,7 +54,7 @@ export default class ChangeCalc extends Component {
       )
     } else {
       return (
-        <button className='change-form-foot-btn change-form-foot-btn-disabled'
+        <button className='change-form-foot-btn change-form-foot-btn-disabled project-form-foot-btn project-form-foot-btn-disabled'
           type='submit'
           disabled>
           Calculate
@@ -173,16 +173,16 @@ export default class ChangeCalc extends Component {
     return (
       <div className="all-project-pages" id='changeCalcProject'>
         <div className="container change-container">
-          <header className="header">
+          <header className="change-header">
             Change Calculator
             </header>
           <div className="content">
-            <div className="change-form">
-              <div className='change-form-head'>
+            <div className="change-form project-form">
+              <div className='change-form-head project-form-head'>
                 Enter Information
                 </div>
-              <form className='change-form-body'>
-                <div className="change-form-body-group form-group">
+              <form className='change-form-body project-form-body'>
+                <div className="change-form-body-group project-form-body-group form-group">
                   <label className='change-input-label' htmlFor='amountDue'>
                     How much is due?
                   </label>
@@ -195,7 +195,7 @@ export default class ChangeCalc extends Component {
                     required
                   />
                 </div>
-                <div className='change-form-body-group form-group'>
+                <div className='change-form-body-group project-form-body-group form-group'>
                   <label htmlFor='received'>
                     How much was received?
                   </label>
@@ -205,12 +205,10 @@ export default class ChangeCalc extends Component {
                     value={this.state.amountRec}
                     onChange={this.handleRec}
                     id='received'
-                    required />
-                  <span className="glyphicon glyphicon-remove form-control-feedback">
-                  </span>
+                    required />                  
                 </div>
               </form>
-              <div className='change-form-foot'>
+              <div className='change-form-foot project-form-foot'>
                 {this.button()}
               </div>
             </div>
@@ -278,7 +276,7 @@ export default class ChangeCalc extends Component {
           </div>
           <ProjectClose
             github = {this.github}
-            close = {() => this.props.closeModal}
+            close = {this.props.closeModal}
           />
         </div>
       </div>
