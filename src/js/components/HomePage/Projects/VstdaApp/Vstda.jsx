@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import { List } from './List';
 import { ToDoForm } from './ToDoForm';
+import ProjectClose from '../../ProjectClose';
 
 export default class VSTDA extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export default class VSTDA extends Component {
     this.state = {
       lists: [],
       toDo: '',
-      priority: 'list-group-item-success',
+      priority: '-item-success',
       id: '',
       newTodo: '',
       completed: false,
@@ -35,7 +36,7 @@ export default class VSTDA extends Component {
   //     this.setState({ overflow: '' })
   //   }
   // }
-  gitHub() {
+  github() {
     ReactGA.event({
       category: 'Visited GitHub from Modal',
       action: 'From VSTDA Modal'
@@ -65,9 +66,9 @@ export default class VSTDA extends Component {
 
   handlePrior(event) {
     let val;
-    if (event.target.value === '3') { val = 'list-group-item-danger' }
-    if (event.target.value === '2') { val = 'list-group-item-warning' }
-    if (event.target.value === '1') { val = 'list-group-item-success' }
+    if (event.target.value === '3') { val = '-item-danger' }
+    if (event.target.value === '2') { val = '-item-warning' }
+    if (event.target.value === '1') { val = '-item-success' }
     this.setState({ priority: val })
   }
 
@@ -121,17 +122,18 @@ export default class VSTDA extends Component {
 
 
   render() {
+    const { createToDo, toDo, handleText, priority, handlePrior, lists} = this.state;   console.log(lists);
     return (
 
       <div id='vstdaProject' className='all-project-pages'>
         <div className='container vstda-container'>          
           <header className="vstda-header project-header">
             Very Simple Todo App
-            <div className='vstda-header-subheader'>
-              Track All of the Things
-            </div>
           </header>
-          <div className="content">
+          <header className='vstda-subheader'>
+            Track All of the Things
+          </header>
+          <div className="content vstda-content">
             <ToDoForm createToDo={this.createToDo} 
                       toDo={this.state.toDo} 
                       handleText={this.handleText} 
@@ -139,17 +141,21 @@ export default class VSTDA extends Component {
                       handlePrior={this.handlePrior}
             />
 
-            <div className='' 
+            <div className='vstda-list' 
                   id='List' 
                   ref={(listEl) => { this.listElement = listEl }}>
-              <div className='card' id='ListCard'
-                style={{ "overflowY": this.state.overflow }}
-                ref={(card) => { this.cardElement = card }}>
-                <div className='card-header' id='todoHeader'>View Todos</div>
-                <ul className='list-group'>
+              <div className="vstda-list-body">
+                <div className='vstda-list-body-header' id='todoHeader'>
+                  View Todos
+                </div>
+                <ul className='vstda-list-body-group'>
                   {this.state.lists.map((list, i) => {
                     return (
-                      <List key={list.id} list={list} updateToDo={this.handleToDo} onRemove={this.remove.bind(this, list.id)} onEdit={this.edit}
+                      <List  key={list.id} 
+                            list={list} 
+                            updateToDo={this.handleToDo} 
+                            onRemove={this.remove.bind(this, list.id)} 
+                            onEdit={this.edit}
                       >
                         {list.toDo}
                       </List>
@@ -157,22 +163,16 @@ export default class VSTDA extends Component {
                   })}
                 </ul>
               </div>
-            </div>
-          </div>
-        </div>
 
 
-          <div className='row project-close-row'>
-            <div className="col-sm-6 col-xl-6">
-              <a href="https://github.com/wongalfonso/VSTDA" target="_blank" onClick = {this.gitHub}>
-                <img className="gitMark" src="/images/GitHub.png" />
-              </a>
-            </div>
-            <div className="col-sm-6 col-xl-6 closeCol ">
-              <button className='btn btn-danger form-control-xl closeBtn' onClick={this.props.close}>Close</button>
             </div>
           </div>
+          <ProjectClose 
+            github = {this.github}
+            close = {this.props.closeModal}
+          />
         </div>
+      </div>
     )
   }
 }

@@ -25,9 +25,13 @@ export const List = ({ onEdit, onRemove, updateToDo, list}) => {
 
   const renderEdit = () => {
     return (
-      <li className={'edit list-group-item ' + list.priority} id='vstdaEdit'>
+      <li className={'vstda-list-body-group ' + list.priority} id='vstdaEdit'>
         <label>Desription</label>
-        <textarea className='update-todo-text' ref={input => _newText = input} type='text' defaultValue={list.toDo}></textarea>
+        <textarea className='update-todo-text' 
+                  ref={input => _newText = input} 
+                  type='text' 
+                  defaultValue={list.toDo}>
+        </textarea>
 
         <div className='row'>
           <div className='form-group col-xl-6'>
@@ -51,18 +55,23 @@ export const List = ({ onEdit, onRemove, updateToDo, list}) => {
 
   const renderList = () => {
     return (
-      <li className={'list-group-item ' + list.priority} id='list'>
-        <span className='todoListText'> {list.toDo} </span>
-        <span className='float-right todoListDelete'>
-          <a href='#' className='delete-todo' ref={() => _newText = list.toDo} onClick={remove} style={{ color: 'red' }}>
-            <i className='far fa-trash-alt float-right'></i>
-          </a>
-        </span>
-        <span className='todoListEdit float-right'>
-          <a href='#' className='edit-todo glyphicon glyphicon-edit' onClick={edit}>
-            <i className='far fa-edit float-right'></i>
-          </a>
-        </span>
+      <li className={'vstda-list-body-group' + list.priority} id='list'>
+        <div className='vstda-list-body-group-text'> {list.toDo} </div>
+        <div className="vstda-list-body-group-btns">
+          <span className='vstda-list-body-group-btns-edit'>
+            <a  href='#'               
+                onClick={edit}>
+              <i className='far fa-edit'></i>
+            </a>
+          </span>
+          <span className='vstda-list-body-group-delete'>
+            <a  href='#' 
+                ref={() => _newText = list.toDo} 
+                onClick={remove} style={{ color: 'red' }}>
+              <i className='far fa-trash-alt'></i>
+            </a>
+          </span>
+        </div>
       </li>
     )
   }
