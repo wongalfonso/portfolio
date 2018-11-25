@@ -100,7 +100,7 @@ export default class HomePage extends Component {
         style={modalStyle}    
       >
         {(this.state.selected === 'Change') && <ChangeCalc closeModal = {this.closeModal} />}
-        {(this.state.selected == 'VSTDA') && <VSTDA close={this.closeModal} />}
+        {(this.state.selected == 'VSTDA') && <VSTDA closeModal={this.closeModal} />}
         {(this.state.selected == 'Astro') && <AstroWeight close={this.closeModal} />}
         {(this.state.selected == 'Weather') && <Weather close={this.closeModal} />}
       </Modal>
