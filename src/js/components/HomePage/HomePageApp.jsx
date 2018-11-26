@@ -129,12 +129,6 @@ export default class HomePage extends Component {
       <a href={link} target='_blank'><img src={GitHubWhite} className='github-image' /></a>
     )
   }
-  goToSite(site) {
-    console.log('site', site);
-    return (
-      <a href = {site} target = '_blank'></a>
-    )
-  }
   smallScreen(title) {
     return (
       <div>
@@ -189,7 +183,6 @@ export default class HomePage extends Component {
                   ref = {(project) => this._project = project}>
               <WebProjects
                 title = {title}
-                goToSite = {this.goToSite}
               />
           </div>
           </Section>
