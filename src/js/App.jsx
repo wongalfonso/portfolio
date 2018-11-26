@@ -9,7 +9,7 @@ import EnsureLoggedIn from './components/Blog/EnsureLoggedIn';
 import Profile from './components/Blog/Profile';
 import ListEdit from './components/Blog/ListEdit';
 import BlogSplashPage from './components/Blog/BlogSplashPage';
-import AstroWeight from './components/HomePage/Projects/AstroWeight/AstroWeight';
+import VSTDA from './components/HomePage/Projects/VstdaApp/Vstda';
 
 export default class App extends Component {
   render() {    
@@ -21,7 +21,7 @@ export default class App extends Component {
           <Route path ='/blogpost' component={ PageBlog } />
           <Route path ='/blogsplash' component = { BlogSplashPage } />   
           <Route path='/codewars/:id' component = {ListEdit}/>
-          <Route path ='/project' component = { AstroWeight } />
+          <Route path ='/project' component = { VSTDA } />
           <Route path='/signup' component={ SignUp } />      
           <EnsureLoggedIn/>          
           <Route path='/login' component={Login} />              

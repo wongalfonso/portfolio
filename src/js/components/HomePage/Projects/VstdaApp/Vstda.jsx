@@ -110,17 +110,16 @@ export default class VSTDA extends Component {
 
 
   render() {
-    const { createToDo, toDo, handleText, priority, handlePrior, lists} = this.state;   console.log(lists);
     return (
 
       <div id='vstdaProject' className='all-project-pages'>
         <div className='container vstda-container'>          
           <header className="vstda-header project-header">
             Very Simple Todo App
-          </header>
-          <header className='vstda-subheader'>
-            Track All of the Things
-          </header>
+            <div className = 'vstda-subheader'>
+              Track All of the Things
+            </div>
+          </header>          
           <div className="content vstda-content">
             <ToDoForm createToDo={this.createToDo} 
                       toDo={this.state.toDo} 

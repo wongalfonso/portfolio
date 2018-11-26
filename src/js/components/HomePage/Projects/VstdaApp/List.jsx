@@ -70,7 +70,7 @@ export const List = ({ onEdit, onRemove, updateToDo, list}) => {
               <i className='far fa-edit'></i>
             </a>
           </span>
-          <span className='vstda-list-body-group-delete'>
+          <span className='vstda-list-body-group-btns-delete'>
             <a  href='#' 
                 ref={() => _newText = list.toDo} 
                 onClick={remove} style={{ color: 'red' }}>

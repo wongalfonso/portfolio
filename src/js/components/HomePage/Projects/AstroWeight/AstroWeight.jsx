@@ -79,7 +79,7 @@ export default class AstroWeight extends Component {
     if (checked) { list = planetList.slice(); list.splice(11, 1) }
     if (checked === false) { list = planetList };
     return (
-      <div id='astroWeightProject' className='all-project-pages'>
+      <div id='astroWeightProject'>
         <div className='container astro-container'>    
           <div className="astro-header">
             <header className = 'astro-header'>
@@ -154,7 +154,9 @@ export default class AstroWeight extends Component {
             </div>
           
           </div>
-          <ProjectClose/>
+          <ProjectClose
+            white = 'white'
+          />
         </div>
       </div>
     )

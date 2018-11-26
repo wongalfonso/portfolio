@@ -39,8 +39,7 @@ export default class HomePage extends Component {
     this.openModal = this.openModal.bind(this);
     // this.afterOpen = this.afterOpen.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.modalTemplate = this.modalTemplate.bind(this);
-    this.goToSite = this.goToSite.bind(this);
+    this.modalTemplate = this.modalTemplate.bind(this);    
   }
   componentWillMount() {
     ReactGA.initialize('UA-126168783-1');      
