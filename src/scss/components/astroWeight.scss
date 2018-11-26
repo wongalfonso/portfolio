@@ -1,70 +1,139 @@
-// #astroWeightProject {
-//   background-image: url('/images/solarSystemBackground.jpg');
-//   background-size: cover; 
-//   background-repeat: no-repeat;
-//   background-position: center;
-// }
+#astroWeightProject {
+  background-image: url('/images/solarSystemBackground.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.astro-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.project-close {
+  flex: 1;
+}
+.astro-header {
+  flex: 1;
+  color: white;
+  font-size: 5rem;
+  margin: 4rem 0;
+  header {
+    border-bottom: 2px white solid;
+  }
+}
+.astro-content {
+  flex: 1;
+  color: white;
+  font-size: 2.2rem;
+  .astro-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    &-group {
+      flex: 1 0 26rem;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;  
+      min-width: 55rem;    
+      &-input-label, &-select-label {
+        display: block;
+        flex: 1 0 30rem;
+        margin-bottom: 1rem;
+      }
+      &-input, &-select, &-btn {       
+        flex: 1 0 27rem;
+        height: 4rem;
+        padding: 1rem;
+        font-size: 1.8rem;
+        width: 20rem;
+      }      
+      &-input {
+        border-radius: 8px;
+        border: 0 solid;
+      }
+      &-btn {
+        height: 5.5rem;
+        background-color: blue;
+        color: white;
+        padding: .5rem;
+        flex: 1 0 27rem;
+        border-radius: 8px;
+        border: blue solid 0;
+        margin-top: 2rem;
+        max-width: 30rem;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+    &-group-check {
+      align-items: center;
+      label {
+        flex: 1 0 25rem;
+        display: inline-block;
+      }
+      &-checkbox {  
+        height: 2rem;
+        width: 2rem;
+        margin-right: 2rem;      
+      }            
+    }
+  }
+  .astro-output {
+    width: 100%;
+    height: 12rem;
+    padding: 4rem;
+    font-size: 2rem;
+    background-color: rgba(255,255,255,.2);
+    border-radius: 8px;
+    border: 2px solid darkgrey;
+    text-align: center;
+  }
+}
 
-// #astroHeader {
-//   color: white;
-//   text-align: left;
-//   border-bottom: 1px solid white;
-// }
+@media screen and (max-width: $sm) {
+  .astro-container {
+    padding: 2rem;
+  }
+  .astro-content {
+    font-size: 2.5rem;  
+    .astro-form {
+      &-group {
+        min-width: 0;
+        &-btn {
+          max-width: 100%;
+        }
+      }    
+    }
+  }
+}
 
-// .astroLabels {
-//   color: white;
-//   font-weight: none;
-//   text-align: left;
-// }
-// #astroForm {
-//   margin-top: 13rem;
-// }
-// #astroCalculate {
-//   border-radius: 8px;
-//   position: absolute;  
-// }
-// .checkForm { 
-//   padding: 0;
-//   margin-top: 35px;
-//   vertical-align: bottom;
-//   position: relative;
-//   top: -1px;  
-// }
-// #formCheck {
-//   margin-right: 1rem;
-// }
-// #astroOutput {
-//   color: black;
-//   background-color: lightgrey;
-//   font-size: cover;
-//   border-radius: 8px;
-//   font-weight: bold;
-//   border: solid 1px grey;
-//   padding: 30px;
-//   margin-top: 2rem;
-//   text-align: center;
-//   height: 100px;
-// }
+@media screen and (min-width: $sm) and (max-width: $md) {
+  .astro-container {
+    padding: 2rem;
+  }
 
+}
+@media screen and (min-width: $md) and (max-width: $lg) {
 
-// @media (max-width: calc($md - 1px)) {
-//   #astroHeader {
-//     text-align: right;
-//   }
-//   #astroForm {
-//     margin: 0;
-//   }
-//   #astroCalculate {
-//     position: relative;
-//   }
+}
+@media screen and (min-width: $lg) and (max-width: $xl) {
 
-// }
-// @media screen and (min-width: $xl) and (max-width: 1499px) {
-//   #astroCalculate {
-//     position: relative;
-//     margin-top: 35px;
-//   }
-// }
-// @media screen and (min-width: 1500px) {
-
-// }
+}
+@media screen and (min-width: $xl) {
+  .astro-content {    
+    .astro-form {
+      &-group {
+        min-width: 0;  
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }        
+        &-btn {
+          height: 4.5rem;
+        }
+      }
+    }
+  }
+}

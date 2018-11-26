@@ -16,12 +16,14 @@ export default class ChangeCalc extends Component {
       dimes: '0',
       nickels: '0',
       pennies: '0',
-      output: '0',
+      output: '',
+      alert: 'change-output-header',
+      leftOver: ''      
     }
     this.handleDue = this.handleDue.bind(this);
     this.handleRec = this.handleRec.bind(this);
     this.calculate = this.calculate.bind(this);
-    // this.closeModal = this.closeModal.bind(this);
+    this.clear = this.clear.bind(this);
   }
 
   gitHub() {
@@ -30,10 +32,6 @@ export default class ChangeCalc extends Component {
       action: 'From Change Modal'
     })
   }
-  // closeModal() {
-  //   consol
-  //   this.props.closeModal();
-  // }
   handleDue(event) {
     const amountDue = (event.target.validity.valid) ? event.target.value : this.state.amountDue;
     this.setState({ amountDue });
@@ -43,18 +41,36 @@ export default class ChangeCalc extends Component {
 
     this.setState({ amountRec });
   }
+  clear(e) {
+    e.preventDefault();
+    this.setState({
+      amountDue: '',
+      amountRec: '',
+      twenties: '0',
+      tens: '0',
+      fives: '0',
+      ones: '0',
+      quarters: '0',
+      dimes: '0',
+      nickels: '0',
+      pennies: '0',
+      output: '',
+      alert: 'change-output-header',
+      leftOver: ''      
+    })
+  }
   button() {
     if (this.state.amountRec.length > 0 && this.state.amountDue.length > 0) {
       return (
-        <button className='change-form-foot-btn change-form-foot-btn-active project-form-foot-btn project-form-foot-btn-active'
+        <button className='change-form-foot-btn change-form-foot-btn-active'
           type='submit'
           onClick={this.calculate}>
           Calculate
-        </button>
+        </button>       
       )
     } else {
       return (
-        <button className='change-form-foot-btn change-form-foot-btn-disabled project-form-foot-btn project-form-foot-btn-disabled'
+        <button className='change-form-foot-btn change-form-foot-btn-disabled'
           type='submit'
           disabled>
           Calculate
@@ -64,7 +80,7 @@ export default class ChangeCalc extends Component {
   }
   calculate(e) {
     e.preventDefault();
-    let twenties, tens, fives, ones, quarters, dimes, nickels, pennies, amountLeft;
+    let twenties, tens, fives, ones, quarters, dimes, nickels, pennies, amountLeft, alert, leftOver;
     let amountDue = this.state.amountDue;
     let amountRec = this.state.amountRec;
     amountDue = parseFloat(amountDue);
@@ -141,6 +157,14 @@ export default class ChangeCalc extends Component {
     } else {
       pennies = 0
     }
+    if (amountRet3 > -1) {
+      alert = 'change-output-header change-output-header-success';
+      leftOver = 'The total change due is $';
+    }
+    if (amountRet3 < 0) {
+      alert = 'change-output-header change-output-header-danger';
+      leftOver = 'You owe a balance of $';
+    }
     this.setState({
       twenties: twenties,
       tens: tens,
@@ -150,39 +174,36 @@ export default class ChangeCalc extends Component {
       dimes: dimes,
       nickels: nickels,
       pennies: pennies,
-      output: amountRet3
+      output: amountRet3,
+      alert: alert,
+      leftOver: leftOver
     })
   }
 
 
   render() {
-    var alert, leftOver, received;
-    if (this.state.output > -1) {
-      alert = 'alert alert-success changeOutcome';
-      leftOver = 'The total change due is $';
-    }
-    if (this.state.output < 0) {
-      alert = 'alert alert-danger changeOutcome';
-      leftOver = 'You owe a balance of $';
-    }
+    let received;
+    let { output, alert, leftOver } = this.state;
     if (this.state.amountRec === "") {
       received = 'form-group has-feedback has-error'
     } else {
       received = 'form-group has-feedback'
     }
     return (
-      <div className="all-project-pages" id='changeCalcProject'>
+      <div id='changeCalcProject'>
         <div className="container change-container">
-          <header className="change-header">
-            Change Calculator
+          <div className="change-header">
+            <header>
+              Change Calculator
             </header>
-          <div className="content">
-            <div className="change-form project-form">
-              <div className='change-form-head project-form-head'>
+          </div>
+          <div className="change-content">
+            <div className="change-form">
+              <div className='change-form-head'>
                 Enter Information
                 </div>
-              <form className='change-form-body project-form-body'>
-                <div className="change-form-body-group project-form-body-group form-group">
+              <form className='change-form-body'>
+                <div className="change-form-body-group form-group">
                   <label className='change-input-label' htmlFor='amountDue'>
                     How much is due?
                   </label>
@@ -195,7 +216,7 @@ export default class ChangeCalc extends Component {
                     required
                   />
                 </div>
-                <div className='change-form-body-group project-form-body-group form-group'>
+                <div className='change-form-body-group form-group'>
                   <label htmlFor='received'>
                     How much was received?
                   </label>
@@ -208,13 +229,18 @@ export default class ChangeCalc extends Component {
                     required />                  
                 </div>
               </form>
-              <div className='change-form-foot project-form-foot'>
+              <div className='change-form-foot'>
                 {this.button()}
-              </div>
+                <button className='change-form-foot-btn change-form-foot-btn-clear'
+                        type='submit'
+                        onClick={this.clear}>
+                  Clear
+                </button> 
+              </div>              
             </div>
             <div className='change-output'>
-              <div className="change-output-header">
-                {leftOver + this.state.output}
+              <div className={alert}>
+                {leftOver + output}
               </div>
               <div className="change-output-body">
                 <div className="change-output-body-row">

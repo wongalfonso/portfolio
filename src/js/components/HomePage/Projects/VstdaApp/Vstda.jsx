@@ -24,18 +24,6 @@ export default class VSTDA extends Component {
     this.edit = this.edit.bind(this);
     this.handlePrior = this.handlePrior.bind(this);
   }
-
-  // componentDidUpdate() {
-  //   const list = this.listElement;
-  //   const card = this.cardElement;
-  //   const hasOverflow = list.offsetHeight < list.scrollHeight;
-  //   if (hasOverflow && this.state.overflow !== 'scroll') {
-  //     this.setState({ overflow: 'scroll' })
-  //   }
-  //   if (card.scrollHeight === card.offsetHeight && this.state.overflow === 'scroll') {
-  //     this.setState({ overflow: '' })
-  //   }
-  // }
   github() {
     ReactGA.event({
       category: 'Visited GitHub from Modal',
@@ -122,17 +110,16 @@ export default class VSTDA extends Component {
 
 
   render() {
-    const { createToDo, toDo, handleText, priority, handlePrior, lists} = this.state;   console.log(lists);
     return (
 
       <div id='vstdaProject' className='all-project-pages'>
         <div className='container vstda-container'>          
           <header className="vstda-header project-header">
             Very Simple Todo App
-          </header>
-          <header className='vstda-subheader'>
-            Track All of the Things
-          </header>
+            <div className = 'vstda-subheader'>
+              Track All of the Things
+            </div>
+          </header>          
           <div className="content vstda-content">
             <ToDoForm createToDo={this.createToDo} 
                       toDo={this.state.toDo} 

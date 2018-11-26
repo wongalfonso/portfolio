@@ -2,49 +2,84 @@
   background: #136a8a; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #89c1c6, #6281c9);
   background: linear-gradient(to left, #89c1c6, #6281c9);
+  min-width: none;
   }
-  .container {
-    .vstda-header {                
+  .vstda-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    .vstda-header {   
+      flex: 1;             
       color: white;
-      height: 7rem;
-      font-size: 4rem;
-    }
-    .vstda-subheader {
-      color: white;
-      font-size: 2rem;
-      margin-bottom: 4rem;
-      border-bottom: 2px white solid;
+      font-size: 5rem;
+      margin-top: 4rem;
+      .vstda-subheader {
+        color: white;
+        font-size: 3rem;
+        margin-bottom: 4rem;
+        border-bottom: 2px white solid;
+      }
     }
 }
 .vstda-content {
-  font-size: 1.8rem;
-}
-.content {
+  display: flex;
+  font-size: 2.1rem;
+  flex: 1;
+  flex-wrap: wrap;
   .vstda-form {
+    flex: 1 0 39rem;
+    max-width: 30rem;
+    margin-bottom: 2rem;
+    max-height: fit-content;
+    border-radius: .8rem;
     background-color: rgb(244, 244, 244); 
-    &-head, &-foot {
+    &-head {
+      border-radius: .8rem .8rem 0 0;
+    }
+    &-head, &-foot {    
+      padding: 1rem;
       background-color: rgb(227, 227, 227);
     }
     &-body {
-      &-group {
+      padding: 1rem;
+      &-group {     
+        margin-bottom: 2rem;   
         textarea {
           padding: .5rem;
-          font-size: 1.1rem;
+          font-size: 1.8rem;
           width: 100%;
           min-height: 8rem;
           max-height: 16rem;
         }
         select {
+          margin-top: 1.3rem;
           width: 100%;
-          font-size: 1.2rem;
-          height: 3rem;
+          font-size: 1.8rem;
+          height: 4rem;
         }        
+      }
+    }
+    &-foot {
+      border-radius: 0 0 .8rem .8rem;
+      &-btn {
+        font-size: 1.5rem;
+        width: 100%;          
+        height: 4.5rem;
+        padding: .5rem;
+        color: white;
+        border-radius: 8px;
+        &-active {
+          background-color: green;
+        }
+        &-disabled {
+          background-color: red;
+        }
       }
     }
   }
   .vstda-list {
+    flex: 2 0 40rem;
     border-radius: 8px;
-    flex: 1 0 55%;
     min-height: 38rem;
     height: 40rem;
     width: 100%;
@@ -60,9 +95,18 @@
           padding: 1rem;
           display: flex;
           justify-content: space-between;
-          .vstda-list-body-group-btns {         
+          .vstda-list-body-group-text {
+            flex: 6;
+            max-width: 73rem;
+            word-wrap: break-word;
+          }
+          .vstda-list-body-group-btns {  
+            flex: 1;       
             &-edit {
-              margin-right: 1rem;
+              margin: 0 2rem;
+            }
+            &-delete {
+              margin-right: 4rem;
             }   
           }
           &-update-text {
@@ -139,33 +183,90 @@
   }
 }
 @media screen and (max-width: $sm) {
-  .vstda-form {
-    margin: 0 auto 2rem auto;
-    max-width: 40rem;
+  .vstda-container {
+    padding: 2rem;
+  }
+  .vstda-content {
+    font-size: 2.5rem;
+    .vstda-form, .vstda-list {
+      max-width: 39rem;
+    }    
+    .vstda-list {
+      &-body {
+        &-group {
+          &-item-warning, &-item-success, &-item-danger {
+            .vstda-list-body-group-text {
+              max-width: 28rem;      
+            }
+            .vstda-list-body-group-btns {
+              &-edit, &-delete {
+                margin: 0 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
   }
 }
-@media screen and (min-width: $sm) and (max-width: $lg) {
-  .vstda-form {
-    margin: 0 auto 2rem auto;
-    max-width: 40rem;
+@media screen and (min-width: $sm) and (max-width: $md) {
+  .vstda-container {
+    padding: 2rem;
   }
-  .vstda-list {
-    min-width: 59rem;
+  .vstda-content {    
+    .vstda-list {
+      &-body {
+        &-group {
+          &-item-warning, &-item-success, &-item-danger {
+            .vstda-list-body-group-text {
+              max-width: 48rem;      
+            }            
+          }
+        }
+      }
+    }
+
   }
 }
 @media only screen and (min-width: $md) and (max-width: $lg) {
   .vstda-form {
-    margin: 0 auto 2rem auto;
+    margin-right: 2rem;
+
   }
-  .vstda-list {
-    min-width: 65rem;
+  .vstda-content {    
+    .vstda-list {
+      &-body {
+        &-group {
+          &-item-warning, &-item-success, &-item-danger {
+            .vstda-list-body-group-text {
+              max-width: 39rem;      
+            }            
+          }
+        }
+      }
+    }
+
   }
 }
 @media only screen and (min-width: $lg) and (max-width: $xl) {
   .vstda-form {
     margin-right: 2rem;
   }
+  .vstda-content {    
+    .vstda-list {
+      &-body {
+        &-group {
+          &-item-warning, &-item-success, &-item-danger {
+            .vstda-list-body-group-text {
+              max-width: 49rem;      
+            }            
+          }
+        }
+      }
+    }
 
+  }
 }
 @media only screen and (min-width: $xl) {
   .vstda-form {

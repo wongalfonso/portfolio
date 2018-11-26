@@ -5,7 +5,7 @@ const button = (length, createToDo) => {
   if (length > 0) {
     return (
       <button 
-        className="project-form-foot-btn project-form-foot-btn-active" 
+        className="vstda-form-foot-btn vstda-form-foot-btn-active" 
         onClick = {createToDo}
         type="submit">
         Add
@@ -14,7 +14,7 @@ const button = (length, createToDo) => {
   } else {
     return (
       <button 
-        className="project-form-foot-btn project-form-foot-btn-disabled"    
+        className="vstda-form-foot-btn vstda-form-foot-btn-disabled"
         type="submit" 
         disabled>
         Add
@@ -32,24 +32,22 @@ export class ToDoForm extends Component {
     const { toDo, createToDo } = this.props;
     let length = toDo.length;
     return (
-      <div className = "vstda-form project-form">
-          <div className="vstda-form-head project-form-head">
+      <div className = "vstda-form">
+          <div className="vstda-form-head">
             Add New Todo
           </div>
-          <form className="vstda-form-body project-form-body" 
-                // onSubmit={this.props.createToDo}
-                >
-            <div className="vstda-form-body-group project-form-body-group form-group">
+          <form className="vstda-form-body">
+            <div className="vstda-form-body-group">
               <label>I want to..</label>
               <textarea
-                className="vstda-form-body-group-textarea project-form-body-gropu-textarea"
+                className="vstda-form-body-group-textarea"
                 value={this.props.toDo}
                 onChange={this.props.handleText}>
               </textarea>
 
               <label>How Much of a priority is this?</label>
               <select
-                className="vstda-form-body-group-select project-form-body-group-select"
+                className="vstda-form-body-group-select"
                 onChange={this.props.handlePrior}
               >
                 <option defaultValue hidden>Select a Priority</option>
@@ -59,7 +57,7 @@ export class ToDoForm extends Component {
               </select>
             </div>
           </form>
-          <div className="vstda-form-foot project-form-foot">
+          <div className="vstda-form-foot">
             {button(length, createToDo)}
           </div>
       </div>
