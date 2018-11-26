@@ -24,18 +24,6 @@ export default class VSTDA extends Component {
     this.edit = this.edit.bind(this);
     this.handlePrior = this.handlePrior.bind(this);
   }
-
-  // componentDidUpdate() {
-  //   const list = this.listElement;
-  //   const card = this.cardElement;
-  //   const hasOverflow = list.offsetHeight < list.scrollHeight;
-  //   if (hasOverflow && this.state.overflow !== 'scroll') {
-  //     this.setState({ overflow: 'scroll' })
-  //   }
-  //   if (card.scrollHeight === card.offsetHeight && this.state.overflow === 'scroll') {
-  //     this.setState({ overflow: '' })
-  //   }
-  // }
   github() {
     ReactGA.event({
       category: 'Visited GitHub from Modal',
