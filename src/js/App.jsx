@@ -9,7 +9,8 @@ import EnsureLoggedIn from './components/Blog/EnsureLoggedIn';
 import Profile from './components/Blog/Profile';
 import ListEdit from './components/Blog/ListEdit';
 import BlogSplashPage from './components/Blog/BlogSplashPage';
-import VSTDA from './components/HomePage/Projects/VstdaApp/Vstda';
+import ChangeCalc from './components/HomePage/Projects/ChangeCalc/ChangeCalc';
+
 
 export default class App extends Component {
   render() {    
@@ -21,7 +22,7 @@ export default class App extends Component {
           <Route path ='/blogpost' component={ PageBlog } />
           <Route path ='/blogsplash' component = { BlogSplashPage } />   
           <Route path='/codewars/:id' component = {ListEdit}/>
-          <Route path ='/project' component = { VSTDA } />
+          <Route path ='/project' component = { ChangeCalc } />
           <Route path='/signup' component={ SignUp } />      
           <EnsureLoggedIn/>          
           <Route path='/login' component={Login} />              
