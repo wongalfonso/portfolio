@@ -5,7 +5,7 @@ const button = (length, createToDo) => {
   if (length > 0) {
     return (
       <button 
-        className="project-form-foot-btn project-form-foot-btn-active" 
+        className="vstda-form-foot-btn vstda-form-foot-btn-active" 
         onClick = {createToDo}
         type="submit">
         Add
@@ -14,7 +14,7 @@ const button = (length, createToDo) => {
   } else {
     return (
       <button 
-        className="project-form-foot-btn project-form-foot-btn-disabled"    
+        className="vstda-form-foot-btn vstda-form-foot-btn-disabled"
         type="submit" 
         disabled>
         Add
@@ -36,9 +36,7 @@ export class ToDoForm extends Component {
           <div className="vstda-form-head">
             Add New Todo
           </div>
-          <form className="vstda-form-body" 
-                // onSubmit={this.props.createToDo}
-                >
+          <form className="vstda-form-body">
             <div className="vstda-form-body-group">
               <label>I want to..</label>
               <textarea

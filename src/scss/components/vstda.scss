@@ -59,6 +59,23 @@
         }        
       }
     }
+    &-foot {
+      border-radius: 0 0 .8rem .8rem;
+      &-btn {
+        font-size: 1.5rem;
+        width: 100%;          
+        height: 4.5rem;
+        padding: .5rem;
+        color: white;
+        border-radius: 8px;
+        &-active {
+          background-color: green;
+        }
+        &-disabled {
+          background-color: red;
+        }
+      }
+    }
   }
   .vstda-list {
     flex: 2 0 40rem;
