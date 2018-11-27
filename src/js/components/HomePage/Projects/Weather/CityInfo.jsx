@@ -8,57 +8,56 @@ class CityInfo extends Component {
     const { data } = this.props;
     var weatherArr = data.slice(0, 1);
     return (
-      <div>
+      <div className = 'weather-output-info'>
+        <div className="weather-output-info-head">
+          City Information
+        </div>
         {weatherArr.map((weather, i) => {
           var icon = weather.data.weather[0].icon
           return (
-            <div className='card weatherCard mb-3 text-center' key = {i}>
-              <div className='card-body weatherInfoBody'>
-                <div className='row iconRow'>
-                  <div className='col-md-12 text-center iconRow'>
-                    <span id='icon-row-header'><Img src={'http://openweathermap.org/img/w/' + icon + '.png'} height={50} width={50} />
+              <div className='weather-output-info-body' key = {i}>
+                <div className='weather-output-info-body-city'>
+                  <div className='weather-output-info-body-city-name'>
+                    <Img src={'http://openweathermap.org/img/w/' + icon + '.png'} height={50} width={50} />
                       {weather.data.name}, {weather.data.sys.country}
-                    </span>
                   </div>
-                  <div className='col-12'>
-                    <div className="row">
-                      <div className='col-6'>Lat/Long: {weather.data.coord.lat},{weather.data.coord.lon}</div>
-                      <div className='col-6 discription'>{weather.data.weather[0].description}</div>
-                    </div>
-                    <hr />
+                  <div className='weather-output-info-body-city-description'>
+                      <span>
+                        Lat/Long: {weather.data.coord.lat},{weather.data.coord.lon}</span>
+                      <span>
+                      {weather.data.weather[0].description}
+                      </span>                    
                   </div>
+                    <br />
                 </div>
-                <div className='row'>
-                  <div className='col-4 text-center weatherInfo'>
+                <div className='weather-output-info-body-stats'>
+                  <div className='weather-output-info-body-stats-group'>
                     <label><b>Temperature (F)</b></label>
-                    <div id='temp' className='text-success weatherTextSuccess'>{weather.data.main.temp}F</div>
+                    <div id='temp' className='weather-output-info-body-stats-group-alert'>{weather.data.main.temp}F</div>
                   </div>
-                  <div className='col-4 text-center weatherInfo'>
+                  <div className='weather-output-info-body-stats-group'>
                     <label><b>Pressure</b></label>
-                    <div id='pressure' className='text-success weatherTextSuccess'>{weather.data.main.pressure}</div>
+                    <div id='pressure' className='weather-output-info-body-stats-group-alert'>{weather.data.main.pressure}</div>
                   </div>
-                  <div className='col-4 text-center weatherInfo'>
+                  <div className='weather-output-info-body-stats-group'>
                     <label><b>Humdity</b></label>
-                    <div id='humidity' className='text-success weatherTextSuccess'>{weather.data.main.humidity}</div>
+                    <div id='humidity' className='weather-output-info-body-stats-group-alert'>{weather.data.main.humidity}</div>
                   </div>
-                </div>
 
-                <div className='row'>
-                  <div className='col-4 text-center weatherInfo'>
+                  <div className='weather-output-info-body-stats-group'>
                     <label><b>Lowest Temp(F)</b></label>
-                    <div className='lowTemp text-success weatherTextSuccess'>{weather.data.main.temp_min}F</div>
+                    <div className='weather-output-info-body-stats-group-alert'>{weather.data.main.temp_min}F</div>
                   </div>
-                  <div className='col-4 text-center weatherInfo'>
+                  <div className='weather-output-info-body-stats-group'>
                     <label><b> Highest Temp (F)</b></label>
-                    <div className='hiTemp text-success weatherTextSuccess' >{weather.data.main.temp_max}F</div>
+                    <div className='weather-output-info-body-stats-group-alert' >{weather.data.main.temp_max}F</div>
                   </div>
-                  <div className='col-4 text-center weatherInfo'>
+                  <div className='weather-output-info-body-stats-group'>
                     <label><b>Wind Speed</b></label>
-                    <div className='wind text-success weatherTextSuccess'>{weather.data.wind.speed}mph</div>
+                    <div className='weather-output-info-body-stats-group-alert'>{weather.data.wind.speed}mph</div>
                   </div>
                 </div>
               </div>
-            </div>
           )
         })}
       </div>
@@ -74,9 +73,7 @@ class CityInfo extends Component {
   render() {
     const { success, throwErr } = this.props;
     return (
-      <div className="col-xl-6">
-        {(success === true || throwErr === true) ? this.renderCitySuccess() : this.renderCityBasic('empty-search')}
-      </div>
+        (success === true || throwErr === true) ? this.renderCitySuccess() : this.renderCityBasic('empty-search')
     )
   }
 }

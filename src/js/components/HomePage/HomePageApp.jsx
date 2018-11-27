@@ -11,6 +11,7 @@ import WebProjects from './Projects/WebProjects';
 import ChangeCalc from './Projects/ChangeCalc/ChangeCalc';
 import VSTDA from './Projects/VstdaApp/Vstda';
 import AstroWeight from './Projects/AstroWeight/AstroWeight';
+import Weather from './Projects/Weather/WeatherApp';
 import Footer from './../Footer';
 import Header from './../Header';
 import NavBar from './NavBar';
@@ -37,7 +38,6 @@ export default class HomePage extends Component {
     }        
     this.scroll = this.scroll.bind(this);
     this.openModal = this.openModal.bind(this);
-    // this.afterOpen = this.afterOpen.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.modalTemplate = this.modalTemplate.bind(this);    
   }
@@ -46,8 +46,6 @@ export default class HomePage extends Component {
   }  
   
   componentDidUpdate() {
-    console.log(this.props.location.hash);
-    console.log(this.state.currentPage);
     const { currentPage, title } = this.state;
     if (currentPage !== this.props.location.hash) {
       this.setState({currentPage: this.props.location.hash})
@@ -82,7 +80,6 @@ export default class HomePage extends Component {
   }
 
   closeModal() {
-    console.log('yes');
     this.setState({
       modalIsOpen: false
     })
@@ -92,7 +89,6 @@ export default class HomePage extends Component {
     return (
       <Modal
         isOpen = {this.state.modalIsOpen}
-        // onAfterOpen = {this.afterOpen}
         onRequestClose = {this.closeModal}  
         ariaHideApp={false}
         className={'ReactModal_Content ReactModal_Content--after-open'}

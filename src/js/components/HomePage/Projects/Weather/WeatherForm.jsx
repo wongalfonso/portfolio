@@ -61,7 +61,7 @@ class Form extends Component {
     var weatherArr = data.slice(0, 1);
     if (weatherArr[0].data.cod === 200) {
       return (
-        <div id='feedbackSuccess' className='alert alert-success col-lg-12'>
+        <div className='weather-form-alert weather-form-alert-success'>
         {weatherArr.map((weather, i) => {
           return (
             <div className='text-center' key={i}>
@@ -81,10 +81,8 @@ class Form extends Component {
   renderWarning() {
     const { input } = this.props;
     return (
-      <div id='feedbackError' className='alert alert-danger col-lg-12 warnings'>
-        <div className='text-center'>
+      <div className='weather-form-alert weather-form-alert-danger'>
           {`Please enter a Valid City Name, ${input} is not a valid input`}
-        </div>
       </div>
     )
   }
@@ -92,29 +90,43 @@ class Form extends Component {
   render() {
     const { throwErr } = this.props;
     return (
-      <div className = 'col-sm-12 col-xl-12'>
-        <div className='btn-group weather-btn-group' role='group' aria-label='Basic example'>
-          <button className='btn btn-primary form-control' onClick={this.handleClick} value='San Diego'>
-            San Diego</button>
-          <button className='btn btn-primary form-control' onClick={this.handleClick} value='New York'>
-            New York</button>
-          <button className='btn btn-primary form-control' onClick={this.handleClick} value='Washington'>
-            Washington D.C.</button>
-          <button className='btn btn-primary form-control' onClick={this.handleClick} value='London' >
-            London</button>
-          <button className='btn btn-primary form-control' onClick={this.handleClick} value='Tokyo'>
-            Tokyo</button>
-        </div>
-        <div className='input-group'>
-          <input className='form-control input' onChange={this.handleInput} value = {this.state.input}type='text'/>
-          <span className='input-group-btn'>
-            {(this.state.input.length > 2 ) ? <button className='btn btn-secondary' type='submit' onClick = {this.handleInputButton}>
-              Go!
-            </button> : <button className='btn btn-secondary' type='submit' onClick = {this.handleInputButton} disabled>
-              Go!
-            </button>}
-          </span>
-        </div>
+      <div className = 'weather-form'>
+        <div className='weather-form-btn-group' aria-label='Basic example'>
+          <button onClick={this.handleClick} 
+                  value='San Diego'>
+            San Diego
+          </button>
+          <button onClick={this.handleClick} 
+                  value='New York'>
+            New York
+          </button>
+          <button onClick={this.handleClick} 
+                  value='Washington'>
+            Washington D.C.
+          </button>
+          <button onClick={this.handleClick} 
+                  value='London' >
+            London
+          </button>
+          <button onClick={this.handleClick} 
+                  value='Tokyo'>
+            Tokyo
+          </button>
+        </div> 
+        <div className="weather-form-input">
+          <input  className='form-control input' 
+                  onChange={this.handleInput} 
+                  value = {this.state.input}
+                  type='text'/>
+            <span className='weather-form-input-btn'>
+              {(this.state.input.length > 2 ) ? <button className='btn btn-secondary' type='submit' onClick = {this.handleInputButton}>
+                Go!
+              </button> : <button className='btn btn-secondary' type='submit' onClick = {this.handleInputButton} disabled>
+                Go!
+              </button>}
+            </span>
+        </div>       
+        
         {(throwErr === true) ? this.renderWarning() : this.renderSuccess()}        
         <div>
 

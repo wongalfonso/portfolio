@@ -8,8 +8,7 @@ const FormProjects = ({ gitHub, title, openModal, closeModal }) => {
   let gitHubLink = (link) => {
     gitHub(link)
   }
-  let modal = (modal) => {  
-    console.log('modal', modal);  
+  let modal = (modal) => {       
     openModal(modal);
   }
   return (

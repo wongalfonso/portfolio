@@ -11,16 +11,19 @@ class Search extends React.Component {
     var searchArr = searchHistory.slice(0, length - 1);
     (searchArr.length > 4) ? history = searchArr.slice(0, 5) : history = searchArr;
     return (
-      <div className='card weatherCard'>
-        <div className='card-body weatherSearchBody'>
+      <div className='weather-output-search'>
+        <div className='weather-output-search-head'>
+          Search History
+        </div>
+        <div className='weather-output-search-body'>
           <table >
             <tbody>
               {history.map((history, i) => {
-                (i === 1 || i === 3 || i === 5) ? color = 'table table-secondary' : color = 'table';
+                (i === 1 || i === 3 || i === 5) ? color = 'table-secondary' : color = 'table';
                 return (
                   <tr className={color} key={i}>
-                    <td className='col-md-2 weatherTd'>{history.data.name}</td>
-                    <td className='weatherTd'>{history.date} {history.time}</td>
+                    <td className='table-name'>{history.data.name}</td>
+                    <td className='table-info'>{history.date} {history.time}</td>
                   </tr>
                 )
               })
@@ -35,17 +38,14 @@ class Search extends React.Component {
   renderBasic() {
     const message = 'No Search Items so Far....'
     return (
-      <div className='card weatherCard'>
-        <div className='card-header weatherCardHeader'>
-          Search History
-        </div>
-        <div className='card-body '>
-          <table className='table table'>
+      <div className='weather-output-search'>
+        {/* <div className='weather-output-search'>
+          <table className='weather-output-search-table'>
             <tbody>
               <tr><td className='weatherTd'><b>{message}</b></td></tr>
             </tbody>
           </table>
-        </div>
+        </div> */}
       </div>
     )
   }
@@ -53,9 +53,7 @@ class Search extends React.Component {
   render() {
     const { searchHistory } = this.props;
     return (
-      <div className="col-xl-6">
-        {(searchHistory !== undefined ? this.renderTable() : this.renderBasic())}
-      </div>
+      (searchHistory.length > 1 ? this.renderTable() : this.renderBasic())
     )
   }
 }
