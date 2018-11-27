@@ -33,13 +33,16 @@ const About = ({ title }) => {
           </div>
         </div>
         <div className="about-bottom">
-          <div className="download-btn">
-            <button
-              id='downloadBtn'
-              onClick={downloadResume}>
-              DOWNLOAD RESUME
-                </button>
-          </div>
+          <a href = '/files/AlfonsoWongResume.pdf' download>
+            <div className="download-btn">
+              <button
+
+                id='downloadBtn'
+                onClick={downloadResume}>
+                DOWNLOAD RESUME
+                  </button>
+            </div>
+          </a>
         </div>
       </div>
     </div>
