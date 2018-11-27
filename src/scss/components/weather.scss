@@ -14,6 +14,7 @@
   flex: 1;
   color: white;
   font-size: 5rem;
+  margin-bottom: 2rem;
   header {
     border-bottom: 4px solid white;
   }
@@ -84,7 +85,7 @@
       max-height: 5rem;
       margin-bottom: 2rem;
       &-success {
-        background-color: rgb(72, 140, 72);
+        background-color: #58bb58;
       }      
       &-danger {
         background-color: #f96464;
@@ -166,9 +167,11 @@
             }
             .table-name {
               width: 80%;
+              padding: .5rem;
             }
             .table-info {
               font-size: 1.7rem;
+              padding: .5rem;
             }
           }
         }
@@ -182,6 +185,19 @@
   }
   .weather-content {
     .weather-form {
+      &-btn-group {
+        button {
+          &:first-child {
+            border-radius: 8px 0 0 0;          
+          }
+          &:nth-child(4) {
+            border-radius: 0 8px 0 0;
+          }
+          &:last-child {
+            border-radius: 0 0 8px 8px;
+          }
+        }
+      }
       &-alert, &-danger {
         max-height: 8rem;
       }
