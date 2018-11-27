@@ -101,7 +101,6 @@
       border-radius: 8px;
       flex: 1 0 39rem;
       margin-right: 2rem;
-      margin-bottom: 2rem;
       &-head {
         padding: 1rem;
         background-color: lightgrey;
@@ -124,7 +123,10 @@
           }
           &-description {
             flex: 1 0 38rem;
+            display:flex;
+            flex-wrap: wrap;
             span {
+              flex: 1;
               &:not(:last-child) {
                 margin-right: 1rem;
               }

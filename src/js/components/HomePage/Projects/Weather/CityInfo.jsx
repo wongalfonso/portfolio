@@ -27,8 +27,8 @@ class CityInfo extends Component {
                       <span>
                       {weather.data.weather[0].description}
                       </span>                    
-                    <hr />
                   </div>
+                    <br />
                 </div>
                 <div className='weather-output-info-body-stats'>
                   <div className='weather-output-info-body-stats-group'>
