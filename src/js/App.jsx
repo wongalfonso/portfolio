@@ -10,6 +10,7 @@ import Profile from './components/Blog/Profile';
 import ListEdit from './components/Blog/ListEdit';
 import BlogSplashPage from './components/Blog/BlogSplashPage';
 import ChangeCalc from './components/HomePage/Projects/ChangeCalc/ChangeCalc';
+import Weather from './components/HomePage/Projects/Weather/WeatherApp';
 
 
 export default class App extends Component {
@@ -22,7 +23,7 @@ export default class App extends Component {
           <Route path ='/blogpost' component={ PageBlog } />
           <Route path ='/blogsplash' component = { BlogSplashPage } />   
           <Route path='/codewars/:id' component = {ListEdit}/>
-          <Route path ='/project' component = { ChangeCalc } />
+          <Route path ='/project' component = { Weather} />
           <Route path='/signup' component={ SignUp } />      
           <EnsureLoggedIn/>          
           <Route path='/login' component={Login} />              
