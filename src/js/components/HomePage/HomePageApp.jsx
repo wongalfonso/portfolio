@@ -66,12 +66,12 @@ export default class HomePage extends Component {
       setTimeout( () => this.setState({title: 'Web Projects'}),800);
     }    
   }
-  // componentDidMount() {
-  //   const screen = this.screen; 
-  //   if (screen.clientWidth) {
-  //     this.setState({width: screen.clientWidth})      
-  //   }
-  // }
+  componentDidMount() {
+    const screen = this.screen; 
+    if (screen.clientWidth) {
+      this.setState({width: screen.clientWidth})      
+    }
+  }
   openModal(project) {   
     this.setState({
       modalIsOpen: true, 
@@ -124,14 +124,15 @@ export default class HomePage extends Component {
       <a href={link} target='_blank'><img src={GitHubWhite} className='github-image' /></a>
     )
   }
-  smallScreen(title) {
+  smallScreen() {
+    const { title } = this.state;
     return (
-      <div>
+      <div className = 'section-container'>
         <Header/>  
         <Splash 
             title = {title}/>
         <About
-            title = {title}/>                      
+            title = {title}/>                     
       </div>
     )
   }
@@ -213,9 +214,8 @@ export default class HomePage extends Component {
           active = {this.state.enter} 
           menu = {this.state.exit} 
           isActive = {this.mouseEnter}
-          scroll = {this.scroll}/>     */}
-          {this.largeScreen(options)}
-        {/* {(this.state.width > 400) ? this.largeScreen(options) : this.smallScreen()} */}
+          scroll = {this.scroll}/>     */}          
+        {(this.state.width > 900) ? this.largeScreen(options) : this.smallScreen()}
         {/* <Footer /> */}
       </div>
     )

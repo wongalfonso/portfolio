@@ -10,6 +10,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;   
+    z-index: 20;
     .splash-name {      
       opacity: 0;
       animation: 3s ease-in-out .5s name;
@@ -27,6 +28,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    z-index: 20;
     .splash-head {
       opacity: 0;
       animation: 1s ease-in-out 3.5s header;
@@ -75,8 +77,13 @@
   }
 }
 @media screen and (max-width: $sm) {
-  .splash-home {
-    font-size: 3.5em;
+  .splash-home {    
+    .splash-header {
+      top: 50%;
+    }
+    .splash-text {
+      top: 50%;
+    }
   }
 }
 @media screen and (max-width: $md) {

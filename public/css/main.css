@@ -459,7 +459,7 @@
   text-align: center;
   height: 100px; }
 
-@media (max-width: calc($md - 1px)) {
+@media (max-width: 899px) {
   #astroHeader {
     text-align: right; }
   #astroForm {

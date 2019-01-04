@@ -4,9 +4,6 @@ import Menu from './../../../../public/images/MenuButton.png';
 
 
 export default class NavBar extends Component {
-
-
-
   render() {
     const { active, scroll } = this.props;
     return (
