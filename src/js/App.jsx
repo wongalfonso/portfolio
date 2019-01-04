@@ -9,7 +9,7 @@ import EnsureLoggedIn from './components/Blog/EnsureLoggedIn';
 import Profile from './components/Blog/Profile';
 import ListEdit from './components/Blog/ListEdit';
 import BlogSplashPage from './components/Blog/BlogSplashPage';
-import ChangeCalc from './components/HomePage/Projects/ChangeCalc/ChangeCalc';
+import PosCalc from './components/HomePage/Projects/PosCalc/PosCalc';
 import Weather from './components/HomePage/Projects/Weather/WeatherApp';
 
 
@@ -19,6 +19,7 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route exact path='/' component={ HomePage } />
+          <Route exact path='/calc' component={ PosCalc } />
           <Route path ='/profile' component = { Profile } />
           <Route path ='/blogpost' component={ PageBlog } />
           <Route path ='/blogsplash' component = { BlogSplashPage } />   

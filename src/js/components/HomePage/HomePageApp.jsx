@@ -128,18 +128,17 @@ export default class HomePage extends Component {
     return (
       <div>
         <Header/>  
+        {this.modalTemplate()}
         <Splash 
             title = 'Web Developer'/>
         <About
             title = 'About Me'/>  
-        {/* <div  className="projects-page"
-              id = 'formProjects'
-              ref = {(project) => this._project = project}>
+        <div className="projects-page">        
           <FormProjects 
             gitHub = {this.gitHub}
-            title = {title}
-            openModal = {this.openModal}/>
-        </div>                    */}
+            title = 'Form Projects'
+            openModal = {this.openModal}/>        
+        </div>
       </div>
     )
   }

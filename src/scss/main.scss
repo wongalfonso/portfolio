@@ -9,7 +9,7 @@
 @import './components/splash.scss';
 @import './components/about.scss';
 @import './components/projects.scss';
-@import './components/changeCalc.scss';
+@import './components/posCalc.scss';
 @import './components/vstda.scss';
 @import './components/astroWeight.scss';
 @import './components/weather.scss';
@@ -41,8 +41,7 @@ body {
 }
 .full-page {
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  height: 100vh;  
 }
 .pages {
   color: white !important;
@@ -75,9 +74,15 @@ body {
   html {
     font-size: .5rem;
   }
+  .full-page {
+    overflow: hidden;
+  }
 }
 @media screen and (min-width: $xl) {
   html {
     font-size: .6rem;
+  }
+  .full-page {
+    overflow: hidden;
   }
 }

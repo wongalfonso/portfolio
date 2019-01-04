@@ -20,7 +20,8 @@ const FormProjects = ({ gitHub, title, openModal, closeModal }) => {
         <div className="projects">
           <div className='projects-div'>
             <img src={ChangeCalcImage}
-              className='projects-div-info projects-div-info--front' id='changeCalc'            
+              className='projects-div-info projects-div-info--front' id='changeCalc'  
+              onClick={() => modal('Change')}          
             />
             <div className="projects-div-info projects-div-info--back projects-div-info--changeCalc" 
                   onClick={() => modal('Change')}>
@@ -37,7 +38,8 @@ const FormProjects = ({ gitHub, title, openModal, closeModal }) => {
           </div>
           <div className='projects-div'>
             <div className="projects-div-col-img">
-              <img src={VSTDAImage} className='projects-div-info projects-div-info--front' id='vstdaImage'/>
+              <img src={VSTDAImage} className='projects-div-info projects-div-info--front' id='vstdaImage'
+              onClick={() => modal('VSTDA')}/>
             </div>
             <div className="projects-div-info projects-div-info--back projects-div-info--vstda" 
                   onClick={() => modal('VSTDA')}>
@@ -54,7 +56,8 @@ const FormProjects = ({ gitHub, title, openModal, closeModal }) => {
           </div>
           <div className='projects-div'>
             <div className="projects-div-col-img">
-              <img src={AstroImage} className='projects-div-info projects-div-info--front'/>
+              <img src={AstroImage} className='projects-div-info projects-div-info--front'
+              onClick={() => modal('Astro')}/>
             </div>
             <div  className="projects-div-info projects-div-info--back projects-div-info--astro"
                   onClick={() => modal('Astro')} 
