@@ -124,15 +124,22 @@ export default class HomePage extends Component {
       <a href={link} target='_blank'><img src={GitHubWhite} className='github-image' /></a>
     )
   }
-  smallScreen() {
-    const { title } = this.state;
+  smallScreen() {    
     return (
-      <div className = 'section-container'>
+      <div>
         <Header/>  
         <Splash 
-            title = {title}/>
+            title = 'Web Developer'/>
         <About
-            title = {title}/>                     
+            title = 'About Me'/>  
+        {/* <div  className="projects-page"
+              id = 'formProjects'
+              ref = {(project) => this._project = project}>
+          <FormProjects 
+            gitHub = {this.gitHub}
+            title = {title}
+            openModal = {this.openModal}/>
+        </div>                    */}
       </div>
     )
   }

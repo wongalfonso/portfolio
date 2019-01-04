@@ -76,8 +76,14 @@
     transform: translateX(0%);
   }
 }
-@media screen and (max-width: $sm) {
-  .splash-home {    
+// @media screen and (max-width: $sm) {
+//   .splash-home {    
+    
+//   }
+// }
+@media screen and (max-width: $md) {
+  .splash-home {
+    font-size: 7.5rem;
     .splash-header {
       top: 50%;
     }
@@ -86,8 +92,7 @@
     }
   }
 }
-@media screen and (max-width: $md) {
-  .splash-home {
-    font-size: 5.5rem;
-  }
+
+@media screen and (min-width: $sm) and (max-width: $md) {
+ 
 }
