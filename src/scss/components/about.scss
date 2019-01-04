@@ -105,11 +105,37 @@
           font-size: 2.5rem;
         }
       }
+      .about-bottom {
+        .download-btn {
+          #downloadBtn {
+            font-size: 2.2rem;
+            width: 38rem;
+            height: 8rem;
+          }
+        }
+      }
     }
   }
 }
 @media only screen and (min-width: $md) and (max-width: $lg) {
- 
+  .about-page {
+    .about-container {
+      .about-row {
+        .about-text {
+          font-size: 2.5rem;
+        }
+      }
+      .about-bottom {
+        .download-btn {
+          #downloadBtn {
+            font-size: 2.2rem;
+            width: 38rem;
+            height: 8rem;
+          }
+        }
+      }
+    }
+  }
 }
 @media only screen and (min-width: $lg) and (max-width: $xl) {
   
