@@ -59,6 +59,7 @@ app.get('*.js', (req,res, next) => {
   res.set('Content-Encoding', 'gzip');
   next();
 });
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve('public', 'index.html'));
 });

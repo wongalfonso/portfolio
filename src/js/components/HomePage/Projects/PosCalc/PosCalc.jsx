@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ReactGA from 'react-ga';
 import ProjectClose from './../../ProjectClose';
 import PosCalcTenderScreen from './PosCalcTenderScreen';
+import getMenu from './PosCalcActions';
 
-export default class PosCalc extends Component {
+class PosCalc extends Component {
   constructor(props) {
     super(props);
   }
-
+  componentWillMount() {
+    const { dispatch } = this.props;
+    dispatch(getMenu())
+  }
   gitHub() {
     ReactGA.event({
       category: 'Visited GitHub from Modal',
       action: 'From Change Modal'
     })
   }
-
+  
 
   render() {
     return (
@@ -79,5 +84,13 @@ export default class PosCalc extends Component {
     )
   }
 };
+
+function mapStoreToProps() {
+  return {
+
+  }
+}
+
+export default connect(mapStoreToProps)(PosCalc);
 
 
