@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import twenty from '../../../../../../public/images/twenty-dollar-bill.jpg';
+import ten from '../../../../../../public/images/ten-dollar-bill.jpg';
+import five from '../../../../../../public/images/five-dollar-bill.jpg';
 
 class PosCalcTenderScreen extends Component {
   render() {
@@ -6,25 +9,29 @@ class PosCalcTenderScreen extends Component {
       <div className="tender-screen">
         <div className="tender-screen-cash">
           <div className="tender-screen-cash-header">
-            Quick Cash
+            <b><i>Quick Cash</i></b>
           </div>
-          <div className="tender-screen-cash-twenty">
-            <img/>
+          <div className="tender-screen-cash-bills">
+            <img src = {twenty}/>
           </div>
-          <div className="tender-screen-cash-ten">
-          <img/>
+          <div className="tender-screen-cash-bills">
+            <img src = {ten}/>
           </div>
-          <div className="tender-screen-cash-five">
-          <img/>
+          <div className="tender-screen-cash-bills">
+            <img src = {five}/>
           </div>
-          <div className="tender-screen-cash-exact">
-            <button></button>
+          <div className="tender-screen-cash-btns">
+            <button className = 'round-up'>$ 6.00</button>
+          </div>
+          <div className="tender-screen-cash-btns">
+            <button className = 'exact'>Cash</button>
           </div>
         </div>
         <div className="tender-screen-inputs">
           <div className="tender-screen-inputs-total">
-            $
-            <div></div>
+            <div>$</div>  
+            <div className = 'total-input-screen'>
+            </div>
           </div>
           <div className="tender-screen-inputs-row">
             <div className="tender-screen-inputs-row-btns">
