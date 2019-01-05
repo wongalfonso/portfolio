@@ -3,11 +3,13 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const fs = require('fs');
 const path = require('path');
 const MongoStore = require('connect-mongo')(session);
 const axios = require('axios');
 const app = express();
 const config = require('../config/config');
+const menu = require('./food.json');
 const NODE = process.env.NODE_ENV;
 
 if (NODE !== 'production') {
@@ -50,6 +52,10 @@ app.get("/api/weather/:input", (req, res) => {
     })
     .catch(err => res.send(err.response.data))
 });
+
+app.get("/api/menu", (req, res) => {
+  res.send(menu);
+})
 
 app.use('/api/users', require('./routes/Users'));
 app.use('/api/kyus', require('./routes/Kyus'));

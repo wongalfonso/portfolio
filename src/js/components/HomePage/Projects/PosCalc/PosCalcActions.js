@@ -1,5 +1,13 @@
 import axios from 'axios';
 
 export function getMenu() {
-  const getAllItems = axios.get()
+  const getAllItems = axios.get('/api/menu');
+  return (dispatch) => {
+    dispatch({
+      type: 'GET_MENU',
+      payload: getAllItems.then((res)=> {        
+        return res.data
+      })
+    })
+  }
 }

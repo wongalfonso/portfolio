@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ReactGA from 'react-ga';
 import ProjectClose from './../../ProjectClose';
 import PosCalcTenderScreen from './PosCalcTenderScreen';
-import getMenu from './PosCalcActions';
+import { getMenu } from './PosCalcActions';
 
 class PosCalc extends Component {
   constructor(props) {
@@ -85,12 +85,12 @@ class PosCalc extends Component {
   }
 };
 
-function mapStoreToProps() {
+function mapStateToProps(state) {
   return {
 
   }
 }
 
-export default connect(mapStoreToProps)(PosCalc);
+export default connect(mapStateToProps)(PosCalc);
 
 
