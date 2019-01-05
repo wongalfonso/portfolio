@@ -11,15 +11,10 @@ class PosCalcTenderScreen extends Component {
           <div className="tender-screen-cash-header">
             <b><i>Quick Cash</i></b>
           </div>
-          <div className="tender-screen-cash-bills">
-            <img src = {twenty}/>
-          </div>
-          <div className="tender-screen-cash-bills">
-            <img src = {ten}/>
-          </div>
-          <div className="tender-screen-cash-bills">
-            <img src = {five}/>
-          </div>
+            <img src = {twenty} className = 'tender-screen-cash-bills'/>          
+            <img src = {ten} className="tender-screen-cash-bills"/>
+            <img src = {five} className="tender-screen-cash-bills"/>
+          
           <div className="tender-screen-cash-btns">
             <button className = 'round-up'>$ 6.00</button>
           </div>
