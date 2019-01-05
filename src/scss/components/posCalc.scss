@@ -130,14 +130,14 @@
         background-color: white;
         display: flex;
         &-cash {
-          width: 45%;
+          width: 40%;
           text-align: center;
           padding: 2rem;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           &-header {
-            margin: 2rem;
+            margin: 1rem;
           }
           &-bills {
             max-height: 13rem;
@@ -163,7 +163,7 @@
           }
         }
         &-inputs {
-          width: 55%;
+          width: 60%;
           padding: 2rem;
           display: flex;
           flex-direction: column;

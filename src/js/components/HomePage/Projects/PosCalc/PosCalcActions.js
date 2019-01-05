@@ -11,3 +11,10 @@ export function getMenu() {
     })
   }
 }
+
+export function changeScreen(screen) {
+  return {
+    type: 'CURRENT_SCREEN',
+    payload: screen
+  }
+}
