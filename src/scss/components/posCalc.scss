@@ -65,7 +65,7 @@
     }
     .pos-order-screen {
       display: flex;
-      max-height: 67rem;
+      max-height: 67rem;      
       &-list {
         flex: 1 0 40%;
         &-items {          
@@ -124,76 +124,81 @@
           }
         }
       }
-      .tender-screen {
+      .side-screen {
         flex: 1 0 60%;
-        font-size: 2.5rem;
         background-color: white;
-        display: flex;
-        &-cash {
-          width: 40%;
-          text-align: center;
-          padding: 2rem;
+        .tender-screen {
+          font-size: 2.5rem;
           display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          &-header {
-            margin: 1rem;
+          &-cash {
+            width: 40%;
+            text-align: center;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            &-header {
+              margin: 1rem;
+            }
+            &-bills {
+              max-height: 13rem;
+              margin-bottom: 1rem;
+            }
+            &-btns {
+              button {
+                font-size: 3rem;
+                width: 100%;
+                // height: 3rem;
+                border-radius: 8px;
+                margin-bottom: 2rem;
+                border-bottom: solid 3px #bbbbbb;
+                background: -webkit-linear-gradient(to bottom, #bbbbbb, #e8e8e8);
+                background: linear-gradient(to bottom, #bbbbbb, #e8e8e8);
+              }
+              .round-up {
+                padding: 1.5rem;
+              }
+              .exact {
+                padding: 2rem;
+              }
+            }
           }
-          &-bills {
-            max-height: 13rem;
-            margin-bottom: 1rem;
-          }
-          &-btns {
-            button {
-              font-size: 3rem;
+          &-inputs {
+            width: 60%;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            &-total {
               width: 100%;
-              // height: 3rem;
-              border-radius: 8px;
-              margin-bottom: 2rem;
-              border-bottom: solid 3px #bbbbbb;
-              background: -webkit-linear-gradient(to bottom, #bbbbbb, #e8e8e8);
-              background: linear-gradient(to bottom, #bbbbbb, #e8e8e8);
+              display: flex;
+              height: 6rem;
+              justify-content: space-around;
+              margin: 2rem 0 4rem 0;
+              .total-input-screen {
+                min-width: 27rem;
+                padding: 1rem;
+                border: solid #bbbbbb 2px;   
+                height: 8rem;                         
+              }
             }
-            .round-up {
-              padding: 1.5rem;
-            }
-            .exact {
-              padding: 2rem;
+            &-row {
+              display: flex;
+              justify-content: space-evenly;
+              button {
+                font-size: 3rem;
+                padding: 2rem;
+                min-width: 8rem;
+                border-radius: 8px;          
+                margin-bottom: 1rem;    
+                background: -webkit-linear-gradient(to bottom, rgb(245, 245, 79), rgb(255, 255, 149));
+                background: linear-gradient(to bottom, rgb(245, 245, 79), rgb(245, 245, 143));              
+              }
             }
           }
         }
-        &-inputs {
-          width: 60%;
-          padding: 2rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          &-total {
-            width: 100%;
-            display: flex;
-            height: 6rem;
-            justify-content: space-around;
-            margin: 2rem 0 4rem 0;
-            .total-input-screen {
-              min-width: 27rem;
-              padding: 1rem;
-              border: solid #bbbbbb 2px;   
-              height: 8rem;                         
-            }
-          }
-          &-row {
-            display: flex;
-            justify-content: space-evenly;
-            button {
-              font-size: 3rem;
-              padding: 2rem;
-              min-width: 8rem;
-              border-radius: 8px;          
-              margin-bottom: 1rem;    
-              background: -webkit-linear-gradient(to bottom, rgb(245, 245, 79), rgb(255, 255, 149));
-              background: linear-gradient(to bottom, rgb(245, 245, 79), rgb(245, 245, 143));              
-            }
-          }
+        .drinks-screen {
+          
         }
       }
     }

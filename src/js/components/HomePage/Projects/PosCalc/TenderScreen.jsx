@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import twenty from '../../../../../../public/images/twenty-dollar-bill.jpg';
 import ten from '../../../../../../public/images/ten-dollar-bill.jpg';
 import five from '../../../../../../public/images/five-dollar-bill.jpg';
 
-class PosCalcTenderScreen extends Component {
+class TenderScreen extends Component {
   render() {
     return (
       <div className="tender-screen">
@@ -80,5 +81,10 @@ class PosCalcTenderScreen extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
 
-export default PosCalcTenderScreen;
+  }
+}
+
+export default connect(mapStateToProps)(TenderScreen);

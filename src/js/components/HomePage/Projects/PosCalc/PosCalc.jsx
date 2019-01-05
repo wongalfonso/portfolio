@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactGA from 'react-ga';
 import ProjectClose from './../../ProjectClose';
-import PosCalcTenderScreen from './PosCalcTenderScreen';
+import TenderScreen from './TenderScreen';
+import DrinksScreen from './DrinksScreen';
 import { getMenu } from './PosCalcActions';
 
 class PosCalc extends Component {
@@ -19,9 +20,9 @@ class PosCalc extends Component {
       action: 'From Change Modal'
     })
   }
-  
 
   render() {
+    const { currentScreen } = this.props;
     return (
       <div id="posCalcProject">
         <div className="container pos-container">
@@ -32,17 +33,17 @@ class PosCalc extends Component {
           </div>
           <div className="pos-menus">
             <div className="pos-menus-functions">
-              <button className = 'pos-menus-functions-btns pos-menus-functions-btns--default'>Order</button>
-              <button className = 'pos-menus-functions-btns pos-menus-functions-btns--default'>Tender</button>
+              <button className='pos-menus-functions-btns pos-menus-functions-btns--default'>Order</button>
+              <button className='pos-menus-functions-btns pos-menus-functions-btns--default'>Tender</button>
             </div>
             <div className="pos-menus-screens">
-              <button className = 'pos-menus-screens-btns pos-menus-screens-btns--default'>Food</button>
-              <button className = 'pos-menus-screens-btns pos-menus-screens-btns--default'>Drinks</button>
+              <button className='pos-menus-screens-btns pos-menus-screens-btns--default'>Food</button>
+              <button className='pos-menus-screens-btns pos-menus-screens-btns--default'>Drinks</button>
             </div>
           </div>
           <div className="pos-order-screen">
             <div className="pos-order-screen-list">
-              <table className = 'pos-order-screen-list-items'>
+              <table className='pos-order-screen-list-items'>
                 <tbody>
                   <tr>
                     <td>Yes</td>
@@ -50,35 +51,38 @@ class PosCalc extends Component {
                   </tr>
                 </tbody>
               </table>
-              <table className = 'pos-order-screen-list-total'>
+              <table className='pos-order-screen-list-total'>
                 <tbody>
                   <tr>
-                    <td>Subtotal</td>                    
+                    <td>Subtotal</td>
                     <td></td>
                   </tr>
                   <tr>
                     <td>Tax</td>
                     <td></td>
-                  </tr>
-                  <hr/>
-                  <tr className = 'final-total'>
+                  </tr>                  
+                  <tr className='final-total'>
                     <td>TOTAL DUE</td>
                     <td>$</td>
                   </tr>
                 </tbody>
               </table>
-            <div className="pos-order-screen-voids">
-              <button className = 'pos-order-screen-voids-btns void'>Void Item</button>
-              <button className = 'pos-order-screen-voids-btns cancel'>Cancel</button>
-              <button className = 'pos-order-screen-voids-btns save'>Save Order</button>
+              <div className="pos-order-screen-voids">
+                <button className='pos-order-screen-voids-btns void'>Void Item</button>
+                <button className='pos-order-screen-voids-btns cancel'>Cancel</button>
+                <button className='pos-order-screen-voids-btns save'>Save Order</button>
+              </div>
             </div>
+            <div className = 'side-screen'>
+            {(currentScreen === 'drinks') && <DrinksScreen />}
+            {(currentScreen === 'tender') && <TenderScreen />}
             </div>
-            <PosCalcTenderScreen />
+
           </div>
-        <ProjectClose
-          github={this.github}
-          close={this.props.closeModal}
-        />
+          <ProjectClose
+            github={this.github}
+            close={this.props.closeModal}
+          />
         </div>
       </div>
     )
@@ -86,8 +90,9 @@ class PosCalc extends Component {
 };
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
-
+    currentScreen: state.posCalc.currentScreen
   }
 }
 
