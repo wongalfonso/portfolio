@@ -8,7 +8,7 @@ import About from './About/About';
 import FormProjects from './Projects/FormProjects';
 import ApiProjects from './Projects/ApiProjects';
 import WebProjects from './Projects/WebProjects';
-import ChangeCalc from './Projects/ChangeCalc/ChangeCalc';
+import ChangeCalc from './Projects/PosCalc/PosCalc';
 import VSTDA from './Projects/VstdaApp/Vstda';
 import AstroWeight from './Projects/AstroWeight/AstroWeight';
 import Weather from './Projects/Weather/WeatherApp';
