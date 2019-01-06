@@ -2,7 +2,11 @@ const defaultState = {
   coffees: [],
   breakfast: [],
   bakery: [],
-  currentScreen: 'drinks'
+  currentScreen: 'drinks',
+  currentOrder: [],
+  currentSelected: {},
+  orderTotal: '',
+  savedOrders: []
 };
 
 export default function PosReducer(state = defaultState, action) {
@@ -15,9 +19,14 @@ export default function PosReducer(state = defaultState, action) {
         ...state, coffees: payload.coffees[0], breakfast: payload.food[0].breakfast, bakery: payload.food[1].bakery
       }
     }
-    case 'CURRENT_SCREEN_FULFILLED': {      
+    case 'CURRENT_SCREEN': {         
       return {
         ...state, currentScreen: payload
+      }
+    }
+    case 'ADD_ITEM' : {
+      return {
+        ...state, currentOrder: payload.currentItem
       }
     }
     default: {

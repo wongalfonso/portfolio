@@ -4,15 +4,22 @@ import ReactGA from 'react-ga';
 import ProjectClose from './../../ProjectClose';
 import TenderScreen from './TenderScreen';
 import DrinksScreen from './DrinksScreen';
-import { getMenu } from './PosCalcActions';
+import FoodScreen from './FoodScreen';
+import { getMenu, changeScreen } from './PosCalcActions';
 
 class PosCalc extends Component {
   constructor(props) {
     super(props);
+    this.selectScreen = this.selectScreen.bind(this);
   }
   componentWillMount() {
     const { dispatch } = this.props;
     dispatch(getMenu())
+  }
+
+  selectScreen(screen) {
+    const { dispatch } = this.props;
+    dispatch(changeScreen(screen));
   }
   gitHub() {
     ReactGA.event({
@@ -33,12 +40,24 @@ class PosCalc extends Component {
           </div>
           <div className="pos-menus">
             <div className="pos-menus-functions">
-              <button className='pos-menus-functions-btns pos-menus-functions-btns--default'>Order</button>
-              <button className='pos-menus-functions-btns pos-menus-functions-btns--default'>Tender</button>
+              {/* <button className='pos-menus-functions-btns pos-menus-functions-btns--default'
+              onClick = {this.selectScreen()}>
+              Order
+              </button> */}
+              <button className='pos-menus-functions-btns pos-menus-functions-btns--default'
+              onClick = {() => this.selectScreen('tender')}>
+              Tender
+              </button>
             </div>
             <div className="pos-menus-screens">
-              <button className='pos-menus-screens-btns pos-menus-screens-btns--default'>Food</button>
-              <button className='pos-menus-screens-btns pos-menus-screens-btns--default'>Drinks</button>
+              <button className='pos-menus-screens-btns pos-menus-screens-btns--default' 
+              onClick = {() => this.selectScreen('food')}>
+              Food
+              </button>
+              <button className='pos-menus-screens-btns pos-menus-screens-btns--default' 
+              onClick = {() => this.selectScreen('drinks')}>
+              Drinks
+              </button>
             </div>
           </div>
           <div className="pos-order-screen">
@@ -59,11 +78,12 @@ class PosCalc extends Component {
                   </tr>
                   <tr>
                     <td>Tax</td>
-                    <td></td>
+                    <td> 7.75 %</td>
                   </tr>                  
                   <tr className='final-total'>
                     <td>TOTAL DUE</td>
                     <td>$</td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>
@@ -76,6 +96,7 @@ class PosCalc extends Component {
             <div className = 'side-screen'>
             {(currentScreen === 'drinks') && <DrinksScreen />}
             {(currentScreen === 'tender') && <TenderScreen />}
+            {(currentScreen === 'food') && <FoodScreen />}
             </div>
 
           </div>

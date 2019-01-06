@@ -12,9 +12,17 @@ export function getMenu() {
   }
 }
 
-export function changeScreen(screen) {
+export function changeScreen(screen) {  
   return {
     type: 'CURRENT_SCREEN',
     payload: screen
+  }
+}
+
+export function addItem(item) {
+  console.log(item);
+  return {
+    type: "ADD_ITEM",
+    payload: item
   }
 }
