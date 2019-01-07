@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addItem } from './PosCalcActions';
+import { addItem, changeSize } from './PosCalcActions';
 
 class DrinksScreen extends Component {
   constructor(props) {
@@ -22,9 +22,9 @@ class DrinksScreen extends Component {
     dispatch(addItem(currentOrder, obj));    
   }
 
-  changeDrinkSize() {
+  changeDrinkSize(size) {
     const { dispatch } = this.props;
-    dispatch()
+    dispatch(changeSize(size))
   }
 
   render() {
@@ -64,18 +64,13 @@ class DrinksScreen extends Component {
             let selected = 'coffee-btns coffee-btns-size'
             if (item == drinkSize) selected = 'coffee-btns coffee-btns-size coffee-btns-size--selected'
             return (
-              <button className = {selected} key = {i}>{item}</button>
+              <button className = {selected} 
+                key = {i}
+                onClick = {() => this.changeDrinkSize(item)}>
+                {item}
+              </button>
             )
-          })}
-          {/* <button className = 'coffee-btns coffee-btns-size'>
-            Tall
-          </button>
-          <button className = 'coffee-btns coffee-btns-size'>
-            Grande
-          </button>
-          <button className = 'coffee-btns coffee-btns-size'>
-            Venti
-          </button> */}
+          })}         
         </div>
       </div>
     )

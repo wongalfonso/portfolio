@@ -49,11 +49,7 @@ class PosCalc extends Component {
             </header>
           </div>
           <div className="pos-menus">
-            <div className="pos-menus-functions">
-              {/* <button className='pos-menus-functions-btns pos-menus-functions-btns--default'
-              onClick = {this.selectScreen()}>
-              Order
-              </button> */}
+            <div className="pos-menus-functions">              
               <button className='pos-menus-functions-btns pos-menus-functions-btns--default'
               onClick = {() => this.selectScreen('tender')}>
               Tender

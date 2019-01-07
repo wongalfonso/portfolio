@@ -19,8 +19,7 @@ export function changeScreen(screen) {
   }
 }
 
-export function addItem(currentOrder, item) {
-  console.log(item);  
+export function addItem(currentOrder, item) {    
   let orderLength = currentOrder.length;
   let arr = [];
   let obj = {};
@@ -51,5 +50,12 @@ export function addItem(currentOrder, item) {
   return {
     type: "ADD_ITEM",
     payload: {order: arr, subTotal: subTotal, currentSelected: orderLength, total: total }
+  }
+}
+
+export function changeSize(size) {
+  return {
+    type: "CHANGE_SIZE",
+    payload: size
   }
 }
