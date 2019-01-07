@@ -20,6 +20,7 @@ export function changeScreen(screen) {
 }
 
 export function addItem(currentOrder, item) {
+  console.log(item);  
   let orderLength = currentOrder.length;
   let arr = [];
   let obj = {};

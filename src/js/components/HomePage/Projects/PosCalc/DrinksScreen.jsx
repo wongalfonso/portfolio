@@ -10,9 +10,16 @@ class DrinksScreen extends Component {
   }
 
   addDrink(drink) {    
-    const { dispatch, currentOrder, drinkSize } = this.props;    
-
-    dispatch(addItem(currentOrder, drink));    
+    const { dispatch, currentOrder, drinkSize} = this.props;    
+    let obj = {};
+    obj.name = drink.name;
+    let keys = Object.keys(drink);
+    keys.forEach((key) => {
+      if (key == drinkSize) {
+        obj.price = drink[key];
+      }           
+    })        
+    dispatch(addItem(currentOrder, obj));    
   }
 
   changeDrinkSize() {
