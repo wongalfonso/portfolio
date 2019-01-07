@@ -4,9 +4,12 @@ const defaultState = {
   bakery: [],
   currentScreen: 'drinks',
   currentOrder: [],
-  currentSelected: {},
-  orderTotal: '',
-  savedOrders: []
+  currentSelected: {},  
+  orderTotal: 0,
+  savedOrders: [],
+  subTotal: 0,
+  drinkSize: 'grande',
+  sizes: ['tall', 'grande', 'venti']
 };
 
 export default function PosReducer(state = defaultState, action) {
@@ -24,9 +27,9 @@ export default function PosReducer(state = defaultState, action) {
         ...state, currentScreen: payload
       }
     }
-    case 'ADD_ITEM' : {
+    case 'ADD_ITEM' : {          
       return {
-        ...state, currentOrder: payload.currentItem
+        ...state, currentOrder: payload.order, subTotal: payload.subTotal, currentSelected: payload.currentSelected, orderTotal: payload.total
       }
     }
     default: {
