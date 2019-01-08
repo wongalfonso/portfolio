@@ -39,12 +39,17 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'SELECTED_ITEM' : {
       return {
-        ...state, currentSelected: payload.selected, currentScreen: payload.currentScreen
+        ...state, currentSelected: payload.selected, currentScreen: payload.currentScreen, drinkSize: payload.drinkSize
       }
     }
     case 'REMOVED_ITEM' : {
       return {
         ...state, currentOrder: payload.order, subTotal: payload.subTotal, orderTotal: payload.total, currentSelected: payload.selected
+      }
+    }
+    case 'CANCEL_ORDER' : {
+      return {
+        ...state, currentOrder: payload.order, subTotal: payload.subTotal, orderTotal: payload.total
       }
     }
     default: {

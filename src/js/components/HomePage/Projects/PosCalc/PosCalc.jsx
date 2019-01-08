@@ -5,7 +5,7 @@ import ProjectClose from './../../ProjectClose';
 import TenderScreen from './TenderScreen';
 import DrinksScreen from './DrinksScreen';
 import FoodScreen from './FoodScreen';
-import { getMenu, changeScreen, selected, removeSelected } from './PosCalcActions';
+import { getMenu, changeScreen, selected, removeSelected, cancelOrder } from './PosCalcActions';
 
 class PosCalc extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class PosCalc extends Component {
     this.selectScreen = this.selectScreen.bind(this);
     this.selectedItem = this.selectedItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
+    this.cancelEntireOrder = this.cancelEntireOrder.bind(this);
   }
   componentWillMount() {
     const { dispatch } = this.props;
@@ -24,14 +25,17 @@ class PosCalc extends Component {
     dispatch(changeScreen(screen));
   }
   selectedItem(key, type) {
-    const { dispatch } = this.props;
-    dispatch(selected(key, type))
+    const { dispatch, currentOrder } = this.props;
+    dispatch(selected(key, type, currentOrder))
   }
   removeItem() {
     const { dispatch, currentOrder, currentSelected } = this.props;
     dispatch(removeSelected(currentOrder, currentSelected))
   }
-
+  cancelEntireOrder() {
+    const { dispatch } = this.props;
+    dispatch(cancelOrder())
+  }
   gitHub() {
     ReactGA.event({
       category: 'Visited GitHub from Modal',
@@ -110,8 +114,14 @@ class PosCalc extends Component {
                 </tbody>
               </table>
               <div className="pos-order-screen-voids">
-                <button className='pos-order-screen-voids-btns void' onClick = {this.removeItem}>Void Item</button>
-                <button className='pos-order-screen-voids-btns cancel'>Cancel</button>
+                <button className='pos-order-screen-voids-btns void' 
+                onClick = {this.removeItem}>
+                  Void Item
+                </button>
+                <button className='pos-order-screen-voids-btns cancel' 
+                onClick = {this.cancelEntireOrder}>
+                  Cancel
+                </button>
                 <button className='pos-order-screen-voids-btns save'>Save Order</button>
               </div>
             </div>

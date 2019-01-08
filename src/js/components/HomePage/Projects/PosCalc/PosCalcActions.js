@@ -104,10 +104,11 @@ export function changeSize(size, order, selected) {
   }
 }
 
-export function selected(key, type) {
+export function selected(key, type, currentOrder) {  
+  let size = currentOrder[key].size
   return {
     type: 'SELECTED_ITEM',
-    payload: { selected: key, currentScreen: type }
+    payload: { selected: key, currentScreen: type, drinkSize: size }
   }
 }
 
@@ -118,5 +119,14 @@ export function removeSelected(order, selected) {
   return {
     type: 'REMOVED_ITEM',
     payload: { order: arr, subTotal: editTotal.subTotal, total: editTotal.total, selected: arr.length}
+  }
+}
+
+export function cancelOrder() {
+  let arr = [];
+  let total, subTotal = 0;
+  return {
+    type: 'CANCEL_ORDER',
+    payload: { order : arr, subTotal: subTotal, total: total }
   }
 }
