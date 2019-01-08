@@ -5,13 +5,14 @@ import ProjectClose from './../../ProjectClose';
 import TenderScreen from './TenderScreen';
 import DrinksScreen from './DrinksScreen';
 import FoodScreen from './FoodScreen';
-import { getMenu, changeScreen, selected } from './PosCalcActions';
+import { getMenu, changeScreen, selected, removeSelected } from './PosCalcActions';
 
 class PosCalc extends Component {
   constructor(props) {
     super(props);
     this.selectScreen = this.selectScreen.bind(this);
     this.selectedItem = this.selectedItem.bind(this);
+    this.removeItem = this.removeItem.bind(this);
   }
   componentWillMount() {
     const { dispatch } = this.props;
@@ -26,7 +27,10 @@ class PosCalc extends Component {
     const { dispatch } = this.props;
     dispatch(selected(key, type))
   }
-
+  removeItem() {
+    const { dispatch, currentOrder, currentSelected } = this.props;
+    dispatch(removeSelected(currentOrder, currentSelected))
+  }
 
   gitHub() {
     ReactGA.event({
@@ -106,7 +110,7 @@ class PosCalc extends Component {
                 </tbody>
               </table>
               <div className="pos-order-screen-voids">
-                <button className='pos-order-screen-voids-btns void'>Void Item</button>
+                <button className='pos-order-screen-voids-btns void' onClick = {this.removeItem}>Void Item</button>
                 <button className='pos-order-screen-voids-btns cancel'>Cancel</button>
                 <button className='pos-order-screen-voids-btns save'>Save Order</button>
               </div>

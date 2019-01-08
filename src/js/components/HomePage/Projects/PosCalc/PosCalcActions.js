@@ -110,3 +110,13 @@ export function selected(key, type) {
     payload: { selected: key, currentScreen: type }
   }
 }
+
+export function removeSelected(order, selected) {  
+  let arr = order.filter(item => item.key !== selected
+  )  
+  let editTotal = getTotal(arr);  
+  return {
+    type: 'REMOVED_ITEM',
+    payload: { order: arr, subTotal: editTotal.subTotal, total: editTotal.total, selected: arr.length}
+  }
+}

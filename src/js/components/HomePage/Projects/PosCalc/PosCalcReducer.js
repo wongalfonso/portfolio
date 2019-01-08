@@ -42,6 +42,11 @@ export default function PosReducer(state = defaultState, action) {
         ...state, currentSelected: payload.selected, currentScreen: payload.currentScreen
       }
     }
+    case 'REMOVED_ITEM' : {
+      return {
+        ...state, currentOrder: payload.order, subTotal: payload.subTotal, orderTotal: payload.total, currentSelected: payload.selected
+      }
+    }
     default: {
       return state;
     }
