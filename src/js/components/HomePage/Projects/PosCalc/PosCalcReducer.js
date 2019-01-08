@@ -9,7 +9,8 @@ const defaultState = {
   savedOrders: [],
   subTotal: 0,
   drinkSize: 'grande',
-  sizes: ['tall', 'grande', 'venti']
+  sizes: ['tall', 'grande', 'venti'],
+  modalIsOpen: false
 };
 
 export default function PosReducer(state = defaultState, action) {
@@ -49,7 +50,17 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'CANCEL_ORDER' : {
       return {
-        ...state, currentOrder: payload.order, subTotal: payload.subTotal, orderTotal: payload.total
+        ...state, currentOrder: payload.order, subTotal: payload.subTotal, orderTotal: payload.total, modalIsOpen: payload.modalIsOpen
+      }
+    }
+    case 'OPEN_MODAL' : {
+      return {
+        ...state, modalIsOpen: payload
+      }
+    }
+    case 'CLOSE_MODAL' : {
+      return {
+        ...state, modalIsOpen: payload
       }
     }
     default: {

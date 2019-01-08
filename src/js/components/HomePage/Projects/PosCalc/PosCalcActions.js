@@ -127,6 +127,20 @@ export function cancelOrder() {
   let total, subTotal = 0;
   return {
     type: 'CANCEL_ORDER',
-    payload: { order : arr, subTotal: subTotal, total: total }
+    payload: { order : arr, subTotal: subTotal, total: total, modalIsOpen: false}
+  }
+}
+
+export function modalOpen() {
+  return {
+    type: 'OPEN_MODAL',
+    payload: true
+  }
+}
+
+export function modalClose() {
+  return {
+    type: 'CLOSE_MODAL',
+    payload: false
   }
 }

@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactGA from 'react-ga';
+import Modal from 'react-modal';
 import ProjectClose from './../../ProjectClose';
 import TenderScreen from './TenderScreen';
 import DrinksScreen from './DrinksScreen';
 import FoodScreen from './FoodScreen';
-import { getMenu, changeScreen, selected, removeSelected, cancelOrder } from './PosCalcActions';
+import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalOpen, modalClose } from './PosCalcActions';
 
+const modalStyle = {
+  overlay: {
+    zIndex: 199
+  },
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  border: "4px solid rgb(204,204,204)",
+  background: "rgb(255,255,255)",
+  overflow: "auto",
+  borderRadius: "8px",
+  outline: "none",
+  padding: "20px",
+  transform: "translate(-50%, -50%)"
+}
 class PosCalc extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +30,9 @@ class PosCalc extends Component {
     this.selectedItem = this.selectedItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
     this.cancelEntireOrder = this.cancelEntireOrder.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.cancelOrderModal = this.cancelOrderModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
   componentWillMount() {
     const { dispatch } = this.props;
@@ -36,41 +55,78 @@ class PosCalc extends Component {
     const { dispatch } = this.props;
     dispatch(cancelOrder())
   }
+  openModal() {
+    const { dispatch } = this.props;
+    dispatch(modalOpen())
+  }
+  closeModal() {
+    const { dispatch } = this.props;
+    dispatch(modalClose());
+  }
   gitHub() {
     ReactGA.event({
       category: 'Visited GitHub from Modal',
       action: 'From Change Modal'
     })
   }
-
+  cancelOrderModal() {
+    return (
+      <div className = 'pos-modal'>
+        <div className = 'pos-modal-message'>
+          Are you sure you want to cancel the entire order?
+        </div>
+        <div className = 'pos-modal-btns'>
+          <button onClick={this.closeModal} 
+            className = 'pos-modal-btns-cancel'> 
+            Cancel
+          </button>
+          <button onClick={this.cancelEntireOrder}
+            className = 'pos-modal-btns-submit'> 
+            Submit 
+          </button>
+        </div>
+      </div>
+    )
+  }
   render() {
-    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal } = this.props;
+    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, modalIsOpen } = this.props;    
     let sub = subTotal ? subTotal : 0;
     let total = orderTotal ? orderTotal : 0;
     let order = currentOrder ? currentOrder : null;
+    
     return (
       <div id="posCalcProject">
         <div className="container pos-container">
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={this.closeModal}
+            ariaHideApp={false}
+            style={modalStyle}
+            className={'ReactModal_POS'}
+          >
+            {this.cancelOrderModal()}
+
+          </Modal>
           <div className="pos-header">
             <header>
               Point of Sale Calculator
             </header>
           </div>
           <div className="pos-menus">
-            <div className="pos-menus-functions">              
+            <div className="pos-menus-functions">
               <button className='pos-menus-functions-btns pos-menus-functions-btns--default'
-              onClick = {() => this.selectScreen('tender')}>
-              Tender
+                onClick={() => this.selectScreen('tender')}>
+                Tender
               </button>
             </div>
             <div className="pos-menus-screens">
-              <button className='pos-menus-screens-btns pos-menus-screens-btns--default' 
-              onClick = {() => this.selectScreen('food')}>
-              Food
+              <button className='pos-menus-screens-btns pos-menus-screens-btns--default'
+                onClick={() => this.selectScreen('food')}>
+                Food
               </button>
-              <button className='pos-menus-screens-btns pos-menus-screens-btns--default' 
-              onClick = {() => this.selectScreen('drinks')}>
-              Drinks
+              <button className='pos-menus-screens-btns pos-menus-screens-btns--default'
+                onClick={() => this.selectScreen('drinks')}>
+                Drinks
               </button>
             </div>
           </div>
@@ -79,20 +135,20 @@ class PosCalc extends Component {
               <div className="pos-order-screen-list-items">
                 <table>
                   <tbody>
-                    {order.map((item, i) => {                                         
+                    {order.map((item, i) => {
                       let selected = 'items'
                       if (i == currentSelected) selected = 'items items-selected'
                       return (
-                        <tr key = {i} 
-                          onClick = {() => this.selectedItem(i, item.type)}
-                          className = {selected}>
-                          {(item.size) ? <td>{item.size + ' ' + item.name}</td> : <td>{item.name}</td> }                          
+                        <tr key={i}
+                          onClick={() => this.selectedItem(i, item.type)}
+                          className={selected}>
+                          {(item.size) ? <td>{item.size + ' ' + item.name}</td> : <td>{item.name}</td>}
                           <td>{item.price.toFixed(2)}</td>
                         </tr>
                       )
                     })}
                   </tbody>
-                </table>              
+                </table>
               </div>
               <table className='pos-order-screen-list-total'>
                 <tbody>
@@ -105,7 +161,7 @@ class PosCalc extends Component {
                     <td>Tax</td>
                     <td></td>
                     <td> 7.75 %</td>
-                  </tr>                  
+                  </tr>
                   <tr className='final-total'>
                     <td>TOTAL DUE</td>
                     <td>$</td>
@@ -114,21 +170,21 @@ class PosCalc extends Component {
                 </tbody>
               </table>
               <div className="pos-order-screen-voids">
-                <button className='pos-order-screen-voids-btns void' 
-                onClick = {this.removeItem}>
+                <button className='pos-order-screen-voids-btns void'
+                  onClick={this.removeItem}>
                   Void Item
                 </button>
-                <button className='pos-order-screen-voids-btns cancel' 
-                onClick = {this.cancelEntireOrder}>
+                <button className='pos-order-screen-voids-btns cancel'
+                  onClick={this.openModal}>
                   Cancel
                 </button>
                 <button className='pos-order-screen-voids-btns save'>Save Order</button>
               </div>
             </div>
-            <div className = 'side-screen'>
-            {(currentScreen === 'drinks') && <DrinksScreen />}
-            {(currentScreen === 'tender') && <TenderScreen />}
-            {(currentScreen === 'food') && <FoodScreen />}
+            <div className='side-screen'>
+              {(currentScreen === 'drinks') && <DrinksScreen />}
+              {(currentScreen === 'tender') && <TenderScreen />}
+              {(currentScreen === 'food') && <FoodScreen />}
             </div>
 
           </div>
@@ -142,13 +198,14 @@ class PosCalc extends Component {
   }
 };
 
-function mapStateToProps(state) {  
+function mapStateToProps(state) {
   return {
     currentScreen: state.posCalc.currentScreen,
     currentOrder: state.posCalc.currentOrder,
     currentSelected: state.posCalc.currentSelected,
     subTotal: state.posCalc.subTotal,
-    orderTotal: state.posCalc.orderTotal
+    orderTotal: state.posCalc.orderTotal,
+    modalIsOpen: state.posCalc.modalIsOpen
   }
 }
 
