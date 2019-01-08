@@ -11,22 +11,12 @@ class DrinksScreen extends Component {
 
   addDrink(drink) {    
     const { dispatch, currentOrder, drinkSize} = this.props;    
-    let obj = {};
-    obj.name = drink.name;
-    let keys = Object.keys(drink);
-    let size;
-    keys.forEach((key) => {
-      if (key == drinkSize) {
-        obj.price = drink[key];
-        size = key
-      }           
-    })        
-    dispatch(addItem(currentOrder, obj, 'drinks', size));    
+    dispatch(addItem(currentOrder, drink, 'drinks', drinkSize));    
   }
 
   changeDrinkSize(size) {
-    const { dispatch } = this.props;
-    dispatch(changeSize(size))
+    const { dispatch, currentOrder, currentSelected } = this.props;
+    dispatch(changeSize(size, currentOrder, currentSelected))
   }
 
   render() {
@@ -84,7 +74,8 @@ function mapStateToProps(state) {
     coffees: state.posCalc.coffees,
     currentOrder: state.posCalc.currentOrder,
     drinkSize: state.posCalc.drinkSize,
-    sizes: state.posCalc.sizes
+    sizes: state.posCalc.sizes,
+    currentSelected: state.posCalc.currentSelected
   }
 }
 

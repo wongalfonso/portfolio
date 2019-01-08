@@ -71,15 +71,14 @@ class PosCalc extends Component {
               <div className="pos-order-screen-list-items">
                 <table>
                   <tbody>
-                    {order.map((item, i) => { 
-                      console.log(item.type);                     
+                    {order.map((item, i) => {                                         
                       let selected = 'items'
                       if (i == currentSelected) selected = 'items items-selected'
                       return (
                         <tr key = {i} 
                           onClick = {() => this.selectedItem(i, item.type)}
                           className = {selected}>
-                          <td>{item.name}</td>
+                          {(item.size) ? <td>{item.size + ' ' + item.name}</td> : <td>{item.name}</td> }                          
                           <td>{item.price.toFixed(2)}</td>
                         </tr>
                       )

@@ -5,72 +5,108 @@ export function getMenu() {
   return (dispatch) => {
     dispatch({
       type: 'GET_MENU',
-      payload: getAllItems.then((res)=> {        
+      payload: getAllItems.then((res) => {
         return res.data
       })
     })
   }
 }
 
-export function changeScreen(screen) {  
+export function changeScreen(screen) {
   return {
     type: 'CURRENT_SCREEN',
     payload: screen
   }
 }
 
-export function addItem(currentOrder, item, type, size) {    
-  console.log(size);
+function getDrinkPrice(obj, item, size) {
+  obj.name = item.name;
+  obj.size = size;
+  obj.sizes = { 'tall': item.tall, 'grande': item.grande, 'venti': item.venti };
+  let keys = Object.keys(item);
+  keys.forEach((key) => {
+    if (key == size) {
+      obj.price = item[key]
+    }
+  })
+  return obj;
+};
+
+export function addItem(currentOrder, item, type, size) {  
   let orderLength = currentOrder.length;
   let arr = [];
   let obj = {};
   let subTotal = 0;
-  let tax;
+  let tax, addTotal;
   let total = 0;
-  if (orderLength > 0) {    
-    arr = currentOrder.slice();  
+  if (orderLength > 0) {
+    arr = currentOrder.slice();
     obj.key = orderLength;
     if (size) {
-      obj.name = size + ' ' + item.name
+      getDrinkPrice(obj, item, size);
     } else {
+      obj.price = item.price;
+      obj.name = item.name;
+      obj.price = item.price;
+    }
+    obj.type = type
+    arr.push(obj);
+    addTotal = getTotal(arr)
+  } else {
+    if (size) {
+      getDrinkPrice(obj, item, size);
+      subTotal = obj.price;
+    } else {
+      obj.price = item.price;
       obj.name = item.name;
     }
-    obj.price = item.price;
-    obj.type = type
-    arr.push(obj);    
-    for (let i =0; i < arr.length; i ++) {      
-      subTotal = arr[i].price + subTotal;      
-    }
-    tax = subTotal * .0775;
-    total = tax + subTotal;
-  } else {
-    subTotal = item.price;
     obj.key = 0;
-    obj.name = item.name;
-    obj.price = item.price;
     obj.type = type
-    tax = subTotal * .0775;
-    total = tax + subTotal;
     arr.push(obj);
-  }  
+    addTotal = getTotal(arr);    
+  }
 
   return {
     type: "ADD_ITEM",
-    payload: {order: arr, subTotal: subTotal, currentSelected: orderLength, total: total }
+    payload: { order: arr, currentSelected: orderLength, subTotal: addTotal.subTotal, total: addTotal.total }
   }
 }
 
-export function changeSize(size) {
+function getTotal(arr) {
+  let subTotal = 0;
+  let total = 0;
+  let tax;
+  for (let i = 0; i < arr.length; i++) {
+    subTotal = arr[i].price + subTotal;
+  }
+  tax = subTotal * .0775;
+  total = tax + subTotal;
+  return { subTotal, total }
+}
+
+export function changeSize(size, order, selected) {    
+  let arr = order.map((item, i) => {
+    let price;
+    if (item == order[selected]) {          
+      price = item.sizes[size]
+      return {
+        ...item,   
+        price: price,      
+        size: size,        
+      }
+    }
+    return item
+  })
+  let editTotal = getTotal(arr);
   return {
     type: "CHANGE_SIZE",
-    payload: size
+    payload: { size: size, currentOrder: arr, subTotal: editTotal.subTotal, total: editTotal.total}
   }
 }
 
-export function selected(key, type) {  
-  console.log(type);
+export function selected(key, type) {
   return {
     type: 'SELECTED_ITEM',
-    payload: {selected: key, currentScreen: type}
+    payload: { selected: key, currentScreen: type }
   }
 }
