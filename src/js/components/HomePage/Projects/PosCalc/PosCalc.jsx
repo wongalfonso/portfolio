@@ -55,9 +55,9 @@ class PosCalc extends Component {
     const { dispatch } = this.props;
     dispatch(cancelOrder())
   }
-  openModal() {
+  openModal(modal) {
     const { dispatch } = this.props;
-    dispatch(modalOpen())
+    dispatch(modalOpen(modal))
   }
   closeModal() {
     const { dispatch } = this.props;
@@ -88,12 +88,37 @@ class PosCalc extends Component {
       </div>
     )
   }
+  saveOrder() {
+    const { dispatch } = this.props;
+
+  }
+
+
+  saveOrderModal() {
+    return (
+      <div className = 'pos-modal'>
+      <div className = 'pos-modal-message'>
+      Are you sure you want to save this order?
+      </div>
+      <div className = 'pos-modal-btns'>
+      <button onClick={this.closeModal} 
+        className = 'pos-modal-btns-cancel'> 
+        Cancel
+      </button>
+      <button onClick={this.cancelEntireOrder}
+        className = 'pos-modal-btns-save'> 
+        Save
+      </button>
+    </div>
+  </div>
+    )
+  }
+
   render() {
-    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, modalIsOpen } = this.props;    
+    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, modalIsOpen, modalType } = this.props;    
     let sub = subTotal ? subTotal : 0;
     let total = orderTotal ? orderTotal : 0;
-    let order = currentOrder ? currentOrder : null;
-    
+    let order = currentOrder ? currentOrder : null;    
     return (
       <div id="posCalcProject">
         <div className="container pos-container">
@@ -104,7 +129,8 @@ class PosCalc extends Component {
             style={modalStyle}
             className={'ReactModal_POS'}
           >
-            {this.cancelOrderModal()}
+            {(modalType == 'cancel') && this.cancelOrderModal()}
+            {(modalType == 'save') && this.saveOrderModal()}
 
           </Modal>
           <div className="pos-header">
@@ -175,10 +201,13 @@ class PosCalc extends Component {
                   Void Item
                 </button>
                 <button className='pos-order-screen-voids-btns cancel'
-                  onClick={this.openModal}>
+                  onClick={() => this.openModal('cancel')}>
                   Cancel
                 </button>
-                <button className='pos-order-screen-voids-btns save'>Save Order</button>
+                <button className='pos-order-screen-voids-btns save' 
+                  onClick= {() => this.openModal('save')}>
+                  Save Order
+                </button>
               </div>
             </div>
             <div className='side-screen'>
@@ -205,7 +234,8 @@ function mapStateToProps(state) {
     currentSelected: state.posCalc.currentSelected,
     subTotal: state.posCalc.subTotal,
     orderTotal: state.posCalc.orderTotal,
-    modalIsOpen: state.posCalc.modalIsOpen
+    modalIsOpen: state.posCalc.modalIsOpen,
+    modalType: state.posCalc.modalType
   }
 }
 

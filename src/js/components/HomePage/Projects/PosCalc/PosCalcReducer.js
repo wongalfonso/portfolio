@@ -10,7 +10,8 @@ const defaultState = {
   subTotal: 0,
   drinkSize: 'grande',
   sizes: ['tall', 'grande', 'venti'],
-  modalIsOpen: false
+  modalIsOpen: false,
+  modalType: ''
 };
 
 export default function PosReducer(state = defaultState, action) {
@@ -55,7 +56,7 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'OPEN_MODAL' : {
       return {
-        ...state, modalIsOpen: payload
+        ...state, modalIsOpen: payload.openModal, modalType: payload.modalType
       }
     }
     case 'CLOSE_MODAL' : {

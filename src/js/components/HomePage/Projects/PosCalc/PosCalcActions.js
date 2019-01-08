@@ -131,10 +131,10 @@ export function cancelOrder() {
   }
 }
 
-export function modalOpen() {
+export function modalOpen(modal) {
   return {
     type: 'OPEN_MODAL',
-    payload: true
+    payload: {openModal: true, modalType: modal }
   }
 }
 
@@ -142,5 +142,14 @@ export function modalClose() {
   return {
     type: 'CLOSE_MODAL',
     payload: false
+  }
+}
+
+export function saveOrder(order) {
+  let arr = [];
+  
+  return {
+    type: 'SAVE_ORDER',
+    payload: order
   }
 }
