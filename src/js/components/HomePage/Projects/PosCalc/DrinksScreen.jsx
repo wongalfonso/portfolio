@@ -21,7 +21,7 @@ class DrinksScreen extends Component {
         size = key
       }           
     })        
-    dispatch(addItem(currentOrder, obj, 'drink', size));    
+    dispatch(addItem(currentOrder, obj, 'drinks', size));    
   }
 
   changeDrinkSize(size) {

@@ -22,9 +22,9 @@ class PosCalc extends Component {
     const { dispatch } = this.props;
     dispatch(changeScreen(screen));
   }
-  selectedItem(key) {
-    const { dispatch, currentOrder } = this.props;
-    dispatch(selected(key, currentOrder))
+  selectedItem(key, type) {
+    const { dispatch } = this.props;
+    dispatch(selected(key, type))
   }
 
 
@@ -71,12 +71,13 @@ class PosCalc extends Component {
               <div className="pos-order-screen-list-items">
                 <table>
                   <tbody>
-                    {order.map((item, i) => {                      
+                    {order.map((item, i) => { 
+                      console.log(item.type);                     
                       let selected = 'items'
                       if (i == currentSelected) selected = 'items items-selected'
                       return (
                         <tr key = {i} 
-                          onClick = {() => this.selectedItem(i)}
+                          onClick = {() => this.selectedItem(i, item.type)}
                           className = {selected}>
                           <td>{item.name}</td>
                           <td>{item.price.toFixed(2)}</td>

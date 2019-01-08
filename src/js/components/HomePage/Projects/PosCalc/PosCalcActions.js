@@ -67,9 +67,10 @@ export function changeSize(size) {
   }
 }
 
-export function selected(key) {  
+export function selected(key, type) {  
+  console.log(type);
   return {
     type: 'SELECTED_ITEM',
-    payload: {selected: key, }
+    payload: {selected: key, currentScreen: type}
   }
 }

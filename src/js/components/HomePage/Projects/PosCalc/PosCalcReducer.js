@@ -39,7 +39,7 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'SELECTED_ITEM' : {
       return {
-        ...state, currentSelected: payload
+        ...state, currentSelected: payload.selected, currentScreen: payload.currentScreen
       }
     }
     default: {
