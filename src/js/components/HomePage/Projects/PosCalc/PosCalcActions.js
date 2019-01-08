@@ -137,17 +137,23 @@ export function cancelOrder() {
   }
 }
 
-export function modalOpen(modal) {
+export function modalPosOpen(modal) {  
   return {
-    type: 'OPEN_MODAL',
+    type: 'OPEN_POS_MODAL',
     payload: {openModal: true, modalType: modal }
   }
 }
 
-export function modalClose() {
+export function modalPosClose() {
   return {
-    type: 'CLOSE_MODAL',
+    type: 'CLOSE_POS_MODAL',
     payload: false
+  }
+}
+export function modalTenderClose() {
+  return {
+    type: 'CLOSE_TENDER_MODAL',
+    payload: {tenderModal: false, currentOrder: []}
   }
 }
 
@@ -175,5 +181,15 @@ export function openOrder(order, savedOrders, key) {
   return {
     type: 'OPEN_ORDER', 
     payload : { currentOrder: copy, subTotal: addTotal.subTotal, total: addTotal.total, currentScreen: type, savedOrders: saved }
+  }
+}
+
+export function calculateOrder(payment, total) {
+  let orderTotal = total;
+  let returnedAmount = payment - orderTotal;
+
+  return {
+    type: 'CALCULATE_ORDER',
+    payload: { returnedAmount: returnedAmount, tenderModalIsOpen: true}
   }
 }

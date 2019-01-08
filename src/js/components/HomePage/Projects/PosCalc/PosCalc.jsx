@@ -7,22 +7,12 @@ import TenderScreen from './TenderScreen';
 import DrinksScreen from './DrinksScreen';
 import FoodScreen from './FoodScreen';
 import SavedOrders from './SavedOrders';
-import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalOpen, modalClose, saveOrder } from './PosCalcActions';
+import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalPosOpen, modalPosClose, saveOrder } from './PosCalcActions';
 
 const modalStyle = {
   overlay: {
     zIndex: 199
-  },
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  border: "4px solid rgb(204,204,204)",
-  background: "rgb(255,255,255)",
-  overflow: "auto",
-  borderRadius: "8px",
-  outline: "none",
-  padding: "20px",
-  transform: "translate(-50%, -50%)"
+  }
 }
 class PosCalc extends Component {
   constructor(props) {
@@ -58,12 +48,13 @@ class PosCalc extends Component {
     dispatch(cancelOrder())
   }
   openModal(modal) {
+    
     const { dispatch } = this.props;
-    dispatch(modalOpen(modal))
+    dispatch(modalPosOpen(modal))
   }
   closeModal() {
     const { dispatch } = this.props;
-    dispatch(modalClose());
+    dispatch(modalPosClose());
   }
   gitHub() {
     ReactGA.event({
@@ -117,7 +108,8 @@ class PosCalc extends Component {
   }
 
   render() {
-    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, modalIsOpen, modalType } = this.props;    
+    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, posModalIsOpen, modalType } = this.props;    
+    console.log(posModalIsOpen);
     let sub = subTotal ? subTotal : 0;
     let total = orderTotal ? orderTotal : 0;
     let order = currentOrder ? currentOrder : null;    
@@ -125,7 +117,7 @@ class PosCalc extends Component {
       <div id="posCalcProject">
         <div className="container pos-container">
           <Modal
-            isOpen={modalIsOpen}
+            isOpen={posModalIsOpen}
             onRequestClose={this.closeModal}
             ariaHideApp={false}
             style={modalStyle}
@@ -244,7 +236,7 @@ function mapStateToProps(state) {
     currentSelected: state.posCalc.currentSelected,
     subTotal: state.posCalc.subTotal,
     orderTotal: state.posCalc.orderTotal,
-    modalIsOpen: state.posCalc.modalIsOpen,
+    posModalIsOpen: state.posCalc.posModalIsOpen,
     modalType: state.posCalc.modalType,
     savedOrders: state.posCalc.savedOrders
   }

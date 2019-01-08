@@ -10,8 +10,10 @@ const defaultState = {
   subTotal: 0,
   drinkSize: 'grande',
   sizes: ['tall', 'grande', 'venti'],
-  modalIsOpen: false,
-  modalType: ''
+  tenderModalIsOpen: false,
+  posModalIsOpen: false,
+  modalType: '',
+  returnedAmount: 0
 };
 
 export default function PosReducer(state = defaultState, action) {
@@ -51,27 +53,38 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'CANCEL_ORDER' : {
       return {
-        ...state, currentOrder: payload.order, subTotal: payload.subTotal, orderTotal: payload.total, modalIsOpen: payload.modalIsOpen, currentScreen: payload.currentScreen
+        ...state, currentOrder: payload.order, subTotal: payload.subTotal, orderTotal: payload.total, posModalIsOpen: payload.modalIsOpen, currentScreen: payload.currentScreen
       }
     }
-    case 'OPEN_MODAL' : {
+    case 'OPEN_POS_MODAL' : {
+      
       return {
-        ...state, modalIsOpen: payload.openModal, modalType: payload.modalType
+        ...state, posModalIsOpen: payload.openModal, modalType: payload.modalType
       }
     }
-    case 'CLOSE_MODAL' : {
+    case 'CLOSE_POS_MODAL' : {
       return {
-        ...state, modalIsOpen: payload
+        ...state, posModalIsOpen: payload
+      }
+    }
+    case 'CLOSE_TENDER_MODAL' : {
+      return {
+        ...state, tenderModalIsOpen: payload.tenderModal, currentOrder: payload.currentOrder
       }
     }
     case 'SAVE_ORDER' : {
       return {
-        ...state, modalIsOpen: payload.modalIsOpen, savedOrders: payload.savedOrders, currentOrder: payload.currentOrder, orderTotal: payload.orderTotal, subTotal: payload.subTotal
+        ...state, posModalIsOpen: payload.modalIsOpen, savedOrders: payload.savedOrders, currentOrder: payload.currentOrder, orderTotal: payload.orderTotal, subTotal: payload.subTotal
       }
     }
     case 'OPEN_ORDER' : {
       return {
         ...state, currentOrder: payload.currentOrder, subTotal: payload.subTotal, orderTotal: payload.total, currentScreen: payload.currentScreen, savedOrders: payload.savedOrders
+      }
+    }
+    case 'CALCULATE_ORDER' : {
+      return {
+        ...state, returnedAmount: payload.returnedAmount, tenderModalIsOpen: payload.tenderModalIsOpen
       }
     }
     default: {
