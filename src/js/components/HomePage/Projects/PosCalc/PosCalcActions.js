@@ -147,9 +147,10 @@ export function modalClose() {
 
 export function saveOrder(order) {
   let arr = [];
-  
+  arr.push(order);
+  console.log(arr);
   return {
     type: 'SAVE_ORDER',
-    payload: order
+    payload: {savedOrders: arr, modalIsOpen: false, currentOrder: []}
   }
 }

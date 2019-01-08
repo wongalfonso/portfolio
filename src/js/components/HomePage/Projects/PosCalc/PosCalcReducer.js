@@ -64,6 +64,11 @@ export default function PosReducer(state = defaultState, action) {
         ...state, modalIsOpen: payload
       }
     }
+    case 'SAVE_ORDER' : {
+      return {
+        ...state, modalIsOpen: payload.modalIsOpen, savedOrders: payload.savedOrders, currentOrder: payload.currentOrder
+      }
+    }
     default: {
       return state;
     }

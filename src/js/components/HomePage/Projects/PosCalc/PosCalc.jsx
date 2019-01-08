@@ -6,7 +6,7 @@ import ProjectClose from './../../ProjectClose';
 import TenderScreen from './TenderScreen';
 import DrinksScreen from './DrinksScreen';
 import FoodScreen from './FoodScreen';
-import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalOpen, modalClose } from './PosCalcActions';
+import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalOpen, modalClose, saveOrder } from './PosCalcActions';
 
 const modalStyle = {
   overlay: {
@@ -33,6 +33,7 @@ class PosCalc extends Component {
     this.openModal = this.openModal.bind(this);
     this.cancelOrderModal = this.cancelOrderModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.saveEntireOrder = this.saveEntireOrder.bind(this);    
   }
   componentWillMount() {
     const { dispatch } = this.props;
@@ -88,9 +89,9 @@ class PosCalc extends Component {
       </div>
     )
   }
-  saveOrder() {
-    const { dispatch } = this.props;
-
+  saveEntireOrder() {
+    const { dispatch, currentOrder } = this.props;
+    dispatch(saveOrder(currentOrder))
   }
 
 
@@ -105,7 +106,7 @@ class PosCalc extends Component {
         className = 'pos-modal-btns-cancel'> 
         Cancel
       </button>
-      <button onClick={this.cancelEntireOrder}
+      <button onClick={this.saveEntireOrder}
         className = 'pos-modal-btns-save'> 
         Save
       </button>
@@ -204,16 +205,24 @@ class PosCalc extends Component {
                   onClick={() => this.openModal('cancel')}>
                   Cancel
                 </button>
+                {(currentOrder.length < 1 ) ? 
+                <button className='pos-order-screen-voids-btns save' 
+                  onClick= {this.openModal}>
+                Find Order
+                </button>
+                :
                 <button className='pos-order-screen-voids-btns save' 
                   onClick= {() => this.openModal('save')}>
                   Save Order
                 </button>
+                }
               </div>
             </div>
             <div className='side-screen'>
               {(currentScreen === 'drinks') && <DrinksScreen />}
               {(currentScreen === 'tender') && <TenderScreen />}
               {(currentScreen === 'food') && <FoodScreen />}
+              {(currentScreen === 'orders') && <FoodScreen />}
             </div>
 
           </div>
