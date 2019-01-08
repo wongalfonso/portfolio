@@ -6,6 +6,7 @@ import ProjectClose from './../../ProjectClose';
 import TenderScreen from './TenderScreen';
 import DrinksScreen from './DrinksScreen';
 import FoodScreen from './FoodScreen';
+import SavedOrders from './SavedOrders';
 import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalOpen, modalClose, saveOrder } from './PosCalcActions';
 
 const modalStyle = {
@@ -90,8 +91,8 @@ class PosCalc extends Component {
     )
   }
   saveEntireOrder() {
-    const { dispatch, currentOrder } = this.props;
-    dispatch(saveOrder(currentOrder))
+    const { dispatch, currentOrder, orderTotal, savedOrders } = this.props;
+    dispatch(saveOrder(currentOrder, orderTotal, savedOrders))
   }
 
 
@@ -207,7 +208,7 @@ class PosCalc extends Component {
                 </button>
                 {(currentOrder.length < 1 ) ? 
                 <button className='pos-order-screen-voids-btns save' 
-                  onClick= {this.openModal}>
+                  onClick= {() => this.selectScreen('orders')}>
                 Find Order
                 </button>
                 :
@@ -222,7 +223,7 @@ class PosCalc extends Component {
               {(currentScreen === 'drinks') && <DrinksScreen />}
               {(currentScreen === 'tender') && <TenderScreen />}
               {(currentScreen === 'food') && <FoodScreen />}
-              {(currentScreen === 'orders') && <FoodScreen />}
+              {(currentScreen === 'orders') && <SavedOrders />}
             </div>
 
           </div>
@@ -244,7 +245,8 @@ function mapStateToProps(state) {
     subTotal: state.posCalc.subTotal,
     orderTotal: state.posCalc.orderTotal,
     modalIsOpen: state.posCalc.modalIsOpen,
-    modalType: state.posCalc.modalType
+    modalType: state.posCalc.modalType,
+    savedOrders: state.posCalc.savedOrders
   }
 }
 

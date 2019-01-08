@@ -145,12 +145,22 @@ export function modalClose() {
   }
 }
 
-export function saveOrder(order) {
-  let arr = [];
-  arr.push(order);
-  console.log(arr);
+export function saveOrder(order, orderTotal, savedOrders) {  
+  let copy = order.slice();
+  let obj = {};
+  obj.name = '$' + orderTotal.toFixed(2);
+  copy.unshift(obj);
+  let arr = savedOrders.slice();
+  arr.unshift(copy);     
   return {
     type: 'SAVE_ORDER',
-    payload: {savedOrders: arr, modalIsOpen: false, currentOrder: []}
+    payload: {savedOrders: arr, modalIsOpen: false, currentOrder: [], orderTotal: 0, subTotal: 0}
+  }
+}
+
+export function openOrder() {
+  return {
+    type: 'OPEN_ORDER', 
+    payload : {}
   }
 }
