@@ -5,7 +5,7 @@ import ProjectClose from './../../ProjectClose';
 import TenderScreen from './TenderScreen';
 import DrinksScreen from './DrinksScreen';
 import FoodScreen from './FoodScreen';
-import { getMenu, changeScreen } from './PosCalcActions';
+import { getMenu, changeScreen, selected } from './PosCalcActions';
 
 class PosCalc extends Component {
   constructor(props) {
@@ -23,8 +23,8 @@ class PosCalc extends Component {
     dispatch(changeScreen(screen));
   }
   selectedItem(key) {
-    const { dispatch } = this.props;
-    dispatch(selected(key))
+    const { dispatch, currentOrder } = this.props;
+    dispatch(selected(key, currentOrder))
   }
 
 

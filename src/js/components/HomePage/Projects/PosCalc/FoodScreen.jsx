@@ -11,7 +11,7 @@ class FoodScreen extends Component {
 
   addFood(food) {
     const { dispatch, currentOrder } = this.props;    
-    dispatch(addItem(currentOrder, food));
+    dispatch(addItem(currentOrder, food, 'food'));
   }
 
   render() {

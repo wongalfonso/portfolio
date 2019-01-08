@@ -14,12 +14,14 @@ class DrinksScreen extends Component {
     let obj = {};
     obj.name = drink.name;
     let keys = Object.keys(drink);
+    let size;
     keys.forEach((key) => {
       if (key == drinkSize) {
         obj.price = drink[key];
+        size = key
       }           
     })        
-    dispatch(addItem(currentOrder, obj));    
+    dispatch(addItem(currentOrder, obj, 'drink', size));    
   }
 
   changeDrinkSize(size) {

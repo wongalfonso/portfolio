@@ -19,7 +19,8 @@ export function changeScreen(screen) {
   }
 }
 
-export function addItem(currentOrder, item) {    
+export function addItem(currentOrder, item, type, size) {    
+  console.log(size);
   let orderLength = currentOrder.length;
   let arr = [];
   let obj = {};
@@ -29,8 +30,13 @@ export function addItem(currentOrder, item) {
   if (orderLength > 0) {    
     arr = currentOrder.slice();  
     obj.key = orderLength;
-    obj.name = item.name;
+    if (size) {
+      obj.name = size + ' ' + item.name
+    } else {
+      obj.name = item.name;
+    }
     obj.price = item.price;
+    obj.type = type
     arr.push(obj);    
     for (let i =0; i < arr.length; i ++) {      
       subTotal = arr[i].price + subTotal;      
@@ -42,6 +48,7 @@ export function addItem(currentOrder, item) {
     obj.key = 0;
     obj.name = item.name;
     obj.price = item.price;
+    obj.type = type
     tax = subTotal * .0775;
     total = tax + subTotal;
     arr.push(obj);
@@ -57,5 +64,12 @@ export function changeSize(size) {
   return {
     type: "CHANGE_SIZE",
     payload: size
+  }
+}
+
+export function selected(key) {  
+  return {
+    type: 'SELECTED_ITEM',
+    payload: {selected: key, }
   }
 }

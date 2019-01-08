@@ -37,6 +37,11 @@ export default function PosReducer(state = defaultState, action) {
         ...state, drinkSize: payload
       }
     }
+    case 'SELECTED_ITEM' : {
+      return {
+        ...state, currentSelected: payload
+      }
+    }
     default: {
       return state;
     }
