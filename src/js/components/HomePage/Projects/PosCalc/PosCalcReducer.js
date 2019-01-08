@@ -51,7 +51,7 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'CANCEL_ORDER' : {
       return {
-        ...state, currentOrder: payload.order, subTotal: payload.subTotal, orderTotal: payload.total, modalIsOpen: payload.modalIsOpen
+        ...state, currentOrder: payload.order, subTotal: payload.subTotal, orderTotal: payload.total, modalIsOpen: payload.modalIsOpen, currentScreen: payload.currentScreen
       }
     }
     case 'OPEN_MODAL' : {
@@ -67,6 +67,11 @@ export default function PosReducer(state = defaultState, action) {
     case 'SAVE_ORDER' : {
       return {
         ...state, modalIsOpen: payload.modalIsOpen, savedOrders: payload.savedOrders, currentOrder: payload.currentOrder, orderTotal: payload.orderTotal, subTotal: payload.subTotal
+      }
+    }
+    case 'OPEN_ORDER' : {
+      return {
+        ...state, currentOrder: payload.currentOrder, subTotal: payload.subTotal, orderTotal: payload.total, currentScreen: payload.currentScreen, savedOrders: payload.savedOrders
       }
     }
     default: {

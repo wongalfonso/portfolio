@@ -85,7 +85,7 @@ function getTotal(arr) {
 }
 
 export function changeSize(size, order, selected) {    
-  let arr = order.map((item, i) => {
+  let arr = order.map((item) => {
     let price;
     if (item == order[selected]) {          
       price = item.sizes[size]
@@ -112,13 +112,19 @@ export function selected(key, type, currentOrder) {
   }
 }
 
-export function removeSelected(order, selected) {  
+export function removeSelected(order, selected) {    
   let arr = order.filter(item => item.key !== selected
-  )  
-  let editTotal = getTotal(arr);  
+    )  
+  let updatedArr = arr.map((item, i) => {
+    return {
+      ...item,
+      key: i
+    }
+  })  
+  let editTotal = getTotal(updatedArr);  
   return {
     type: 'REMOVED_ITEM',
-    payload: { order: arr, subTotal: editTotal.subTotal, total: editTotal.total, selected: arr.length}
+    payload: { order: updatedArr, subTotal: editTotal.subTotal, total: editTotal.total, selected: arr.length}
   }
 }
 
@@ -127,7 +133,7 @@ export function cancelOrder() {
   let total, subTotal = 0;
   return {
     type: 'CANCEL_ORDER',
-    payload: { order : arr, subTotal: subTotal, total: total, modalIsOpen: false}
+    payload: { order : arr, subTotal: subTotal, total: total, modalIsOpen: false, currentScreen: 'drinks'}
   }
 }
 
@@ -148,19 +154,26 @@ export function modalClose() {
 export function saveOrder(order, orderTotal, savedOrders) {  
   let copy = order.slice();
   let obj = {};
+  let arr = savedOrders.slice();
   obj.name = '$' + orderTotal.toFixed(2);
   copy.unshift(obj);
-  let arr = savedOrders.slice();
   arr.unshift(copy);     
+  
   return {
     type: 'SAVE_ORDER',
     payload: {savedOrders: arr, modalIsOpen: false, currentOrder: [], orderTotal: 0, subTotal: 0}
   }
 }
 
-export function openOrder() {
+export function openOrder(order, savedOrders, key) { 
+  let copy = order.slice();
+  let saved = savedOrders.slice();
+  saved.splice(key, 1);    
+  copy.shift()
+  let addTotal = getTotal(copy);
+  let type = copy[copy.length -1].type;  
   return {
     type: 'OPEN_ORDER', 
-    payload : {}
+    payload : { currentOrder: copy, subTotal: addTotal.subTotal, total: addTotal.total, currentScreen: type, savedOrders: saved }
   }
 }

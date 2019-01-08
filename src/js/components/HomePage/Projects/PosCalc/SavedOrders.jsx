@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { } from './PosCalcActions';
+import { openOrder } from './PosCalcActions';
 
 class SavedOrders extends Component {
   constructor(props) {
     super(props);   
-    this.openOrder = this.openOrder.bind(this); 
+    this.openSelectedOrder = this.openSelectedOrder.bind(this); 
   }
-  openOrder() {
+  openSelectedOrder(order, savedOrders, key) {
     const { dispatch } = this.props;
-    
+    dispatch(openOrder(order, savedOrders, key))
   }
   render() {
     const { savedOrders } = this.props;        
@@ -21,7 +21,7 @@ class SavedOrders extends Component {
             return (
               
               <button className = 'saved-btns' key = {i} 
-                onClick = {() => this.openOrder()}>
+                onClick = {() => this.openSelectedOrder(order, savedOrders, i)}>
                 {order.map((item, i) => {
                   return (
                     <div key = {i}>

@@ -369,7 +369,8 @@
           background: -webkit-linear-gradient(to bottom, #dcdbc9, #9c9c9c);
           background: linear-gradient(to bottom, #dcdbc9, #9c9c9c); 
           height: 100%;
-          width: 100%;       
+          width: 100%;    
+          overflow-y: scroll;   
           &-row {    
             height: 100%;
             width: 100%;        
