@@ -116,10 +116,10 @@ export default class HomePage extends Component {
   }
 
   gitHub(link, github) {
-    // ReactGA.event({
-    //   category: 'visited GitHub',
-    //   action: github
-    // });
+    ReactGA.event({
+      category: 'visited GitHub',
+      action: github
+    });
     return (
       <a href={link} target='_blank'><img src={GitHubWhite} className='github-image' /></a>
     )
