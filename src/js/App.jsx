@@ -18,8 +18,7 @@ export default class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path='/' component={ HomePage } />
-          <Route exact path='/calc' component={ PosCalc } />
+          <Route exact path='/' component={ HomePage } />          
           <Route path ='/profile' component = { Profile } />
           <Route path ='/blogpost' component={ PageBlog } />
           <Route path ='/blogsplash' component = { BlogSplashPage } />   

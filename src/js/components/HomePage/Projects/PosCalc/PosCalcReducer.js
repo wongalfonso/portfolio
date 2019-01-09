@@ -15,7 +15,8 @@ const defaultState = {
   modalType: '',
   returnedAmount: 0,
   inputBox: ['', '.', '', '' ],
-  payment: 0
+  payment: 0,
+  previousPaid: 0
 };
 
 export default function PosReducer(state = defaultState, action) {

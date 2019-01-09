@@ -186,17 +186,19 @@ export function openOrder(order, savedOrders, key) {
 export function calculateOrder(payment, total) {
   let orderTotal = total;
   let returnedAmount = payment - orderTotal;
-  let modal;
+  let modal, leftover, paid;
   if (returnedAmount < 0) {
     modal = false;
-
+    leftover = returnedAmount * -1
+    paid = payment
   } else {
     modal = true;
+    paid = payment
   }  
 
   return {
     type: 'CALCULATE_ORDER',
-    payload: { returnedAmount: returnedAmount, tenderModalIsOpen: modal, payment: payment, inputBox: ['', '.', '', '' ], total: returnedAmount}
+    payload: { returnedAmount: returnedAmount, tenderModalIsOpen: modal, payment: paid, inputBox: ['', '.', '', '' ], total: leftover }
   }
 }
 
