@@ -124,7 +124,7 @@ export function removeSelected(order, selected) {
   let editTotal = getTotal(updatedArr);  
   return {
     type: 'REMOVED_ITEM',
-    payload: { order: updatedArr, subTotal: editTotal.subTotal, total: editTotal.total, selected: arr.length}
+    payload: { order: updatedArr, subTotal: editTotal.subTotal, total: editTotal.total, selected: arr.length, currentScreen: 'drinks'}
   }
 }
 

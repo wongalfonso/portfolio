@@ -133,10 +133,17 @@ class PosCalc extends Component {
           </div>
           <div className="pos-menus">
             <div className="pos-menus-functions">
+              {(orderTotal > 0) ?
               <button className='pos-menus-functions-btns pos-menus-functions-btns--default'
                 onClick={() => this.selectScreen('tender')}>
                 Tender
               </button>
+              : 
+              <button className='pos-menus-functions-btns pos-menus-functions-btns--default'
+                disabled>
+                Tender
+              </button>
+              }
             </div>
             <div className="pos-menus-screens">
               <button className='pos-menus-screens-btns pos-menus-screens-btns--default'
