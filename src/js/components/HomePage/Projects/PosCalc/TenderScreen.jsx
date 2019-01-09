@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import twenty from '../../../../../../public/images/twenty-dollar-bill.jpg';
 import ten from '../../../../../../public/images/ten-dollar-bill.jpg';
 import five from '../../../../../../public/images/five-dollar-bill.jpg';
-import { modalTenderClose, calculateOrder } from './PosCalcActions';
+import { modalTenderClose, calculateOrder, inputDigit } from './PosCalcActions';
 
 const modalStyle = {
   overlay: {
@@ -18,6 +18,7 @@ class TenderScreen extends Component {
     super(props);
     this.closeModal = this.closeModal.bind(this);
     this.calculate = this.calculate.bind(this);
+    this.addDigit = this.addDigit.bind(this);
   }
 
   closeModal() {
@@ -29,9 +30,13 @@ class TenderScreen extends Component {
     const { dispatch, total } = this.props;
     dispatch(calculateOrder(payment, total))
   }
-
+  addDigit(digit) {
+    const { dispatch, inputBox } = this.props;
+    dispatch(inputDigit(digit, inputBox))
+  }
   render() {
-    const { total, tenderModalIsOpen, returnedAmount } = this.props;
+    const { total, tenderModalIsOpen, returnedAmount, inputBox } = this.props;
+    console.log(inputBox[inputBox.length - 1]);
     return (
       <div className="tender-screen">
         <Modal
@@ -80,52 +85,70 @@ class TenderScreen extends Component {
           <div className="tender-screen-inputs-total">
             <div>$</div>
             <div className='total-input-screen'>
+              {inputBox.map((digit, i) => {
+                return (
+                  <span key = {i}>
+                    {digit}
+                  </span>
+                )
+              })}
             </div>
           </div>
           <div className="tender-screen-inputs-row">
             <div className="tender-screen-inputs-row-btns">
-              <button>1</button>
+              <button onClick = {() => this.addDigit(1)}>1</button>
             </div>
             <div className="tender-screen-inputs-row-btns">
-              <button>2</button>
+              <button onClick = {() => this.addDigit(2)}>2</button>
             </div>
             <div className="tender-screen-inputs-row-btns">
-              <button>3</button>
-            </div>
-          </div>
-          <div className="tender-screen-inputs-row">
-            <div className="tender-screen-inputs-row-btns">
-              <button>4</button>
-            </div>
-            <div className="tender-screen-inputs-row-btns">
-              <button>5</button>
-            </div>
-            <div className="tender-screen-inputs-row-btns">
-              <button>6</button>
+              <button onClick = {() => this.addDigit(3)}>3</button>
             </div>
           </div>
           <div className="tender-screen-inputs-row">
             <div className="tender-screen-inputs-row-btns">
-              <button>7</button>
+              <button onClick = {() => this.addDigit(4)}>4</button>
             </div>
             <div className="tender-screen-inputs-row-btns">
-              <button>8</button>
+              <button onClick = {() => this.addDigit(5)}>5</button>
             </div>
             <div className="tender-screen-inputs-row-btns">
-              <button>9</button>
-            </div>
-          </div>
-          <div className="tender-screen-inputs-row">
-            <div className="tender-screen-inputs-row-btns">
-              <button>0</button>
-            </div>
-            <div className="tender-screen-inputs-row-btns">
-              <button>00</button>
+              <button onClick = {() => this.addDigit(6)}>6</button>
             </div>
           </div>
           <div className="tender-screen-inputs-row">
             <div className="tender-screen-inputs-row-btns">
-              <button>Exact Tender</button>
+              <button onClick = {() => this.addDigit(7)}>7</button>
+            </div>
+            <div className="tender-screen-inputs-row-btns">
+              <button onClick = {() => this.addDigit(8)}>8</button>
+            </div>
+            <div className="tender-screen-inputs-row-btns">
+              <button onClick = {() => this.addDigit(9)}>9</button>
+            </div>
+          </div>
+          <div className="tender-screen-inputs-row">
+            <div className="tender-screen-inputs-row-btns">
+            {(inputBox[inputBox.length -1 ] === '') ? 
+              <button disabled>0</button>
+              : 
+              <button onClick = {() => this.addDigit(0)}>0</button>
+              }
+            </div>
+            <div className="tender-screen-inputs-row-btns">
+              {(inputBox[inputBox.length -1 ] === '') ? 
+              <button disabled>00</button>
+              : 
+              <button onClick = {() => this.addDigit('0 0')}>00</button>
+              }
+            </div>
+          </div>
+          <div className="tender-screen-inputs-row">
+            <div className="tender-screen-inputs-row-btns">
+              
+              <button onClick = {() => this.calculate(total)}>
+              Exact Tender
+              </button>
             </div>
           </div>
         </div>
@@ -138,7 +161,8 @@ function mapStateToProps(state) {
   return {
     total: state.posCalc.orderTotal,
     returnedAmount: state.posCalc.returnedAmount,
-    tenderModalIsOpen: state.posCalc.tenderModalIsOpen
+    tenderModalIsOpen: state.posCalc.tenderModalIsOpen,
+    inputBox: state.posCalc.inputBox
   }
 }
 

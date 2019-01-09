@@ -108,8 +108,7 @@ class PosCalc extends Component {
   }
 
   render() {
-    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, posModalIsOpen, modalType } = this.props;    
-    console.log(posModalIsOpen);
+    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, posModalIsOpen, modalType } = this.props;     
     let sub = subTotal ? subTotal : 0;
     let total = orderTotal ? orderTotal : 0;
     let order = currentOrder ? currentOrder : null;    

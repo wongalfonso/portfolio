@@ -130,10 +130,9 @@ export function removeSelected(order, selected) {
 
 export function cancelOrder() {
   let arr = [];
-  let total, subTotal = 0;
   return {
     type: 'CANCEL_ORDER',
-    payload: { order : arr, subTotal: subTotal, total: total, modalIsOpen: false, currentScreen: 'drinks'}
+    payload: { order : arr, subTotal: 0, total: 0, modalIsOpen: false, currentScreen: 'drinks'}
   }
 }
 
@@ -153,7 +152,7 @@ export function modalPosClose() {
 export function modalTenderClose() {
   return {
     type: 'CLOSE_TENDER_MODAL',
-    payload: {tenderModal: false, currentOrder: []}
+    payload: {tenderModal: false, currentOrder: [], currentScreen: 'drinks', subTotal: 0, total: 0}
   }
 }
 
@@ -191,5 +190,32 @@ export function calculateOrder(payment, total) {
   return {
     type: 'CALCULATE_ORDER',
     payload: { returnedAmount: returnedAmount, tenderModalIsOpen: true}
+  }
+}
+
+export function inputDigit(digit, inputBox) {  
+  const copy = inputBox.slice();
+  if (digit == '0 0') {
+    copy.push(0)
+    copy.push(0)
+    copy.reverse();
+    console.log(copy);
+    let p = copy[4]
+    copy[4] = copy[3]
+    copy[3] = copy[2];
+    copy[2] = p;
+    copy.reverse();
+  } else {
+    copy.push(digit)  
+    copy.reverse();
+    let p = copy[3]
+    copy[3] = copy[2]
+    copy[2] = p;
+    copy.reverse();  
+  }
+  let returned = copy.toString().replace(/,/g, '')  
+  return {
+    type: 'ADD_DIGIT',
+    payload: { inputBox: copy, digitReturned: returned  }
   }
 }
