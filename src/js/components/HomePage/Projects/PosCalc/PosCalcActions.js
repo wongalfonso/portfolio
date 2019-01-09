@@ -186,10 +186,17 @@ export function openOrder(order, savedOrders, key) {
 export function calculateOrder(payment, total) {
   let orderTotal = total;
   let returnedAmount = payment - orderTotal;
+  let modal;
+  if (returnedAmount < 0) {
+    modal = false;
+
+  } else {
+    modal = true;
+  }  
 
   return {
     type: 'CALCULATE_ORDER',
-    payload: { returnedAmount: returnedAmount, tenderModalIsOpen: true}
+    payload: { returnedAmount: returnedAmount, tenderModalIsOpen: modal, payment: payment, inputBox: ['', '.', '', '' ], total: returnedAmount}
   }
 }
 
@@ -199,7 +206,6 @@ export function inputDigit(digit, inputBox) {
     copy.push(0)
     copy.push(0)
     copy.reverse();
-    console.log(copy);
     let p = copy[4]
     copy[4] = copy[3]
     copy[3] = copy[2];
@@ -214,8 +220,9 @@ export function inputDigit(digit, inputBox) {
     copy.reverse();  
   }
   let returned = copy.toString().replace(/,/g, '')  
+  returned = Number(returned);
   return {
     type: 'ADD_DIGIT',
-    payload: { inputBox: copy, digitReturned: returned  }
+    payload: { inputBox: copy, payment: returned  }
   }
 }

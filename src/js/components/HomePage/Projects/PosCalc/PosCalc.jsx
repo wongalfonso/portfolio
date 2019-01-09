@@ -108,7 +108,8 @@ class PosCalc extends Component {
   }
 
   render() {
-    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, posModalIsOpen, modalType } = this.props;     
+    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, posModalIsOpen, modalType, returnedAmount, payment } = this.props;  
+    console.log(typeof payment);   
     let sub = subTotal ? subTotal : 0;
     let total = orderTotal ? orderTotal : 0;
     let order = currentOrder ? currentOrder : null;    
@@ -188,6 +189,19 @@ class PosCalc extends Component {
                     <td></td>
                     <td> 7.75 %</td>
                   </tr>
+                  {(returnedAmount < 0) ?
+                    <tr className='final-total-under'>
+                      <td>paid</td>
+                      <td></td>
+                      <td>(- {payment.toFixed(2)})</td>
+                    </tr>
+                    : 
+                    <tr className='final-total'>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+                  }
                   <tr className='final-total'>
                     <td>TOTAL DUE</td>
                     <td>$</td>
@@ -244,7 +258,9 @@ function mapStateToProps(state) {
     orderTotal: state.posCalc.orderTotal,
     posModalIsOpen: state.posCalc.posModalIsOpen,
     modalType: state.posCalc.modalType,
-    savedOrders: state.posCalc.savedOrders
+    savedOrders: state.posCalc.savedOrders,
+    returnedAmount: state.posCalc.returnedAmount,
+    payment: state.posCalc.payment
   }
 }
 

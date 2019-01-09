@@ -15,7 +15,7 @@ const defaultState = {
   modalType: '',
   returnedAmount: 0,
   inputBox: ['', '.', '', '' ],
-  digitReturned: 0
+  payment: 0
 };
 
 export default function PosReducer(state = defaultState, action) {
@@ -86,12 +86,12 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'CALCULATE_ORDER' : {
       return {
-        ...state, returnedAmount: payload.returnedAmount, tenderModalIsOpen: payload.tenderModalIsOpen
+        ...state, returnedAmount: payload.returnedAmount, tenderModalIsOpen: payload.tenderModalIsOpen, payment: payload.payment, inputBox: payload.inputBox, orderTotal: payload.total
       }
     }
     case 'ADD_DIGIT' : {      
       return {
-        ...state, inputBox: payload.inputBox, digitReturned: payload.digitReturned
+        ...state, inputBox: payload.inputBox, payment: payload.payment
       }
     }
     default: {

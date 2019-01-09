@@ -28,15 +28,16 @@ class TenderScreen extends Component {
 
   calculate(payment) {
     const { dispatch, total } = this.props;
+    payment = Number(payment)
     dispatch(calculateOrder(payment, total))
   }
   addDigit(digit) {
     const { dispatch, inputBox } = this.props;
     dispatch(inputDigit(digit, inputBox))
   }
+
   render() {
-    const { total, tenderModalIsOpen, returnedAmount, inputBox } = this.props;
-    console.log(inputBox[inputBox.length - 1]);
+    const { total, tenderModalIsOpen, returnedAmount, inputBox, payment } = this.props;       
     return (
       <div className="tender-screen">
         <Modal
@@ -76,7 +77,7 @@ class TenderScreen extends Component {
             </button>
           </div>
           <div className="tender-screen-cash-btns">
-            <button className='exact' onClick={this.submit}>
+            <button className='exact' onClick={() => this.calculate(payment)}>
               Cash
             </button>
           </div>
@@ -162,7 +163,8 @@ function mapStateToProps(state) {
     total: state.posCalc.orderTotal,
     returnedAmount: state.posCalc.returnedAmount,
     tenderModalIsOpen: state.posCalc.tenderModalIsOpen,
-    inputBox: state.posCalc.inputBox
+    inputBox: state.posCalc.inputBox,
+    payment: state.posCalc.payment
   }
 }
 
