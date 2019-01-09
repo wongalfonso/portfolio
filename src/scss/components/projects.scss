@@ -56,6 +56,10 @@
               background: linear-gradient(to right, #3a6073, #3a7bd5);
               z-index: 10;
             }
+            &--posCalc {
+              background: -webkit-linear-gradient(to left, #636363, #242424);
+              background: linear-gradient(to left, #636363, #242424);
+            }
             &--vstda {
               background: #136a8a; /* fallback for old browsers */
               background: -webkit-linear-gradient(to left, #89c1c6, #6281c9);

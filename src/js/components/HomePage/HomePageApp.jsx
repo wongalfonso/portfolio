@@ -8,7 +8,7 @@ import About from './About/About';
 import FormProjects from './Projects/FormProjects';
 import ApiProjects from './Projects/ApiProjects';
 import WebProjects from './Projects/WebProjects';
-import ChangeCalc from './Projects/PosCalc/PosCalc';
+import POSCalc from './Projects/PosCalc/PosCalc';
 import VSTDA from './Projects/VstdaApp/Vstda';
 import AstroWeight from './Projects/AstroWeight/AstroWeight';
 import Weather from './Projects/Weather/WeatherApp';
@@ -94,7 +94,7 @@ export default class HomePage extends Component {
         className={'ReactModal_Content ReactModal_Content--after-open'}
         style={modalStyle}    
       >
-        {(this.state.selected === 'Change') && <ChangeCalc closeModal = {this.closeModal} />}
+        {(this.state.selected === 'POS') && <POSCalc closeModal = {this.closeModal} />}
         {(this.state.selected == 'VSTDA') && <VSTDA closeModal={this.closeModal} />}
         {(this.state.selected == 'Astro') && <AstroWeight closeModal={this.closeModal} />}
         {(this.state.selected == 'Weather') && <Weather closeModal={this.closeModal} />}

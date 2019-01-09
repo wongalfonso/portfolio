@@ -1,4 +1,5 @@
 import React from 'react';
+import POS from './../../../../../public/images/PosImage.jpg'
 import ChangeCalcImage from './../../../../../public/images/ChangeCalc.jpg'
 import VSTDAImage from './../../../../../public/images/VSTDAReact.jpg'
 import AstroImage from './../../../../../public/images/AstroWeightCalc.jpg'
@@ -19,20 +20,21 @@ const FormProjects = ({ gitHub, title, openModal, closeModal }) => {
         </div>
         <div className="projects">
           <div className='projects-div'>
-            <img src={ChangeCalcImage}
-              className='projects-div-info projects-div-info--front' id='changeCalc'  
-              onClick={() => modal('Change')}          
+            <img src={POS}
+              className='projects-div-info projects-div-info--front' id='posCalcImage'  
+              onClick={() => modal('POS')}          
             />
-            <div className="projects-div-info projects-div-info--back projects-div-info--changeCalc" 
-                  onClick={() => modal('Change')}>
+            <div className="projects-div-info projects-div-info--back projects-div-info--posCalc" 
+                  onClick={() => modal('POS')}>
               <p className='projects-div-info-title'>
-                <u>Change Calculator</u>
+                <u>Point Of Sale Calculator</u>
                 <span className = 'projects-div-info-title--github'>
                   {gitHubLink('https://github.com/wongalfonso/React-Change-Calculator', 'change')}
                 </span>
               </p>
               <p className='projects-div-info-text'>
-                This is a simple React form that allows you to enter the total amount of an item and the amount the person used to pay for that amount. This React project is a simple JavaScript project that was easy to reproduce with some basic math logic. This is not a form that is meant to be used for online shopping due to the fact that exact totals are usually charged, this is though meant to be used as a cash register form where amounts such as a whole Dollars can be accepted to pay for the item. 
+                This is a pretty complex single page Point of Sale application that I built from memory after using the Starbucks POS system. There are still customizations that could be added to this pos but I decided to keep it very simple and just translate the UX that is involved in this software. It is just a simple cash calculator that allows you to add in items along with customizing the sizes of drinks. This system also allows you to save orders and modify them along with voiding and cancelling entire orders. 
+                {/* This is a simple React form that allows you to enter the total amount of an item and the amount the person used to pay for that amount. This React project is a simple JavaScript project that was easy to reproduce with some basic math logic. This is not a form that is meant to be used for online shopping due to the fact that exact totals are usually charged, this is though meant to be used as a cash register form where amounts such as a whole Dollars can be accepted to pay for the item.  */}
               </p>
             </div>
           </div>
