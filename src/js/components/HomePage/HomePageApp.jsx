@@ -3,7 +3,7 @@ import ReactGA from 'react-ga';
 import { ScrollToTopOnMount, SectionsContainer, Section } from 'react-fullpage';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import { pageTitle, setWidth } from './HomePageActions';
+import { pageTitle, setWidth, setCurrentPage, modalOpen, modalClose } from './HomePageActions';
 import backgroundVid from '../../../../public/video/backgroundVideo.mp4';
 import Splash from './Splash';
 import About from './About/About';
@@ -29,15 +29,6 @@ Modal.setAppElement('#app');
 class HomePage extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      modalIsOpen: false,
-      selected: '',
-      hover: '',
-      currentPage: '#Top',
-      title: 'Web Developer',
-      width: '',
-      screen: '',
-    }        
     this.scroll = this.scroll.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -49,26 +40,14 @@ class HomePage extends Component {
   
   componentDidUpdate() {
     const { currentPage, title, dispatch } = this.props;
-
-    if (currentPage !== this.props.location.hash) {
-      dispatch(pageTitle(this.props.location.hash));      
-    }
-    if (currentPage === '#Top' && title !== 'Web Developer') {
-      setTimeout( () => dispatch(pageTitle('Web Developer')),800);
-    }
-    if (currentPage === '#About' && title !== 'About Me') {
-      setTimeout( () => dispatch(pageTitle('About Me')),800);
-    }
-    if (currentPage === '#Form-Projects' && title !== 'Form Projects') {
-      setTimeout( () => dispatch(pageTitle('Form Projects')),800);      
-    }    
-    if (currentPage === '#API-Projects' && title !== 'API Projects') {
-      setTimeout( () => dispatch(pageTitle('API Projects')),800);
-    }    
-    if (currentPage === '#Web-Projects' && title !== 'Web Projects') {
-      setTimeout( () => dispatch(pageTitle('Web Projects')),800);
-    }    
+    if (currentPage !== this.props.location.hash) {dispatch(pageTitle(this.props.location.hash));}
+    if (currentPage === '#Top' && title !== 'Web Developer') {setTimeout(() => dispatch(pageTitle('Web Developer')),800);}
+    if (currentPage === '#About' && title !== 'About Me') {setTimeout(() => dispatch(pageTitle('About Me')),800);}
+    if (currentPage === '#Form-Projects' && title !== 'Form Projects') {setTimeout(() => dispatch(pageTitle('Form Projects')),800);}    
+    if (currentPage === '#API-Projects' && title !== 'API Projects') {setTimeout(() => dispatch(pageTitle('API Projects')),800);}
+    if (currentPage === '#Web-Projects' && title !== 'Web Projects') {setTimeout(() => dispatch(pageTitle('Web Projects')),800);}
   }
+
   componentDidMount() {
     const screen = this.screen; 
     const { dispatch } = this.props;
@@ -77,45 +56,44 @@ class HomePage extends Component {
     }
   }
   openModal(project) {   
-    this.setState({
-      modalIsOpen: true, 
-      selected: project
-    })
+    const { dispatch } = this.props;
+    dispatch(modalOpen(project));    
   }
 
   closeModal() {
-    this.setState({
-      modalIsOpen: false
-    })
+    const { dispatch } = this.props;
+    dispatch(modalClose());    
   }
 
   modalTemplate() {
+    const { selected, modalIsOpen } = this.props;
     return (
       <Modal
-        isOpen = {this.state.modalIsOpen}
+        isOpen = {modalIsOpen}
         onRequestClose = {this.closeModal}  
         ariaHideApp={false}
         className={'ReactModal_Content ReactModal_Content--after-open'}
         style={modalStyle}    
       >
-        {(this.state.selected === 'POS') && <POSCalc closeModal = {this.closeModal} />}
-        {(this.state.selected == 'VSTDA') && <VSTDA closeModal={this.closeModal} />}
-        {(this.state.selected == 'Astro') && <AstroWeight closeModal={this.closeModal} />}
-        {(this.state.selected == 'Weather') && <Weather closeModal={this.closeModal} />}
+        {(selected === 'POS') && <POSCalc closeModal = {this.closeModal} />}
+        {(selected == 'VSTDA') && <VSTDA closeModal={this.closeModal} />}
+        {(selected == 'Astro') && <AstroWeight closeModal={this.closeModal} />}
+        {(selected == 'Weather') && <Weather closeModal={this.closeModal} />}
       </Modal>
     )
   }
   scroll(target) {
+    const { currentPage, dispatch } = this.props;
     let page;
     if (target === '#splash') {page = 'splashPage'}
     if (target === '#about') {page = 'aboutPage'}
     if (target === '#projects') {page = 'projectPage'}
-    if (this.state.currentPage === page) {
+    if (currentPage === page) {
       return 
     } else {
       var id = document.getElementById(target).offsetTop
       window.scrollTo({top: id, behavior: 'smooth'})
-      this.setState({ currentPage: page })
+      dispatch(setCurrentPage(page));
     }
   }
 
@@ -125,7 +103,8 @@ class HomePage extends Component {
       action: github
     });
     return (
-      <a href={link} target='_blank'><img src={GitHubWhite} className='github-image' /></a>
+      <a href={link} target='_blank'><img src={GitHubWhite} className='github-image' />
+      </a>
     )
   }
   smallScreen() {    
@@ -146,8 +125,8 @@ class HomePage extends Component {
       </div>
     )
   }
-  largeScreen(options) {
-    const { title } = this.state;    
+  largeScreen(options) {    
+    const { title } = this.props;    
     return (
       <div>
         <ScrollToTopOnMount/>
@@ -211,6 +190,7 @@ class HomePage extends Component {
       sectionPaddingBottom: '0', 
       verticalAlign:        false 
     };  
+    const { width } = this.props;    
     return (      
       <div  id = 'homePage' 
             className='full-site' 
@@ -225,16 +205,22 @@ class HomePage extends Component {
           menu = {this.state.exit} 
           isActive = {this.mouseEnter}
           scroll = {this.scroll}/>     */}          
-        {(this.state.width > 900) ? this.largeScreen(options) : this.smallScreen()}
+        {(width > 900) ? this.largeScreen(options) : this.smallScreen()}
         {/* <Footer /> */}
       </div>
     )
   }
 };
 
-function mapStateToProps(state) {
+function mapStateToProps(state) {  
   return {
-
+    width: state.home.homePage.width,
+    currentPage: state.home.homePage.currentPage,
+    title: state.home.homePage.title,
+    modalIsOpen: state.home.homePage.modalIsOpen,
+    selected: state.home.homePage.selected,
+    hover: state.home.homePage.hover,
+    screen: state.home.homePage.screen
   }
 }
 

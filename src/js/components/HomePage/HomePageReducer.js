@@ -3,8 +3,6 @@ let defaultState = {
   selected: '',
   hover: '',
   currentPage: '#Top',
-  title: 'Web Developer',
-  width: '',
   screen: '',
 }
 
@@ -15,6 +13,26 @@ export default function HomePageReducer(state = defaultState, action) {
     case 'CHANGE_TITLE' : {
       return {
         ...state, title: payload
+      }
+    }
+    case 'SET_WIDTH' : {
+      return {
+        ...state, width: payload
+      }
+    }
+    case 'SET_PAGE': {
+      return {
+        ...state, currentPage: payload
+      }
+    }
+    case 'OPEN_MODAL' : {
+      return {
+        ...state, selected: payload.selected, modalIsOpen: payload.modalIsOpen
+      }
+    }
+    case 'CLOSE_MODAL' : {
+      return {
+        ...state, modalIsOpen: payload
       }
     }
     default: {

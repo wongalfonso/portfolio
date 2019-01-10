@@ -1,12 +1,11 @@
 import { combineReducers } from 'redux';
 import userReducer from './userReducer';
-import PosReducer from './components/HomePage/Projects/PosCalc/PosCalcReducer';
-import FormReducer from './components/HomePage/Projects/Weather/WeatherFormReducer';
+import homeReducer from './homeReducer';
+
 
 const rootReducer = combineReducers({
   user: userReducer,
-  weather: FormReducer,  
-  posCalc: PosReducer
+  home: homeReducer
 });
 
 export default rootReducer;

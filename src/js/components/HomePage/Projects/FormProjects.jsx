@@ -27,10 +27,7 @@ const FormProjects = ({ gitHub, title, openModal, closeModal }) => {
             <div className="projects-div-info projects-div-info--back projects-div-info--posCalc" 
                   onClick={() => modal('POS')}>
               <p className='projects-div-info-title'>
-                <u>Point Of Sale Calculator</u>
-                <span className = 'projects-div-info-title--github'>
-                  {gitHubLink('https://github.com/wongalfonso/pos-calculator', 'posCalc')}
-                </span>
+                <u>Point Of Sale Calculator</u>                
               </p>
               <p className='projects-div-info-text'>
                 This is a pretty complex single page Point of Sale application that I built from memory after using the Starbucks POS system. There are still customizations that could be added to this pos but I decided to keep it very simple and just translate the UX that is involved in this software. It is just a simple cash calculator that allows you to add in items along with customizing the sizes of drinks. This system also allows you to save orders and modify them along with voiding and cancelling entire orders. 
