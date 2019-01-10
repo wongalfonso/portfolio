@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ReactGA from 'react-ga';
 import ProjectClose from '../../ProjectClose';
 
@@ -16,7 +17,7 @@ var planets = [
   ['The Sun', 27.9]
 ];
 
-export default class AstroWeight extends Component {
+class AstroWeight extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -164,3 +165,11 @@ export default class AstroWeight extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    
+  }
+}
+
+export default connect(mapStateToProps)(AstroWeight);
