@@ -29,7 +29,7 @@ const FormProjects = ({ gitHub, title, openModal, closeModal }) => {
               <p className='projects-div-info-title'>
                 <u>Point Of Sale Calculator</u>
                 <span className = 'projects-div-info-title--github'>
-                  {gitHubLink('https://github.com/wongalfonso/React-Change-Calculator', 'change')}
+                  {gitHubLink('https://github.com/wongalfonso/pos-calculator', 'posCalc')}
                 </span>
               </p>
               <p className='projects-div-info-text'>

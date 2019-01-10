@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import { ScrollToTopOnMount, SectionsContainer, Section } from 'react-fullpage';
 import Modal from 'react-modal';
+import { connect } from 'react-redux';
 import backgroundVid from '../../../../public/video/backgroundVideo.mp4';
 import Splash from './Splash';
 import About from './About/About';
@@ -24,7 +25,7 @@ const modalStyle = {
 };
 Modal.setAppElement('#app');
 
-export default class HomePage extends Component {
+class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,6 +48,7 @@ export default class HomePage extends Component {
   
   componentDidUpdate() {
     const { currentPage, title } = this.state;
+
     if (currentPage !== this.props.location.hash) {
       this.setState({currentPage: this.props.location.hash})
     }
@@ -227,3 +229,11 @@ export default class HomePage extends Component {
     )
   }
 };
+
+function mapStateToProps(state) {
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps)(HomePage);
