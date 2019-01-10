@@ -3,6 +3,7 @@ import ReactGA from 'react-ga';
 import { ScrollToTopOnMount, SectionsContainer, Section } from 'react-fullpage';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
+import { pageTitle, setWidth } from './HomePageActions';
 import backgroundVid from '../../../../public/video/backgroundVideo.mp4';
 import Splash from './Splash';
 import About from './About/About';
@@ -47,31 +48,32 @@ class HomePage extends Component {
   }  
   
   componentDidUpdate() {
-    const { currentPage, title } = this.state;
+    const { currentPage, title, dispatch } = this.props;
 
     if (currentPage !== this.props.location.hash) {
-      this.setState({currentPage: this.props.location.hash})
+      dispatch(pageTitle(this.props.location.hash));      
     }
     if (currentPage === '#Top' && title !== 'Web Developer') {
-      setTimeout( () => this.setState({title: 'Web Developer'}),800);
+      setTimeout( () => dispatch(pageTitle('Web Developer')),800);
     }
     if (currentPage === '#About' && title !== 'About Me') {
-      setTimeout( () => this.setState({title: 'About Me'}),800);
+      setTimeout( () => dispatch(pageTitle('About Me')),800);
     }
     if (currentPage === '#Form-Projects' && title !== 'Form Projects') {
-      setTimeout( () => this.setState({title: 'Form Projects'}),800);      
+      setTimeout( () => dispatch(pageTitle('Form Projects')),800);      
     }    
     if (currentPage === '#API-Projects' && title !== 'API Projects') {
-      setTimeout( () => this.setState({title: 'API Projects'}),800);
+      setTimeout( () => dispatch(pageTitle('API Projects')),800);
     }    
     if (currentPage === '#Web-Projects' && title !== 'Web Projects') {
-      setTimeout( () => this.setState({title: 'Web Projects'}),800);
+      setTimeout( () => dispatch(pageTitle('Web Projects')),800);
     }    
   }
   componentDidMount() {
     const screen = this.screen; 
+    const { dispatch } = this.props;
     if (screen.clientWidth) {
-      this.setState({width: screen.clientWidth})      
+      dispatch(setWidth(screen.clientWidth))         
     }
   }
   openModal(project) {   
