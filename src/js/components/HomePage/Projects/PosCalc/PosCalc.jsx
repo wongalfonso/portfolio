@@ -30,12 +30,7 @@ class PosCalc extends Component {
     const { dispatch } = this.props;
     dispatch(getMenu())
   }
-  componentDidMount() {
-    ReactGA.event({
-      category: 'Opened Modal',
-      action: 'POS calculator'
-    })
-  }
+  
   selectScreen(screen) {
     const { dispatch } = this.props;
     dispatch(changeScreen(screen));

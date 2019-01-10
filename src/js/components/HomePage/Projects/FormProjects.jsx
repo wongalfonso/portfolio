@@ -12,6 +12,8 @@ const FormProjects = ({ gitHub, title, openModal, closeModal }) => {
   let modal = (modal) => {       
     openModal(modal);
   }
+
+  
   return (
     <div className='projects-page-form full-page'>
       <div className="container projects-container">
