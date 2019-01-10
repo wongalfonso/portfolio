@@ -1,4 +1,5 @@
 let defaultState = {
+  title: '',
   modalIsOpen: false,
   selected: '',
   hover: '',

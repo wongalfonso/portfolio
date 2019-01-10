@@ -4,12 +4,11 @@ import profileImage from '../../../../../public/images/mainProfileImage.png';
 
 const About = ({ title }) => {
 
-  const downloadResume = () => {
-    console.log('yes');
-    // ReactGA.event({
-    //   category: 'Clicked About Page Button',
-    //     action: 'downloaded Resume'
-    //     })
+  const downloadResume = () => {    
+    ReactGA.event({
+      category: 'Clicked About Page Button',
+        action: 'downloaded Resume'
+        })
   }
   return (
     <div className='about-page' id='aboutPage'>

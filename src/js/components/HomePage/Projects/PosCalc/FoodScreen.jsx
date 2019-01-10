@@ -45,9 +45,9 @@ class FoodScreen extends Component {
 
 function mapStateToProps(state) {  
   return {
-    bakery: state.posCalc.bakery,
-    breakfast: state.posCalc.breakfast,
-    currentOrder: state.posCalc.currentOrder
+    bakery: state.home.posCalc.bakery,
+    breakfast: state.home.posCalc.breakfast,
+    currentOrder: state.home.posCalc.currentOrder
   }
 }
 

@@ -80,13 +80,13 @@ class CityInfo extends Component {
 
 function mapStateToProps(state) {
   return {
-    loading: state.weather.loading,
-    data: state.weather.data,
-    input: state.weather.input,
-    time: state.weather.time,
-    date: state.weather.date,
-    success: state.weather.success,
-    throwErr: state.weather.throwErr
+    loading: state.home.weather.loading,
+    data: state.home.weather.data,
+    input: state.home.weather.input,
+    time: state.home.weather.time,
+    date: state.home.weather.date,
+    success: state.home.weather.success,
+    throwErr: state.home.weather.throwErr
   }
 }
 

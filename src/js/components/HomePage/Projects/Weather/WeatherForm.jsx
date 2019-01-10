@@ -140,9 +140,9 @@ class Form extends Component {
 
 function mapStateToProps(state) {
   return {
-    input: state.weather.input,
-    data: state.weather.data,
-    throwErr: state.weather.throwErr,
+    input: state.home.weather.input,
+    data: state.home.weather.data,
+    throwErr: state.home.weather.throwErr,
   }
 }
 

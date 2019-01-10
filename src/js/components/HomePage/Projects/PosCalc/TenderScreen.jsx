@@ -160,11 +160,11 @@ class TenderScreen extends Component {
 
 function mapStateToProps(state) {
   return {
-    total: state.posCalc.orderTotal,
-    returnedAmount: state.posCalc.returnedAmount,
-    tenderModalIsOpen: state.posCalc.tenderModalIsOpen,
-    inputBox: state.posCalc.inputBox,
-    payment: state.posCalc.payment
+    total: state.home.posCalc.orderTotal,
+    returnedAmount: state.home.posCalc.returnedAmount,
+    tenderModalIsOpen: state.home.posCalc.tenderModalIsOpen,
+    inputBox: state.home.posCalc.inputBox,
+    payment: state.home.posCalc.payment
   }
 }
 

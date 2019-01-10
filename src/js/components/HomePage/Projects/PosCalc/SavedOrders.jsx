@@ -47,7 +47,7 @@ class SavedOrders extends Component {
 
 function mapStateToProps(state) {  
   return {
-    savedOrders: state.posCalc.savedOrders
+    savedOrders: state.home.posCalc.savedOrders
   }
 }
 

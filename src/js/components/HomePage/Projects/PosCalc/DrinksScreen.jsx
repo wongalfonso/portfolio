@@ -71,11 +71,11 @@ class DrinksScreen extends Component {
 
 function mapStateToProps(state) {  
   return {
-    coffees: state.posCalc.coffees,
-    currentOrder: state.posCalc.currentOrder,
-    drinkSize: state.posCalc.drinkSize,
-    sizes: state.posCalc.sizes,
-    currentSelected: state.posCalc.currentSelected
+    coffees: state.home.posCalc.coffees,
+    currentOrder: state.home.posCalc.currentOrder,
+    drinkSize: state.home.posCalc.drinkSize,
+    sizes: state.home.posCalc.sizes,
+    currentSelected: state.home.posCalc.currentSelected
   }
 }
 

@@ -28,24 +28,41 @@ Modal.setAppElement('#app');
 
 class HomePage extends Component {
   constructor(props) {
-    super(props);
-    this.scroll = this.scroll.bind(this);
+    super(props);    
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.modalTemplate = this.modalTemplate.bind(this);    
+    this.analytics = this.analytics.bind(this);
   }
   componentWillMount() {
     ReactGA.initialize('UA-126168783-1');      
   }  
   
+  analytics() {
+    ReactGA.event({
+      category: 'scrolled',
+      action: `scrolled to ${location}`
+    })
+  }
+
   componentDidUpdate() {
-    const { currentPage, title, dispatch } = this.props;
-    if (currentPage !== this.props.location.hash) {dispatch(pageTitle(this.props.location.hash));}
-    if (currentPage === '#Top' && title !== 'Web Developer') {setTimeout(() => dispatch(pageTitle('Web Developer')),800);}
-    if (currentPage === '#About' && title !== 'About Me') {setTimeout(() => dispatch(pageTitle('About Me')),800);}
-    if (currentPage === '#Form-Projects' && title !== 'Form Projects') {setTimeout(() => dispatch(pageTitle('Form Projects')),800);}    
-    if (currentPage === '#API-Projects' && title !== 'API Projects') {setTimeout(() => dispatch(pageTitle('API Projects')),800);}
-    if (currentPage === '#Web-Projects' && title !== 'Web Projects') {setTimeout(() => dispatch(pageTitle('Web Projects')),800);}
+    const { title, dispatch, location } = this.props;
+    let hash = location.hash.replace(/#/g, '');        
+    if (hash === 'Top' && title !== 'Web Developer') {
+
+      setTimeout(() => dispatch(pageTitle('Web Developer')),800);}
+    if (hash === 'About' && title !== 'About Me') {     
+      this.analytics(hash); 
+      setTimeout(() => dispatch(pageTitle('About Me')),800);}
+    if (hash === 'Form-Projects' && title !== 'Form Projects') {
+      this.analytics(hash);
+      setTimeout(() => dispatch(pageTitle('Form Projects')),800);}
+    if (hash === 'API-Projects' && title !== 'API Projects') {
+      this.analytics(hash);
+      setTimeout(() => dispatch(pageTitle('API Projects')),800);}
+    if (hash === 'Web-Projects' && title !== 'Web Projects') {
+      this.analytics(hash);
+      setTimeout(() => dispatch(pageTitle('Web Projects')),800);}
   }
 
   componentDidMount() {
@@ -82,31 +99,7 @@ class HomePage extends Component {
       </Modal>
     )
   }
-  scroll(target) {
-    const { currentPage, dispatch } = this.props;
-    let page;
-    if (target === '#splash') {page = 'splashPage'}
-    if (target === '#about') {page = 'aboutPage'}
-    if (target === '#projects') {page = 'projectPage'}
-    if (currentPage === page) {
-      return 
-    } else {
-      var id = document.getElementById(target).offsetTop
-      window.scrollTo({top: id, behavior: 'smooth'})
-      dispatch(setCurrentPage(page));
-    }
-  }
 
-  gitHub(link, github) {
-    ReactGA.event({
-      category: 'visited GitHub',
-      action: github
-    });
-    return (
-      <a href={link} target='_blank'><img src={GitHubWhite} className='github-image' />
-      </a>
-    )
-  }
   smallScreen() {    
     return (
       <div>
@@ -126,7 +119,7 @@ class HomePage extends Component {
     )
   }
   largeScreen(options) {    
-    const { title } = this.props;    
+    const { title } = this.props;        
     return (
       <div>
         <ScrollToTopOnMount/>

@@ -60,9 +60,9 @@ class Search extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    searchHistory: state.weather.data,
-    throwErr: state.weather.throwErr,
-    cache: state.weather.cache
+    searchHistory: state.home.weather.data,
+    throwErr: state.home.weather.throwErr,
+    cache: state.home.weather.cache
   };
 }
 

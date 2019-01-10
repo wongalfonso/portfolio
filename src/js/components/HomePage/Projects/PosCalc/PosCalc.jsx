@@ -248,18 +248,18 @@ class PosCalc extends Component {
   }
 };
 
-function mapStateToProps(state) {
+function mapStateToProps(state) {  
   return {
-    currentScreen: state.posCalc.currentScreen,
-    currentOrder: state.posCalc.currentOrder,
-    currentSelected: state.posCalc.currentSelected,
-    subTotal: state.posCalc.subTotal,
-    orderTotal: state.posCalc.orderTotal,
-    posModalIsOpen: state.posCalc.posModalIsOpen,
-    modalType: state.posCalc.modalType,
-    savedOrders: state.posCalc.savedOrders,
-    returnedAmount: state.posCalc.returnedAmount,
-    payment: state.posCalc.payment    
+    currentScreen: state.home.posCalc.currentScreen,
+    currentOrder: state.home.posCalc.currentOrder,
+    currentSelected: state.home.posCalc.currentSelected,
+    subTotal: state.home.posCalc.subTotal,
+    orderTotal: state.home.posCalc.orderTotal,
+    posModalIsOpen: state.home.posCalc.posModalIsOpen,
+    modalType: state.home.posCalc.modalType,
+    savedOrders: state.home.posCalc.savedOrders,
+    returnedAmount: state.home.posCalc.returnedAmount,
+    payment: state.home.posCalc.payment    
   }
 }
 
