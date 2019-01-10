@@ -24,13 +24,18 @@ class PosCalc extends Component {
     this.openModal = this.openModal.bind(this);
     this.cancelOrderModal = this.cancelOrderModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.saveEntireOrder = this.saveEntireOrder.bind(this);    
+    this.saveEntireOrder = this.saveEntireOrder.bind(this);
   }
   componentWillMount() {
     const { dispatch } = this.props;
     dispatch(getMenu())
   }
-
+  componentDidMount() {
+    ReactGA.event({
+      category: 'Opened Modal',
+      action: 'POS calculator'
+    })
+  }
   selectScreen(screen) {
     const { dispatch } = this.props;
     dispatch(changeScreen(screen));
@@ -48,7 +53,7 @@ class PosCalc extends Component {
     dispatch(cancelOrder())
   }
   openModal(modal) {
-    
+
     const { dispatch } = this.props;
     dispatch(modalPosOpen(modal))
   }
@@ -64,18 +69,18 @@ class PosCalc extends Component {
   }
   cancelOrderModal() {
     return (
-      <div className = 'pos-modal'>
-        <div className = 'pos-modal-message'>
+      <div className='pos-modal'>
+        <div className='pos-modal-message'>
           Are you sure you want to cancel the entire order?
         </div>
-        <div className = 'pos-modal-btns'>
-          <button onClick={this.closeModal} 
-            className = 'pos-modal-btns-cancel'> 
+        <div className='pos-modal-btns'>
+          <button onClick={this.closeModal}
+            className='pos-modal-btns-cancel'>
             Cancel
           </button>
           <button onClick={this.cancelEntireOrder}
-            className = 'pos-modal-btns-submit'> 
-            Submit 
+            className='pos-modal-btns-submit'>
+            Submit
           </button>
         </div>
       </div>
@@ -89,29 +94,29 @@ class PosCalc extends Component {
 
   saveOrderModal() {
     return (
-      <div className = 'pos-modal'>
-      <div className = 'pos-modal-message'>
-      Are you sure you want to save this order?
+      <div className='pos-modal'>
+        <div className='pos-modal-message'>
+          Are you sure you want to save this order?
       </div>
-      <div className = 'pos-modal-btns'>
-      <button onClick={this.closeModal} 
-        className = 'pos-modal-btns-cancel'> 
-        Cancel
+        <div className='pos-modal-btns'>
+          <button onClick={this.closeModal}
+            className='pos-modal-btns-cancel'>
+            Cancel
       </button>
-      <button onClick={this.saveEntireOrder}
-        className = 'pos-modal-btns-save'> 
-        Save
+          <button onClick={this.saveEntireOrder}
+            className='pos-modal-btns-save'>
+            Save
       </button>
-    </div>
-  </div>
+        </div>
+      </div>
     )
   }
 
   render() {
-    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, posModalIsOpen, modalType, returnedAmount, payment } = this.props;      
+    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, posModalIsOpen, modalType, returnedAmount, payment } = this.props;
     let sub = subTotal ? subTotal : 0;
     let total = orderTotal ? orderTotal : 0;
-    let order = currentOrder ? currentOrder : null;    
+    let order = currentOrder ? currentOrder : null;
     return (
       <div id="posCalcProject">
         <div className="container pos-container">
@@ -134,14 +139,14 @@ class PosCalc extends Component {
           <div className="pos-menus">
             <div className="pos-menus-functions">
               {(orderTotal > 0) ?
-              <button className='pos-menus-functions-btns pos-menus-functions-btns--default'
-                onClick={() => this.selectScreen('tender')}>
-                Tender
+                <button className='pos-menus-functions-btns pos-menus-functions-btns--default'
+                  onClick={() => this.selectScreen('tender')}>
+                  Tender
               </button>
-              : 
-              <button className='pos-menus-functions-btns pos-menus-functions-btns--default'
-                disabled>
-                Tender
+                :
+                <button className='pos-menus-functions-btns pos-menus-functions-btns--default'
+                  disabled>
+                  Tender
               </button>
               }
             </div>
@@ -194,12 +199,12 @@ class PosCalc extends Component {
                       <td></td>
                       <td>(- {payment.toFixed(2)})</td>
                     </tr>
-                    : 
+                    :
                     <tr className='final-total'>
                       <td></td>
                       <td></td>
                       <td></td>
-                  </tr>
+                    </tr>
                   }
                   <tr className='final-total'>
                     <td>TOTAL DUE</td>
@@ -217,15 +222,15 @@ class PosCalc extends Component {
                   onClick={() => this.openModal('cancel')}>
                   Cancel
                 </button>
-                {(currentOrder.length < 1 ) ? 
-                <button className='pos-order-screen-voids-btns save' 
-                  onClick= {() => this.selectScreen('orders')}>
-                Find Order
+                {(currentOrder.length < 1) ?
+                  <button className='pos-order-screen-voids-btns save'
+                    onClick={() => this.selectScreen('orders')}>
+                    Find Order
                 </button>
-                :
-                <button className='pos-order-screen-voids-btns save' 
-                  onClick= {() => this.openModal('save')}>
-                  Save Order
+                  :
+                  <button className='pos-order-screen-voids-btns save'
+                    onClick={() => this.openModal('save')}>
+                    Save Order
                 </button>
                 }
               </div>
@@ -248,7 +253,7 @@ class PosCalc extends Component {
   }
 };
 
-function mapStateToProps(state) {  
+function mapStateToProps(state) {
   return {
     currentScreen: state.home.posCalc.currentScreen,
     currentOrder: state.home.posCalc.currentOrder,
@@ -259,7 +264,7 @@ function mapStateToProps(state) {
     modalType: state.home.posCalc.modalType,
     savedOrders: state.home.posCalc.savedOrders,
     returnedAmount: state.home.posCalc.returnedAmount,
-    payment: state.home.posCalc.payment    
+    payment: state.home.posCalc.payment
   }
 }
 
