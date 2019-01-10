@@ -43,10 +43,7 @@ const FormProjects = ({ gitHub, title, openModal, closeModal }) => {
             <div className="projects-div-info projects-div-info--back projects-div-info--vstda" 
                   onClick={() => modal('VSTDA')}>
               <p className='projects-div-info-title'>
-                <u>VSTDA</u>
-                <span className = 'projects-div-info-title--github'>
-                  {gitHubLink('https://github.com/wongalfonso/VSTDA', 'vstda')}
-                </span>
+                <u>VSTDA</u>                
               </p>
               <p className='projects-div-info-text'>
                 The main purpose of this application is to create a list and use basic CRUD operations within React's state. With this application you have the ability to Add an item to the list and select a priority. Once the item has been added, the user has the ability to Update the lists priority or description and then Delete it once it is no longer needed. CRUD operations within React was a new concept that it took me a while to wrap my brain around. Finally learning this concept help grasp the idea and true power within React.
@@ -62,10 +59,7 @@ const FormProjects = ({ gitHub, title, openModal, closeModal }) => {
                   onClick={() => modal('Astro')} 
                   >
               <p className='projects-div-info-title'>
-                <u>Astro Calculator</u>
-                <span className = 'projects-div-info-title--github'>
-                  {gitHubLink('https://github.com/wongalfonso/Astro-Weight-React', 'astro')}
-                </span>
+                <u>Astro Calculator</u>                
               </p>
               <p className='projects-div-info-text'>
                 This form is a basic JavaScript form that I modified into a React form. The main purpose of this form is for the user to input their current weight and the form will adjust the users weight depending on the planet they choose from the list. I added a feature to remove Pluto from the list since it has been downgraded from a planet to a Dwarf Planet. This is one of the first JavaScript projects that I worked on and the toughest part for me was trying to understand objects and arrays.
