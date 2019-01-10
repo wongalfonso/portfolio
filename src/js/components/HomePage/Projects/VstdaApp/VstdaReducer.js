@@ -9,7 +9,7 @@ const defaultState = {
   overflow: '',
 }
 
-export default function vstdaReducer(state = defaultState, action) {
+export default function VstdaReducer(state = defaultState, action) {
   const { payload, type } = action;
 
   switch(type) {

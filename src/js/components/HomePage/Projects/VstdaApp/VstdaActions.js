@@ -11,7 +11,6 @@ export function createToDoItem(id, todo, priority, editing, completed, lists) {
   },
   ...lists  
   ]
-
   return {
     type: 'CREATE_TODO',
     payload: { lists: completeList, toDo: '' }
@@ -71,7 +70,7 @@ export function handleToDoItem(text, name, id, lists) {
         ...todo,
         toDo: text,
         priority: name,
-        eiditing: false
+        editing: false
       };
     }
     return todo

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const List = ({ onEdit, onRemove, updateToDo, list}) => {
-
+  console.log(list);
   const edit = (e) => {
     e.preventDefault()
     onEdit(list.id, true);
@@ -42,9 +42,12 @@ export const List = ({ onEdit, onRemove, updateToDo, list}) => {
                     id = 'updateToDoPriority' 
                     ref={input => _priority = input} 
                     defaultValue={list.priority}>
-            <option value='list-group-item-success'>Low Priority</option>
-            <option value='list-group-item-warning'>Medium Priority</option>
-            <option value='list-group-item-danger'>High Priority</option>
+            <option value='-item-success'>Low Priority
+            </option>
+            <option value='-item-warning'>Medium Priority
+            </option>
+            <option value='-item-danger'>High Priority
+            </option>
           </select>                    
           <button className='vstda-list-body-group-edit-btns-cancel' 
                   onClick={cancel}>

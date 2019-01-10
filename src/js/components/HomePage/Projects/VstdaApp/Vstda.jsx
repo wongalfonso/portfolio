@@ -4,21 +4,11 @@ import ReactGA from 'react-ga';
 import { List } from './List';
 import { ToDoForm } from './ToDoForm';
 import ProjectClose from '../../ProjectClose';
-import { createToDoItem, addText, updatePriority, editItem, completed, handleToDoItem} from './VstdaActions';
+import { createToDoItem, addText, updatePriority, editItem, completed, handleToDoItem, removeItem} from './VstdaActions';
 
 class VSTDA extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      lists: [],
-      toDo: '',
-      priority: '-item-success',
-      id: '',
-      newTodo: '',
-      completed: false,
-      editing: false,
-      overflow: '',
-    };
     this.createToDo = this.createToDo.bind(this);
     this.handleText = this.handleText.bind(this);
     this.handleToDo = this.handleToDo.bind(this);
@@ -64,8 +54,8 @@ class VSTDA extends Component {
     dispatch(completed(id, bool, lists));
   }
 
-  handleToDo(newText, newName, id) {
-    const { dispatch, lists } = this.props;
+  handleToDo(newText, newName, id) {    
+    const { dispatch, lists } = this.props;    
     dispatch(handleToDoItem(newText, newName, id, lists));
   }
 
