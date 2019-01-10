@@ -59,7 +59,7 @@ class PosCalc extends Component {
   gitHub() {
     ReactGA.event({
       category: 'Visited GitHub from Modal',
-      action: 'From Change Modal'
+      action: 'From POS Modal'
     })
   }
   cancelOrderModal() {
@@ -239,6 +239,7 @@ class PosCalc extends Component {
 
           </div>
           <ProjectClose
+            white = 'white'
             github={this.github}
             close={this.props.closeModal}
           />

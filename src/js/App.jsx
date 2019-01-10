@@ -11,6 +11,7 @@ import ListEdit from './components/Blog/ListEdit';
 import BlogSplashPage from './components/Blog/BlogSplashPage';
 import PosCalc from './components/HomePage/Projects/PosCalc/PosCalc';
 import Weather from './components/HomePage/Projects/Weather/WeatherApp';
+import VSTDA from './components/HomePage/Projects/VstdaApp/Vstda'
 
 
 export default class App extends Component {
@@ -18,7 +19,8 @@ export default class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path='/' component={ HomePage } />          
+          <Route exact path='/' component={ HomePage } />    
+          <Route exact path='/vstda' component={ VSTDA } />          
           <Route path ='/profile' component = { Profile } />
           <Route path ='/blogpost' component={ PageBlog } />
           <Route path ='/blogsplash' component = { BlogSplashPage } />   

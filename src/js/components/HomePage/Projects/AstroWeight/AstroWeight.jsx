@@ -156,6 +156,7 @@ export default class AstroWeight extends Component {
           </div>
           <ProjectClose
             white = 'white'
+            github={this.github}
             close = {this.props.closeModal}
           />
         </div>

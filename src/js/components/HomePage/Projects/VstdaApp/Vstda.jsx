@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ReactGA from 'react-ga';
 import { List } from './List';
 import { ToDoForm } from './ToDoForm';
 import ProjectClose from '../../ProjectClose';
+import { createToDoItem, addText, updatePriority, editItem, completed, handleToDoItem} from './VstdaActions';
 
-export default class VSTDA extends Component {
+class VSTDA extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,88 +32,52 @@ export default class VSTDA extends Component {
       action: 'From VSTDA Modal'
     })
   }
+
   createToDo(event) {
     event.preventDefault();
-    this.setState({
-      lists: [{
-        id: Date.now(),
-        toDo: this.state.toDo,
-        priority: this.state.priority,
-        editing: this.state.editing,
-        completed: this.state.completed
-      },
-      ...this.state.lists
-      ],
-      toDo: '',
-    })
+    const { dispatch, toDo, priority, editing, completed, lists } = this.props;
+    let id = Date.now();
+    dispatch(createToDoItem(id, toDo, priority, editing, completed, lists ));
   }
 
   handleText(event) {
-    this.setState({
-      toDo: event.target.value
-    })
+    const { dispatch } = this.props;
+    dispatch(addText(event.target.value));    
   }
 
   handlePrior(event) {
+    const { dispatch } = this.props;
     let val;
     if (event.target.value === '3') { val = '-item-danger' }
     if (event.target.value === '2') { val = '-item-warning' }
     if (event.target.value === '1') { val = '-item-success' }
-    this.setState({ priority: val })
+    dispatch(updatePriority(val));    
   }
 
   edit(id, bool) {
-    this.setState({
-      lists: this.state.lists.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            editing: bool
-          };
-        }
-        return todo;
-      })
-    });
+    const { dispatch, lists } = this.props;
+    dispatch(editItem(id, bool, lists));
   }
+
   handleCompleted(id, bool) {
-    this.setState({
-      lists: this.state.lists.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            completed: bool
-          };
-        }
-        return todo;
-      })
-    });
+    const { dispatch, lists } = this.props;
+    dispatch(completed(id, bool, lists));
   }
 
   handleToDo(newText, newName, id) {
-    this.setState({
-      lists: this.state.lists.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            toDo: newText,
-            priority: newName,
-            editing: false
-          };
-        }
-        return todo
-      })
-    });
+    const { dispatch, lists } = this.props;
+    dispatch(handleToDoItem(newText, newName, id, lists));
   }
 
   remove(id) {
-    var lists = this.state.lists.filter(list => list.id !== id)
-    this.setState({ lists })
+    const { dispatch, lists } = this.props;
+    dispatch(removeItem(id, lists));    
   }
 
 
   render() {
+    const { lists, toDo, priority, } = this.props;
     return (
-
       <div id='vstdaProject' className='all-project-pages'>
         <div className='container vstda-container'>          
           <header className="vstda-header project-header">
@@ -122,9 +88,9 @@ export default class VSTDA extends Component {
           </header>          
           <div className="content vstda-content">
             <ToDoForm createToDo={this.createToDo} 
-                      toDo={this.state.toDo} 
+                      toDo={toDo} 
                       handleText={this.handleText} 
-                      priority={this.state.priority} 
+                      priority={priority} 
                       handlePrior={this.handlePrior}
             />
 
@@ -136,7 +102,7 @@ export default class VSTDA extends Component {
                   View Todos
                 </div>
                 <ul className='vstda-list-body-group'>
-                  {this.state.lists.map((list, i) => {
+                  {lists.map((list) => {
                     return (
                       <List  key={list.id} 
                             list={list} 
@@ -164,5 +130,18 @@ export default class VSTDA extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    lists: state.home.vstda.lists,
+    toDo: state.home.vstda.toDo,
+    priority: state.home.vstda.priority,
+    id: state.home.vstda.priority,
+    newTodo: state.home.vstda.newTodo,
+    completed: state.home.vstda.completed,
+    editing: state.home.vstda.editing,
+    overflow: state.home.vstda.overflow
+  }
+}
 
+export default connect(mapStateToProps)(VSTDA);
 
