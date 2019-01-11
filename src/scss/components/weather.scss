@@ -130,11 +130,14 @@
         flex-direction: column;
         -ms-flex-direction: column;
         background-color: rgba(255, 255, 255, 0.4);
+        border-right: 2px rgba(255,255,255, .4) solid;
+        border-bottom: 2px rgba(255,255,255, .4) solid;
+        border-left: 2px rgba(255,255,255, .4) solid;
         &-main {
           flex: 1;
           display: flex;    
           flex-wrap: wrap;  
-          height: 13rem;    
+          height: 17rem;    
           .city {            
             font-weight: bold;
             font-size: 2.4rem;
@@ -155,13 +158,12 @@
               }
             }
             &-temp {
-              color: white;
-              text-align: left;
-              font-size: 4rem;
-              &-degrees {
-
-              }
-            }
+              color: white;              
+              font-size: 4rem;              
+            }            
+          }
+          .basic-info {
+            
           }
           &-description {
             flex: 1 0 38rem;

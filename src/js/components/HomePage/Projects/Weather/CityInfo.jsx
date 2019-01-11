@@ -12,9 +12,10 @@ class CityInfo extends Component {
           {datePrint}
         </div>
         {weatherInfo.map((weather, i) => {
+          console.log(weather);
           const { lon, lat } = weather.coord;
           const { humidity, pressure, temp, temp_max, temp_min } = weather.main;
-          const { country } = weather.sys;
+          const { country, sunrise, sunset } = weather.sys;
           const { description, icon } = weather.weather[0];
           const { speed } = weather.wind.speed;
           return (
@@ -29,12 +30,12 @@ class CityInfo extends Component {
                   </div>
                   <div className='city-temp'>      
                     <div className ='city-temp-degrees'>
-                    {temp}F
+                    {temp} ˚
                     </div>
                   </div>
                 </div>
-                <div>
-
+                <div className = 'basic-info'>
+                  
                 </div>
                 {/* <div className='weather-output-info-body-city-description'>
                       <span>
