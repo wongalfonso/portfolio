@@ -91,7 +91,8 @@ export default function FormReducer(state = defaultState, action) {
     }
 
     case 'UPDATE_INPUT': {
-      return { ...state, input: payload.input, 
+      return { 
+        ...state, input: payload, 
       };
     }
     default: {

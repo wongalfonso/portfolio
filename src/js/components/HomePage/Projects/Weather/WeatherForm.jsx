@@ -42,7 +42,8 @@ class Form extends Component {
   }
 
   handleInput(e) {
-    this.setState({input: e.target.value})
+    const { dispatch } = this.props;
+    dispatch(updateText(e.target.value));
   }
 
   handleInputButton() {

@@ -21,7 +21,7 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route exact path='/' component={ HomePage } />    
-          <Route exact path='/astro' component={ AstroWeight } />          
+          <Route exact path='/weather' component={ Weather } />          
           <Route path ='/profile' component = { Profile } />
           <Route path ='/blogpost' component={ PageBlog } />
           <Route path ='/blogsplash' component = { BlogSplashPage } />   
