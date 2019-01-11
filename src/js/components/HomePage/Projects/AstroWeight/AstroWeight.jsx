@@ -49,8 +49,7 @@ class AstroWeight extends Component {
 
   render() {
     let { planetList, weight, checked, output, newWeight, planetName } = this.props;
-    let list;
-    console.log(checked);
+    let list;    
     if (checked) { list = planetList.slice(); list.splice(11, 1) }
     if (checked === false) { list = planetList };
     return (
