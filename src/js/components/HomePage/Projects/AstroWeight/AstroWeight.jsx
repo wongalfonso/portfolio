@@ -2,70 +2,43 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactGA from 'react-ga';
 import ProjectClose from '../../ProjectClose';
-
-var planets = [
-  ['Pluto', 0.06],
-  ['Neptune', 1.148],
-  ['Uranus', 0.917],
-  ['Saturn', 1.139],
-  ['Jupiter', 2.640],
-  ['Mars', 0.3895],
-  ['The Moon', 0.1655],
-  ['Earth', 1],
-  ['Venus', 0.9032],
-  ['Mercury', 0.377],
-  ['The Sun', 27.9]
-];
+import { addWeight, updateList, selectedPlanet, checked, calculateWeight } from './AstroWeightActions';
 
 class AstroWeight extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      weight: '',
-      planetValue: 0,
-      planetName: '',
-      planetList: [],
-      checked: false,
-      newWeight: '',
-      output: '',
-    }
     this.handleWeight = this.handleWeight.bind(this);
     this.handlePlanets = this.handlePlanets.bind(this);
     this.handleChecked = this.handleChecked.bind(this);
     this.submit = this.submit.bind(this);
   }
   componentDidMount() {
-    planets.push('a');
-    planets = planets.reverse()
-    this.setState({
-      planetList: planets,
-    })
+    const { dispatch } = this.props;
+    dispatch(updateList());
   }
+
   handleWeight(e) {
-    const newWeight = (e.target.validity.valid) ? e.target.value : this.state.weight
-    this.setState({ weight: newWeight })
+    const { weight, dispatch } = this.props;
+    const newWeight = (e.target.validity.valid) ? e.target.value : weight
+    dispatch(addWeight(newWeight));
   }
+
   handlePlanets(e) {
+    const { dispatch } = this.props;
     let value = e.target.value;
     value = value.split(',')
-    this.setState({ planetValue: value[1], planetName: value[0], output: '' })
+    dispatch(selectedPlanet(value[1], value[0]));
   }
   handleChecked(e) {
-    this.setState({ checked: e.target.checked })
+    const { dispatch } = this.props;
+    dispatch(checked(e.target.checked));
   }
+
   submit(e) {
     e.preventDefault();
     let message;
-    const { weight, planetValue, planetName } = this.state;
-    let planetWeight = Number(weight) * Number(planetValue)
-    planetWeight = planetWeight.toFixed(2);
-
-
-    message = 'If you were on ' + planetName + '. You would weigh ' + planetWeight + ' lbs';
-    if (planetName === 'Earth') { message = 'If you Chose "Earth", Then you should weigh ' + planetWeight + ' lbs'; }
-    if (planetName === 'Pluto') { message = 'If you were on the tiny Planet Pluto, then you would weigh ' + planetWeight + ' lbs'; }
-
-    this.setState({ newWeight: planetWeight, output: message })
+    const { weight, planetValue, planetName, dispatch } = this.props;
+    dispatch(calculateWeight(weight, planetName, planetValue));
   }
   gitHub() {
     ReactGA.event({
@@ -75,41 +48,42 @@ class AstroWeight extends Component {
   }
 
   render() {
-    let { planetList, checked, output } = this.state;
+    let { planetList, weight, checked, output, newWeight, planetName } = this.props;
     let list;
+    console.log(checked);
     if (checked) { list = planetList.slice(); list.splice(11, 1) }
     if (checked === false) { list = planetList };
     return (
       <div id='astroWeightProject'>
-        <div className='container astro-container'>    
+        <div className='container astro-container'>
           <div className="astro-header">
-            <header className = 'astro-header'>
+            <header className='astro-header'>
               Astro Weight Calculator
             </header>
           </div>
           <div className="astro-content">
-            <form onSubmit={this.submit} className = 'astro-form'>
+            <form onSubmit={this.submit} className='astro-form'>
               <div className='astro-form-group'>
-                <label  htmlFor='inputWeight' 
-                        className='astro-form-group-input-label'>
-                    Enter Your Weight
+                <label htmlFor='inputWeight'
+                  className='astro-form-group-input-label'>
+                  Enter Your Weight
                 </label>
-                <input  className='astro-form-group-input' 
-                        type='text' 
-                        placeholder='Weight(lbs)' 
-                        id='inputWeight' 
-                        onChange={this.handleWeight} 
-                        value={this.state.weight} 
-                        pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$'
+                <input className='astro-form-group-input'
+                  type='text'
+                  placeholder='Weight(lbs)'
+                  id='inputWeight'
+                  onChange={this.handleWeight}
+                  value={weight}
+                  pattern='^([1-9]+)([0-9]*)(\.[0-9]{0,2})?$'
                 />
               </div>
 
               <div className='astro-form-group'>
-                <label className='astro-form-group-select-label'> 
-                  Select A Planet 
+                <label className='astro-form-group-select-label'>
+                  Select A Planet
                 </label>
-                <select   onChange={this.handlePlanets}
-                          className = 'astro-form-group-select'>
+                <select onChange={this.handlePlanets}
+                  className='astro-form-group-select'>
                   {list.map((planet, i) => {
                     if (planet === 'a') return <option key={i} hidden>Planets</option>
                     return (
@@ -119,46 +93,46 @@ class AstroWeight extends Component {
                     )
                   })}
                 </select>
-              </div>                
+              </div>
               <div className='astro-form-group astro-form-group-check'>
-                <input  type='checkbox' 
-                        className='astro-form-group-check-checkbox' 
-                        id='formCheck' 
-                        onChange={this.handleChecked} 
+                <input type='checkbox'
+                  className='astro-form-group-check-checkbox'
+                  id='formCheck'
+                  onChange={this.handleChecked}
                 />
-                <label  className='astro-form-group-checkbox-label' 
-                        htmlFor='formCheck'>
-                  {(this.state.checked) ? 'How Dare you Remove Pluto!' : 'Check to remove Pluto'}
+                <label className='astro-form-group-checkbox-label'
+                  htmlFor='formCheck'>
+                  {(checked) ? 'How Dare you Remove Pluto!' : 'Check to remove Pluto'}
                 </label>
               </div>
-              
+
 
               <div className='astro-form-group'>
                 {
-                  (this.state.weight.length > 0 && this.state.planetName !== '') ? <button className='astro-form-group-btn' 
-                  type='submit' 
-                  id='astroCalculate'> 
-                    Calculate 
-                  </button> : 
-                  <button   
-                    className='astro-form-group-btn' 
-                    type='submit' 
-                    id='astroCalculate' 
-                    disabled> 
+                  (weight.length > 0 && planetName !== '') ? <button className='astro-form-group-btn'
+                    type='submit'
+                    id='astroCalculate'>
                     Calculate
+                  </button> :
+                    <button
+                      className='astro-form-group-btn'
+                      type='submit'
+                      id='astroCalculate'
+                      disabled>
+                      Calculate
                 </button>
                 }
               </div>
             </form>
             <div className='astro-output'>
-              {(this.state.newWeight) ? output : ''}
+              {(newWeight) ? output : ''}
             </div>
-          
+
           </div>
           <ProjectClose
-            white = 'white'
+            white='white'
             github={this.github}
-            close = {this.props.closeModal}
+            close={this.props.closeModal}
           />
         </div>
       </div>
@@ -166,9 +140,15 @@ class AstroWeight extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+function mapStateToProps(state) {
   return {
-    
+    weight: state.home.astro.weight,
+    planetValue: state.home.astro.planetValue,
+    planetName: state.home.astro.planetName,
+    planetList: state.home.astro.planetList,
+    checked: state.home.astro.checked,
+    newWeight: state.home.astro.newWeight,
+    output: state.home.astro.output,
   }
 }
 

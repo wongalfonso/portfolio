@@ -1,4 +1,4 @@
-var planets = [
+const planets = [
   ['Pluto', 0.06],
   ['Neptune', 1.148],
   ['Uranus', 0.917],
@@ -11,3 +11,5 @@ var planets = [
   ['Mercury', 0.377],
   ['The Sun', 27.9]
 ];
+
+export default planets;
