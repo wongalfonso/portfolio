@@ -17,7 +17,7 @@ export default class Weather extends Component {
 
     return (
       <div id='weatherProject'>
-        <div className='container weather-container'>
+        <div className='weather-container'>
 
           <div className="weather-header">          
             <header>
@@ -32,6 +32,7 @@ export default class Weather extends Component {
             </div>
           </div>
           <ProjectClose
+            gitHub = {this.gitHub}
             close = {this.props.closeModal}
           />
         </div>

@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCity } from './WeatherFormActions';
+import { getCity, updateText } from './WeatherFormActions';
 
 
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      input: ''
-    }
     this.handleClick = this.handleClick.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleInputButton = this.handleInputButton.bind(this);
-    this.getDate = this.getDate.bind(this);
     this.addEnterKey = this.addEnterKey.bind(this);
   }
 
@@ -25,21 +21,6 @@ class Form extends Component {
       this.handleInputButton();
     }
   }
-  getDate(search) {
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1;
-    var yyyy = today.getFullYear();
-    var date = (mm + '/' + dd + '/' + yyyy)
-
-    var hh = today.getHours();
-    var min = today.getMinutes();
-    var sec = today.getSeconds();
-    var time = (' ' + hh + ':' + min + ':' + sec)
-    const { dispatch } = this.props;
-    dispatch(getCity(search, date, time));
-    this.setState({input: ''});
-  }
 
   handleInput(e) {
     const { dispatch } = this.props;
@@ -47,88 +28,88 @@ class Form extends Component {
   }
 
   handleInputButton() {
-    const { input } = this.state;    
-    this.getDate(input);
+    const { dispatch, input, searchHistory } = this.props;
+    dispatch(getCity(input, searchHistory));
   }
 
-  handleClick(e) {    
+  handleClick(e) {
     e.preventDefault();
+    const { dispatch, searchHistory } = this.props;
     var input = e.target.value;
     input = input.toLowerCase();
-    this.getDate(input);
+    dispatch(getCity(input, searchHistory));
   }
   renderSuccess() {
-    const { data } = this.props;
-    var weatherArr = data.slice(0, 1);
-    if (weatherArr[0].data.cod === 200) {
-      return (
+    const { name, country } = this.props;  
+    
+    return (
+      <div>
+        {(name) ? 
         <div className='weather-form-alert weather-form-alert-success'>
-        {weatherArr.map((weather, i) => {
-          return (
-            <div className='text-center' key={i}>
-              {`We found the city...${weather.data.name} in ${weather.data.sys.country}`}
-            </div>
-          )
-        })}
-      </div>
-      )
-    } 
-    if (weatherArr[0].data.cod === undefined) {
-      return (
+          <div className='text-center'>
+            {`We found the city...${name} in ${country}`}
+          </div>
+        </div>
+        : 
         <div></div>
-      )
-    }
+        }
+      </div>  
+    )
+
   }
+
   renderWarning() {
     const { input } = this.props;
     return (
       <div className='weather-form-alert weather-form-alert-danger'>
-          {`Please enter a Valid City Name, ${input} is not a valid input`}
+        {`Please enter a Valid City Name, ${input} is not a valid input`}
       </div>
     )
   }
 
   render() {
-    const { throwErr } = this.props;
+    const { throwErr, input } = this.props;
     return (
-      <div className = 'weather-form'>
-        <div className='weather-form-btn-group' aria-label='Basic example'>
-          <button onClick={this.handleClick} 
-                  value='San Diego'>
-            San Diego
-          </button>
-          <button onClick={this.handleClick} 
-                  value='New York'>
-            New York
-          </button>
-          <button onClick={this.handleClick} 
-                  value='Washington'>
-            Washington D.C.
-          </button>
-          <button onClick={this.handleClick} 
-                  value='London' >
-            London
-          </button>
-          <button onClick={this.handleClick} 
-                  value='Tokyo'>
-            Tokyo
-          </button>
-        </div> 
+      <div className='weather-form'>
         <div className="weather-form-input">
-          <input  className='form-control input' 
-                  onChange={this.handleInput} 
-                  value = {this.state.input}
-                  type='text'/>
-            <span className='weather-form-input-btn'>
-              {(this.state.input.length > 2 ) ? <button className='btn btn-secondary' type='submit' onClick = {this.handleInputButton}>
+          <input className='form-control input'
+            onChange={this.handleInput}            
+            type='text' />
+          <span className='weather-form-input-btn'>
+            {(input.length > 2) ?
+              <button className='btn btn-secondary' type='submit' onClick={this.handleInputButton}>
                 Go!
-              </button> : <button className='btn btn-secondary' type='submit' onClick = {this.handleInputButton} disabled>
+              </button>
+              :
+              <button className='btn btn-secondary' type='submit' onClick={this.handleInputButton} disabled>
                 Go!
               </button>}
-            </span>
-        </div>       
-        
-        {(throwErr === true) ? this.renderWarning() : this.renderSuccess()}        
+          </span>
+        </div>
+        <div className='weather-form-btn-group' aria-label='Basic example'>
+          <button onClick={this.handleClick}
+            value='San Diego'>
+            San Diego
+          </button>
+          <button onClick={this.handleClick}
+            value='New York'>
+            New York
+          </button>
+          <button onClick={this.handleClick}
+            value='Washington'>
+            Washington D.C.
+          </button>
+          <button onClick={this.handleClick}
+            value='London' >
+            London
+          </button>
+          <button onClick={this.handleClick}
+            value='Tokyo'>
+            Tokyo
+          </button>
+        </div>
+
+        {(throwErr) ? this.renderWarning() : this.renderSuccess()}
         <div>
 
         </div>
@@ -142,8 +123,10 @@ class Form extends Component {
 function mapStateToProps(state) {
   return {
     input: state.home.weather.input,
-    data: state.home.weather.data,
     throwErr: state.home.weather.throwErr,
+    name: state.home.weather.name,
+    country: state.home.weather.country,
+    searchHistory: state.home.weather.searchHistory
   }
 }
 
