@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Img from 'react-image';
 import { connect } from 'react-redux';
+import { getDate } from './WeatherFormActions';
 
-class CityInfo extends Component {
+class CityInfo extends Component {  
 
   renderCitySuccess() {
     const { weatherInfo, datePrint } = this.props;
@@ -15,9 +16,14 @@ class CityInfo extends Component {
           console.log(weather);
           const { lon, lat } = weather.coord;
           const { humidity, pressure, temp, temp_max, temp_min } = weather.main;
-          const { country, sunrise, sunset } = weather.sys;
+          let { country, sunrise, sunset } = weather.sys;
           const { description, icon } = weather.weather[0];
-          const { speed } = weather.wind.speed;
+          const { speed } = weather.wind.speed;          
+          let rise, set;
+          let srise = new Date(sunrise * 1000);
+          let sset = new Date(sunset * 1000);
+          if (srise) { rise = getDate(srise)}
+          if (sset) { set = getDate(sset)}          
           return (
             <div className='weather-output-info-body' key={i}>
               <div className='weather-output-info-body-main'>
@@ -35,7 +41,12 @@ class CityInfo extends Component {
                   </div>
                 </div>
                 <div className = 'basic-info'>
-                  
+                  <div className="basic-info-sunrise">
+                    Sunrise: {rise}
+                  </div>
+                  <div className="basic-info-sunrise">
+                    Sunset: {set}
+                  </div>
                 </div>
                 {/* <div className='weather-output-info-body-city-description'>
                       <span>

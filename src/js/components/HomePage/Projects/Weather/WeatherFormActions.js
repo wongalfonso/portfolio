@@ -38,7 +38,21 @@ function handleError() {
   weatherInfo.push(weather);
   return weatherInfo;
 }
-
+export function getDate(timestamp) {
+  let days = ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+  let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  let daycode = timestamp.getUTCDay();
+  let day = days[daycode - 1];
+  let monthcode = timestamp.getMonth();
+  let month = months[monthcode];
+  let date = timestamp.getDate();
+  let year = timestamp.getFullYear();
+  let hour = timestamp.getHours();
+  if (hour < 10) { hour = '0' + hour }
+  let mins = timestamp.getMinutes();
+  let secs = timestamp.getSeconds();
+  return day + ' ' + month + ' ' + date + ', ' + year + ' ' + hour +':'+mins+':'+secs;
+}
 
 export function getCity(input, history) {
   let searchHistory = history.slice();
@@ -66,7 +80,7 @@ export function getCity(input, history) {
     dispatch({
       type: 'GET_WEATHER',
       payload: axios.get(`/api/weather/${city}`)
-        .then((res) => {          
+        .then((res) => {
           if (res.data.cod == 404) {
             throw Error, {
               searchHistory: searchHistory,
@@ -83,10 +97,10 @@ export function getCity(input, history) {
             }
           }
         })
-        .catch((err) => {              
+        .catch((err) => {
           console.log(err);
-          throw new Error, {             
-            err: err         
+          throw new Error, {
+            err: err
           }
         })
     })

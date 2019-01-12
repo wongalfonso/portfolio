@@ -20,8 +20,11 @@ export default class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path='/' component={ HomePage } />    
-          <Route exact path='/weather' component={ Weather } />          
+          <Route exact path='/' component={ HomePage } />
+          <Route exact path='/' component={ HomePage } />
+          <Route exact path='/vstda' component={ VSTDA } />    
+          <Route exact path='/weather' component={ Weather } />    <Route exact path='/astroweight' component={ AstroWeight } />
+          <Route exact path='/poscalc' component={ PosCalc } />
           <Route path ='/profile' component = { Profile } />
           <Route path ='/blogpost' component={ PageBlog } />
           <Route path ='/blogsplash' component = { BlogSplashPage } />   
