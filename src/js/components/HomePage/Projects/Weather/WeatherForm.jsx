@@ -72,7 +72,7 @@ class Form extends Component {
     return (
       <div className='weather-form'>
         <div className="weather-form-input">
-          <input className='form-control input'
+          <input className='input'
             onChange={this.handleInput}            
             type='text' />
           <span className='weather-form-input-btn'>
