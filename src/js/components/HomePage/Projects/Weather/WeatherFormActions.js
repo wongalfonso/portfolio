@@ -43,15 +43,14 @@ function handleError() {
 export function getDate(timestamp) {
   let days = ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
   let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  let daycode = timestamp.getUTCDay();
-  console.log(daycode);
+  let daycode = timestamp.getDay();
   let day = days[daycode - 1];
-  console.log(day);
   let monthcode = timestamp.getMonth();
   let month = months[monthcode];
   let date = timestamp.getDate();
   let year = timestamp.getFullYear();
   let hour = timestamp.getHours();
+  if (hour > 12) { hour = Number(hour) - 12}
   if (hour < 10) { hour = '0' + hour }
   let mins = timestamp.getMinutes();
   if (mins < 10) { mins = '0' + mins }
@@ -66,16 +65,20 @@ export function getCity(input, history) {
   let search = {};
   const city = input.toLowerCase();
   let today = new Date();
-  let dd = today.getDate();
-  let mm = today.getMonth() + 1;
+  let dd = today.getDate();  
+  let mm = today.getMonth() + 1;  
   let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   let yyyy = today.getFullYear();
   let longDate = months[mm] + ' ' + dd + ', ' + yyyy;
   let date = (mm + '/' + dd + '/' + yyyy)
 
   let hh = today.getHours();
+  if (hh > 12) { hh = Number(hh) - 12}
+  if (hh < 10) { hh = '0' + hh}
   let min = today.getMinutes();
+  if (mm < 10) { mm = '0' + mm}
   let sec = today.getSeconds();
+  if (sec < 10) {sec = '0' + sec}
   let time = (' ' + hh + ':' + min + ':' + sec);
 
   search.city = city;

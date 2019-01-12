@@ -13,17 +13,13 @@ class CityInfo extends Component {
           {datePrint}
         </div>
         {weatherInfo.map((weather, i) => {
-          console.log(weather);
           const { lon, lat } = weather.coord;
           const { humidity, pressure, temp, temp_max, temp_min } = weather.main;
           let { country, sunrise, sunset } = weather.sys;
           const { description, icon } = weather.weather[0];
-          const { speed } = weather.wind.speed;
-          let rise, set;
-          let srise = new Date(sunrise * 1000);
-          let sset = new Date(sunset * 1000);
-          if (srise) { rise = getDate(srise) }
-          if (sset) { set = getDate(sset) }
+          const { speed } = weather.wind.speed;          
+          let rise = getDate(new Date(sunrise * 1000)); 
+          let set = getDate(new Date(sunset * 1000));          
           return (
             <div className='weather-output-info-body' key={i}>
               <div className='weather-output-info-body-main'>
@@ -51,6 +47,12 @@ class CityInfo extends Component {
                           </div>
                           <div className="third-description">
                             {description}
+                          </div>
+                          <div className="third-description">
+                            longtitue: {lon}
+                          </div>
+                          <div className="third-description">
+                            latitude: {lat}
                           </div>
                         </td>
                       </tr>

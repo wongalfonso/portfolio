@@ -162,11 +162,14 @@
                   .second {
                     padding: 1rem;    
                     font-size: 4.5rem; 
-                    border-right: 1px solid white;                   
+                    border-right: 1px solid white;
+                    max-width: 34rem;
                   }
                   .third {
                     padding: 1rem;    
-                    font-size: 2rem;
+                    font-size: 1.8rem;
+                    font-weight: initial;
+
                   }
                 }
               }
@@ -208,7 +211,7 @@
           border-collapse: collapse;
           tbody {
             .table-secondary {
-              background-color: #b3b2b26e;
+              background-color: #7777776e;
             }
             .table-name {
               width: 80%;
@@ -292,19 +295,32 @@
         }
       }
       .weather-output {
-        height: 35rem;
+        height: 63rem;
         padding-top: 4rem;
         &-info {
           margin-right: .5rem;
-          &-head {
-            // background-color: blue;            
+          &-head {         
             font-size: 2.7rem;
           } 
           &-body {
             font-size: 2.4rem;
+            &-main {
+              height: 27rem;
+              .head {
+                table {
+                  height: 100%;
+                }
+              }
+            }
+            &-main {
+              height: 27rem;
+            }
           }
         }
       }
+    }
+    .project-close {
+      padding: 3rem;
     }
   }
 }
@@ -329,9 +345,6 @@
       }
       &-btn-group {   
         margin-bottom: 2rem;
-        button {
-          // max-width: 15rem;
-        }
       }
     }
   }
