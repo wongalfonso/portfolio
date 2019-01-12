@@ -25,6 +25,8 @@ function handleError() {
   weather.name = 'Hell'
   let sys = {}
   sys.country = 'US';
+  sys.sunrise = 1547304689;
+  sys.sunset = 1547341368;
   weather.sys = sys;
   let arr = [];
   let obj = {};

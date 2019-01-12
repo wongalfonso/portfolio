@@ -77,37 +77,6 @@ class HomePage extends Component {
       dispatch(setWidth(screen.clientWidth))
     }
   }
-  openModal(project) {
-    const { dispatch } = this.props;
-    ReactGA.event({
-      category: 'Opened Modal',
-      action: `opened ${project} project`
-    })
-    dispatch(modalOpen(project));
-  }
-
-  closeModal() {
-    const { dispatch } = this.props;
-    dispatch(modalClose());
-  }
-
-  modalTemplate() {
-    const { selected, modalIsOpen } = this.props;
-    return (
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={this.closeModal}
-        ariaHideApp={false}
-        className={'ReactModal_Content ReactModal_Content--after-open'}
-        style={modalStyle}
-      >
-        {(selected === 'POS') && <POSCalc closeModal={this.closeModal} />}
-        {(selected == 'VSTDA') && <VSTDA closeModal={this.closeModal} />}
-        {(selected == 'Astro') && <AstroWeight closeModal={this.closeModal} />}
-        {(selected == 'Weather') && <Weather closeModal={this.closeModal} />}
-      </Modal>
-    )
-  }
 
   smallScreen() {
     return (
@@ -132,8 +101,7 @@ class HomePage extends Component {
     return (
       <div>
         <ScrollToTopOnMount />
-        <Header />
-        {this.modalTemplate()}
+        <Header />        
         <SectionsContainer {...options} className='section-container'>
           <Section className='section'>
             <Splash

@@ -13,7 +13,7 @@ export default class ProjectClose extends Component {
         </div>
         <button className='project-close-btn'
           onClick={this.props.close}>
-          Close
+          Back
         </button>
       </div>
     )

@@ -3,7 +3,7 @@ import Img from 'react-image';
 import { connect } from 'react-redux';
 import { getDate } from './WeatherFormActions';
 
-class CityInfo extends Component {  
+class CityInfo extends Component {
 
   renderCitySuccess() {
     const { weatherInfo, datePrint } = this.props;
@@ -18,43 +18,45 @@ class CityInfo extends Component {
           const { humidity, pressure, temp, temp_max, temp_min } = weather.main;
           let { country, sunrise, sunset } = weather.sys;
           const { description, icon } = weather.weather[0];
-          const { speed } = weather.wind.speed;          
+          const { speed } = weather.wind.speed;
           let rise, set;
           let srise = new Date(sunrise * 1000);
           let sset = new Date(sunset * 1000);
-          if (srise) { rise = getDate(srise)}
-          if (sset) { set = getDate(sset)}          
+          if (srise) { rise = getDate(srise) }
+          if (sset) { set = getDate(sset) }
           return (
             <div className='weather-output-info-body' key={i}>
               <div className='weather-output-info-body-main'>
-                <div className='city'>
-                  <div className = 'city-title'>
-                    <Img src={'http://openweathermap.org/img/w/' + icon + '.png'} className = 'city-title-icon'/>
-                    <div className = 'city-title-location'>
-                      {weather.name}, {country}
-                    </div>
-                  </div>
-                  <div className='city-temp'>      
-                    <div className ='city-temp-degrees'>
-                    {temp} ˚
-                    </div>
-                  </div>
+                <div className='head'>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td className='first'>
+                          <div className='first-visual'>
+                            <Img src={'http://openweathermap.org/img/w/' + icon + '.png'} className='first-visual-icon' />
+                            <div className='first-visual-degrees'>
+                              {temp} ˚
+                            </div>
+                          </div>
+                        </td>
+                        <td className = 'second'>
+                          {weather.name}, {country}
+                        </td>
+                        <td className = 'third'>
+                          <div className="third-sunrise">
+                            Sunrise: {rise}
+                          </div>
+                          <div className="third-sunrise">
+                            Sunset: {set}
+                          </div>
+                          <div className="third-description">
+                            {description}
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <div className = 'basic-info'>
-                  <div className="basic-info-sunrise">
-                    Sunrise: {rise}
-                  </div>
-                  <div className="basic-info-sunrise">
-                    Sunset: {set}
-                  </div>
-                </div>
-                {/* <div className='weather-output-info-body-city-description'>
-                      <span>
-                        Lat/Long: {lat},{lon}</span>
-                      <span>
-                      {description}
-                      </span>                    
-                  </div> */}
               </div>
               <div className='weather-output-info-body-stats'>
 
