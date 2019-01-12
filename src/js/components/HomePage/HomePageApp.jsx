@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import { ScrollToTopOnMount, SectionsContainer, Section } from 'react-fullpage';
-import Modal from 'react-modal';
 import { connect } from 'react-redux';
-import { pageTitle, setWidth, setCurrentPage, modalOpen, modalClose } from './HomePageActions';
+import { pageTitle, setWidth, setCurrentPage, } from './HomePageActions';
 import backgroundVid from '../../../../public/video/backgroundVideo.mp4';
 import Splash from './Splash';
 import About from './About/About';
