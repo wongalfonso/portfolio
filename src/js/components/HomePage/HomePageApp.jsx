@@ -9,30 +9,16 @@ import About from './About/About';
 import FormProjects from './Projects/FormProjects';
 import ApiProjects from './Projects/ApiProjects';
 import WebProjects from './Projects/WebProjects';
-import POSCalc from './Projects/PosCalc/PosCalc';
-import VSTDA from './Projects/VstdaApp/Vstda';
-import AstroWeight from './Projects/AstroWeight/AstroWeight';
-import Weather from './Projects/Weather/WeatherApp';
 import Footer from './../Footer';
 import Header from './../Header';
 import NavBar from './NavBar';
-import GitHubWhite from '../../../../public/images/GitHubWhite.png';
-
-const modalStyle = {
-  overlay: {
-    zIndex: 99
-  }
-};
-Modal.setAppElement('#app');
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.modalTemplate = this.modalTemplate.bind(this);
     this.analytics = this.analytics.bind(this);
   }
+
   componentWillMount() {
     ReactGA.initialize('UA-126168783-1');
   }
@@ -76,12 +62,10 @@ class HomePage extends Component {
       dispatch(setWidth(screen.clientWidth))
     }
   }
-
   smallScreen() {
     return (
       <div>
         <Header />
-        {this.modalTemplate()}
         <Splash
           title='Web Developer' />
         <About
@@ -90,7 +74,7 @@ class HomePage extends Component {
           <FormProjects
             gitHub={this.gitHub}
             title='Form Projects'
-            openModal={this.openModal} />
+          />
         </div>
       </div>
     )
@@ -99,8 +83,8 @@ class HomePage extends Component {
     const { title } = this.props;
     return (
       <div>
-        <ScrollToTopOnMount />
-        <Header />        
+        {/* <ScrollToTopOnMount /> */}
+        <Header />
         <SectionsContainer {...options} className='section-container'>
           <Section className='section'>
             <Splash
@@ -117,7 +101,7 @@ class HomePage extends Component {
               <FormProjects
                 gitHub={this.gitHub}
                 title={title}
-                openModal={this.openModal} />
+              />
             </div>
           </Section>
           <Section className='section'>
@@ -127,7 +111,7 @@ class HomePage extends Component {
               <ApiProjects
                 gitHub={this.gitHub}
                 title={title}
-                openModal={this.openModal}
+
               />
             </div>
           </Section>
@@ -186,7 +170,6 @@ function mapStateToProps(state) {
     width: state.home.homePage.width,
     currentPage: state.home.homePage.currentPage,
     title: state.home.homePage.title,
-    modalIsOpen: state.home.homePage.modalIsOpen,
     selected: state.home.homePage.selected,
     hover: state.home.homePage.hover,
     screen: state.home.homePage.screen

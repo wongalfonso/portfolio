@@ -240,8 +240,8 @@ class PosCalc extends Component {
           </div>
           <ProjectClose
             white = 'white'
-            github={this.github}
-            close={this.props.closeModal}
+            github={this.github}            
+            href = '/'
           />
         </div>
       </div>

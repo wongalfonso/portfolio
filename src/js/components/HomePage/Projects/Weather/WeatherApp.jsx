@@ -34,7 +34,7 @@ export default class Weather extends Component {
           <ProjectClose
             white = 'white'
             gitHub = {this.gitHub}
-            close = {this.props.closeModal}
+            href = '/'
           />
         </div>
       </div>

@@ -20,17 +20,3 @@ export function setCurrentPage(page) {
     payload: page
   }
 }
-
-export function modalOpen(selected) {
-  return {
-    type: 'OPEN_MODAL',
-    payload: {selected: selected, modalIsOpen: true}
-  }
-}
-
-export function modalClose() {
-  return {
-    type: 'CLOSE_MODAL',
-    payload: false
-  }
-}

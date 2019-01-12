@@ -131,7 +131,7 @@ class AstroWeight extends Component {
           <ProjectClose
             white='white'
             github={this.github}
-            close={this.props.closeModal}
+            href = '/'
           />
         </div>
       </div>

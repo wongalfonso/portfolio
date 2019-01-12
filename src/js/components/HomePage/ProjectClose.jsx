@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom';
 
 export default class ProjectClose extends Component {
   render() {
@@ -11,10 +11,11 @@ export default class ProjectClose extends Component {
             {(this.props.white == 'white') ? <img className='git-mark' src='/images/GitHubWhite.png' /> : <img className="git-mark" src="/images/GitHub.png" />}
           </a>
         </div>
-        <button className='project-close-btn'
-          onClick={this.props.close}>
-          Back
-        </button>
+        <Link to = {this.props.href} className='project-close-btn'>
+          <button>
+            Back
+          </button>
+        </Link>
       </div>
     )
   }

@@ -26,16 +26,6 @@ export default function HomePageReducer(state = defaultState, action) {
         ...state, currentPage: payload
       }
     }
-    case 'OPEN_MODAL' : {
-      return {
-        ...state, selected: payload.selected, modalIsOpen: payload.modalIsOpen
-      }
-    }
-    case 'CLOSE_MODAL' : {
-      return {
-        ...state, modalIsOpen: payload
-      }
-    }
     default: {
       return state;
     }

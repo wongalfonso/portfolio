@@ -44,7 +44,9 @@ export function getDate(timestamp) {
   let days = ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
   let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   let daycode = timestamp.getUTCDay();
+  console.log(daycode);
   let day = days[daycode - 1];
+  console.log(day);
   let monthcode = timestamp.getMonth();
   let month = months[monthcode];
   let date = timestamp.getDate();
@@ -52,8 +54,10 @@ export function getDate(timestamp) {
   let hour = timestamp.getHours();
   if (hour < 10) { hour = '0' + hour }
   let mins = timestamp.getMinutes();
+  if (mins < 10) { mins = '0' + mins }
   let secs = timestamp.getSeconds();
-  return day + ' ' + month + ' ' + date + ', ' + year + ' ' + hour +':'+mins+':'+secs;
+  if ( secs < 10) { secs = '0' + secs }
+  return day + ' ' + month + ' ' + date + ', ' + year + ' ' + hour +':'+mins+':'+secs + ' PDT';
 }
 
 export function getCity(input, history) {

@@ -112,7 +112,7 @@ class VSTDA extends Component {
           </div>
           <ProjectClose 
             github = {this.github}
-            close = {this.props.closeModal}
+            href = '/'
           />
         </div>
       </div>
