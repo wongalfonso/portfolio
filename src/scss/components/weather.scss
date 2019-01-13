@@ -231,7 +231,7 @@
 .project-close {
   z-index: 5;
 }
-@media screen and (max-width: $sm) {
+@media screen and (max-width: $sm - .0625em) {
   .weather-container {
     padding: 2rem;    
     .weather-header {
@@ -309,8 +309,10 @@
     }
   }
 }
-@media screen and (min-width: $sm) and (max-width: $md) {
+@media screen and (min-width: $sm) and (max-width: $md - .0625em) {
   .weather-container {
+    margin: 0 auto;
+    max-width: 90rem;
     .weather-header {
       margin-top: 1rem;
       text-align: center;
@@ -340,9 +342,10 @@
         }
       }
       .weather-output {
-        height: 63rem;
+        height: 95rem;
         padding-top: 4rem;
         &-info {
+          flex: auto;
           margin-right: .5rem;
           &-head {         
             font-size: 2.7rem;
@@ -386,10 +389,10 @@
   }
 }
 
-@media screen and (min-width: $md) and (max-width: $lg) {
+@media screen and (min-width: $md) and (max-width: $lg - .0625em) {
   .weather-container {
     margin: 0 auto;
-    max-width: 96rem;
+    max-width: 85rem;
     .weather-header {
       margin: 2rem 0;
       max-height: 8rem;
@@ -411,7 +414,7 @@
     }
   }
 }
-@media screen and (min-width: $lg) and (max-width: $xl) {
+@media screen and (min-width: $lg) and (max-width: $xl - .0625em) {
   .weather-container {
     margin: 0 auto;
     min-width: 95rem;

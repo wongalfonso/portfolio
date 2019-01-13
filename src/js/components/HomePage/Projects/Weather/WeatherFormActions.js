@@ -69,7 +69,7 @@ export function getCity(input, history) {
   let mm = today.getMonth() + 1;  
   let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   let yyyy = today.getFullYear();
-  let longDate = months[mm] + ' ' + dd + ', ' + yyyy;
+  let longDate = months[mm - 1] + ' ' + dd + ', ' + yyyy;
   let date = (mm + '/' + dd + '/' + yyyy)
 
   let hh = today.getHours();
