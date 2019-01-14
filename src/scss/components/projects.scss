@@ -5,6 +5,7 @@
   width: 100vw;
   font-size: 1.8rem;
   .projects-page-form {
+    height: 100%;
     .projects-container {
       display: flex;
       flex-direction: column;
@@ -26,12 +27,12 @@
         justify-content: space-between;
         z-index:10;
         .projects-div {          
-          flex-wrap: wrap;
-          max-width: 45rem;          
+          flex-wrap: wrap;                  
           position: relative;
           width: 100%;   
           display: flex;   
-          color: white;        
+          color: white;   
+          text-decoration: none;     
           img {
             display: inherit;
           }                
@@ -61,10 +62,10 @@
               background: linear-gradient(to left, #020202, #717171);
             }
             &--front {
-              border-radius: 0 0 20px 20px;  
+              border-radius: 20px;  
             }     
             &--back {
-              border-radius: 20px 20px 0 0;  
+              border-radius: 20px;
               padding: .9rem;                      
             }
             &-title {
@@ -140,9 +141,8 @@
   }
 }
 
-@media only screen and (max-width: $sm) {
-  .projects-page {
-    min-height: 100vh;
+@media only screen and (max-width: $sm - $unit) {
+  .projects-page { 
     .projects-page-form {
       .projects-container {
         padding: 2rem;
@@ -166,7 +166,7 @@
     }
   }
 }
-@media only screen and (min-width: $sm) and (max-width: $md) {
+@media only screen and (min-width: $sm) and (max-width: $md - $unit) {
   .projects-page {
     .projects-page-form {
       .projects-container {
@@ -178,6 +178,9 @@
           justify-content: center;   
           &-div {
             margin-right: 0 !important;
+            img {
+              margin-bottom: 1rem;
+            }
             &-info {
               &-text{
                 font-size: 1.7rem;
@@ -194,33 +197,34 @@
     }
   }
 }
-@media only screen and (max-width: $md) {
+@media only screen and (max-width: $md - $unit) {
   .projects-page {    
     .projects-page-form {
       .projects-container {        
         .projects {          
-          &-div {
-            flex-direction: column-reverse;
+          &-div {            
             border-radius: 20px;
-            border: 2px solid white;
+            // border: 2px solid white;
             margin-bottom: 2rem;    
+            img {
+              border: 2px solid white;
+            }
+            &-info {
+              border: 2px solid white;
+            }
           }
         }
       }
     }
   }
 }
-@media only screen and (min-width: $md) and (max-width: $lg) {
+@media only screen and (min-width: $md) and (max-width: $lg - $unit) {
 
 }
-@media only screen and (min-width: $lg) and (max-width: $xl) { 
+@media only screen and (min-width: $lg) and (max-width: $xl - $unit) { 
 
 }
 @media only screen and (min-width: $md) {
-  .ReactModal__Content--after-open {    
-    overflow: hidden;
-  }
-
   .projects-page {    
     .projects-page-form {
       .projects-container {        
