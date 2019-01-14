@@ -7,7 +7,7 @@ const WebProjects = ({title}) => {
     <div className="projects-page-form full-page">
       <div className="container projects-container">
         <div className="projects-header">
-          {title}
+          Web Projects
         </div>
         <div className="projects">
           <div className='projects-div'>

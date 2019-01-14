@@ -12,7 +12,7 @@ const ApiProjects = ({gitHub, title}) => {
     <div className="projects-page-form full-page">
       <div className="container projects-container">
         <div className="projects-header">
-          {title}
+          API Projects
         </div>
         <div className="projects">
           <Link to = '/weather' className='projects-div'>
