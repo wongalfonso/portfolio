@@ -20,3 +20,17 @@ export function setCurrentPage(page) {
     payload: page
   }
 }
+
+export function mouseEnter(id) {
+  return {
+    type: 'MOUSE_ENTER',
+    payload: id
+  }
+}
+
+export function mouseExit(id) {
+  return {
+    type: 'MOUSE_EXIT',
+    payload: id
+  }
+}

@@ -5,6 +5,8 @@ let defaultState = {
   hover: '',
   currentPage: '#Top',
   screen: '',
+  enter: '',
+  exit: ''
 }
 
 export default function HomePageReducer(state = defaultState, action) {
@@ -24,6 +26,16 @@ export default function HomePageReducer(state = defaultState, action) {
     case 'SET_PAGE': {
       return {
         ...state, currentPage: payload
+      }
+    }
+    case 'MOUSE_ENTER': {
+      return  {
+        ...state, enter: payload
+      }
+    }
+    case 'MOUSE_EXIT' : {
+      return {
+        ...state, exit: payload 
       }
     }
     default: {

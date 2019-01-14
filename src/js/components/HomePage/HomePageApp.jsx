@@ -62,88 +62,31 @@ class HomePage extends Component {
       dispatch(setWidth(screen.clientWidth))
     }
   }
-  smallScreen() {
-    return (
-      <div>
-        <Header />
-        <Splash
-          title='Web Developer' />
-        <About
-          title='About Me' />
-        <div className="projects-page">
-          <FormProjects
-            gitHub={this.gitHub}
-            title='Form Projects'
-          />
-        </div>
-      </div>
-    )
+  
+  mouseEnter(page) {
+
   }
-  largeScreen(options) {
-    const { title } = this.props;
-    return (
-      <div>
-        {/* <ScrollToTopOnMount /> */}
-        <Header />
-        <SectionsContainer {...options} className='section-container'>
-          <Section className='section'>
-            <Splash
-              title={title} />
-          </Section>
-          <Section className='section'>
-            <About
-              title={title} />
-          </Section>
-          <Section className='section'>
-            <div className="projects-page"
-              id='formProjects'
-              ref={(project) => this._project = project}>
-              <FormProjects
-                gitHub={this.gitHub}
-                title={title}
-              />
-            </div>
-          </Section>
-          <Section className='section'>
-            <div className="projects-page"
-              id='apiProjects'
-              ref={(project) => this._project = project}>
-              <ApiProjects
-                gitHub={this.gitHub}
-                title={title}
 
-              />
-            </div>
-          </Section>
-          <Section className='section'>
-            <div className="projects-page"
-              id='webProjects'
-              ref={(project) => this._project = project}>
-              <WebProjects
-                title={title}
-              />
-            </div>
-          </Section>
+  mouseExit() {
 
-        </SectionsContainer>
-      </div>
-    )
+  }
+
+  scroll(target) {
+    const { enter } = this.props;
+    let page;
+    if (target === 'vidContainer') {page = 'splash'}
+    if (target === 'aboutPage') {page = 'about'}
+    if (target === 'projectPage') {page = 'project'}
+    if (enter === page) {
+      return 
+    } else {
+      let id = document.getElementById(target).offsetTop
+      window.scrollTo({top: id, behavior: 'smooth'})
+      
+    }
   }
   render() {
-    let options = {
-      activeClass: 'active',
-      anchors: ['Top', 'About', 'Form-Projects', 'API-Projects', 'Web-Projects'],
-      arrowNavigation: false,
-      className: 'SectionContainer',
-      delay: 1000,
-      navigation: false,
-      scrollBar: false,
-      sectionClassName: 'Section',
-      sectionPaddingTop: '0',
-      sectionPaddingBottom: '0',
-      verticalAlign: false
-    };
-    const { width } = this.props;
+    const { width, title } = this.props;
     return (
       <div id='homePage'
         className='full-site'
@@ -153,12 +96,38 @@ class HomePage extends Component {
             <source src={backgroundVid} type='video/mp4' />
           </video>
         </div>
+        <Splash
+          title={title} />
+        <About
+          title={title} />
+        <div className="projects-page"
+          id='formProjects'
+          ref={(project) => this._project = project}>
+          <FormProjects
+            gitHub={this.gitHub}
+            title={title}
+          />
+        </div>
+        <div className="projects-page"
+          id='apiProjects'
+          ref={(project) => this._project = project}>
+          <ApiProjects
+            gitHub={this.gitHub}
+            title={title}
+          />
+        </div>
+        <div className="projects-page"
+          id='webProjects'
+          ref={(project) => this._project = project}>
+          <WebProjects
+            title={title}
+          />
+        </div>
         {/* <NavBar 
           active = {this.state.enter} 
           menu = {this.state.exit} 
           isActive = {this.mouseEnter}
-          scroll = {this.scroll}/>     */}
-        {(width > 900) ? this.largeScreen(options) : this.smallScreen()}
+          scroll = {this.scroll}/>     */}        
         {/* <Footer /> */}
       </div>
     )
