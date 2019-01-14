@@ -80,7 +80,8 @@
   min-height: 100vh;
   background: -webkit-linear-gradient(to left, #636363, #242424);
   background: linear-gradient(to left, #636363, #242424);
-  .pos-container {    
+  .pos-container {  
+    margin: 0 auto;  
     .pos-header {
       font-size: 5rem;
       width: 100%;
@@ -119,7 +120,7 @@
         }
       }
       &-screens {
-        flex: 1 0 60%;
+        flex: 1 0 30%;
         display: flex;
         justify-content: space-around;
         margin: 2rem 0;
@@ -148,8 +149,7 @@
       }
     }
     .pos-order-screen {
-      display: flex;
-      max-height: 67rem;      
+      display: flex;           
       &-list {
         flex: 1 0 40%;
         &-items {          
@@ -434,5 +434,32 @@
         }
       }
     }
+  }
+}
+@media only screen and (min-width: $sm) and (max-width: $md - $unit) {
+  .pos-container {
+    min-width: 80rem;
+    max-width: 96rem;
+  }
+}
+
+@media only screen and (min-width: $md) and (max-width: $lg - $unit) {
+  .pos-container {
+    min-width: 80rem;
+    max-width: 96rem;
+  }
+}
+
+@media only screen and (min-width: $lg) and (max-width: $xl - $unit) {
+  .pos-container {
+    min-width: 80rem;
+    max-width: 125rem;
+  }
+}
+
+@media only screen and (min-width: $xl) {
+  .pos-container {
+    min-width: 95rem;
+    max-width: 125rem;
   }
 }

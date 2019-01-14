@@ -132,6 +132,7 @@ class AstroWeight extends Component {
             white='white'
             github={this.github}
             href = '/'
+            link = 'https://github.com/wongalfonso/Astro-Weight-React'
           />
         </div>
       </div>

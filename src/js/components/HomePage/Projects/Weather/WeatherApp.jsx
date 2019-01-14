@@ -35,6 +35,7 @@ export default class Weather extends Component {
             white = 'white'
             gitHub = {this.gitHub}
             href = '/'
+            link = 'https://github.com/wongalfonso/Weather-App'
           />
         </div>
       </div>

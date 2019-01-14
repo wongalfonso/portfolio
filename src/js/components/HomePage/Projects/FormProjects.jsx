@@ -13,7 +13,7 @@ const FormProjects = ({ gitHub, title}) => {
   
   return (
     <div className='projects-page-form full-page' id ='form-projects'>
-      <div className="container projects-container">
+      <div className="projects-container">
         <div className="projects-header">
           Form Projets
         </div>

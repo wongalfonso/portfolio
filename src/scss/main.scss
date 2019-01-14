@@ -34,10 +34,10 @@ html {
   font-size: .625em;
 }
 body {
-  font-family: 'Roboto Condensed', sans-serif;
-  overflow-x: hidden;
+  font-family: 'Roboto Condensed', sans-serif;  
   line-height: 1.7;
   box-sizing: border-box;
+  overflow-x:hidden;
 }
 .full-page {
   width: 100vw;
@@ -47,12 +47,7 @@ body {
   color: white !important;
   font-size: 20px !important;
 }
-// .section-container {
-//   z-index: 50;
-// }
-// .section {
-//   overflow: hidden !important;
-// }
+
 #aboutActive, #topActive, #projectActive{
   width: 4rem;
   height: 4rem;

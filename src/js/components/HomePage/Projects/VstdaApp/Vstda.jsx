@@ -113,6 +113,7 @@ class VSTDA extends Component {
           <ProjectClose 
             github = {this.github}
             href = '/'
+            link = 'https://github.com/wongalfonso/VSTDA'
           />
         </div>
       </div>

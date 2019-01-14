@@ -58,9 +58,10 @@ class PosCalc extends Component {
   }
   gitHub() {
     ReactGA.event({
-      category: 'Visited GitHub from Modal',
-      action: 'From POS Modal'
+      category: 'Visited GitHub from project',
+      action: 'Projects'
     })
+    return 'https://github.com/wongalfonso/pos-calculator'
   }
   cancelOrderModal() {
     return (
@@ -114,7 +115,7 @@ class PosCalc extends Component {
     let order = currentOrder ? currentOrder : null;
     return (
       <div id="posCalcProject">
-        <div className="container pos-container">
+        <div className="pos-container">
           <Modal
             isOpen={posModalIsOpen}
             onRequestClose={this.closeModal}
@@ -149,7 +150,9 @@ class PosCalc extends Component {
               <button className='pos-menus-screens-btns pos-menus-screens-btns--default'
                 onClick={() => this.selectScreen('food')}>
                 Food
-              </button>
+              </button>              
+              </div>
+              <div className="pos-menus-screens">             
               <button className='pos-menus-screens-btns pos-menus-screens-btns--default'
                 onClick={() => this.selectScreen('drinks')}>
                 Drinks
@@ -242,6 +245,7 @@ class PosCalc extends Component {
             white = 'white'
             github={this.github}            
             href = '/'
+            link = 'https://github.com/wongalfonso/pos-calculator'
           />
         </div>
       </div>
