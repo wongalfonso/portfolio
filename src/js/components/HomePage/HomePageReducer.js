@@ -1,5 +1,5 @@
 let defaultState = {
-  title: '',
+  title: 'Web Developer',
   modalIsOpen: false,
   selected: '',
   hover: '',
@@ -28,9 +28,9 @@ export default function HomePageReducer(state = defaultState, action) {
         ...state, currentPage: payload
       }
     }
-    case 'MOUSE_ENTER': {
+    case 'MOUSE_ENTER': {      
       return  {
-        ...state, enter: payload
+        ...state, title: payload.title, page: payload.page
       }
     }
     case 'MOUSE_EXIT' : {

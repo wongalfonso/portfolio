@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
-import { ScrollToTopOnMount, SectionsContainer, Section } from 'react-fullpage';
 import { connect } from 'react-redux';
-import { pageTitle, setWidth, setCurrentPage, } from './HomePageActions';
+import { pageTitle, setWidth, setCurrentPage, mouseEnter, mouseExit } from './HomePageActions';
 import backgroundVid from '../../../../public/video/backgroundVideo.mp4';
 import Splash from './Splash';
 import About from './About/About';
@@ -17,42 +16,33 @@ class HomePage extends Component {
   constructor(props) {
     super(props);
     this.analytics = this.analytics.bind(this);
+    this.mouseEnter = this.mouseEnter.bind(this);
+    this.mouseExit = this.mouseExit.bind(this);
   }
 
   componentWillMount() {
     ReactGA.initialize('UA-126168783-1');
   }
 
-  analytics() {
-    ReactGA.event({
-      category: 'scrolled',
-      action: `scrolled to ${location}`
-    })
+  analytics(category, action) {
+    console.log(category, action);
+    // ReactGA.event({
+    //   category: category,
+    //   action: action
+    // })
   }
 
-  componentDidUpdate() {
-    const { title, dispatch, location } = this.props;
-    let hash = location.hash.replace(/#/g, '');
-    if (hash === 'Top' && title !== 'Web Developer') {
 
-      setTimeout(() => dispatch(pageTitle('Web Developer')), 800);
-    }
-    if (hash === 'About' && title !== 'About Me') {
-      this.analytics(hash);
-      setTimeout(() => dispatch(pageTitle('About Me')), 800);
-    }
-    if (hash === 'Form-Projects' && title !== 'Form Projects') {
-      this.analytics(hash);
-      setTimeout(() => dispatch(pageTitle('Form Projects')), 800);
-    }
-    if (hash === 'API-Projects' && title !== 'API Projects') {
-      this.analytics(hash);
-      setTimeout(() => dispatch(pageTitle('API Projects')), 800);
-    }
-    if (hash === 'Web-Projects' && title !== 'Web Projects') {
-      this.analytics(hash);
-      setTimeout(() => dispatch(pageTitle('Web Projects')), 800);
-    }
+  mouseEnter(page) {
+    const { dispatch } = this.props;
+    dispatch(mouseEnter(page));
+  }
+
+  mouseExit(page) {
+    const {dispatch } = this.props;
+    dispatch(mouseExit(page));
+  }
+  componentDidUpdate() {
   }
 
   componentDidMount() {
@@ -61,32 +51,10 @@ class HomePage extends Component {
     if (screen.clientWidth) {
       dispatch(setWidth(screen.clientWidth))
     }
-  }
-  
-  mouseEnter(page) {
+  }  
 
-  }
-
-  mouseExit() {
-
-  }
-
-  scroll(target) {
-    const { enter } = this.props;
-    let page;
-    if (target === 'vidContainer') {page = 'splash'}
-    if (target === 'aboutPage') {page = 'about'}
-    if (target === 'projectPage') {page = 'project'}
-    if (enter === page) {
-      return 
-    } else {
-      let id = document.getElementById(target).offsetTop
-      window.scrollTo({top: id, behavior: 'smooth'})
-      
-    }
-  }
   render() {
-    const { width, title } = this.props;
+    const { width } = this.props;
     return (
       <div id='homePage'
         className='full-site'
@@ -96,16 +64,19 @@ class HomePage extends Component {
             <source src={backgroundVid} type='video/mp4' />
           </video>
         </div>
-        <Splash
-          title={title} />
-        <About
-          title={title} />
+        <Header/>
+        <Splash          
+          enter = {this.mouseEnter}
+          exit = {this.mouseExit}/>
+        <About          
+          enter = {this.mouseEnter}
+          exit = {this.mouseExit}
+          gaEvent = {this.analytics}/>
         <div className="projects-page"
           id='formProjects'
           ref={(project) => this._project = project}>
           <FormProjects
             gitHub={this.gitHub}
-            title={title}
           />
         </div>
         <div className="projects-page"
@@ -113,14 +84,12 @@ class HomePage extends Component {
           ref={(project) => this._project = project}>
           <ApiProjects
             gitHub={this.gitHub}
-            title={title}
           />
         </div>
         <div className="projects-page"
           id='webProjects'
           ref={(project) => this._project = project}>
           <WebProjects
-            title={title}
           />
         </div>
         {/* <NavBar 

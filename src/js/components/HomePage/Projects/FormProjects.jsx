@@ -15,7 +15,7 @@ const FormProjects = ({ gitHub, title}) => {
     <div className='projects-page-form full-page' id ='form-projects'>
       <div className="container projects-container">
         <div className="projects-header">
-          {title}
+          Form Projets
         </div>
         <div className="projects">
           <Link to = '/pos' className='projects-div'>
