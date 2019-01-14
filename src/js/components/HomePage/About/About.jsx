@@ -5,8 +5,7 @@ export default class About extends Component {
 
   componentDidMount() {
     const about = document.getElementById('aboutPage');
-    about.onmouseenter = () => this.props.enter('about');
-    about.onmouseleave = () => this.props.exit('about');
+    about.onmouseenter = () => this.props.gaEvent('scroll', 'scrolled to About Page');       
   }
 
   render() {    

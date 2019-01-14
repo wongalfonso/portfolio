@@ -26,10 +26,10 @@ class HomePage extends Component {
 
   analytics(category, action) {
     console.log(category, action);
-    // ReactGA.event({
-    //   category: category,
-    //   action: action
-    // })
+    ReactGA.event({
+      category: category,
+      action: action
+    })
   }
 
 
