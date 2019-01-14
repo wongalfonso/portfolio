@@ -20,17 +20,24 @@
   z-index: 5;
 }
 
-@media screen and (max-width: $sm) {
+@media screen and (max-width: $sm - $unit) {
   .vid-container {
     #homeVid {
       transform: translateX(-30%);
     }
   }
 }
-@media screen and (max-width: $md) {
+@media screen and (min-width: $sm) and (max-width: $md - $unit) {
   .vid-container {
     #homeVid {
-      transform: translateX(-40%);
+      transform: translateX(-25%);
+    }
+  }
+}
+@media screen and (min-width: $md) and (max-width: $lg - $unit) {
+  .vid-container {
+    #homeVid {
+      // transform: translateX(-29%);
     }
   }
 }

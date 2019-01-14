@@ -65,7 +65,7 @@
   }
 }
 
-@media only screen and (max-width: $sm) {  
+@media only screen and (max-width: $sm - $unit) {  
   .about-page { 
     .about-top {
       .about-header {
@@ -97,28 +97,10 @@
     }
   }
 }
-@media only screen and (min-width: $sm) and (max-width: $md) {
+@media only screen and (min-width: $sm) and (max-width: $md - $unit) {
   .about-page {
-    .about-container {
-      .about-row {
-        .about-text {
-          font-size: 2.5rem;
-        }
-      }
-      .about-bottom {
-        .download-btn {
-          #downloadBtn {
-            font-size: 2.2rem;
-            width: 38rem;
-            height: 8rem;
-          }
-        }
-      }
-    }
-  }
-}
-@media only screen and (min-width: $md) and (max-width: $lg) {
-  .about-page {
+    height: 100%;
+    min-height: 100vh;
     .about-container {
       .about-row {
         .about-text {
@@ -137,7 +119,29 @@
     }
   }
 }
-@media only screen and (min-width: $lg) and (max-width: $xl) {
+@media only screen and (min-width: $md) and (max-width: $lg - $unit) {
+  .about-page {
+    height: 100%;
+    min-height: 100vh;
+    .about-container {
+      .about-row {
+        .about-text {
+          font-size: 2rem;
+        }
+      }
+      .about-bottom {
+        .download-btn {
+          #downloadBtn {
+            font-size: 2rem;
+            width: 30rem;
+            height: 6.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: $lg) and (max-width: $xl - $unit) {
   
   
 }
