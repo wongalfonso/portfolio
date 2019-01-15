@@ -21,7 +21,7 @@ class CustomScreen extends Component {
         </div>
         <div className = 'custom-screen-row items'>
           {items.map((item, i) => {
-            console.log(item.color);
+            
             return (
               <button key = {i} className = {`custom-screen-row-btn custom-screen-row-btn--${item.color}`}>
                 {item.name}

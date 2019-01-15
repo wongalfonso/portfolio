@@ -270,10 +270,10 @@
               width: 6rem;
               height: 3rem;
               margin: 0 auto;
-            }                  
-          }
-          .tabs-group--active {
-            background-color: white;
+            }  
+            &--active {
+              background-color: white;
+            }                
           }
         } 
 

@@ -4,68 +4,472 @@
       "hotCoffee": [
         {
           "name": "americano",
-          "short": 2.45,
-          "tall": 2.65,
-          "grande": 3.25,
-          "venti": 4.00
+          "price": [
+            {
+              "short": 2.45,
+              "tall": 2.65,
+              "grande": 3.25,
+              "venti": 4.00
+            }
+          ],
+          "ingredients": [
+            {
+              "shots": [
+                {
+                  "short": 1,
+                  "tall": 2,
+                  "grande": 3,
+                  "venti": 4
+                }
+              ],
+              "milk": "",
+              "custom": [
+                "H20"
+              ],
+              "syrup": []
+            }
+          ]
         },
         {
           "name": "hot coffee",
-          "short": 2.25,
-          "tall": 2.45,
-          "grande": 3.05,
-          "venti": 3.65
+          "price": [
+            {
+              "short": 2.25,
+              "tall": 2.45,
+              "grande": 3.05,
+              "venti": 3.65
+            }
+          ]
         },
         {
           "name": "caffe misto",
-          "short": 2.65,
-          "tall": 3.45,
-          "grande": 4.00,
-          "venti": 4.65
+          "price": [
+            {
+              "short": 2.65,
+              "tall": 3.45,
+              "grande": 4.00,
+              "venti": 4.65
+            }
+          ],
+          "ingredients": [
+            {
+              "shots": [],
+              "milk": "2%",
+              "custom": [],
+              "syrup": []
+            }
+          ]
         }
       ],
       "latte": [
         {
           "name": "caramel macchiatto",
-          "short": 2.65,
-          "tall": 3.25,
-          "grande": 4.25,
-          "venti": 4.75
+          "price": [
+            {
+              "hot": [
+                {
+                  "short": 2.65,
+                  "tall": 3.25,
+                  "grande": 4.25,
+                  "venti": 4.75
+                }
+              ],
+              "iced": [
+                {
+                  "tall": 3.25,
+                  "grande": 4.25,
+                  "venti": 5.25
+                }
+              ]
+            }
+          ],
+          "ingredients": [
+            {
+              "shots": [
+                {
+                  "hot": [
+                    {
+                      "short": 1,
+                      "tall": 1,
+                      "grande": 2,
+                      "venti": 2
+                    }
+                  ],
+                  "iced": [
+                    {
+                      "tall": 1,
+                      "grande": 2,
+                      "venti": 3
+                    }
+                  ]
+                }
+              ],
+              "milk": "2%",
+              "custom": [
+                "F"
+              ],
+              "syrup": [
+                {
+                  "hot": [
+                    {
+                      "short": "1V",
+                      "tall": "2V",
+                      "grande": "3V",
+                      "venti": "4V"
+                    }
+                  ],
+                  "iced": [
+                    {
+                      "tall": "2V",
+                      "grande": "3V",
+                      "venti": "5V"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "white mocha",
-          "short": 2.65,
-          "tall": 3.35,
-          "grande": 4.35,
-          "venti": 4.80
+          "price": [
+            {
+              "hot": [
+                {
+                  "short": 2.65,
+                  "tall": 3.35,
+                  "grande": 4.35,
+                  "venti": 4.80
+                }
+              ],
+              "iced": [
+                {
+                  "tall": 3.35,
+                  "grande": 4.35,
+                  "venti": 5.30
+                }
+              ]
+            }
+          ],
+          "ingredients": [
+            {
+              "shots": [
+                {
+                  "hot": [
+                    {
+                      "short": 1,
+                      "tall": 1,
+                      "grande": 2,
+                      "venti": 2
+                    }
+                  ],
+                  "iced": [
+                    {
+                      "tall": 1,
+                      "grande": 2,
+                      "venti": 3
+                    }
+                  ]
+                }
+              ],
+              "milk": "2%",
+              "custom": [
+                "WC"
+              ],
+              "syrup": [
+                {
+                  "hot": [
+                    {
+                      "short": "1WM",
+                      "tall": "2WM",
+                      "grande": "3WM",
+                      "venti": "4WM"
+                    }
+                  ],
+                  "iced": [
+                    {
+                      "tall": "2WM",
+                      "grande": "3WM",
+                      "venti": "5WM"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "mocha",
-          "short": 2.45,
-          "tall": 3.25,
-          "grande": 4.25,
-          "venti": 4.75
+          "price": [
+            {
+              "hot": [
+                {
+                  "short": 2.45,
+                  "tall": 3.25,
+                  "grande": 4.25,
+                  "venti": 4.75
+                }
+              ],
+              "iced": [
+                {
+                  "tall": 3.25,
+                  "grande": 4.25,
+                  "venti": 5.35
+                }
+              ]
+            }
+          ],
+          "ingredients": [
+            {
+              "shots": [
+                {
+                  "hot": [
+                    {
+                      "short": 1,
+                      "tall": 1,
+                      "grande": 2,
+                      "venti": 2
+                    }
+                  ],
+                  "iced": [
+                    {
+                      "tall": 1,
+                      "grande": 2,
+                      "venti": 3
+                    }
+                  ]
+                }
+              ],
+              "milk": "2%",
+              "custom": [
+                "WC"
+              ],
+              "syrup": [
+                {
+                  "hot": [
+                    {
+                      "short": "1M",
+                      "tall": "2M",
+                      "grande": "3M",
+                      "venti": "4M"
+                    }
+                  ],
+                  "iced": [
+                    {
+                      "tall": "2M",
+                      "grande": "3M",
+                      "venti": "5M"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "cinnamon dolce latte",
-          "short": 2.55,
-          "tall": 3.25,
-          "grande": 4.25,
-          "venti": 4.75
+          "price": [
+            {
+              "hot": [
+                {
+                  "short": 2.55,
+                  "tall": 3.25,
+                  "grande": 4.25,
+                  "venti": 4.75
+                }
+              ],
+              "iced": [
+                {
+                  "tall": 3.25,
+                  "grande": 4.25,
+                  "venti": 5.35
+                }
+              ]
+            }
+          ],
+          "ingredients": [
+            {
+              "shots": [
+                {
+                  "hot": [
+                    {
+                      "short": 1,
+                      "tall": 1,
+                      "grande": 2,
+                      "venti": 2
+                    }
+                  ],
+                  "iced": [
+                    {
+                      "tall": 1,
+                      "grande": 2,
+                      "venti": 3
+                    }
+                  ]
+                }
+              ],
+              "milk": "2%",
+              "custom": [
+                "WC"
+              ],
+              "syrup": [
+                {
+                  "hot": [
+                    {
+                      "short": "1CD",
+                      "tall": "2CD",
+                      "grande": "3CD",
+                      "venti": "4CD"
+                    }
+                  ],
+                  "iced": [
+                    {
+                      "tall": "2CD",
+                      "grande": "3CD",
+                      "venti": "5CD"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "vanilla latte",
-          "short": 2.45,
-          "tall": 3.25,
-          "grande": 4.25,
-          "venti": 4.75
+          "price": [
+            {
+              "hot": [
+                {
+                  "short": 2.45,
+                  "tall": 3.25,
+                  "grande": 4.25,
+                  "venti": 4.75
+                }
+              ],
+              "iced": [
+                {
+                  "short": 2.45,
+                  "tall": 3.25,
+                  "grande": 4.25,
+                  "venti": 5.25
+                }
+              ]
+            }
+          ],
+          "ingredients": [
+            {
+              "shots": [
+                {
+                  "hot": [
+                    {
+                      "short": 1,
+                      "tall": 1,
+                      "grande": 2,
+                      "venti": 2
+                    }
+                  ],
+                  "iced": [
+                    {
+                      "tall": 1,
+                      "grande": 2,
+                      "venti": 3
+                    }
+                  ]
+                }
+              ],
+              "milk": "2%",
+              "custom": [
+                "F"
+              ],
+              "syrup": [
+                {
+                  "hot": [
+                    {
+                      "short": "2V",
+                      "tall": "3V",
+                      "grande": "4V",
+                      "venti": "5V"
+                    }
+                  ],
+                  "iced": [
+                    {
+                      "tall": "3V",
+                      "grande": "4V",
+                      "venti": "6V"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "black and white mocha",
-          "short": 2.65,
-          "tall": 3.25,
-          "grande": 4.35,
-          "venti": 4.85
+          "price": [
+            {
+              "hot": [
+                {
+                  "short": 2.65,
+                  "tall": 3.25,
+                  "grande": 4.35,
+                  "venti": 4.85
+                }
+              ],
+              "iced": [
+                {
+                  "tall": 3.25,
+                  "grande": 4.35,
+                  "venti": 5.55
+                }
+              ]
+            }
+          ],
+          "ingredients": [
+            {
+              "shots": [
+                {
+                  "hot": [
+                    {
+                      "short": 1,
+                      "tall": 1,
+                      "grande": 2,
+                      "venti": 2
+                    }
+                  ],
+                  "iced": [
+                    {
+                      "tall": 1,
+                      "grande": 2,
+                      "venti": 3
+                    }
+                  ]
+                }
+              ],
+              "milk": "2%",
+              "custom": [
+                "WC"
+              ],
+              "syrup": [
+                {
+                  "hot": [
+                    {
+                      "short": "1WM, 1M",
+                      "tall": "2WM, 1M",
+                      "grande": "2WM, 2M",
+                      "venti": "3WM, 2M"
+                    }
+                  ],
+                  "iced": [
+                    {
+                      "tall": "2WM, 1M",
+                      "grande": "2WM, 2M",
+                      "venti": "3WM, 3M"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     }
@@ -154,9 +558,9 @@
           "name": "Light",
           "type": "free",
           "color": "black"
-        }        
+        }
       ],
-      "items" : [
+      "items": [
         {
           "name": "Ice",
           "type": "free",
@@ -347,7 +751,7 @@
   ],
   "milk_buttons": [
     {
-      "modifiers" : [
+      "modifiers": [
         {
           "name": "Extra",
           "type": "free",
@@ -421,7 +825,7 @@
           "color": "light-purple"
         }
       ],
-      "free": [        
+      "free": [
         {
           "name": "with Nonfat Milk",
           "type": "free",
@@ -504,7 +908,7 @@
           "color": "black"
         }
       ],
-      "syrups" : [
+      "syrups": [
         {
           "name": "Caramel Syrup",
           "type": "add 60",
@@ -613,7 +1017,7 @@
       ]
     }
   ],
-  "decaf" : [
+  "decaf": [
     {
       "name": "Iced",
       "type": "",
@@ -645,7 +1049,7 @@
       "color": "light-grey"
     }
   ],
-  "shots" : [
+  "shots": [
     {
       "name": "Single (solo)",
       "type": "add 75",

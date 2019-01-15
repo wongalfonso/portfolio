@@ -235,15 +235,17 @@ class PosCalc extends Component {
               </div>
             </div>
             <div className='side-screen'>
-              {/* {(currentScreen === 'drinks') && <DrinksScreen />}
+              {(currentScreen === 'drinks') && <DrinksScreen />}
               {(currentScreen === 'tender') && <TenderScreen />}
               {(currentScreen === 'food') && <FoodScreen />}
-              {(currentScreen === 'orders') && <SavedOrders />} */}
-              {(currentScreen === 'drinks') && <CustomScreen />}
+              {(currentScreen === 'orders') && <SavedOrders />}
+              {(currentScreen === 'custom') && <CustomScreen />}
             </div>
               <div className ='tabs'>
                 <ul>
-                  <li className = 'tabs-group'> 
+                  <li className = {(currentScreen == 'decaf') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                    onClick={() => this.selectScreen('decaf')}
+                  > 
                     <div>
                       <div className = 'small-box'></div>
                       Iced
@@ -258,15 +260,20 @@ class PosCalc extends Component {
                       <div className = 'box'></div>
                     </div>                      
                   </li>
-                  <li className = 'tabs-group'>
+                  <li className = {(currentScreen == 'syrup') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                    onClick={() => this.selectScreen('syrup')}
+                  >
                     Syrup
                     <div className = 'box'></div>        
                   </li>
-                  <li className = 'tabs-group'>
+                  <li className = {(currentScreen == 'milk') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                    onClick={() => this.selectScreen('milk')}>
                     Milk
                     <div className = 'box'></div>
                   </li>
-                  <li className = 'tabs-group'>                  
+                  <li className = {(currentScreen == 'custom') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                    onClick={() => this.selectScreen('custom')}
+                  >                  
                     Custom
                     <div className = 'box'></div>
                   </li>
