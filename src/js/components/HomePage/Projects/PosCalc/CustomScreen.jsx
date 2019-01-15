@@ -11,7 +11,12 @@ class CustomScreen extends Component {
       <div className = 'custom-screen'>
         <div className = 'custom-screen-row'>
           {mods.map((mod, i) => {
-            let cName = 'custom-screen-row-btn custom-screen-row-btn--mod'
+            let cName;
+            if (mod.color !== 'empty') {
+              cName = 'custom-screen-row-btn custom-screen-row-btn--mod'
+            } else {
+              cName = `custom-screen-row--empty`
+            }
             return (
               <button key = {i} className = {cName}>
                 {mod.name}            
@@ -21,9 +26,14 @@ class CustomScreen extends Component {
         </div>
         <div className = 'custom-screen-row items'>
           {items.map((item, i) => {
-            
+            let cName;
+            if (item.color !== 'empty') {
+              cName = `custom-screen-row-btn custom-screen-row-btn--${item.color}`
+            } else {
+              cName = `custom-screen-row--empty`
+            }
             return (
-              <button key = {i} className = {`custom-screen-row-btn custom-screen-row-btn--${item.color}`}>
+              <button key = {i} className = {cName}>
                 {item.name}
               </button>
             )

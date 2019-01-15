@@ -550,6 +550,11 @@
           "color": "black"
         },
         {
+          "name": "",
+          "type": "",
+          "color": "empty"
+        },
+        {
           "name": "Extra",
           "type": "free",
           "color": "black"
@@ -620,6 +625,11 @@
           "name": "Raw Sugar",
           "type": "free",
           "color": "tan"
+        },
+        {
+          "name": "",
+          "type": "",
+          "color": "empty"
         },
         {
           "name": "Add Banana",
@@ -727,6 +737,11 @@
           "color": "light-blue"
         },
         {
+          "name": "",
+          "type": "",
+          "color": "empty"
+        },
+        {
           "name": "Lemonade",
           "type": "free",
           "color": "yellow"
@@ -745,6 +760,21 @@
           "name": "Temperature",
           "type": "free",
           "color": "yellow"
+        },
+        {
+          "name": "",
+          "type": "",
+          "color": "empty"
+        },
+        {
+          "name": "",
+          "type": "",
+          "color": "empty"
+        },
+        {
+          "name": "",
+          "type": "",
+          "color": "empty"
         }
       ]
     }

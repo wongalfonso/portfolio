@@ -491,6 +491,12 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            &--empty {
+              height: 8rem;
+              width: 11rem;
+              margin-top: .2rem;
+              border: none;
+            }
             &-btn {
               font-size: 1.3rem;
               border-radius: 8px; 
