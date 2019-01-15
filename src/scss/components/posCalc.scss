@@ -485,6 +485,63 @@
             }
           }
         }
+        .custom-screen {
+          padding: .5rem;
+          &-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            &-btn {
+              font-size: 1.3rem;
+              border-radius: 8px; 
+              height: 8rem;
+              width: 11rem;
+              margin-top: .2rem;
+              border: black solid 1px;
+              &--mod {
+                color: white;
+                background: -webkit-linear-gradient(to bottom, rgb(94, 94, 94), black);
+                background: linear-gradient(to bottom, rgb(94, 94, 94), black);
+              }
+              &--teal {
+                background: -webkit-linear-gradient(to bottom, #daeff1, #c9e5e8);
+                background: linear-gradient(to bottom, #daeff1, #c9e5e8);
+                box-shadow: inset 0 -3px 5px #6f6f6f;
+              }
+              &--light-blue {
+                background: -webkit-linear-gradient(to bottom, #d5d5fd, #dddcf3);
+                background: linear-gradient(to bottom, #d5d5fd, #dddcf3);
+                box-shadow: inset 0 -3px 5px #6f6f6f;
+              }
+              &--light-orange {
+                background: -webkit-linear-gradient(to bottom, #ebdcd1, #dccec3);
+                background: linear-gradient(to bottom, #ebdcd1, #dccec3);
+                box-shadow: inset 0 -3px 5px #948c86;
+                
+              }
+              &--light-purple {
+                background: -webkit-linear-gradient(to bottom, #f1d1f1, #cab2ca);
+                background: linear-gradient(to bottom, #f1d1f1, #cab2ca);
+                box-shadow: inset 0 -3px 5px #6f6f6f;
+              }
+              &--light-green {
+                background: -webkit-linear-gradient(to bottom, #cef3d1, #a9e4b6);
+                background: linear-gradient(to bottom, #cef3d1, #a9e4b6);
+                box-shadow: inset 0 -3px 5px #6f6f6f;
+              }
+              &--orange {
+                background: -webkit-linear-gradient(to bottom, #d4ab82, #ffd5a9);
+                background: linear-gradient(to bottom, #d4ab82, #ffd5a9);
+                box-shadow: inset 0 -3px 5px #6f6f6f;
+              }
+              &--yellow {
+                background: -webkit-linear-gradient(to bottom, #fff8c0, #e8e2b6);
+                background: linear-gradient(to bottom, #fff8c0, #e8e2b6);
+                box-shadow: inset 0 -3px 5px #6f6f6f;
+              }
+            }
+          }
+        }
       }
     }
   }

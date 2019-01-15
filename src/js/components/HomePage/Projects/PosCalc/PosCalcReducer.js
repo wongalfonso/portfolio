@@ -9,12 +9,14 @@ const defaultState = {
   savedOrders: [],
   subTotal: 0,
   drinkSize: 'grande',
-  sizes: ['tall', 'grande', 'venti'],
+  sizes: [ 'short', 'tall', 'grande', 'venti'],
   tenderModalIsOpen: false,
   posModalIsOpen: false,
   modalType: '',
   returnedAmount: 0,
   inputBox: ['', '.', '', '' ],
+  customModifiers: [],
+  customItems: [],
   payment: 0,
   previousPaid: 0
 };
@@ -23,10 +25,19 @@ export default function PosReducer(state = defaultState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    
+    case 'GET_MENU_PENDING': {
+      return {
+        ...state,
+      }
+    }
     case 'GET_MENU_FULFILLED': {      
       return {
-        ...state, coffees: payload.coffees[0], breakfast: payload.food[0].breakfast, bakery: payload.food[1].bakery
+        ...state, coffees: payload.coffees[0], breakfast: payload.food[0].breakfast, bakery: payload.food[1].bakery, customItems: payload.custom_buttons[0].items, customModifiers: payload.custom_buttons[0].modifiers
+      }
+    }
+    case 'GET_MENU_REJECTED': {
+      return {
+        ...state
       }
     }
     case 'CURRENT_SCREEN': {         

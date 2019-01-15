@@ -74,62 +74,647 @@
     {
       "breakfast": [
         {
-          "name" : "bacon gouda",
-          "price":  4.25
+          "name": "bacon gouda",
+          "price": 4.25
         },
         {
-          "name" : "carved ham and swiss",
-          "price":  4.75
+          "name": "carved ham and swiss",
+          "price": 4.75
         },
         {
-          "name" : "double smoked bacon",
-          "price":  4.75
+          "name": "double smoked bacon",
+          "price": 4.75
         },
         {
-          "name" : "chicken sausage & bacon",
+          "name": "chicken sausage & bacon",
           "price": 4.50
         },
         {
-          "name" : "reduced-fat turkey bacon",
+          "name": "reduced-fat turkey bacon",
           "price": 4.25
         },
         {
           "name": "sausage, cheddar & egg",
-          "price" : 4.75
+          "price": 4.75
         }
       ]
     },
     {
       "bakery": [
         {
-          "name" : "butter croissant",
+          "name": "butter croissant",
           "price": 2.50
         },
         {
-          "name" : "cheese danish",
+          "name": "cheese danish",
           "price": 2.75
         },
         {
-          "name" :"chocolate croissant",
+          "name": "chocolate croissant",
           "price": 2.50
         },
         {
-          "name" : "classic coffee cake",
+          "name": "classic coffee cake",
           "price": 2.00
         },
         {
-          "name" : "lemon loaf",
+          "name": "lemon loaf",
           "price": 3.50
         },
         {
-          "name" : "banana loaf",
+          "name": "banana loaf",
           "price": 3.25
         },
         {
-          "name" : "old-fashioned doughnut",
+          "name": "old-fashioned doughnut",
           "price": 2.00
         }
       ]
+    }
+  ],
+  "custom_buttons": [
+    {
+      "modifiers": [
+        {
+          "name": "No",
+          "type": "free",
+          "color": "black"
+        },
+        {
+          "name": "Sub",
+          "type": "free",
+          "color": "black"
+        },
+        {
+          "name": "Extra",
+          "type": "free",
+          "color": "black"
+        },
+        {
+          "name": "Light",
+          "type": "free",
+          "color": "black"
+        }        
+      ],
+      "items" : [
+        {
+          "name": "Ice",
+          "type": "free",
+          "color": "teal"
+        },
+        {
+          "name": "Water",
+          "type": "free",
+          "color": "teal"
+        },
+        {
+          "name": "Whipped Cream",
+          "type": "free",
+          "color": "teal"
+        },
+        {
+          "name": "Vanilla Sweet Cream",
+          "type": "add 50",
+          "color": "light-blue"
+        },
+        {
+          "name": "Stevia",
+          "type": "free",
+          "color": "light-orange"
+        },
+        {
+          "name": "Honey",
+          "type": "free",
+          "color": "light-orange"
+        },
+        {
+          "name": "Agave",
+          "type": "free",
+          "color": "light-orange"
+        },
+        {
+          "name": "Splenda",
+          "type": "free",
+          "color": "light-orange"
+        },
+        {
+          "name": "Sugar",
+          "type": "free",
+          "color": "light-orange"
+        },
+        {
+          "name": "Sweet'N Low",
+          "type": "free",
+          "color": "light-orange"
+        },
+        {
+          "name": "Equal",
+          "type": "free",
+          "color": "light-orange"
+        },
+        {
+          "name": "Raw Sugar",
+          "type": "free",
+          "color": "light-orange"
+        },
+        {
+          "name": "Add Banana",
+          "type": "add 1",
+          "color": "light-purple"
+        },
+        {
+          "name": "Strawberry Purre",
+          "type": "add 1",
+          "color": "light-purple"
+        },
+        {
+          "name": "Frappuccino Chips",
+          "type": "add 1",
+          "color": "light-purple"
+        },
+        {
+          "name": "Vanilla Bean Powder",
+          "type": "add 1",
+          "color": "light-purple"
+        },
+        {
+          "name": "Match",
+          "type": "add 1",
+          "color": "light-purple"
+        },
+        {
+          "name": "Mocha Drizzle",
+          "type": "add 50",
+          "color": "light-green"
+        },
+        {
+          "name": "Caramel Drizzle",
+          "type": "add 50",
+          "color": "light-green"
+        },
+        {
+          "name": "No Topping",
+          "type": "add 50",
+          "color": "light-green"
+        },
+        {
+          "name": "Coconut Flakes",
+          "type": "add 50",
+          "color": "light-green"
+        },
+        {
+          "name": "Add Blueberry",
+          "type": "add 1",
+          "color": "light-purple"
+        },
+        {
+          "name": "White Tea Base",
+          "type": "add 50",
+          "color": "orange"
+        },
+        {
+          "name": "Black Tea Base",
+          "type": "add 50",
+          "color": "orange"
+        },
+        {
+          "name": "Green Tea Base",
+          "type": "add 50",
+          "color": "orange"
+        },
+        {
+          "name": "Passion Tango Tea Base",
+          "type": "add 50",
+          "color": "orange"
+        },
+        {
+          "name": "Very Berry Hibiscus Refresher Base",
+          "type": "add 50",
+          "color": "orange"
+        },
+        {
+          "name": "Strawberry Acai Refresher Base",
+          "type": "add 50",
+          "color": "orange"
+        },
+        {
+          "name": "Dragonfruit Refresher Base",
+          "type": "add 50",
+          "color": "orange"
+        },
+        {
+          "name": "Foam",
+          "type": "free",
+          "color": "light-blue"
+        },
+        {
+          "name": "With Room",
+          "type": "free",
+          "color": "light-blue"
+        },
+        {
+          "name": "Cold Foam",
+          "type": "add 75",
+          "color": "light-blue"
+        },
+        {
+          "name": "Cascara Cold Foam",
+          "type": "add 75",
+          "color": "light-blue"
+        },
+        {
+          "name": "Lemonade",
+          "type": "free",
+          "color": "yellow"
+        },
+        {
+          "name": "Extra Hot",
+          "type": "free",
+          "color": "yellow"
+        },
+        {
+          "name": "Warm",
+          "type": "free",
+          "color": "yellow"
+        },
+        {
+          "name": "Temperature",
+          "type": "free",
+          "color": "yellow"
+        }
+      ]
+    }
+  ],
+  "milk_buttons": [
+    {
+      "modifiers" : [
+        {
+          "name": "Extra",
+          "type": "free",
+          "color": "black"
+        },
+        {
+          "name": "Light",
+          "type": "free",
+          "color": "black"
+        }
+      ],
+      "payed": [
+        {
+          "name": "Nonfat Milk",
+          "type": "free",
+          "color": "light-blue"
+        },
+        {
+          "name": "1% Milk",
+          "type": "free",
+          "color": "light-blue"
+        },
+        {
+          "name": "2% Milk",
+          "type": "free",
+          "color": "light-blue"
+        },
+        {
+          "name": "Whole Milk",
+          "type": "free",
+          "color": "light-blue"
+        },
+        {
+          "name": "Soy Milk",
+          "type": "add 60",
+          "color": "yellow"
+        },
+        {
+          "name": "Lactaid Milk",
+          "type": "add 60",
+          "color": "yellow"
+        },
+        {
+          "name": "Almond Milk",
+          "type": "add 60",
+          "color": "yellow"
+        },
+        {
+          "name": "Coconut Milk",
+          "type": "add 60",
+          "color": "yellow"
+        },
+        {
+          "name": "Half & Half (Breve)",
+          "type": "add 60",
+          "color": "light-purple"
+        },
+        {
+          "name": "Heavy Cream",
+          "type": "add 60",
+          "color": "light-purple"
+        },
+        {
+          "name": "Eggnon",
+          "type": "add 60",
+          "color": "light-purple"
+        },
+        {
+          "name": "Add Dairy",
+          "type": "add 60",
+          "color": "light-purple"
+        }
+      ],
+      "free": [        
+        {
+          "name": "with Nonfat Milk",
+          "type": "free",
+          "color": "light-blue"
+        },
+        {
+          "name": "with 1% Milk",
+          "type": "free",
+          "color": "light-blue"
+        },
+        {
+          "name": "with 2% Milk",
+          "type": "free",
+          "color": "light-blue"
+        },
+        {
+          "name": "with Whole Milk",
+          "type": "free",
+          "color": "light-blue"
+        },
+        {
+          "name": "with Soy Milk",
+          "type": "free",
+          "color": "yellow"
+        },
+        {
+          "name": "with Lactaid Milk",
+          "type": "free",
+          "color": "yellow"
+        },
+        {
+          "name": "with Coconut Milk",
+          "type": "free",
+          "color": "yellow"
+        },
+        {
+          "name": "with Almond Milk",
+          "type": "free",
+          "color": "yellow"
+        },
+        {
+          "name": "with Half & Half Cream",
+          "type": "free",
+          "color": "light-purple"
+        },
+        {
+          "name": "with Heavy Cream",
+          "type": "free",
+          "color": "light-purple"
+        }
+      ]
+    }
+  ],
+  "syrup_bttons": [
+    {
+      "modifiers": [
+        {
+          "name": "No",
+          "type": "free",
+          "color": "black"
+        },
+        {
+          "name": "Sub",
+          "type": "free",
+          "color": "black"
+        },
+        {
+          "name": "Pumps",
+          "type": "free",
+          "color": "black"
+        },
+        {
+          "name": "Extra",
+          "type": "free",
+          "color": "black"
+        },
+        {
+          "name": "Light",
+          "type": "free",
+          "color": "black"
+        }
+      ],
+      "syrups" : [
+        {
+          "name": "Caramel Syrup",
+          "type": "add 60",
+          "color": "light-grey"
+        },
+        {
+          "name": "Cinnamon Dolce Syrup",
+          "type": "add 60",
+          "color": "light-grey"
+        },
+        {
+          "name": "Hazelnut Syrup",
+          "type": "add 60",
+          "color": "light-grey"
+        },
+        {
+          "name": "Toffee Nut Syrup",
+          "type": "add 60",
+          "color": "light-grey"
+        },
+        {
+          "name": "Vanilla Syrup",
+          "type": "add 60",
+          "color": "light-grey"
+        },
+        {
+          "name": "Classic Syrup",
+          "type": "add 60",
+          "color": "light-grey"
+        },
+        {
+          "name": "Peppermin Syrup",
+          "type": "add 60",
+          "color": "light-grey"
+        },
+        {
+          "name": "Raspberry Syrup",
+          "type": "add 60",
+          "color": "light-grey"
+        },
+        {
+          "name": "Chai Syrup",
+          "type": "add 60",
+          "color": "light-green"
+        },
+        {
+          "name": "Liquid Cane Sugar",
+          "type": "add 60",
+          "color": "light-grey"
+        },
+        {
+          "name": "Simple Syrup",
+          "type": "add 60",
+          "color": "light-grey"
+        },
+        {
+          "name": "Sugar Free Simple Syrup",
+          "type": "add 60",
+          "color": "light-grey"
+        },
+        {
+          "name": "Sugar Free Cinnamon Dolce",
+          "type": "add 60",
+          "color": "light-blue"
+        },
+        {
+          "name": "Sugar Free Vanilla Syrup",
+          "type": "add 60",
+          "color": "light-blue"
+        },
+        {
+          "name": "Mocha Sauce",
+          "type": "add 60",
+          "color": "light-purple"
+        },
+        {
+          "name": "Skinny Mocha Sauce",
+          "type": "add 60",
+          "color": "light-purple"
+        },
+        {
+          "name": "White Chocolate Mocha Sauce",
+          "type": "add 60",
+          "color": "light-purple"
+        },
+        {
+          "name": "Caramel Sauce",
+          "type": "add 60",
+          "color": "light-purple"
+        },
+        {
+          "name": "Brown Butter Shortbread Sauce",
+          "type": "add 60",
+          "color": "light-purple"
+        },
+        {
+          "name": "Toasted White Mocha Sauce",
+          "type": "add 60",
+          "color": "light-purple"
+        },
+        {
+          "name": "Caramel Brulee Sauce",
+          "type": "add 60",
+          "color": "light-purple"
+        }
+      ]
+    }
+  ],
+  "decaf" : [
+    {
+      "name": "Iced",
+      "type": "",
+      "color": "light-blue"
+    },
+    {
+      "name": "Blonde",
+      "type": "free",
+      "color": "yellow"
+    },
+    {
+      "name": "Decaf",
+      "type": "free",
+      "color": "light-grey"
+    },
+    {
+      "name": "1/2 Decaf",
+      "type": "free",
+      "color": "light-grey"
+    },
+    {
+      "name": "2/3 Decaf",
+      "type": "free",
+      "color": "light-grey"
+    },
+    {
+      "name": "1/3 Decaf",
+      "type": "free",
+      "color": "light-grey"
+    }
+  ],
+  "shots" : [
+    {
+      "name": "Single (solo)",
+      "type": "add 75",
+      "color": "light-purple"
+    },
+    {
+      "name": "Double (Doppio)",
+      "type": "add 150",
+      "color": "light-purple"
+    },
+    {
+      "name": "Triple",
+      "type": "add 215",
+      "color": "light-purple"
+    },
+    {
+      "name": "Quad",
+      "type": "add 260",
+      "color": "light-purple"
+    },
+    {
+      "name": "More Shots",
+      "type": "",
+      "color": "light-purple"
+    },
+    {
+      "name": "Affogato Shot",
+      "type": "add 75",
+      "color": "light-brown"
+    },
+    {
+      "name": "Frappuccino Roast Coffe",
+      "type": "add 50",
+      "color": "light-grey"
+    },
+    {
+      "name": "Kids",
+      "type": "size",
+      "color": "yellow"
+    },
+    {
+      "name": "Long Shot",
+      "type": "free",
+      "color": "light-green"
+    },
+    {
+      "name": "Ristretto",
+      "type": "free",
+      "color": "light-green"
+    },
+    {
+      "name": "Tall",
+      "type": "size",
+      "color": "yellow"
+    },
+    {
+      "name": "Grande",
+      "type": "size",
+      "color": "yellow"
+    },
+    {
+      "name": "Venti",
+      "type": "size",
+      "color": "yellow"
+    },
+    {
+      "name": "Trenta",
+      "type": "size",
+      "color": "yellow"
     }
   ]
 }
