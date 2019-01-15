@@ -2,7 +2,7 @@ const defaultState = {
   coffees: [],
   breakfast: [],
   bakery: [],
-  currentScreen: 'milk',
+  currentScreen: 'syrup',
   currentOrder: [],
   currentSelected: 0,  
   orderTotal: 0,
@@ -20,6 +20,8 @@ const defaultState = {
   milkModifiers: [],
   milkFree: [],
   milkPayed: [],
+  syrupModifiers: [],
+  syrupItems: [],
   payment: 0,
   previousPaid: 0
 };
@@ -34,8 +36,16 @@ export default function PosReducer(state = defaultState, action) {
       }
     }
     case 'GET_MENU_FULFILLED': {      
+      console.log(payload);
       return {
-        ...state, coffees: payload.coffees[0], breakfast: payload.food[0].breakfast, bakery: payload.food[1].bakery, customItems: payload.custom_buttons[0].items, customModifiers: payload.custom_buttons[0].modifiers, milkModifiers: payload.milk_buttons[0].modifiers, milkPayed: payload.milk_buttons[0].payed, milkFree: payload.milk_buttons[0].free
+        ...state, coffees: payload.coffees[0], 
+        breakfast: payload.food[0].breakfast, 
+        bakery: payload.food[1].bakery, 
+        customItems: payload.custom_buttons[0].items,
+        customModifiers: payload.custom_buttons[0].modifiers, milkModifiers: payload.milk_buttons[0].modifiers, 
+        milkPayed: payload.milk_buttons[0].payed, 
+        milkFree: payload.milk_buttons[0].free, 
+        syrupModifiers: payload.syrup_buttons[0].modifiers, syrupItems: payload.syrup_buttons[0].syrups
       }
     }
     case 'GET_MENU_REJECTED': {

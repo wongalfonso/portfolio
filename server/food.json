@@ -584,42 +584,42 @@
         {
           "name": "Stevia",
           "type": "free",
-          "color": "light-orange"
+          "color": "tan"
         },
         {
           "name": "Honey",
           "type": "free",
-          "color": "light-orange"
+          "color": "tan"
         },
         {
           "name": "Agave",
           "type": "free",
-          "color": "light-orange"
+          "color": "tan"
         },
         {
           "name": "Splenda",
           "type": "free",
-          "color": "light-orange"
+          "color": "tan"
         },
         {
           "name": "Sugar",
           "type": "free",
-          "color": "light-orange"
+          "color": "tan"
         },
         {
           "name": "Sweet'N Low",
           "type": "free",
-          "color": "light-orange"
+          "color": "tan"
         },
         {
           "name": "Equal",
           "type": "free",
-          "color": "light-orange"
+          "color": "tan"
         },
         {
           "name": "Raw Sugar",
           "type": "free",
-          "color": "light-orange"
+          "color": "tan"
         },
         {
           "name": "Add Banana",
@@ -879,7 +879,7 @@
       ]
     }
   ],
-  "syrup_bttons": [
+  "syrup_buttons": [
     {
       "modifiers": [
         {
@@ -912,42 +912,52 @@
         {
           "name": "Caramel Syrup",
           "type": "add 60",
-          "color": "light-grey"
+          "color": "tan"
         },
         {
           "name": "Cinnamon Dolce Syrup",
           "type": "add 60",
-          "color": "light-grey"
+          "color": "tan"
         },
         {
           "name": "Hazelnut Syrup",
           "type": "add 60",
-          "color": "light-grey"
+          "color": "tan"
         },
         {
           "name": "Toffee Nut Syrup",
           "type": "add 60",
-          "color": "light-grey"
+          "color": "tan"
         },
         {
           "name": "Vanilla Syrup",
           "type": "add 60",
-          "color": "light-grey"
+          "color": "tan"
         },
         {
           "name": "Classic Syrup",
           "type": "add 60",
-          "color": "light-grey"
+          "color": "tan"
         },
         {
           "name": "Peppermin Syrup",
           "type": "add 60",
-          "color": "light-grey"
+          "color": "tan"
         },
         {
           "name": "Raspberry Syrup",
           "type": "add 60",
-          "color": "light-grey"
+          "color": "tan"
+        },
+        {
+          "name": "",
+          "type": "",
+          "color": "empty"
+        },
+        {
+          "name": "",
+          "type": "",
+          "color": "empty"
         },
         {
           "name": "Chai Syrup",
@@ -955,19 +965,24 @@
           "color": "light-green"
         },
         {
+          "name": "",
+          "type": "",
+          "color": "empty"
+        },
+        {
           "name": "Liquid Cane Sugar",
           "type": "add 60",
-          "color": "light-grey"
+          "color": "tan"
         },
         {
           "name": "Simple Syrup",
           "type": "add 60",
-          "color": "light-grey"
+          "color": "tan"
         },
         {
           "name": "Sugar Free Simple Syrup",
           "type": "add 60",
-          "color": "light-grey"
+          "color": "tan"
         },
         {
           "name": "Sugar Free Cinnamon Dolce",
@@ -978,6 +993,21 @@
           "name": "Sugar Free Vanilla Syrup",
           "type": "add 60",
           "color": "light-blue"
+        },
+        {
+          "name": "",
+          "type": "",
+          "color": "empty"
+        },
+        {
+          "name": "",
+          "type": "",
+          "color": "empty"
+        },
+        {
+          "name": "",
+          "type": "",
+          "color": "empty"
         },
         {
           "name": "Mocha Sauce",
@@ -1000,6 +1030,11 @@
           "color": "light-purple"
         },
         {
+          "name": "",
+          "type": "",
+          "color": "empty"
+        },
+        {
           "name": "Brown Butter Shortbread Sauce",
           "type": "add 60",
           "color": "light-purple"
@@ -1013,6 +1048,16 @@
           "name": "Caramel Brulee Sauce",
           "type": "add 60",
           "color": "light-purple"
+        },
+        {
+          "name": "",
+          "type": "",
+          "color": "empty"
+        },
+        {
+          "name": "",
+          "type": "",
+          "color": "empty"
         }
       ]
     }
@@ -1031,22 +1076,22 @@
     {
       "name": "Decaf",
       "type": "free",
-      "color": "light-grey"
+      "color": "tan"
     },
     {
       "name": "1/2 Decaf",
       "type": "free",
-      "color": "light-grey"
+      "color": "tan"
     },
     {
       "name": "2/3 Decaf",
       "type": "free",
-      "color": "light-grey"
+      "color": "tan"
     },
     {
       "name": "1/3 Decaf",
       "type": "free",
-      "color": "light-grey"
+      "color": "tan"
     }
   ],
   "shots": [
@@ -1083,7 +1128,7 @@
     {
       "name": "Frappuccino Roast Coffe",
       "type": "add 50",
-      "color": "light-grey"
+      "color": "tan"
     },
     {
       "name": "Kids",

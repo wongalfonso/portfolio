@@ -18,6 +18,7 @@ class MilkScreen extends Component {
             <div className='milk-screen-row--empty'></div>
             <div className='milk-screen-row--empty'></div>
             {priced.map((pay, i) => {
+              console.log(pay.color);
               return (
                 <button key={i}
                   className={`milk-screen-row-btn milk-screen-row-btn--${pay.color}`}>
