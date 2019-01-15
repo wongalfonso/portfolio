@@ -11,6 +11,7 @@ import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalPosO
 import CustomScreen from './CustomScreen';
 import MilkScreen from './MilkScreen';
 import SyrupScreen from './SyrupScreen';
+import BuilderScreen from './BuilderScreen';
 
 const modalStyle = {
   overlay: {
@@ -244,11 +245,12 @@ class PosCalc extends Component {
               {(currentScreen === 'custom') && <CustomScreen />}
               {(currentScreen === 'milk') && <MilkScreen />}
               {(currentScreen === 'syrup') && <SyrupScreen />}
+              {(currentScreen === 'builder') && <BuilderScreen/>}
             </div>
-              <div className ='tabs'>
+              <div className ='right-tabs'>
                 <ul>
-                  <li className = {(currentScreen == 'decaf') ? 'tabs-group tabs-group--active' : 'tabs-group'}
-                    onClick={() => this.selectScreen('decaf')}
+                  <li className = {(currentScreen == 'builder') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                    onClick={() => this.selectScreen('builder')}
                   > 
                     <div>
                       <div className = 'small-box'></div>

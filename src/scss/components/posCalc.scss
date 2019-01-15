@@ -241,7 +241,7 @@
           }
         }
       }
-      .tabs {
+      .right-tabs {
         width: 10rem;        
         font-size: 2rem;
         ul {
@@ -603,7 +603,7 @@
             }
           }
         }
-        .syrup-screen {
+        .syrup-screen, .builder-screen {
           padding: .5rem;
           height: 100%;
           display: flex;
@@ -660,7 +660,14 @@
                 background: $webtan;
                 box-shadow: inset 0 -3px 5px #6f6f6f;
               }
-
+              &--orange {
+                background: $orange;
+                background: $weborange;
+                box-shadow: inset 0 -3px 5px #6f6f6f;
+              }
+              &--active {
+                font-weight: bold;
+              }
             }
           }
         }

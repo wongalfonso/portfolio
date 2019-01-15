@@ -2,7 +2,7 @@ const defaultState = {
   coffees: [],
   breakfast: [],
   bakery: [],
-  currentScreen: 'syrup',
+  currentScreen: 'builder',
   currentOrder: [],
   currentSelected: 0,  
   orderTotal: 0,
@@ -22,6 +22,8 @@ const defaultState = {
   milkPayed: [],
   syrupModifiers: [],
   syrupItems: [],
+  decaf: [],
+  shots: [],
   payment: 0,
   previousPaid: 0
 };
@@ -45,7 +47,10 @@ export default function PosReducer(state = defaultState, action) {
         customModifiers: payload.custom_buttons[0].modifiers, milkModifiers: payload.milk_buttons[0].modifiers, 
         milkPayed: payload.milk_buttons[0].payed, 
         milkFree: payload.milk_buttons[0].free, 
-        syrupModifiers: payload.syrup_buttons[0].modifiers, syrupItems: payload.syrup_buttons[0].syrups
+        syrupModifiers: payload.syrup_buttons[0].modifiers, syrupItems: payload.syrup_buttons[0].syrups,
+        decaf: payload.decaf,
+        shots: payload.shots,
+
       }
     }
     case 'GET_MENU_REJECTED': {
