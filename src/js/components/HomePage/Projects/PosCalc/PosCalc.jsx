@@ -9,6 +9,7 @@ import FoodScreen from './FoodScreen';
 import SavedOrders from './SavedOrders';
 import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalPosOpen, modalPosClose, saveOrder } from './PosCalcActions';
 import CustomScreen from './CustomScreen';
+import MilkScreen from './MilkScreen';
 
 const modalStyle = {
   overlay: {
@@ -240,6 +241,7 @@ class PosCalc extends Component {
               {(currentScreen === 'food') && <FoodScreen />}
               {(currentScreen === 'orders') && <SavedOrders />}
               {(currentScreen === 'custom') && <CustomScreen />}
+              {(currentScreen === 'milk') && <MilkScreen />}
             </div>
               <div className ='tabs'>
                 <ul>

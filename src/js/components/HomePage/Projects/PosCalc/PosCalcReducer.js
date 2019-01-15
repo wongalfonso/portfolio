@@ -2,7 +2,7 @@ const defaultState = {
   coffees: [],
   breakfast: [],
   bakery: [],
-  currentScreen: 'drinks',
+  currentScreen: 'milk',
   currentOrder: [],
   currentSelected: 0,  
   orderTotal: 0,
@@ -17,6 +17,9 @@ const defaultState = {
   inputBox: ['', '.', '', '' ],
   customModifiers: [],
   customItems: [],
+  milkModifiers: [],
+  milkFree: [],
+  milkPayed: [],
   payment: 0,
   previousPaid: 0
 };
@@ -32,7 +35,7 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'GET_MENU_FULFILLED': {      
       return {
-        ...state, coffees: payload.coffees[0], breakfast: payload.food[0].breakfast, bakery: payload.food[1].bakery, customItems: payload.custom_buttons[0].items, customModifiers: payload.custom_buttons[0].modifiers
+        ...state, coffees: payload.coffees[0], breakfast: payload.food[0].breakfast, bakery: payload.food[1].bakery, customItems: payload.custom_buttons[0].items, customModifiers: payload.custom_buttons[0].modifiers, milkModifiers: payload.milk_buttons[0].modifiers, milkPayed: payload.milk_buttons[0].payed, milkFree: payload.milk_buttons[0].free
       }
     }
     case 'GET_MENU_REJECTED': {

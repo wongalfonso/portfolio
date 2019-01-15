@@ -18,6 +18,8 @@ $gutter-vertical: 1rem;
 $gutter-horizontal: 2rem;
 
 //Colors
+$mod: linear-gradient(to bottom, rgb(94, 94, 94), black);
+$webmod: -webkit-linear-gradient(to bottom, rgb(94, 94, 94), black);
 $teal: linear-gradient(to bottom, #daeff1, #c9e5e8);
 $webteal: -webkit-linear-gradient(to bottom, #daeff1, #c9e5e8);
 $lightblue: linear-gradient(to bottom, #dfdffd, #ececfb);

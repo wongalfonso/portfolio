@@ -542,6 +542,71 @@
             }
           }
         }
+        .milk-screen {
+          display: flex;
+          justify-content: space-between;
+          height: 100%;
+          &-group {
+            display: flex;
+            margin-right: 2rem;
+            .milk-screen-label {
+              writing-mode: vertical-lr;
+              width: 2rem;
+              background-color:lightgrey;
+              transform: rotate(180deg);
+              padding: 24rem 0;
+              font-size: 1.4rem;
+            }
+            .milk-screen-row {
+              display: flex;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              max-width: 23rem;
+              &--empty {
+                height:8rem;
+                width: 11rem;
+              }
+              &-btn {
+                font-size: 1.3rem;
+                border-radius: 8px; 
+                height: 8rem;
+                width: 11rem;
+                margin-top: .2rem;
+                border: black solid 1px;
+                &--black {
+                  color: white;
+                  background: $mod;
+                  background: $webmod;
+                }
+                &--teal {
+                  background: $teal;
+                  background: $webteal;
+                  box-shadow: inset 0 -3px 5px #6f6f6f;
+                }
+                &--light-blue {
+                  background: $lightblue;
+                  background: $weblightblue;
+                  box-shadow: inset 0 -3px 5px #6f6f6f;
+                }
+                &--light-purple {
+                  background: $weblightpurple;
+                  background: $lightpurple;
+                  box-shadow: inset 0 -3px 5px #6f6f6f;
+                }
+                &--orange {
+                  background: $orange;
+                  background: $weborange;
+                  box-shadow: inset 0 -3px 5px #6f6f6f;
+                }
+                &--yellow {
+                  background: $yellow;
+                  background: $webyellow;
+                  box-shadow: inset 0 -3px 5px #6f6f6f;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
