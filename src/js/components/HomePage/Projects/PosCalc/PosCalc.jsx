@@ -112,7 +112,7 @@ class PosCalc extends Component {
     const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, posModalIsOpen, modalType, returnedAmount, payment } = this.props;
     let sub = subTotal ? subTotal : 0;
     let total = orderTotal ? orderTotal : 0;
-    let order = currentOrder ? currentOrder : null;
+    let order = currentOrder ? currentOrder : null;    
     return (
       <div id="posCalcProject">
         <div className="pos-container">
@@ -135,7 +135,7 @@ class PosCalc extends Component {
           <div className="pos-menus">
             <div className="pos-menus-functions">
               {(orderTotal > 0) ?
-                <button className='pos-menus-functions-btns pos-menus-functions-btns--default'
+                <button className= {(currentScreen == 'tender') ?  'pos-menus-functions-btns pos-menus-functions-btns--active' :  'pos-menus-functions-btns pos-menus-functions-btns--default'}
                   onClick={() => this.selectScreen('tender')}>
                   Tender
               </button>
@@ -147,13 +147,13 @@ class PosCalc extends Component {
               }
             </div>
             <div className="pos-menus-screens">
-              <button className='pos-menus-screens-btns pos-menus-screens-btns--default'
+              <button className= {(currentScreen == 'food') ?  'pos-menus-screens-btns pos-menus-screens-btns--active' :  'pos-menus-screens-btns pos-menus-screens-btns--default'}
                 onClick={() => this.selectScreen('food')}>
                 Food
               </button>              
               </div>
               <div className="pos-menus-screens">             
-              <button className='pos-menus-screens-btns pos-menus-screens-btns--default'
+              <button className= {(currentScreen == 'drinks') ?  'pos-menus-screens-btns pos-menus-screens-btns--active' :  'pos-menus-screens-btns pos-menus-screens-btns--default'}
                 onClick={() => this.selectScreen('drinks')}>
                 Drinks
               </button>
@@ -239,6 +239,37 @@ class PosCalc extends Component {
               {(currentScreen === 'food') && <FoodScreen />}
               {(currentScreen === 'orders') && <SavedOrders />}
             </div>
+              <div className ='tabs'>
+                <ul>
+                  <li className = 'tabs-group'> 
+                    <div>
+                      <div className = 'small-box'></div>
+                      Iced
+                    </div>
+                    <div>Decaf
+                      <div className = 'box'></div>
+                    </div>
+                    <div>Shots
+                      <div className = 'box'></div>
+                    </div>
+                    <div>Size
+                      <div className = 'box'></div>
+                    </div>                      
+                  </li>
+                  <li className = 'tabs-group'>
+                    Syrup
+                    <div className = 'box'></div>        
+                  </li>
+                  <li className = 'tabs-group'>
+                    Milk
+                    <div className = 'box'></div>
+                  </li>
+                  <li className = 'tabs-group'>                  
+                    Custom
+                    <div className = 'box'></div>
+                  </li>
+                </ul>
+              </div>
 
           </div>
           <ProjectClose

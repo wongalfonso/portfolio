@@ -91,8 +91,7 @@
     .pos-menus {
       display: flex;
       justify-content: space-evenly;      
-      &-functions {
-        flex: 1 0 40%;
+      &-functions {        
         display: flex;
         justify-content: space-between;
         margin: 2rem 0;
@@ -116,11 +115,19 @@
             color: black;            
             border-top: black;
             border-left: black;
-          }          
+            &:after, :before {
+              position: absolute;
+              height: 0;
+              width: 0;
+              border-left: 50px solid transparent;
+              border-right: 50px solid transparent;
+              border-top: 100px solid red;
+            }
+          }      
+
         }
       }
-      &-screens {
-        flex: 1 0 30%;
+      &-screens {        
         display: flex;
         justify-content: space-around;
         margin: 2rem 0;
@@ -131,7 +138,7 @@
           width: 12rem;
           &:hover {
             opacity: .8;
-          }
+          }          
           &--default {
             background: -webkit-linear-gradient(to bottom, #57c740, #3b882b);
             background: linear-gradient(to bottom, #57c740, #3b882b);            
@@ -141,9 +148,17 @@
           }
           &--active {
             background-color: white;
-            color: black;            
+            color: #3b882b;            
             border-top: black;
             border-left: black;
+            &::after {
+              position: relative;
+              width: 0;
+              height: 0;
+              border-left: 50px solid transparent;
+              border-right: 50px solid transparent;
+              border-top: 100px solid red;
+            }
           }
         }
       }
@@ -226,11 +241,49 @@
           }
         }
       }
+      .tabs {
+        width: 10rem;        
+        font-size: 2rem;
+        ul {
+          display: flex;
+          justify-content: space-around;
+          flex-direction: column;
+          -ms-flex-direction: column;
+          margin: 0 auto;
+          height: 100%;
+          .tabs-group {
+            background-color: lightgrey;
+            list-style: none;
+            border-radius: 0 20px 20px 0;
+            margin: 0;            
+            text-align: center;
+            padding: 2rem;
+            font-style: italic;
+            .small-box {
+              border: 1px solid;
+              width: 3rem;
+              height: 3rem;
+              margin-left: 1rem;
+            }
+            .box {
+              border: 1px solid;
+              width: 6rem;
+              height: 3rem;
+              margin: 0 auto;
+            }                  
+          }
+          .tabs-group--active {
+            background-color: white;
+          }
+        } 
+
+      }
       .side-screen {
         flex: 1 0 60%;
-        background-color: white;
-        max-width: 692px;
-        border: solid #6d6d6d 4px;
+        background-color: white;        
+        border-left: solid #6d6d6d 4px;
+        border-top: solid #6d6d6d 4px;
+        border-bottom: solid #6d6d6d 4px;
         .tender-screen {
           font-size: 2.5rem;
           display: flex;
@@ -436,12 +489,51 @@
     }
   }
 }
+@media only screen and (max-width: $md - $unit) {
+  .pos-container {    
+    .pos-order-screen {
+      flex-direction: column-reverse;
+      -ms-flex-direction: column-reverse;
+      .side-screen {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $md) {
+  .pos-container {
+    .pos-menus {
+      &-functions {
+        flex: 1 0 40%;
+      }
+      &-screens {
+        flex: 1 0 30%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: $sm - $unit) {
+
+}
 @media only screen and (min-width: $sm) and (max-width: $md - $unit) {
   .pos-container {
     min-width: 80rem;
     max-width: 96rem;
   }
 }
+
+
+@media only screen and (min-width: $md) {
+  .pos-container {
+    .pos-order-screen {
+      .side-screen {
+        max-width: 692px;
+      }
+    }
+  }
+}
+
 
 @media only screen and (min-width: $md) and (max-width: $lg - $unit) {
   .pos-container {

@@ -4,18 +4,21 @@
       "hotCoffee": [
         {
           "name": "americano",
+          "short": 2.45,
           "tall": 2.65,
           "grande": 3.25,
           "venti": 4.00
         },
         {
           "name": "hot coffee",
+          "short": 2.25,
           "tall": 2.45,
           "grande": 3.05,
           "venti": 3.65
         },
         {
           "name": "caffe misto",
+          "short": 2.65,
           "tall": 3.45,
           "grande": 4.00,
           "venti": 4.65
@@ -24,36 +27,42 @@
       "latte": [
         {
           "name": "caramel macchiatto",
+          "short": 2.65,
           "tall": 3.25,
           "grande": 4.25,
           "venti": 4.75
         },
         {
           "name": "white mocha",
+          "short": 2.65,
           "tall": 3.35,
           "grande": 4.35,
           "venti": 4.80
         },
         {
           "name": "mocha",
+          "short": 2.45,
           "tall": 3.25,
           "grande": 4.25,
           "venti": 4.75
         },
         {
           "name": "cinnamon dolce latte",
+          "short": 2.55,
           "tall": 3.25,
           "grande": 4.25,
           "venti": 4.75
         },
         {
           "name": "vanilla latte",
+          "short": 2.45,
           "tall": 3.25,
           "grande": 4.25,
           "venti": 4.75
         },
         {
           "name": "black and white mocha",
+          "short": 2.65,
           "tall": 3.25,
           "grande": 4.35,
           "venti": 4.85
