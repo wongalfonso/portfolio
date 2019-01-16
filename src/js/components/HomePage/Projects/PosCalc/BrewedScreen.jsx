@@ -15,12 +15,10 @@ class BrewedScreen extends Component {
 
   render() {
     const { brewed } = this.props;
-    console.log(brewed);
     const pourOver = brewed.pour_over ? brewed.pour_over : [];
-
-    // const hotCoffees = coffees.hotCoffee ? coffees.hotCoffee : [];
-    // const lattes = coffees.latte ? coffees.latte : []
-    // const size = sizes ? sizes : []
+    const icedCoffee = brewed.iced_coffee ? brewed.iced_coffee : [];
+    const coldBrew = brewed.cold_brew ? brewed.cold_brew : [];
+    const coffee = brewed.coffees ? brewed.coffees : [];
     return (
       <div className ='brewed-screen'>        
         <div className="brewed-screen-row">
@@ -40,8 +38,51 @@ class BrewedScreen extends Component {
               </button>
             )
           })}
-        </div>
-        <div className="drinks-screen-row">
+          {icedCoffee.map((iced, i ) => {
+            let cName;
+            if (iced.color == 'empty') {
+              cName = 'brewed-screen-row--empty'
+            } else {
+              cName = `brewed-screen-row-btn brewed-screen-row-btn--${iced.color}` 
+            }
+            return (
+              <button className = {cName} 
+                key = {i}
+                onClick = {() => this.addDrink(iced)}>
+                {iced.name}
+              </button>
+            )
+          })}
+          {coldBrew.map((cb, i ) => {
+            let cName;
+            if (cb.color == 'empty') {
+              cName = 'brewed-screen-row--empty'
+            } else {
+              cName = `brewed-screen-row-btn brewed-screen-row-btn--${cb.color}` 
+            }
+            return (
+              <button className = {cName} 
+                key = {i}
+                onClick = {() => this.addDrink(cb)}>
+                {cb.name}
+              </button>
+            )
+          })}
+          {coffee.map((coff, i ) => {
+            let cName;
+            if (coff.color == 'empty') {
+              cName = 'brewed-screen-row--empty'
+            } else {
+              cName = `brewed-screen-row-btn brewed-screen-row-btn--${coff.color}` 
+            }
+            return (
+              <button className = {cName} 
+                key = {i}
+                onClick = {() => this.addDrink(coff)}>
+                {coff.name}
+              </button>
+            )
+          })}
         </div>
       </div>
     )

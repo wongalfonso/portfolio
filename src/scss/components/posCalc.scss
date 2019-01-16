@@ -310,7 +310,7 @@
                 }
               }
             }
-            .syrup-screen, .builder-screen, .brewed-screen, .custom-screen {
+            .syrup-screen, .builder-screen, .brewed-screen, .custom-screen, .food-screen {
               padding: .2rem;
               height: 100%;
               display: flex;
@@ -464,42 +464,7 @@
                   }
                 }
               }
-            }       
-            .food-screen {
-              display: flex;
-              flex-direction: column;
-              -ms-flex-direction: column;
-              justify-content: space-evenly;
-              height: 100%;
-              &-row {
-                padding: 2rem;
-                display: flex;
-                justify-content: space-evenly;
-                flex-wrap: wrap;
-                .food-btns {
-                  width: 12rem;
-                  padding: 1.2rem;
-                  font-size: 2rem;
-                  border-radius: 8px;
-                  min-height: 10rem;
-                  margin-right: 2rem;
-                  margin-bottom: 2rem;
-                  &:hover {
-                    opacity: .8;
-                  }
-                  &-bakery {
-                    background: -webkit-linear-gradient(to bottom, #9b3030, #ed4e4e);
-                    background: linear-gradient(to bottom, #9b3030, #ed4e4e); 
-                    border-bottom: 3px solid #9b3030;
-                  }
-                  &-breakfast {
-                    background: -webkit-linear-gradient(to bottom, #b9b13c, #ede24e);
-                    background: linear-gradient(to bottom, #b9b13c, #ede24e); 
-                    border-bottom: 3px solid #b9b13c;
-                  }
-                } 
-              }
-            }
+            }                   
             .saved-screen {
               display: flex;
               flex-direction: column;

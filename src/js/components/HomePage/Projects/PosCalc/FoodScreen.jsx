@@ -22,17 +22,29 @@ class FoodScreen extends Component {
       <div className = 'food-screen'>        
         <div className="food-screen-row">
           {baked.map((bake, i ) => {
+            let cName;
+            if (bake.color == 'empty') {
+              cName = 'brewed-screen-row--empty'
+            } else {
+              cName = `brewed-screen-row-btn brewed-screen-row-btn--${bake.color}` 
+            }
             return (
-              <button className = 'food-btns food-btns-bakery' 
+              <button className = {cName} 
                 key = {i}
-                onClick = {() => this.addFood(bake)}>{bake.name}</button>
+                onClick = {() => this.addFood(bake)}>
+                {bake.name}
+              </button>
             )
           })}
-        </div>
-        <div className="food-screen-row">
           {sandwhiches.map((sandwhich, i ) => {
+            let cName;
+            if (sandwhich.color == 'empty') {
+              cName = 'brewed-screen-row--empty'
+            } else {
+              cName = `brewed-screen-row-btn brewed-screen-row-btn--${sandwhich.color}` 
+            }
             return (
-              <button className = 'food-btns food-btns-breakfast'
+              <button className = {cName}
                 key = {i}
                 onClick = {() => this.addFood(sandwhich)}>{sandwhich.name}</button>
             )

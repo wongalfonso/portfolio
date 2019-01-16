@@ -93,7 +93,7 @@
             "color": "tan"
         },
         {
-          "name": "caffe misto",
+          "name": "Caffe Misto",
           "price": [
             {
               "short": 2.65,
@@ -314,6 +314,12 @@
             }]
           }],
             "color": "teal"
+        },
+        {
+          "name": "",
+          "price": [],
+          "ingredients": [],
+          "color": "empty"
         }
       ],
       "cold_brew" : [
@@ -1236,27 +1242,33 @@
       "breakfast": [
         {
           "name": "bacon gouda",
-          "price": 4.25
+          "price": 4.25,
+          "color": "tan"
         },
         {
           "name": "carved ham and swiss",
-          "price": 4.75
+          "price": 4.75,
+          "color": "tan"
         },
         {
           "name": "double smoked bacon",
-          "price": 4.75
+          "price": 4.75,
+          "color": "tan"
         },
         {
           "name": "chicken sausage & bacon",
-          "price": 4.50
+          "price": 4.50,
+          "color": "tan"
         },
         {
           "name": "reduced-fat turkey bacon",
-          "price": 4.25
+          "price": 4.25,
+          "color": "tan"
         },
         {
           "name": "sausage, cheddar & egg",
-          "price": 4.75
+          "price": 4.75,
+          "color": "tan"
         }
       ]
     },
@@ -1264,31 +1276,38 @@
       "bakery": [
         {
           "name": "butter croissant",
-          "price": 2.50
-        },
-        {
-          "name": "cheese danish",
-          "price": 2.75
+          "price": 2.50,
+          "color": "light-purple"
         },
         {
           "name": "chocolate croissant",
-          "price": 2.50
+          "price": 2.50,
+          "color": "light-purple"
+        },
+        {
+          "name": "cheese danish",
+          "price": 2.75,
+          "color": "orange"
         },
         {
           "name": "classic coffee cake",
-          "price": 2.00
+          "price": 2.00,
+          "color": "orange"
         },
         {
           "name": "lemon loaf",
-          "price": 3.50
+          "price": 3.50,
+          "color": "yellow"
         },
         {
           "name": "banana loaf",
-          "price": 3.25
+          "price": 3.25,
+          "color": "yellow"
         },
         {
           "name": "old-fashioned doughnut",
-          "price": 2.00
+          "price": 2.00,
+          "color": "light-blue"
         }
       ]
     }
