@@ -235,3 +235,10 @@ export function totalScreen(screen) {
     payload: screen
   }
 }
+
+export function updateItem(number) {
+  return {
+    type: 'UPDATE_ITEM',
+    payload: number
+  }
+}

@@ -198,28 +198,7 @@ class PosCalc extends Component {
               : 
               <TotalScreen
               selectScreen = {this.selectScreen }/>
-              }
-              <div className="pos-order-screen-voids">
-                <button className='pos-order-screen-voids-btns void'
-                  onClick={this.removeItem}>
-                  Void Item
-                </button>
-                <button className='pos-order-screen-voids-btns cancel'
-                  onClick={() => this.openModal('cancel')}>
-                  Cancel
-                </button>
-                {(currentOrder.length < 1) ?
-                  <button className='pos-order-screen-voids-btns save'
-                    onClick={() => this.selectScreen('orders')}>
-                    Find Order
-                </button>
-                  :
-                  <button className='pos-order-screen-voids-btns save'
-                    onClick={() => this.openModal('save')}>
-                    Save Order
-                </button>
-                }
-              </div>
+              }              
             </div>
             <div className='side-screen'>
               <div className="side-screen-container">
@@ -249,6 +228,11 @@ class PosCalc extends Component {
                     Espresso
                   </li>
                 </ul>
+              </div>
+              <div className="bottom-functions">
+                <button>Copy Drink</button>
+                <button>Add Shot</button>
+                <button>Next Drink</button>
               </div>
             </div>
           </div>

@@ -9,11 +9,11 @@ class TotalScreen extends Component {
     let taxes = tax ? tax : 0;
     return (
       <div className='pos-order-screen-list-total'>
+        <div className="pos-order-screen-list-total-container">
         <div className='pos-order-screen-btn'>
           <button>Quantity</button>
         </div>
         <table className='pos-order-screen-table'>
-
           <tbody>
             <tr>
               <td>Subtotal:</td>
@@ -37,18 +37,40 @@ class TotalScreen extends Component {
             <tr className='final-total'>
               <td>TOTAL DUE:</td>
               <td>
-                {(currentOrder.length > 0) ? 
-                <button onClick = {() => this.props.selectScreen('tender')}>
-                  $ {total.toFixed(2)}
-                </button> : 
-                <button disabled>
-                $ {total.toFixed(2)}
-              </button>
+                {(currentOrder.length > 0) ?
+                  <button onClick={() => this.props.selectScreen('tender')}>
+                    $ {total.toFixed(2)}
+                  </button> :
+                  <button disabled>
+                    $ {total.toFixed(2)}
+                  </button>
                 }
               </td>
             </tr>
           </tbody>
         </table>
+        </div>
+        <div className="pos-order-screen-voids">
+          <button className='pos-order-screen-voids-btns void'
+            onClick={this.removeItem}>
+            Void Item
+                </button>
+          <button className='pos-order-screen-voids-btns cancel'
+            onClick={() => this.openModal('cancel')}>
+            Cancel
+                </button>
+          {(currentOrder.length < 1) ?
+            <button className='pos-order-screen-voids-btns save'
+              onClick={() => this.selectScreen('orders')}>
+              Find Order
+                </button>
+            :
+            <button className='pos-order-screen-voids-btns save'
+              onClick={() => this.openModal('save')}>
+              Save Order
+                </button>
+          }
+        </div>
       </div>
     )
   }
