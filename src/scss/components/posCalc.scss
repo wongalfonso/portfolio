@@ -240,16 +240,20 @@
                 .final-total {
                   td {
                     font-size: 2.2rem;
-                    button {
+                    .final-total-btn {
                       font-size: 2rem;
                       text-align: right;
                       padding: 1rem;
                       color: white;
                       border-radius: 8px;
+                      border: 1px solid black;
                       background-color: #656161;
                       border: none;
                       height: 5.5rem;
                       width: 10rem;
+                      &--active {
+                        background-color: #2b2a2a;
+                      }
                     }
                   }
                 }
@@ -491,7 +495,7 @@
                   margin: 1rem;
                 }
                 &-bills {
-                  max-height: 13rem;
+                  max-height: 12rem;
                   margin-bottom: 1rem;
                 }
                 &-btns {
@@ -568,7 +572,8 @@
               overflow-y: scroll;   
               &-row {    
                 height: 100%;
-                width: 100%;        
+                width: 100%;   
+                position: relative;     
                 button {
                   font-size: 1.5rem;
                   margin: 2rem;
@@ -586,8 +591,9 @@
                   position: absolute;
                   top: 50%;
                   left: 50%;
-                  transform: translate(20%, -50%);
+                  transform: translate(-50%, -50%);
                   font-size: 5rem;
+                  text-align: center;
                 }
               }
             }

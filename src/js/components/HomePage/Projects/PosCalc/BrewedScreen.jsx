@@ -8,9 +8,9 @@ class BrewedScreen extends Component {
     this.addDrink = this.addDrink.bind(this);
   }
 
-  addDrink(drink) {    
-    const { dispatch, currentOrder, drinkSize} = this.props;    
-    dispatch(addItem(currentOrder, drink, 'brewed', drinkSize));    
+  addDrink(drink) {   
+    const { dispatch, currentOrder, drinkSize, currentTemp} = this.props;    
+    dispatch(addItem(currentOrder, drink, 'brewed', drinkSize, currentTemp));    
   }
 
   render() {
@@ -91,6 +91,9 @@ class BrewedScreen extends Component {
 function mapStateToProps(state) {      
   return {
     brewed: state.home.posCalc.brewed,
+    currentOrder: state.home.posCalc.currentOrder,
+    drinkSize: state.home.posCalc.drinkSize,
+    currentTemp: state.home.posCalc.currentTemp
   }
 }
 

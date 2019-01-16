@@ -19,7 +19,10 @@ class QuantityScreen extends Component {
         <div className="quantity-container">
           <div className = 'quantity-screen'></div>
           <button className = 'quantity-btn'>Backspace</button>
-          <button className = 'quantity-btn'>Cancel</button>
+          <button className = 'quantity-btn' 
+            onClick = {() => this.props.changeTotalScreen('total')}>
+            Cancel
+          </button>
           <button className = 'quantity-input'>1</button>
           <button className = 'quantity-input'>2</button>
           <button className = 'quantity-input'>3</button>

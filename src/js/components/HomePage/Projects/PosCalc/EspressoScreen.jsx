@@ -10,8 +10,8 @@ class EspressoScreen extends Component {
   }
 
   addDrink(drink) {
-    const { dispatch, currentOrder, drinkSize } = this.props;
-    dispatch(addItem(currentOrder, drink, 'brewed', drinkSize));
+    const { dispatch, currentOrder, drinkSize, currentTemp } = this.props;
+    dispatch(addItem(currentOrder, drink, 'espresso', drinkSize, currentTemp));
   }
 
   render() {
@@ -77,7 +77,10 @@ function mapStateToProps(state) {
   return {
     espresso: state.home.posCalc.espresso,
     latte: state.home.posCalc.latte,
-    mochas: state.home.posCalc.mochas
+    mochas: state.home.posCalc.mochas,
+    currentOrder: state.home.posCalc.currentOrder,
+    drinkSize: state.home.posCalc.drinkSize,
+    currentTemp: state.home.posCalc.currentTemp
   }
 }
 

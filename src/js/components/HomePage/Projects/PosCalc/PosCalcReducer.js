@@ -2,8 +2,12 @@ const defaultState = {
   breakfast: [],
   bakery: [],
   currentScreen: 'drinks',
+  currentTemp: 'hot',
   currentOrder: [],
-  currentSelected: 0,  
+  currentSelected: 0, 
+  currentIngredients: [], 
+  drinkDecaf: '',
+  drinkIced: '',
   orderTotal: 0,
   savedOrders: [],
   subTotal: 0,
@@ -56,7 +60,7 @@ export default function PosReducer(state = defaultState, action) {
         shots: payload.shots,
         espresso: payload.espresso[0].espresso,
         latte: payload.espresso[0].latte,
-        mochas: payload.espresso[0].mochas
+        mochas: payload.espresso[0].mochas,        
       }
     }
     case 'GET_MENU_REJECTED': {
@@ -71,7 +75,7 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'ADD_ITEM' : {          
       return {
-        ...state, currentOrder: payload.order, currentSelected: payload.currentSelected, subTotal: payload.subTotal, orderTotal: payload.total, tax: payload.tax
+        ...state, currentOrder: payload.order, currentSelected: payload.currentSelected, subTotal: payload.subTotal, orderTotal: payload.total, tax: payload.tax, currentIngredients: payload.currentIngredients
       }
     }    
     case 'CHANGE_SIZE': {

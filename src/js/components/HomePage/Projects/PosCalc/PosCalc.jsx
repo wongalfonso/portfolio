@@ -196,10 +196,15 @@ class PosCalc extends Component {
               </div>
               {(totalScreenView == 'quantity') ? 
               <QuantityScreen
+                changeTotalScreen = {this.changeTotalScreen }
               />
               : 
               <TotalScreen
-                selectScreen = {this.changeTotalScreen }/>
+                selectScreen = {this.selectScreen}
+                changeTotalScreen = {this.changeTotalScreen }
+                removeItem = {this.removeItem}
+                openModal = {this.openModal}
+                />
               }              
             </div>
             <div className='side-screen'>

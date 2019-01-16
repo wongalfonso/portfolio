@@ -11,7 +11,7 @@ class TotalScreen extends Component {
       <div className='pos-order-screen-list-total'>
         <div className="pos-order-screen-list-total-container">
         <div className='pos-order-screen-btn'>
-          <button onClick = {() => this.props.selectScreen('quantity')}>
+          <button onClick = {() => this.props.changeTotalScreen('quantity')}>
             Quantity
           </button>
         </div>
@@ -40,10 +40,10 @@ class TotalScreen extends Component {
               <td>TOTAL DUE:</td>
               <td>
                 {(currentOrder.length > 0) ?
-                  <button onClick={() => this.props.selectScreen('tender')}>
+                  <button className = 'final-total-btn final-total-btn--active' onClick={() => this.props.selectScreen('tender')}>
                     $ {total.toFixed(2)}
                   </button> :
-                  <button disabled>
+                  <button className = 'final-total-btn' disabled>
                     $ {total.toFixed(2)}
                   </button>
                 }
@@ -54,21 +54,21 @@ class TotalScreen extends Component {
         </div>
         <div className="pos-order-screen-voids">
           <button className='pos-order-screen-voids-btns void'
-            onClick={this.removeItem}>
+            onClick={this.props.removeItem}>
             Void Item
                 </button>
           <button className='pos-order-screen-voids-btns cancel'
-            onClick={() => this.openModal('cancel')}>
+            onClick={() => this.props.openModal('cancel')}>
             Cancel
                 </button>
           {(currentOrder.length < 1) ?
             <button className='pos-order-screen-voids-btns save'
-              onClick={() => this.selectScreen('orders')}>
+              onClick={() => this.props.selectScreen('orders')}>
               Find Order
                 </button>
             :
             <button className='pos-order-screen-voids-btns save'
-              onClick={() => this.openModal('save')}>
+              onClick={() => this.props.openModal('save')}>
               Save Order
                 </button>
           }
