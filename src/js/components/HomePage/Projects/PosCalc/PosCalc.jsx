@@ -7,7 +7,6 @@ import TenderScreen from './TenderScreen';
 import BrewedScreen from './BrewedScreen';
 import FoodScreen from './FoodScreen';
 import SavedOrders from './SavedOrders';
-import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalPosOpen, modalPosClose, saveOrder, totalScreen } from './PosCalcActions';
 import CustomScreen from './CustomScreen';
 import MilkScreen from './MilkScreen';
 import SyrupScreen from './SyrupScreen';
@@ -16,6 +15,7 @@ import EspressoScreen from './EspressoScreen';
 import TotalScreen from './TotalScreen';
 import RightTabs from './RightTabs';
 import QuantityScreen from './QuantityScreen';
+import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalPosOpen, modalPosClose, saveOrder, totalScreen } from './PosCalcActions';
 
 const modalStyle = {
   overlay: {
@@ -65,6 +65,7 @@ class PosCalc extends Component {
     const { dispatch } = this.props;
     dispatch(modalPosClose());
   }
+
   gitHub() {
     ReactGA.event({
       category: 'Visited GitHub from project',
@@ -100,6 +101,7 @@ class PosCalc extends Component {
     const { dispatch } = this.props;
     dispatch(totalScreen(screen))
   }
+
   saveOrderModal() {
     return (
       <div className='pos-modal'>
@@ -197,7 +199,7 @@ class PosCalc extends Component {
               />
               : 
               <TotalScreen
-              selectScreen = {this.selectScreen }/>
+                selectScreen = {this.changeTotalScreen }/>
               }              
             </div>
             <div className='side-screen'>

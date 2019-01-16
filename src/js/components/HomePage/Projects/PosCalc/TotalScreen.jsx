@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class TotalScreen extends Component {
+class TotalScreen extends Component {  
   render() {
     const { subTotal, orderTotal, payment, tax, returnedAmount, currentOrder } = this.props;
     let sub = subTotal ? subTotal : 0;
@@ -11,7 +11,9 @@ class TotalScreen extends Component {
       <div className='pos-order-screen-list-total'>
         <div className="pos-order-screen-list-total-container">
         <div className='pos-order-screen-btn'>
-          <button>Quantity</button>
+          <button onClick = {() => this.props.selectScreen('quantity')}>
+            Quantity
+          </button>
         </div>
         <table className='pos-order-screen-table'>
           <tbody>
