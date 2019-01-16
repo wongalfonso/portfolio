@@ -29,7 +29,8 @@ const defaultState = {
   latte: [],
   mochas: [],
   payment: 0,
-  previousPaid: 0
+  previousPaid: 0,
+  totalScreenView: 'total'
 };
 
 export default function PosReducer(state = defaultState, action) {
@@ -127,6 +128,11 @@ export default function PosReducer(state = defaultState, action) {
     case 'ADD_DIGIT' : {      
       return {
         ...state, inputBox: payload.inputBox, payment: payload.payment
+      }
+    }
+    case 'TOTAL_SCREEN_VIEW': {
+      return {
+        ...state, totalScreenView: payload
       }
     }
     default: {

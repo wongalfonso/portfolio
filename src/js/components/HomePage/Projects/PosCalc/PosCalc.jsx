@@ -7,12 +7,15 @@ import TenderScreen from './TenderScreen';
 import BrewedScreen from './BrewedScreen';
 import FoodScreen from './FoodScreen';
 import SavedOrders from './SavedOrders';
-import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalPosOpen, modalPosClose, saveOrder } from './PosCalcActions';
+import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalPosOpen, modalPosClose, saveOrder, totalScreen } from './PosCalcActions';
 import CustomScreen from './CustomScreen';
 import MilkScreen from './MilkScreen';
 import SyrupScreen from './SyrupScreen';
 import BuilderScreen from './BuilderScreen';
 import EspressoScreen from './EspressoScreen';
+import TotalScreen from './TotalScreen';
+import RightTabs from './RightTabs';
+import QuantityScreen from './QuantityScreen';
 
 const modalStyle = {
   overlay: {
@@ -30,6 +33,7 @@ class PosCalc extends Component {
     this.cancelOrderModal = this.cancelOrderModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.saveEntireOrder = this.saveEntireOrder.bind(this);
+    this.changeTotalScreen = this.changeTotalScreen.bind(this);
   }
   componentWillMount() {
     const { dispatch } = this.props;
@@ -67,7 +71,7 @@ class PosCalc extends Component {
       action: 'Projects'
     })
     return 'https://github.com/wongalfonso/pos-calculator'
-  }
+  }  
   cancelOrderModal() {
     return (
       <div className='pos-modal'>
@@ -92,7 +96,10 @@ class PosCalc extends Component {
     dispatch(saveOrder(currentOrder, orderTotal, savedOrders))
   }
 
-
+  changeTotalScreen(screen) {
+    const { dispatch } = this.props;
+    dispatch(totalScreen(screen))
+  }
   saveOrderModal() {
     return (
       <div className='pos-modal'>
@@ -114,10 +121,8 @@ class PosCalc extends Component {
   }
 
   render() {
-    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, posModalIsOpen, modalType, returnedAmount, payment, tax } = this.props;
-    let sub = subTotal ? subTotal : 0;
-    let total = orderTotal ? orderTotal : 0;
-    let taxes = tax ? tax : 0;
+    const { currentScreen, currentOrder, currentSelected, posModalIsOpen, modalType, orderTotal, payment, totalScreenView } = this.props;
+    
     let order = currentOrder ? currentOrder : null;
     return (
       <div id="posCalcProject">
@@ -187,43 +192,13 @@ class PosCalc extends Component {
                   </tbody>
                 </table>
               </div>
-              <div className = 'pos-order-screen-list-total'>
-                <div className = 'pos-order-screen-btn'>
-                    <button>Quantity</button>
-                </div>
-                <table className='pos-order-screen-table'>
-                      
-                  <tbody>
-                    <tr>
-                      <td>Subtotal:</td>
-                      <td>$ {sub.toFixed(2)}</td>
-                    </tr>
-                    <tr>
-                      <td>Tax:</td>
-                      <td>$ {taxes.toFixed(2)}</td>
-                    </tr>
-                    {(returnedAmount < 0) ?
-                      <tr className='final-total-under'>
-                        <td>paid</td>
-                        <td>$ (- {payment.toFixed(2)})</td>
-                      </tr>
-                      :
-                      <tr className='final-total'>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    }
-                    <tr className='final-total'>
-                      <td>TOTAL DUE:</td>
-                      <td>
-                        <button>
-                          $ {total.toFixed(2)}
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              {(totalScreenView == 'quantity') ? 
+              <QuantityScreen
+              />
+              : 
+              <TotalScreen
+              selectScreen = {this.selectScreen }/>
+              }
               <div className="pos-order-screen-voids">
                 <button className='pos-order-screen-voids-btns void'
                   onClick={this.removeItem}>
@@ -259,43 +234,8 @@ class PosCalc extends Component {
                   {(currentScreen === 'brewed') && <BrewedScreen />}
                   {(currentScreen === 'espresso') && <EspressoScreen />}
                 </div>
-                <div className='right-tabs'>
-                  <ul>
-                    <li className={(currentScreen == 'drinks') ? 'tabs-group tabs-group--active' : 'tabs-group'}
-                      onClick={() => this.selectScreen('drinks')}>
-                      <div>
-                        <div className='small-box'></div>
-                        Iced
-                    </div>
-                      <div>Decaf
-                      <div className='box'></div>
-                      </div>
-                      <div>Shots
-                      <div className='box'></div>
-                      </div>
-                      <div>Size
-                      <div className='box'></div>
-                      </div>
-                    </li>
-                    <li className={(currentScreen == 'syrup') ? 'tabs-group tabs-group--active' : 'tabs-group'}
-                      onClick={() => this.selectScreen('syrup')}
-                    >
-                      Syrup
-                    <div className='box'></div>
-                    </li>
-                    <li className={(currentScreen == 'milk') ? 'tabs-group tabs-group--active' : 'tabs-group'}
-                      onClick={() => this.selectScreen('milk')}>
-                      Milk
-                    <div className='box'></div>
-                    </li>
-                    <li className={(currentScreen == 'custom') ? 'tabs-group tabs-group--active' : 'tabs-group'}
-                      onClick={() => this.selectScreen('custom')}
-                    >
-                      Custom
-                    <div className='box'></div>
-                    </li>
-                  </ul>
-                </div>
+                <RightTabs
+                  selectScreen = {this.selectScreen }/>
               </div>
               <div className='bottom-tabs'>
                 <ul>
@@ -330,14 +270,13 @@ function mapStateToProps(state) {
   return {
     currentScreen: state.home.posCalc.currentScreen,
     currentOrder: state.home.posCalc.currentOrder,
-    currentSelected: state.home.posCalc.currentSelected,
-    subTotal: state.home.posCalc.subTotal,
-    orderTotal: state.home.posCalc.orderTotal,
+    currentSelected: state.home.posCalc.currentSelected,    
     posModalIsOpen: state.home.posCalc.posModalIsOpen,
     modalType: state.home.posCalc.modalType,
     savedOrders: state.home.posCalc.savedOrders,
     returnedAmount: state.home.posCalc.returnedAmount,
-    payment: state.home.posCalc.payment
+    payment: state.home.posCalc.payment,
+    totalScreenView: state.home.posCalc.totalScreenView
   }
 }
 

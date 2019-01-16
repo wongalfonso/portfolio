@@ -228,3 +228,10 @@ export function inputDigit(digit, inputBox) {
     payload: { inputBox: copy, payment: returned  }
   }
 }
+
+export function totalScreen(screen) {
+  return {
+    type: 'TOTAL_SCREEN_VIEW',
+    payload: screen
+  }
+}
