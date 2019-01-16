@@ -68,7 +68,7 @@ export function addItem(currentOrder, item, type, size) {
 
   return {
     type: "ADD_ITEM",
-    payload: { order: arr, currentSelected: orderLength, subTotal: addTotal.subTotal, total: addTotal.total }
+    payload: { order: arr, currentSelected: orderLength, subTotal: addTotal.subTotal, total: addTotal.total, tax: addTotal.tax }
   }
 }
 
@@ -81,7 +81,7 @@ function getTotal(arr) {
   }
   tax = subTotal * .0775;
   total = tax + subTotal;
-  return { subTotal, total }
+  return { subTotal, total, tax }
 }
 
 export function changeSize(size, order, selected) {    

@@ -97,8 +97,6 @@
   }
   .pos-container {  
     margin: 0 auto;  
-    .pos-header {
-    }
     .pos-menus {
       display: flex;
       justify-content: space-evenly;      
@@ -208,19 +206,49 @@
         } 
         &-total {
           width: 100%;
-          padding: 2rem;
           height: 20rem;
           background-color: #464444;
           color: white;
-          tbody {
-            font-size: 1.6rem;
-            tr {
-              td:last-child {
-                text-align: right;
-              }
+          display: flex;
+          .pos-order-screen-btn {
+            button {
+              font-size: 2rem;
+              height: 6rem;
+              width: 12rem;
+              padding: 1rem;
+              border-radius: 100px / 50px;
+              background: linear-gradient(to right, #ffdb00, #6f6202);
+              border: none;
             }
-            .final-total {
-              font-size: 2.2rem;
+          }
+          .pos-order-screen-table {
+            width: 100%;
+            height: 100%;
+            padding: 0 2rem;
+            text-align: right;
+            tbody {
+              font-size: 1.6rem;
+              tr {
+                td:last-child {
+                  text-align: right;
+                }
+              }
+              .final-total {
+                td {
+                  font-size: 2.2rem;
+                  button {
+                    font-size: 2rem;
+                    text-align: right;
+                    padding: 1rem;
+                    color: white;
+                    border-radius: 8px;
+                    background-color: #656161;
+                    border: none;
+                    height: 5.5rem;
+                    width: 10rem;
+                  }
+                }
+              }
             }
           }
         }     

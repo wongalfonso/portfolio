@@ -114,9 +114,10 @@ class PosCalc extends Component {
   }
 
   render() {
-    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, posModalIsOpen, modalType, returnedAmount, payment } = this.props;
+    const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, posModalIsOpen, modalType, returnedAmount, payment, tax } = this.props;
     let sub = subTotal ? subTotal : 0;
     let total = orderTotal ? orderTotal : 0;
+    let taxes = tax ? tax : 0;
     let order = currentOrder ? currentOrder : null;
     return (
       <div id="posCalcProject">
@@ -186,38 +187,43 @@ class PosCalc extends Component {
                   </tbody>
                 </table>
               </div>
-              <table className='pos-order-screen-list-total'>
-                <tbody>
-                  <tr>
-                    <td>Subtotal</td>
-                    <td></td>
-                    <td>{sub.toFixed(2)}</td>
-                  </tr>
-                  <tr>
-                    <td>Tax</td>
-                    <td></td>
-                    <td> 7.75 %</td>
-                  </tr>
-                  {(returnedAmount < 0) ?
-                    <tr className='final-total-under'>
-                      <td>paid</td>
-                      <td></td>
-                      <td>(- {payment.toFixed(2)})</td>
+              <div className = 'pos-order-screen-list-total'>
+                <div className = 'pos-order-screen-btn'>
+                    <button>Quantity</button>
+                </div>
+                <table className='pos-order-screen-table'>
+                      
+                  <tbody>
+                    <tr>
+                      <td>Subtotal:</td>
+                      <td>$ {sub.toFixed(2)}</td>
                     </tr>
-                    :
+                    <tr>
+                      <td>Tax:</td>
+                      <td>$ {taxes.toFixed(2)}</td>
+                    </tr>
+                    {(returnedAmount < 0) ?
+                      <tr className='final-total-under'>
+                        <td>paid</td>
+                        <td>$ (- {payment.toFixed(2)})</td>
+                      </tr>
+                      :
+                      <tr className='final-total'>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    }
                     <tr className='final-total'>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>TOTAL DUE:</td>
+                      <td>
+                        <button>
+                          $ {total.toFixed(2)}
+                        </button>
+                      </td>
                     </tr>
-                  }
-                  <tr className='final-total'>
-                    <td>TOTAL DUE</td>
-                    <td>$</td>
-                    <td>{total.toFixed(2)}</td>
-                  </tr>
-                </tbody>
-              </table>
+                  </tbody>
+                </table>
+              </div>
               <div className="pos-order-screen-voids">
                 <button className='pos-order-screen-voids-btns void'
                   onClick={this.removeItem}>

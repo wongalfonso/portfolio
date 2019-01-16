@@ -7,6 +7,7 @@ const defaultState = {
   orderTotal: 0,
   savedOrders: [],
   subTotal: 0,
+  tax: 0,
   drinkSize: 'grande',
   sizes: [ 'short', 'tall', 'grande', 'venti'],
   tenderModalIsOpen: false,
@@ -69,7 +70,7 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'ADD_ITEM' : {          
       return {
-        ...state, currentOrder: payload.order, currentSelected: payload.currentSelected, subTotal: payload.subTotal, orderTotal: payload.total
+        ...state, currentOrder: payload.order, currentSelected: payload.currentSelected, subTotal: payload.subTotal, orderTotal: payload.total, tax: payload.tax
       }
     }    
     case 'CHANGE_SIZE': {
