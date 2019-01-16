@@ -499,22 +499,34 @@
           "name": "Americano",
           "price": [
             {
-              "short": 2.45,
-              "tall": 2.65,
-              "grande": 3.25,
-              "venti": 4.00
+              "hot": [{
+                "short": 2.45,
+                "tall": 2.65,
+                "grande": 3.25,
+                "venti": 4.00
+              }],
+              "iced": [{
+                "tall": 2.65,
+                "grande": 3.25,
+                "venti": 4.00
+              }]              
             }
           ],
           "ingredients": [
             {
-              "shots": [
-                {
+              "shots": [{
+                "hot": [{
                   "short": 1,
                   "tall": 2,
                   "grande": 3,
                   "venti": 4
-                }
-              ],
+                }],
+                "iced": [{
+                  "tall": 2,
+                  "grande": 3,
+                  "venti": 4
+                }]
+              }],
               "milk": "",
               "custom": [
                 "H20"

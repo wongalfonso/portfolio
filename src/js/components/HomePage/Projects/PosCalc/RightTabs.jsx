@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 class RightTabs extends Component {
   render() {
     const { currentScreen, currentIngredients } = this.props;
-    console.log(currentIngredients);
     return (
       <div className='right-tabs'>
       <ul>
@@ -25,7 +24,7 @@ class RightTabs extends Component {
           <div className='box'>{currentIngredients.shot}</div>
           </div>
           <div>Size
-          <div className='box'>{currentIngredients.size}</div>
+          <div className='box'>{currentIngredients.sizeCode}</div>
           </div>
         </li>
         <li className={(currentScreen == 'syrup') ? 'tabs-group tabs-group--active' : 'tabs-group'}

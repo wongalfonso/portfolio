@@ -405,6 +405,7 @@
                 }
               }
             }
+            
             .syrup-screen, .builder-screen, .brewed-screen, .custom-screen, .food-screen, .espresso-screen {
               padding: .2rem;
               height: 100%;
@@ -477,6 +478,16 @@
                   &--active {
                     font-weight: bold;
                   }
+                }
+              }
+            }
+            .builder-screen {
+              &-row {
+                &-btn {
+                  margin-right: 1.5rem;
+                }
+                &-empty {
+                  margin-right: 1.5rem;
                 }
               }
             }

@@ -180,13 +180,14 @@ class PosCalc extends Component {
                 <table>
                   <tbody>
                     {order.map((item, i) => {
+                      console.log(item);
                       let selected = 'items'
                       if (i == currentSelected) selected = 'items items-selected'
                       return (
                         <tr key={i}
                           onClick={() => this.selectedItem(i, item.type)}
                           className={selected}>
-                          {(item.size) ? <td>{item.size + ' ' + item.name}</td> : <td>{item.name}</td>}
+                          {(item.sizeCode) ? <td>{item.sizeCode + ' ' + item.name}</td> : <td>{item.name}</td>}
                           <td>{item.price.toFixed(2)}</td>
                         </tr>
                       )
