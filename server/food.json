@@ -492,7 +492,7 @@
       ]
     }
   ],
-  "espress": [
+  "espresso": [
     {
       "espresso": [
         {
@@ -610,7 +610,13 @@
               }]
             }],
           "color": "light-purple"
-        }        
+        },
+        {
+          "name": "",
+          "price": [],
+          "ingredients": [],
+          "color": "empty"
+        }   
       ],
       "latte": [
         {
@@ -814,6 +820,12 @@
           "color": "light-blue"
         },
         {
+          "name": "",
+          "price": [],
+          "ingredients": [],
+          "color": "empty"
+        },
+        {
           "name": "Skinny Syrup Latte",
           "price": [{
             "hot": [{
@@ -926,6 +938,12 @@
           "color": "empty"
         },
         {
+          "name": "",
+          "price": [],
+          "ingredients": [],
+          "color": "empty"
+        },
+        {
           "name": "Caramel Macchiatto",
           "price": [{
             "hot": [{
@@ -972,6 +990,12 @@
             }]
           }],
           "color": "light-purple"
+        },
+        {
+          "name": "",
+          "price": [],
+          "ingredients": [],
+          "color": "empty"
         },
         {
           "name": "",

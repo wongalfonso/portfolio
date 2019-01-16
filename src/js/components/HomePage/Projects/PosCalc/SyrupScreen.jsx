@@ -23,7 +23,6 @@ class SyrupScreen extends Component {
             } else {
               cName = `syrup-screen-row--${item.color}`
             }
-            console.log(item.color);
             return (
               <button key = {i} className = {cName}>
                 {item.name}

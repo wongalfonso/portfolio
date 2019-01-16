@@ -12,6 +12,7 @@ import CustomScreen from './CustomScreen';
 import MilkScreen from './MilkScreen';
 import SyrupScreen from './SyrupScreen';
 import BuilderScreen from './BuilderScreen';
+import EspressoScreen from './EspressoScreen';
 
 const modalStyle = {
   overlay: {
@@ -240,7 +241,7 @@ class PosCalc extends Component {
             <div className='side-screen'>
               <div className="side-screen-container">
                 <div className="side-screen-container-screens">
-                  {(currentScreen === 'drinks') && <BrewedScreen />}
+                  {(currentScreen === 'drinks') && <BuilderScreen />}
                   {(currentScreen === 'tender') && <TenderScreen />}
                   {(currentScreen === 'food') && <FoodScreen />}
                   {(currentScreen === 'orders') && <SavedOrders />}
@@ -248,6 +249,8 @@ class PosCalc extends Component {
                   {(currentScreen === 'milk') && <MilkScreen />}
                   {(currentScreen === 'syrup') && <SyrupScreen />}
                   {(currentScreen === 'builder') && <BuilderScreen />}
+                  {(currentScreen === 'brewed') && <BrewedScreen />}
+                  {(currentScreen === 'espresso') && <EspressoScreen />}
                 </div>
                 <div className='right-tabs'>
                   <ul>

@@ -24,6 +24,9 @@ const defaultState = {
   brewed: [],
   decaf: [],
   shots: [],
+  espresso: [],
+  latte: [],
+  mochas: [],
   payment: 0,
   previousPaid: 0
 };
@@ -38,7 +41,6 @@ export default function PosReducer(state = defaultState, action) {
       }
     }
     case 'GET_MENU_FULFILLED': {      
-      console.log(payload);
       return {
         ...state, brewed: payload.brewed[0], 
         breakfast: payload.food[0].breakfast, 
@@ -50,7 +52,9 @@ export default function PosReducer(state = defaultState, action) {
         syrupModifiers: payload.syrup_buttons[0].modifiers, syrupItems: payload.syrup_buttons[0].syrups,
         decaf: payload.decaf,
         shots: payload.shots,
-
+        espresso: payload.espresso[0].espresso,
+        latte: payload.espresso[0].latte,
+        mochas: payload.espresso[0].mochas
       }
     }
     case 'GET_MENU_REJECTED': {

@@ -23,7 +23,6 @@ class BrewedScreen extends Component {
       <div className ='brewed-screen'>        
         <div className="brewed-screen-row">
           {pourOver.map((pour, i ) => {
-            console.log(pour.color);
             let cName;
             if (pour.color == 'empty') {
               cName = 'brewed-screen-row--empty'
