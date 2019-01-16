@@ -80,13 +80,24 @@
   min-height: 100vh;
   background: -webkit-linear-gradient(to left, #636363, #242424);
   background: linear-gradient(to left, #636363, #242424);
+  display: flex;
+  .pos-sides {
+    .pos-header {
+      font-size: 6rem;
+      writing-mode: vertical-lr;
+      height: 100%;
+      width: 100%;
+      transform: rotate(180deg);
+      padding: 14rem 0;
+      color: white;
+      header {
+        border-left: solid white 3px;
+      }
+    }
+  }
   .pos-container {  
     margin: 0 auto;  
     .pos-header {
-      font-size: 5rem;
-      width: 100%;
-      color: white;
-      border-bottom: solid white 2px;
     }
     .pos-menus {
       display: flex;
@@ -624,8 +635,11 @@
 }
 
 @media only screen and (min-width: $xl) {
+  .pos-sides {
+    width: 10%
+  }
   .pos-container {
-    min-width: 95rem;
     max-width: 125rem;
+    width: 80%
   }
 }

@@ -120,6 +120,13 @@ class PosCalc extends Component {
     let order = currentOrder ? currentOrder : null;
     return (
       <div id="posCalcProject">
+        <div className="pos-sides">
+          <div className="pos-header">
+            <header>
+              Point of Sale Calculator
+            </header>
+          </div>
+        </div>
         <div className="pos-container">
           <Modal
             isOpen={posModalIsOpen}
@@ -131,12 +138,7 @@ class PosCalc extends Component {
             {(modalType == 'cancel') && this.cancelOrderModal()}
             {(modalType == 'save') && this.saveOrderModal()}
 
-          </Modal>
-          <div className="pos-header">
-            <header>
-              Point of Sale Calculator
-            </header>
-          </div>
+          </Modal>         
           <div className="pos-menus">
             <div className="pos-menus-functions">
               {(orderTotal > 0) ?
@@ -248,14 +250,13 @@ class PosCalc extends Component {
                   {(currentScreen === 'custom') && <CustomScreen />}
                   {(currentScreen === 'milk') && <MilkScreen />}
                   {(currentScreen === 'syrup') && <SyrupScreen />}
-                  {(currentScreen === 'builder') && <BuilderScreen />}
                   {(currentScreen === 'brewed') && <BrewedScreen />}
                   {(currentScreen === 'espresso') && <EspressoScreen />}
                 </div>
                 <div className='right-tabs'>
                   <ul>
-                    <li className={(currentScreen == 'builder') ? 'tabs-group tabs-group--active' : 'tabs-group'}
-                      onClick={() => this.selectScreen('builder')}>
+                    <li className={(currentScreen == 'drinks') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                      onClick={() => this.selectScreen('drinks')}>
                       <div>
                         <div className='small-box'></div>
                         Iced
@@ -313,6 +314,7 @@ class PosCalc extends Component {
             link='https://github.com/wongalfonso/pos-calculator'
           />
         </div>
+        <div className="pos-sides"></div>
       </div>
     )
   }
