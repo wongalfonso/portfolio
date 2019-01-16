@@ -1,8 +1,7 @@
 const defaultState = {
-  coffees: [],
   breakfast: [],
   bakery: [],
-  currentScreen: 'builder',
+  currentScreen: 'drinks',
   currentOrder: [],
   currentSelected: 0,  
   orderTotal: 0,
@@ -22,6 +21,7 @@ const defaultState = {
   milkPayed: [],
   syrupModifiers: [],
   syrupItems: [],
+  brewed: [],
   decaf: [],
   shots: [],
   payment: 0,
@@ -40,7 +40,7 @@ export default function PosReducer(state = defaultState, action) {
     case 'GET_MENU_FULFILLED': {      
       console.log(payload);
       return {
-        ...state, coffees: payload.coffees[0], 
+        ...state, brewed: payload.brewed[0], 
         breakfast: payload.food[0].breakfast, 
         bakery: payload.food[1].bakery, 
         customItems: payload.custom_buttons[0].items,

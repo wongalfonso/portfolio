@@ -113,7 +113,7 @@
           "color" : "tan"
         }       
       ],
-      "pour-over": [
+      "pour_over": [
         {
           "name": "Pour Over PPR",
           "price": [
@@ -169,7 +169,7 @@
             "color": "yellow"
         },
         {
-          "name": "Pour OVer Decaf PPR",
+          "name": "Pour Over Decaf PPR",
           "price": [
             {
               "short": 2.25,
@@ -185,9 +185,21 @@
             "syrup": []
           }],
             "color": "teal"
+        },
+        {
+          "name": "",
+          "price": [],
+          "ingredients": [],
+          "color": "empty"
+        },
+        {
+          "name": "",
+          "price": [],
+          "ingredients": [],
+          "color": "empty"
         }
       ],
-      "iced-coffee" : [
+      "iced_coffee" : [
         {
           "name": "Iced Coffee",
           "price": [
@@ -304,7 +316,7 @@
             "color": "teal"
         }
       ],
-      "cold-brew" : [
+      "cold_brew" : [
         {
           "name": "Cold Brew",
           "price": [
@@ -1293,6 +1305,11 @@
           "name": "Sub",
           "type": "free",
           "color": "black"
+        },
+        {
+          "name": "",
+          "type": "",
+          "color": "empty"
         },
         {
           "name": "",

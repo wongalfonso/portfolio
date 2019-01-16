@@ -13,7 +13,7 @@ class CustomScreen extends Component {
           {mods.map((mod, i) => {
             let cName;
             if (mod.color !== 'empty') {
-              cName = 'custom-screen-row-btn custom-screen-row-btn--mod'
+              cName = `custom-screen-row-btn custom-screen-row-btn--${mod.color}`
             } else {
               cName = `custom-screen-row--empty`
             }
@@ -23,8 +23,6 @@ class CustomScreen extends Component {
               </button>
             )
           })}
-        </div>
-        <div className = 'custom-screen-row items'>
           {items.map((item, i) => {
             let cName;
             if (item.color !== 'empty') {

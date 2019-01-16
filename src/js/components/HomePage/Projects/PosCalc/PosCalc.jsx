@@ -4,7 +4,7 @@ import ReactGA from 'react-ga';
 import Modal from 'react-modal';
 import ProjectClose from './../../ProjectClose';
 import TenderScreen from './TenderScreen';
-import DrinksScreen from './DrinksScreen';
+import BrewedScreen from './BrewedScreen';
 import FoodScreen from './FoodScreen';
 import SavedOrders from './SavedOrders';
 import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalPosOpen, modalPosClose, saveOrder } from './PosCalcActions';
@@ -34,7 +34,7 @@ class PosCalc extends Component {
     const { dispatch } = this.props;
     dispatch(getMenu())
   }
-  
+
   selectScreen(screen) {
     const { dispatch } = this.props;
     dispatch(changeScreen(screen));
@@ -116,7 +116,7 @@ class PosCalc extends Component {
     const { currentScreen, currentOrder, currentSelected, subTotal, orderTotal, posModalIsOpen, modalType, returnedAmount, payment } = this.props;
     let sub = subTotal ? subTotal : 0;
     let total = orderTotal ? orderTotal : 0;
-    let order = currentOrder ? currentOrder : null;    
+    let order = currentOrder ? currentOrder : null;
     return (
       <div id="posCalcProject">
         <div className="pos-container">
@@ -139,7 +139,7 @@ class PosCalc extends Component {
           <div className="pos-menus">
             <div className="pos-menus-functions">
               {(orderTotal > 0) ?
-                <button className= {(currentScreen == 'tender') ?  'pos-menus-functions-btns pos-menus-functions-btns--active' :  'pos-menus-functions-btns pos-menus-functions-btns--default'}
+                <button className={(currentScreen == 'tender') ? 'pos-menus-functions-btns pos-menus-functions-btns--active' : 'pos-menus-functions-btns pos-menus-functions-btns--default'}
                   onClick={() => this.selectScreen('tender')}>
                   Tender
               </button>
@@ -151,13 +151,13 @@ class PosCalc extends Component {
               }
             </div>
             <div className="pos-menus-screens">
-              <button className= {(currentScreen == 'food') ?  'pos-menus-screens-btns pos-menus-screens-btns--active' :  'pos-menus-screens-btns pos-menus-screens-btns--default'}
+              <button className={(currentScreen == 'food') ? 'pos-menus-screens-btns pos-menus-screens-btns--active' : 'pos-menus-screens-btns pos-menus-screens-btns--default'}
                 onClick={() => this.selectScreen('food')}>
                 Food
-              </button>              
-              </div>
-              <div className="pos-menus-screens">             
-              <button className= {(currentScreen == 'drinks') ?  'pos-menus-screens-btns pos-menus-screens-btns--active' :  'pos-menus-screens-btns pos-menus-screens-btns--default'}
+              </button>
+            </div>
+            <div className="pos-menus-screens">
+              <button className={(currentScreen == 'drinks') ? 'pos-menus-screens-btns pos-menus-screens-btns--active' : 'pos-menus-screens-btns pos-menus-screens-btns--default'}
                 onClick={() => this.selectScreen('drinks')}>
                 Drinks
               </button>
@@ -238,60 +238,76 @@ class PosCalc extends Component {
               </div>
             </div>
             <div className='side-screen'>
-              {(currentScreen === 'drinks') && <DrinksScreen />}
-              {(currentScreen === 'tender') && <TenderScreen />}
-              {(currentScreen === 'food') && <FoodScreen />}
-              {(currentScreen === 'orders') && <SavedOrders />}
-              {(currentScreen === 'custom') && <CustomScreen />}
-              {(currentScreen === 'milk') && <MilkScreen />}
-              {(currentScreen === 'syrup') && <SyrupScreen />}
-              {(currentScreen === 'builder') && <BuilderScreen/>}
-            </div>
-              <div className ='right-tabs'>
+              <div className="side-screen-container">
+                <div className="side-screen-container-screens">
+                  {(currentScreen === 'drinks') && <BrewedScreen />}
+                  {(currentScreen === 'tender') && <TenderScreen />}
+                  {(currentScreen === 'food') && <FoodScreen />}
+                  {(currentScreen === 'orders') && <SavedOrders />}
+                  {(currentScreen === 'custom') && <CustomScreen />}
+                  {(currentScreen === 'milk') && <MilkScreen />}
+                  {(currentScreen === 'syrup') && <SyrupScreen />}
+                  {(currentScreen === 'builder') && <BuilderScreen />}
+                </div>
+                <div className='right-tabs'>
+                  <ul>
+                    <li className={(currentScreen == 'builder') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                      onClick={() => this.selectScreen('builder')}>
+                      <div>
+                        <div className='small-box'></div>
+                        Iced
+                    </div>
+                      <div>Decaf
+                      <div className='box'></div>
+                      </div>
+                      <div>Shots
+                      <div className='box'></div>
+                      </div>
+                      <div>Size
+                      <div className='box'></div>
+                      </div>
+                    </li>
+                    <li className={(currentScreen == 'syrup') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                      onClick={() => this.selectScreen('syrup')}
+                    >
+                      Syrup
+                    <div className='box'></div>
+                    </li>
+                    <li className={(currentScreen == 'milk') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                      onClick={() => this.selectScreen('milk')}>
+                      Milk
+                    <div className='box'></div>
+                    </li>
+                    <li className={(currentScreen == 'custom') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                      onClick={() => this.selectScreen('custom')}
+                    >
+                      Custom
+                    <div className='box'></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className='bottom-tabs'>
                 <ul>
-                  <li className = {(currentScreen == 'builder') ? 'tabs-group tabs-group--active' : 'tabs-group'}
-                    onClick={() => this.selectScreen('builder')}
-                  > 
-                    <div>
-                      <div className = 'small-box'></div>
-                      Iced
-                    </div>
-                    <div>Decaf
-                      <div className = 'box'></div>
-                    </div>
-                    <div>Shots
-                      <div className = 'box'></div>
-                    </div>
-                    <div>Size
-                      <div className = 'box'></div>
-                    </div>                      
-                  </li>
-                  <li className = {(currentScreen == 'syrup') ? 'tabs-group tabs-group--active' : 'tabs-group'}
-                    onClick={() => this.selectScreen('syrup')}
+                  <li className={(currentScreen == 'brewed') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                    onClick={() => this.selectScreen('brewed')}
                   >
-                    Syrup
-                    <div className = 'box'></div>        
+                    Brewed
                   </li>
-                  <li className = {(currentScreen == 'milk') ? 'tabs-group tabs-group--active' : 'tabs-group'}
-                    onClick={() => this.selectScreen('milk')}>
-                    Milk
-                    <div className = 'box'></div>
-                  </li>
-                  <li className = {(currentScreen == 'custom') ? 'tabs-group tabs-group--active' : 'tabs-group'}
-                    onClick={() => this.selectScreen('custom')}
-                  >                  
-                    Custom
-                    <div className = 'box'></div>
+                  <li className={(currentScreen == 'espresso') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                    onClick={() => this.selectScreen('espresso')}>
+                    Espresso
                   </li>
                 </ul>
               </div>
-
+            </div>
           </div>
+
           <ProjectClose
-            white = 'white'
-            github={this.github}            
-            href = '/'
-            link = 'https://github.com/wongalfonso/pos-calculator'
+            white='white'
+            github={this.github}
+            href='/'
+            link='https://github.com/wongalfonso/pos-calculator'
           />
         </div>
       </div>
