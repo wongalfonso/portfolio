@@ -825,8 +825,17 @@
             "milk": "WH",
             "custom": ["F"],
             "syrup": [{
-              "hot": [],
-              "iced": []
+              "hot": [{
+                "short": "",
+                "tall": "",
+                "grande": "",
+                "venti": ""
+              }],
+              "iced": [{
+                "tall": "",
+                "grande": "",
+                "venti": ""
+              }]
             }]
           }],
           "color": "light-blue"
@@ -870,15 +879,15 @@
             "custom": ["F"],
             "syrup": [{
               "hot": [{
-                "short": "1SF",
-                "tall": "2SF",
-                "grande": "3SF",
-                "venti": "4SF"
+                "short": "",
+                "tall": "",
+                "grande": "F",
+                "venti": ""
               }],
               "iced": [{
-                "tall": "3SF",
-                "grande": "4SF",
-                "venti": "6SF"
+                "tall": "",
+                "grande": "",
+                "venti": ""
               }]
             }]
           }],

@@ -127,13 +127,12 @@ class PosCalc extends Component {
     )
   }
 
-  changeSizeRejectedModal(type) {
-    let message = type == 'size' ? 'This item cannot be made this size' : 'This item cannot be made Iced'
+  changeSizeRejectedModal() {    
     return (
       <div className = 'rejected-size'>
         <div className='rejected-size-modal'>
         <div className='rejected-size-modal-message'>
-          {message}
+          This Item cannot be modified to this type
       </div>
         <div className='rejected-size-btns'>
           <button onClick={this.closeModal}
@@ -168,8 +167,7 @@ class PosCalc extends Component {
           >
             {(modalType == 'cancel') && this.cancelOrderModal()}
             {(modalType == 'save') && this.saveOrderModal()}
-            {(modalType == 'rejected-size') && this.changeSizeRejectedModal('size')}
-            {(modalType == 'rejected-temp') && this.changeSizeRejectedModal('temp')}
+            {(modalType == 'rejected') && this.changeSizeRejectedModal('size')}
           </Modal>         
           <div className="pos-menus">
             <div className="pos-menus-functions">

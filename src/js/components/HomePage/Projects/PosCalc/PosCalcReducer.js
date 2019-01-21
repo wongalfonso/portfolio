@@ -80,18 +80,20 @@ export default function PosReducer(state = defaultState, action) {
         currentIngredients: payload.currentIngredients,
         posModalIsOpen: payload.modal,
         modalType: payload.modalType,
-        drinkSize: payload.drinkSize
+        drinkSize: payload.drinkSize,
+        currentTemp: payload.temp
       }
     }    
     case 'CHANGE_SIZE': {
       return {
-        ...state, drinkSize: payload.size, currentOrder: payload.currentOrder, subTotal: payload.subTotal, orderTotal: payload.total, tax: payload.tax, posModalIsOpen: payload.posModalIsOpen, modalType: payload.modalType,
-        currentIngredients: payload.currentIngredients
-      }
-    }
-    case 'MAKE_ICED' : {
-      return {
-        ...state, currentTemp: payload.temp
+        ...state, 
+        drinkSize: payload.size, 
+        currentOrder: payload.currentOrder,  
+        orderTotal: payload.total, 
+        posModalIsOpen: payload.posModalIsOpen, 
+        modalType: payload.modalType,
+        currentIngredients: payload.currentIngredients,
+        currentTemp: payload.temp
       }
     }
     case 'SELECTED_ITEM' : {

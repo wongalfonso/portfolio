@@ -10,6 +10,7 @@ class BrewedScreen extends Component {
 
   addDrink(drink, type) {   
     const { dispatch, currentOrder, drinkSize, currentTemp} = this.props;
+    console.log(currentTemp);
     const temp = type == 'ic' ? 'iced' : currentTemp;
     dispatch(addItem(currentOrder, drink, type, drinkSize, temp));    
   }
