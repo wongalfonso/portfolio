@@ -151,7 +151,7 @@ function getIngredients(item, temp, type, size) {
 }
 
 export function addItem(currentOrder, item, type, size, temp, decaf, iced) {
-  console.log(itemgit s)
+  
   let orderLength = currentOrder.length;
   let arr = [];
   let obj = {};
@@ -181,21 +181,15 @@ export function addItem(currentOrder, item, type, size, temp, decaf, iced) {
     addTotal = getTotal(arr)
   } else {
   // Create New Order
-    if (size) {
-      let getPrice = getDrinkPrice(item, size, temp, type);
-      obj.name = getPrice.name;
-      obj.price = getPrice.price;
-      obj.size = getPrice.size;
-      obj.shots = item.shots;
-      obj.syrup = item.syrup;
-      obj.milk = item.milk;
-      obj.custom = item.custom;
-      subTotal = obj.price;
-    } else {
-      obj.price = item.price;
-      obj.name = item.name;
-      obj.size = size;
-    }
+    let getPrice = getDrinkPrice(item, size, temp, type);
+    obj.name = getPrice.name;
+    obj.price = getPrice.price;
+    obj.size = getPrice.size;
+    obj.shots = item.shots;
+    obj.syrup = item.syrup;
+    obj.milk = item.milk;
+    obj.custom = item.custom;
+    subTotal = obj.price;
     obj.sizeCode = size.charAt(0).toUpperCase();
     obj.temp = temp;
     obj.key = 0;    
