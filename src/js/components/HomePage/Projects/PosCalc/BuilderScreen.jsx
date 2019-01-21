@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { changeSize } from './PosCalcActions';
+import { changeSize, makeIced } from './PosCalcActions';
 
 class BuilderScreen extends Component {
   constructor(props) {
@@ -10,15 +10,14 @@ class BuilderScreen extends Component {
 
   changeDrinkSize(size) {
     const { dispatch, currentOrder, currentSelected, currentIngredients } = this.props;
-    console.log(currentOrder, currentSelected)
     dispatch(changeSize(size, currentOrder, currentSelected, currentIngredients));
   }
-  changeTemp() {
-    const { dispatch, currentOrder, currentSelected, subTotal, orderTotal, tax, currentIngredients} = this.props;
-    
+  changeTemp(temp) {
+    const { dispatch, currentOrder, currentSelected, currentIngredients} = this.props;
+    dispatch(makeIced(temp, currentOrder, currentSelected, currentIngredients));
   }
   render() {
-    const { decaf, shots, drinkSize } = this.props;
+    const { decaf, shots, drinkSize, currentTemp } = this.props;
     const decafMod = decaf ? decaf : [];
     const shotsMod = shots ? shots : [];
     return (
@@ -32,11 +31,19 @@ class BuilderScreen extends Component {
               cName = `builder-screen-row-btn builder-screen-row-btn--${decaf.color}`
             }
             if (decaf.name === 'iced') {
-              return (
-                <button onClick = {() =>this.changeTemp()} key = {i} className = {cName}>
-                {decaf.name}
-                </button>  
-              )
+              if (currentTemp == 'iced') {
+                return (
+                  <button onClick = {() =>this.changeTemp('hot')} key = {i} className = 'builder-screen-row-btn builder-screen-row-btn--active'>
+                  {decaf.name}
+                  </button>  
+                )
+              } else {
+                return (
+                  <button onClick = {() =>this.changeTemp('iced')} key = {i} className = {cName}>
+                  {decaf.name}
+                  </button>  
+                )
+              }
             }
             return (
               <button key = {i} className = {cName}>
@@ -89,7 +96,8 @@ function mapStateToProps(state) {
     drinkSize: state.home.posCalc.drinkSize,
     currentSelected: state.home.posCalc.currentSelected,
     currentOrder: state.home.posCalc.currentOrder,
-    currentIngredients: state.home.posCalc. currentIngredients
+    currentIngredients: state.home.posCalc.currentIngredients,
+    currentTemp: state.home.posCalc.currentTemp
   }
 }
 

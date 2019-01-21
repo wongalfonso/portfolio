@@ -9,9 +9,9 @@ class EspressoScreen extends Component {
     this.addDrink = this.addDrink.bind(this);
   }
 
-  addDrink(drink) {
+  addDrink(drink, type) {
     const { dispatch, currentOrder, drinkSize, currentTemp } = this.props;
-    dispatch(addItem(currentOrder, drink, 'espresso', drinkSize, currentTemp));
+    dispatch(addItem(currentOrder, drink, type, drinkSize, currentTemp));
   }
 
   render() {
@@ -32,7 +32,7 @@ class EspressoScreen extends Component {
             return (
               <button className={cName}
                 key={i}
-                onClick={() => this.addDrink(espr)}>
+                onClick={() => this.addDrink(espr, 'espresso')}>
                 {espr.name}
               </button>
             )
@@ -47,7 +47,7 @@ class EspressoScreen extends Component {
             return (
               <button className={cName}
                 key={i}
-                onClick={() => this.addDrink(latt)}>
+                onClick={() => this.addDrink(latt, 'latte')}>
                 {latt.name}
               </button>
             )
@@ -62,7 +62,7 @@ class EspressoScreen extends Component {
             return (
               <button className={cName}
                 key={i}
-                onClick={() => this.addDrink(moch)}>
+                onClick={() => this.addDrink(moch, 'latte')}>
                 {moch.name}
               </button>
             )

@@ -9,8 +9,8 @@ class BrewedScreen extends Component {
   }
 
   addDrink(drink, type) {   
-    const { dispatch, currentOrder, drinkSize, currentTemp} = this.props;    
-    const temp = type == 'ic' ? 'iced' : currentTemp
+    const { dispatch, currentOrder, drinkSize, currentTemp} = this.props;
+    const temp = type == 'ic' ? 'iced' : currentTemp;
     dispatch(addItem(currentOrder, drink, type, drinkSize, temp));    
   }
 

@@ -127,12 +127,13 @@ class PosCalc extends Component {
     )
   }
 
-  changeSizeRejectedModal() {
+  changeSizeRejectedModal(type) {
+    let message = type == 'size' ? 'This item cannot be made this size' : 'This item cannot be made Iced'
     return (
       <div className = 'rejected-size'>
         <div className='rejected-size-modal'>
         <div className='rejected-size-modal-message'>
-          This item cannot be made this size
+          {message}
       </div>
         <div className='rejected-size-btns'>
           <button onClick={this.closeModal}
@@ -167,7 +168,8 @@ class PosCalc extends Component {
           >
             {(modalType == 'cancel') && this.cancelOrderModal()}
             {(modalType == 'save') && this.saveOrderModal()}
-            {(modalType == 'rejected') && this.changeSizeRejectedModal()}
+            {(modalType == 'rejected-size') && this.changeSizeRejectedModal('size')}
+            {(modalType == 'rejected-temp') && this.changeSizeRejectedModal('temp')}
           </Modal>         
           <div className="pos-menus">
             <div className="pos-menus-functions">
@@ -202,13 +204,14 @@ class PosCalc extends Component {
                 <table>
                   <tbody>
                     {order.map((item, i) => {
+                      let temp = item.temp == 'iced' ? 'iced' : ''
                       let selected = 'items'
                       if (i == currentSelected) selected = 'items items-selected'
                       return (
                         <tr key={i}
                           onClick={() => this.selectedItem(i, item.type)}
                           className={selected}>
-                          {(item.sizeCode) ? <td>{item.sizeCode + ' ' + item.name}</td> : <td>{item.name}</td>}
+                          {(item.sizeCode) ? <td>{item.sizeCode + ' ' + temp + ' ' + item.name}</td> : <td>{item.name}</td>}
                           <td>{item.currentPrice.toFixed(2)}</td>
                         </tr>
                       )

@@ -89,6 +89,11 @@ export default function PosReducer(state = defaultState, action) {
         currentIngredients: payload.currentIngredients
       }
     }
+    case 'MAKE_ICED' : {
+      return {
+        ...state, currentTemp: payload.temp
+      }
+    }
     case 'SELECTED_ITEM' : {
       return {
         ...state, currentSelected: payload.selected, currentScreen: payload.currentScreen, drinkSize: payload.drinkSize
@@ -101,7 +106,7 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'NEXT_DRINK' : {
       return {
-        ...state, currentSelected: payload.selected, drinkSize: payload.drinkSize, currentIngredients: payload.currentIngredients
+        ...state, currentSelected: payload.selected, drinkSize: payload.drinkSize, currentIngredients: payload.currentIngredients, currentTemp: payload.temp
       }
     }
     case 'CANCEL_ORDER' : {
