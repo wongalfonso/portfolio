@@ -58,7 +58,7 @@ class BuilderScreen extends Component {
             }
             if (drinkSize == shot.name) {
               return (
-                <button key = {i} onClick = {() => this.changeDrinkSize(shot.name)} className = 'builder-screen-row-btn builder-screen-row-btn--active' disabled>
+                <button key = {i} className = 'builder-screen-row-btn builder-screen-row-btn--active'>
                   {shot.name}
                 </button>
               )

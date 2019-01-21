@@ -17,6 +17,7 @@ class RightTabs extends Component {
       shot = currentIngredients.shot ;
 
     }
+    console.log(syrup, decaf, temp, size, milk, custom, shot);
     return (
       <div className='right-tabs'>
       <ul>

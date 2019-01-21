@@ -163,7 +163,7 @@ function getIngredients(item, temp, type, size) {
     syrupCount = getSyrupsHot()
     shotCount = getShotsHot()
     obj.syrup = syrupCount;
-    obj.syrup = shotAmount;
+    obj.shot = shotAmount;
   } else if (temp == 'iced' && type == 'espresso') {
     syrupCount = getSyrupsIced();
     shotCount = getShotsIced();
