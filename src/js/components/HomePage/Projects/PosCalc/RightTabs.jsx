@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 class RightTabs extends Component {
   render() {
     const { currentScreen, currentIngredients } = this.props;
+    console.log(currentIngredients);
     return (
       <div className='right-tabs'>
       <ul>

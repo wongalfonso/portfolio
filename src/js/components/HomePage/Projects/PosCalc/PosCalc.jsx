@@ -205,7 +205,7 @@ class PosCalc extends Component {
                           onClick={() => this.selectedItem(i, item.type)}
                           className={selected}>
                           {(item.sizeCode) ? <td>{item.sizeCode + ' ' + item.name}</td> : <td>{item.name}</td>}
-                          <td>{item.price.toFixed(2)}</td>
+                          <td>{item.currentPrice.toFixed(2)}</td>
                         </tr>
                       )
                     })}

@@ -61,8 +61,8 @@ function getDrinkPrice(item, size, temp, type) {
 };
 
 function getIngredients(item, temp, type, size) {
-  console.log(item);
   let obj = {}, shots, syrups;
+  let tempObj = {};
   obj.milk = item.milk;
   obj.size = size;
   obj.sizeCode = size.charAt(0).toUpperCase();
@@ -76,7 +76,7 @@ function getIngredients(item, temp, type, size) {
     let tallShots = item.shots[0].hot[0].tall ? item.shots[0].hot[0].tall : ' ';
     let grandeShots = item.shots[0].hot[0].grande ? item.shots[0].hot[0].grande : ' ';
     let ventiShots = item.shots[0].hot[0].venti ? item.shots[0].hot[0].venti : ' ';
-    obj.shots = {
+    tempObj.shots = {
       'short': shortShots,
       'tall': tallShots,
       'grande': grandeShots,
@@ -86,22 +86,22 @@ function getIngredients(item, temp, type, size) {
     let tallSyrups = item.syrup && item.syrup[0] && item.syrup[0].hot[0] && item.syrup[0].hot[0].tall ? item.syrup[0].hot[0].tall : ' ';
     let grandeSyrups = item.syrup[0] && item.syrup[0].hot[0] && item.syrup[0].hot[0].grande ? item.syrup[0].hot[0].grande : ' ';
     let ventiSyrups = item.syrup[0] && item.syrup[0].hot[0] && item.syrup[0].hot[0].venti ? item.syrup[0].hot[0].venti : ' ';
-    obj.syrups = {
+    tempObj.syrups = {
       'short': shortSyrups,
       'tall': tallSyrups,
       'grande': grandeSyrups,
       'venti': ventiSyrups,
     }
-    shots = Object.keys(obj.shots);
+    shots = Object.keys(tempObj.shots);
     shots.forEach((shot) => {
       if (shot == size) {
-        obj.shot = obj.shots[shot]
+        obj.shot = tempObj.shots[shot]
       }
     })
-    syrups = Object.keys(obj.syrups);
+    syrups = Object.keys(tempObj.syrups);
     syrups.forEach((syrup) => {
       if (syrup == size) {
-        obj.syrup = obj.syrups[syrup]
+        obj.syrup = tempObj.syrups[syrup]
       }
     })
 
@@ -150,51 +150,41 @@ function getIngredients(item, temp, type, size) {
   return obj
 }
 
-export function addItem(currentOrder, item, type, size, temp, decaf, iced) {
-  
+export function addItem(currentOrder, item, type, size, temp, decaf) {
   let orderLength = currentOrder.length;
   let arr = [];
   let obj = {};
-  let addTotal, subTotal;
+  let addTotal;
   let ingredients = item.ingredients && item.ingredients[0] ? item.ingredients[0] : [];
-  
   let currentIngredients = getIngredients(ingredients, temp, type, size);
-  
+  let getPrice = getDrinkPrice(item, size, temp, type);
   // Check if Items are in Current Order
   if (orderLength > 0) {
     arr = currentOrder.slice();
-    //Check If Size has been Entered
-    let getPrice = getDrinkPrice(item, size, temp, type);
-    obj.name = getPrice.name;
-    obj.price = getPrice.price;
-    obj.size = getPrice.size;
-    obj.sizeCode = size.charAt(0).toUpperCase();
+    //Add to Order
     obj.key = orderLength;
-    obj.type = type;
-    arr.push(obj);
-    addTotal = getTotal(arr)
   } else {
-  // Create New Order
-    let getPrice = getDrinkPrice(item, size, temp, type);
-    obj.name = getPrice.name;
-    obj.price = getPrice.price;
-    obj.size = getPrice.size;
-    obj.shots = item.shots;
-    obj.syrup = item.syrup;
-    obj.milk = item.milk;
-    obj.custom = item.custom;
-    subTotal = obj.price;
-    obj.sizeCode = size.charAt(0).toUpperCase();
-    obj.temp = temp;
+    // Create New Order    
     obj.key = 0;    
-    obj.type = type,
-    obj.ingredients = item.ingredients;
-    arr.push(obj);
-    addTotal = getTotal(arr);
   }
+  obj.price = item.price
+  obj.decaf = decaf;
+  obj.shot = currentIngredients.shot;
+  obj.syrup = currentIngredients.syrup;
+  obj.milk = currentIngredients.milk;
+  obj.custom = currentIngredients.custom;
+  obj.temp = currentIngredients.temp;
+  obj.ingredients = item.ingredients;
+  obj.size = getPrice.size;
+  obj.currentPrice = getPrice.price;
+  obj.name = getPrice.name;
+  obj.type = type;    
+  obj.sizeCode = size.charAt(0).toUpperCase();
+  arr.push(obj);
+  addTotal = getTotal(arr);
   return {
     type: "ADD_ITEM",
-    payload: { order: arr, currentSelected: orderLength, subTotal: addTotal.subTotal, total: addTotal.total, tax: addTotal.tax, currentIngredients: currentIngredients }
+    payload: { order: arr, currentSelected: orderLength, subTotal: addTotal.subTotal, total: addTotal.total, tax: addTotal.tax, currentIngredients: obj }
   }
 }
 
@@ -203,7 +193,7 @@ function getTotal(arr) {
   let total = 0;
   let tax;
   for (let i = 0; i < arr.length; i++) {
-    subTotal = arr[i].price + subTotal;
+    subTotal = arr[i].currentPrice + subTotal;
   }
   tax = subTotal * .0775;
   total = tax + subTotal;
@@ -212,11 +202,10 @@ function getTotal(arr) {
 
 export function changeSize(size, order, selected, subTotal, total, tax, ingredients) {
   let currentOrder = order[selected] ? order[selected] : [];
-  console.log(currentOrder);
   let arr = [], modal, modalType, drinkSize, sub, currentTax, currentTotal, currentIngredients;  
 
   //Check If Size can be modified
-  if (currentOrder.type == 'brewed' && size == 'trenta' || currentOrder.type == 'espresso' && size == 'trenta' ) {
+  if (currentOrder.type == 'brewed' && size == 'trenta' || currentOrder.type == 'espresso' && size == 'trenta' || currentOrder.type == 'espresso' && size == 'kids' ) {
     // || currentOrder.type == 'espresso' && size == 'short' && temp == 'iced'
     arr = order;
     modal = true;
@@ -228,23 +217,24 @@ export function changeSize(size, order, selected, subTotal, total, tax, ingredie
     currentIngredients = ingredients
   } else {
   // Modify Size
-    getDrinkPrice(item, size, temp, type);
-    arr = order.map((item) => {
-      let price;
-      if (item == order[selected]) {
-        price = item.sizes[size]
-
+  arr = order.map((item) => {
+    if (item == order[selected]) {
+      let drinkPrice = getDrinkPrice(item, size, item.temp, item.type);    
+      let ingredients = item.ingredients && item.ingredients[0] ? item.ingredients[0] : [];
+      let currentIngredients = getIngredients(ingredients, item.temp, item.type, size);      
         return {
           ...item,
-          price: price,
-          size: size,
+          currentPrice: drinkPrice.price,
+          size: drinkPrice.size,
+          shot: currentIngredients.shot,
+          syrup: currentIngredients.syrup,
           sizeCode: size.charAt(0).toUpperCase()
         }
       }
-      currentIngredients = getIngredients(currentOrder.ingredients, currentOrder.temp, currentOrder.type, size);
-      console.log(currentIngredients);
+      currentIngredients = item;
       return item
     })    
+    currentIngredients = arr[selected];
     modal = false;
     modalType = '';
     let editTotal = getTotal(arr);

@@ -5,15 +5,14 @@ const defaultState = {
   currentTemp: 'hot',
   currentOrder: [],
   currentSelected: 0, 
-  currentIngredients: [], 
   drinkDecaf: '',
   drinkIced: '',
+  currentIngredients: {},
   orderTotal: 0,
   savedOrders: [],
   subTotal: 0,
   tax: 0,
   drinkSize: 'grande',
-  sizes: [ 'short', 'tall', 'grande', 'venti'],
   tenderModalIsOpen: false,
   posModalIsOpen: false,
   modalType: '',
@@ -75,12 +74,15 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'ADD_ITEM' : {          
       return {
-        ...state, currentOrder: payload.order, currentSelected: payload.currentSelected, subTotal: payload.subTotal, orderTotal: payload.total, tax: payload.tax, currentIngredients: payload.currentIngredients, currentScreen: 'drinks'
+        ...state, currentOrder: payload.order, currentSelected: payload.currentSelected, subTotal: payload.subTotal, orderTotal: payload.total, tax: payload.tax, 
+        currentScreen: 'drinks',
+        currentIngredients: payload.currentIngredients
       }
     }    
     case 'CHANGE_SIZE': {
       return {
-        ...state, drinkSize: payload.size, currentOrder: payload.currentOrder, subTotal: payload.subTotal, orderTotal: payload.total, tax: payload.tax, posModalIsOpen: payload.posModalIsOpen, modalType: payload.modalType, currentIngredients: payload.currentIngredients
+        ...state, drinkSize: payload.size, currentOrder: payload.currentOrder, subTotal: payload.subTotal, orderTotal: payload.total, tax: payload.tax, posModalIsOpen: payload.posModalIsOpen, modalType: payload.modalType,
+        currentIngredients: payload.currentIngredients
       }
     }
     case 'SELECTED_ITEM' : {

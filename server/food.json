@@ -57,7 +57,7 @@
             "color": "yellow"
         },
         {
-          "name": "Decaf Pike Place Roast",
+          "name": "decaf Pike Place Roast",
           "price": [
             {
               "short": 2.25,
@@ -169,7 +169,7 @@
             "color": "yellow"
         },
         {
-          "name": "Pour Over Decaf PPR",
+          "name": "Pour Over decaf PPR",
           "price": [
             {
               "short": 2.25,
@@ -201,7 +201,7 @@
       ],
       "iced_coffee" : [
         {
-          "name": "Iced Coffee",
+          "name": "iced Coffee",
           "price": [
             {
               "tall": 2.55,
@@ -224,7 +224,7 @@
             "color": "teal"
         },
         {
-          "name": "Iced Coffee With Milk",
+          "name": "iced Coffee With Milk",
           "price": [
             {
               "tall": 2.55,
@@ -247,7 +247,7 @@
             "color": "teal"
         },
         {
-          "name": "Decaf Iced Coffee",
+          "name": "decaf iced Coffee",
           "price": [
             {
               "tall": 2.55,
@@ -270,7 +270,7 @@
             "color": "teal"
         },
         {
-          "name": "Decaf Iced Coffee w/Milk",
+          "name": "decaf iced Coffee w/Milk",
           "price": [
             {
               "tall": 2.55,
@@ -293,7 +293,7 @@
             "color": "teal"
         },
         {
-          "name": "Iced Coffee Refill",
+          "name": "iced Coffee Refill",
           "price": [
             {
               "tall": 0.50,
@@ -496,7 +496,7 @@
     {
       "espresso": [
         {
-          "name": "Americano",
+          "name": "americano",
           "price": [
             {
               "hot": [{
@@ -537,7 +537,7 @@
           "color": "light-purple"
         },
         {
-          "name": "Espresso",
+          "name": "espresso",
           "price": [
             {
               "1": 1.75,
@@ -553,7 +553,7 @@
           "color": "light-purple"
         },
         {
-          "name": "Espresso Macchiato",
+          "name": "espresso macchiato",
           "price": [
             {
               "short": 2.55,
@@ -576,7 +576,7 @@
           "color": "light-purple"
         },
         {
-          "name": "Espresso Con Panna",
+          "name": "espresso con panna",
           "price": [
             {
               "short": 2.55,
@@ -599,7 +599,7 @@
           "color": "light-purple"
         },
         {
-          "name": "Starbucks Doubleshot on Ice",
+          "name": "starbucks doubleshot on ice",
           "price": [
             {
               "tall": 2.75,
@@ -632,7 +632,7 @@
       ],
       "latte": [
         {
-          "name": "Latte",
+          "name": "latte",
           "price": [{
             "hot": [{
               "short": 2.35,
@@ -671,7 +671,7 @@
           "color": "yellow"
         },
         {
-          "name": "Cinnamon Dolce Latte",
+          "name": "cinnamon dolce latte",
           "price": [{
             "hot": [{
               "short": 2.55,
@@ -718,7 +718,7 @@
           "color": "yellow"
         },
         {
-          "name": "Cappuccino",
+          "name": "cappuccino",
           "price": [{
             "hot": [{
               "short": 2.45,
@@ -756,7 +756,7 @@
           "color": "tan"
         },
         {
-          "name": "Flat White",
+          "name": "flat white",
           "price": [{
             "hot": [{
               "short": 2.45,
@@ -794,7 +794,7 @@
           "color": "light-blue"
         },
         {
-          "name": "Latte Macchiato",
+          "name": "latte macchiato",
           "price": [{
             "hot": [{
               "short": 2.45,
@@ -838,7 +838,7 @@
           "color": "empty"
         },
         {
-          "name": "Skinny Syrup Latte",
+          "name": "skinny syrup latte",
           "price": [{
             "hot": [{
               "short": 2.45,
@@ -885,7 +885,7 @@
           "color": "yellow"
         },
         {
-          "name": "Skinny Cinnamon Dolce Latte",
+          "name": "skinny cinnamon dolce latte",
           "price": [{
             "hot": [{
               "short": 2.45,
@@ -956,7 +956,7 @@
           "color": "empty"
         },
         {
-          "name": "Caramel Macchiatto",
+          "name": "caramel macchiatto",
           "price": [{
             "hot": [{
               "short": 2.65,
@@ -1036,7 +1036,7 @@
       ],
       "mochas": [
         {
-          "name": "Mocha",
+          "name": "mocha",
           "price": [{
             "hot": [{
               "short": 2.45,
@@ -1083,7 +1083,7 @@
           "color": "orange"
         },
         {
-          "name": "Skinny Mocha",
+          "name": "skinny mocha",
           "price": [{
             "hot": [{
               "short": 2.45,
@@ -1130,7 +1130,7 @@
           "color": "orange"
         },
         {
-          "name": "White Chocolate Mocha",
+          "name": "white chocolate mocha",
           "price": [{
             "hot": [{
               "short": 2.65,
@@ -1177,7 +1177,7 @@
           "color": "orange"
         },
         {
-          "name": "Pepermint Mocha",
+          "name": "peppermint mocha",
           "price": [{
             "hot": [{
               "short": 2.45,
@@ -1352,7 +1352,7 @@
     {
       "modifiers": [
         {
-          "name": "No",
+          "name": "no",
           "type": "free",
           "color": "black"
         },
@@ -1384,7 +1384,7 @@
       ],
       "items": [
         {
-          "name": "Ice",
+          "name": "ice",
           "type": "free",
           "color": "teal"
         },
@@ -1474,7 +1474,7 @@
           "color": "light-purple"
         },
         {
-          "name": "Mocha Drizzle",
+          "name": "mocha Drizzle",
           "type": "add 50",
           "color": "light-green"
         },
@@ -1484,7 +1484,7 @@
           "color": "light-green"
         },
         {
-          "name": "No Topping",
+          "name": "no Topping",
           "type": "add 50",
           "color": "light-green"
         },
@@ -1499,7 +1499,7 @@
           "color": "light-purple"
         },
         {
-          "name": "White Tea Base",
+          "name": "white Tea Base",
           "type": "add 50",
           "color": "orange"
         },
@@ -1612,7 +1612,7 @@
       ],
       "payed": [
         {
-          "name": "Nonfat Milk",
+          "name": "nonfat Milk",
           "type": "free",
           "color": "light-blue"
         },
@@ -1662,7 +1662,7 @@
           "color": "light-purple"
         },
         {
-          "name": "Eggnon",
+          "name": "Eggnog",
           "type": "add 60",
           "color": "light-purple"
         },
@@ -1674,7 +1674,7 @@
       ],
       "free": [
         {
-          "name": "with Nonfat Milk",
+          "name": "with nonfat Milk",
           "type": "free",
           "color": "light-blue"
         },
@@ -1730,7 +1730,7 @@
     {
       "modifiers": [
         {
-          "name": "No",
+          "name": "no",
           "type": "free",
           "color": "black"
         },
@@ -1857,17 +1857,17 @@
           "color": "empty"
         },
         {
-          "name": "Mocha Sauce",
+          "name": "mocha Sauce",
           "type": "add 60",
           "color": "light-purple"
         },
         {
-          "name": "Skinny Mocha Sauce",
+          "name": "skinny mocha Sauce",
           "type": "add 60",
           "color": "light-purple"
         },
         {
-          "name": "White Chocolate Mocha Sauce",
+          "name": "white chocolate mocha Sauce",
           "type": "add 60",
           "color": "light-purple"
         },
@@ -1887,7 +1887,7 @@
           "color": "light-purple"
         },
         {
-          "name": "Toasted White Mocha Sauce",
+          "name": "Toasted white mocha Sauce",
           "type": "add 60",
           "color": "light-purple"
         },
@@ -1911,7 +1911,7 @@
   ],
   "decaf": [
     {
-      "name": "Iced",
+      "name": "iced",
       "type": "iced",
       "color": "light-blue"
     },
@@ -1921,17 +1921,17 @@
       "color": "empty"
     },
     {
-      "name": "Blonde",
+      "name": "blonde",
       "type": "free",
       "color": "yellow"
     },
     {
-      "name": "Decaf",
+      "name": "decaf",
       "type": "free",
       "color": "tan"
     },
     {
-      "name": "1/2 Decaf",
+      "name": "1/2 decaf",
       "type": "free",
       "color": "tan"
     },
@@ -1951,39 +1951,39 @@
       "color": "empty"
     },
     {
-      "name": "2/3 Decaf",
+      "name": "2/3 decaf",
       "type": "free",
       "color": "tan"
     },
     {
-      "name": "1/3 Decaf",
+      "name": "1/3 decaf",
       "type": "free",
       "color": "tan"
     }
   ],
   "shots": [
     {
-      "name": "Single (solo)",
+      "name": "single (solo)",
       "type": "shots",
       "color": "light-purple"
     },
     {
-      "name": "Double (Doppio)",
+      "name": "double (Doppio)",
       "type": "shots",
       "color": "light-purple"
     },
     {
-      "name": "Triple",
+      "name": "triple",
       "type": "shots",
       "color": "light-purple"
     },
     {
-      "name": "Quad",
+      "name": "quad",
       "type": "shots",
       "color": "light-purple"
     },
     {
-      "name": "More Shots",
+      "name": "more shots",
       "type": "shots",
       "color": "light-purple"
     },
@@ -1993,7 +1993,7 @@
       "color": "empty"
     },
     {
-      "name": "Affogato Shot",
+      "name": "affogato shot",
       "type": "shots",
       "color": "orange"
     },
@@ -2008,13 +2008,13 @@
       "color": "empty"
     },
     {
-      "name": "Frappuccino Roast Coffe",
+      "name": "frappuccino roast coffee",
       "amount": "50",
       "type": "shots",
       "color": "tan"
     },
     {
-      "name": "Kids",
+      "name": "kids",
       "type": "size",
       "color": "yellow"
     },
@@ -2029,12 +2029,12 @@
       "color": "empty"
     },
     {
-      "name": "Long Shot",
+      "name": "long shot",
       "type": "free",
       "color": "light-green"
     },
     {
-      "name": "Ristretto",
+      "name": "ristretto",
       "type": "free",
       "color": "light-green"
     },
