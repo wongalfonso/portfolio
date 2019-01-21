@@ -164,16 +164,10 @@ export function addItem(currentOrder, item, type, size, temp, decaf, iced) {
   if (orderLength > 0) {
     arr = currentOrder.slice();
     //Check If Size has been Entered
-    if (size) {
-      let getPrice = getDrinkPrice(item, size, temp, type);
-      obj.name = getPrice.name;
-      obj.price = getPrice.price;
-      obj.size = getPrice.size;
-    } else {
-      obj.price = item.price;
-      obj.name = item.name;
-      obj.size = size;
-    }
+    let getPrice = getDrinkPrice(item, size, temp, type);
+    obj.name = getPrice.name;
+    obj.price = getPrice.price;
+    obj.size = getPrice.size;
     obj.sizeCode = size.charAt(0).toUpperCase();
     obj.key = orderLength;
     obj.type = type;
