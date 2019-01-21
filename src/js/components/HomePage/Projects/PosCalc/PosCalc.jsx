@@ -11,7 +11,7 @@ import CustomScreen from './CustomScreen';
 import MilkScreen from './MilkScreen';
 import SyrupScreen from './SyrupScreen';
 import BuilderScreen from './BuilderScreen';
-import EspressoScreen from './EspressoScreen';
+import LatteScreen from './LatteScreen';
 import TotalScreen from './TotalScreen';
 import RightTabs from './RightTabs';
 import QuantityScreen from './QuantityScreen';
@@ -241,7 +241,7 @@ class PosCalc extends Component {
                   {(currentScreen === 'milk') && <MilkScreen />}
                   {(currentScreen === 'syrup') && <SyrupScreen />}
                   {(currentScreen === 'brewed') && <BrewedScreen />}
-                  {(currentScreen === 'espresso') && <EspressoScreen />}
+                  {(currentScreen === 'latte') && <LatteScreen />}
                 </div>
                 <RightTabs
                   selectScreen = {this.selectScreen }/>
@@ -254,7 +254,7 @@ class PosCalc extends Component {
                     Brewed
                   </li>
                   <li className={(currentScreen == 'espresso') ? 'tabs-group tabs-group--active' : 'tabs-group'}
-                    onClick={() => this.selectScreen('espresso')}>
+                    onClick={() => this.selectScreen('latte')}>
                     Espresso
                   </li>
                 </ul>

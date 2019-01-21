@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { changeSize, makeIced } from './PosCalcActions';
+import { modifyDrink } from './PosCalcActions';
 
 class BuilderScreen extends Component {
   constructor(props) {
     super(props);
-    this.changeDrinkSize = this.changeDrinkSize.bind(this);
+    this.changeDrink = this.changeDrink.bind(this);
   }
 
-  changeDrinkSize(size, temp) {
+  changeDrink(size, temp) {
+    console.log(size);
     const { dispatch, currentOrder, currentSelected, currentIngredients, currentTemp, drinkSize } = this.props;
     let currentSize = !size ? drinkSize : size;
     let drinkTemp = !temp ? currentTemp : temp;
-    dispatch(changeSize(currentSize, currentOrder, currentSelected, currentIngredients, drinkTemp));
+    dispatch(modifyDrink(currentSize, currentOrder, currentSelected, currentIngredients, drinkTemp));
   }
   render() {
     const { decaf, shots, drinkSize, currentTemp } = this.props;
@@ -31,13 +32,13 @@ class BuilderScreen extends Component {
             if (decaf.name === 'iced') {
               if (currentTemp == 'iced') {
                 return (
-                  <button onClick = {() =>this.changeDrinkSize(null,'hot')} key = {i} className = 'builder-screen-row-btn builder-screen-row-btn--active'>
+                  <button onClick = {() =>this.changeDrink(drinkSize,'hot')} key = {i} className = 'builder-screen-row-btn builder-screen-row-btn--active'>
                   {decaf.name}
                   </button>  
                 )
               } else {
                 return (
-                  <button onClick = {() =>this.changeDrinkSize(null, 'iced')} key = {i} className = {cName}>
+                  <button onClick = {() =>this.changeDrink(drinkSize, 'iced')} key = {i} className = {cName}>
                   {decaf.name}
                   </button>  
                 )
@@ -70,7 +71,7 @@ class BuilderScreen extends Component {
             }
             if (shot.type == 'size') {
               return (
-                <button key = {i} onClick = {() => this.changeDrinkSize(shot.name)} className = {`builder-screen-row-btn builder-screen-row-btn--${shot.color}`}>
+                <button key = {i} onClick = {() => this.changeDrink(shot.name)} className = {`builder-screen-row-btn builder-screen-row-btn--${shot.color}`}>
                   {shot.name}
                 </button>
               )

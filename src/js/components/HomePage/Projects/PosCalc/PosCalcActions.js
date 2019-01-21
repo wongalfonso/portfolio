@@ -68,7 +68,6 @@ function getDrinkPrice(item, size, temp, type) {
 };
 
 function getIngredients(item, temp, type, size) {
-  console.log(item, temp, type, size)
   let obj = {}, shots, syrups, syrupAmount, shotAmount, syrupCount, shotCount;
   let tempObj = {};
   obj.milk = item.milk;
@@ -198,7 +197,9 @@ export function addItem(currentOrder, item, type, size, temp, decaf) {
   || type == 'ic' && size == 'kids' 
   || type == 'ic' && size == 'short' 
   || type == 'brewed' && size == 'kids'
-  || type == 'brewed' && temp == 'iced') {
+  || type == 'brewed' && temp == 'iced'
+  || type == 'latte' && size == 'short' && temp == 'iced'
+  || type == 'latte' && size == 'kids' && temp == 'iced') {
     if (orderLength > 0) {
       arr = currentOrder.slice();  
       addTotal = getTotal(arr);
@@ -236,11 +237,10 @@ export function addItem(currentOrder, item, type, size, temp, decaf) {
     obj.type = type;
     obj.sizeCode = sizeCode;
     temp = currentIngredients.temp;
+    drinkSize = getPrice.size
     arr.push(obj);
     addTotal = getTotal(arr);
   }
-  drinkSize = 'grande';
-  console.log(temp);
   return {
     type: "ADD_ITEM",
     payload: { order: arr, currentSelected: orderLength, total: addTotal, currentIngredients: obj, modal: modal, modalType: modalType, drinkSize: drinkSize, temp: temp }
@@ -259,7 +259,7 @@ function getTotal(arr) {
   return { subTotal, total, tax }
 }
 
-export function changeSize(size, order, selected, ingredients, temp) {
+export function modifyDrink(size, order, selected, ingredients, temp) {
   console.log(size, order, selected, ingredients, temp)
   let currentOrder = order[selected] ? order[selected] : [];
   let arr = [], modal, modalType, drinkSize, currentIngredients, editTotal;
@@ -267,6 +267,8 @@ export function changeSize(size, order, selected, ingredients, temp) {
   if (currentOrder.type == 'brewed' && size == 'trenta'
     || currentOrder.type == 'latte' && size == 'trenta'
     || currentOrder.type == 'latte' && size == 'kids'
+    || currentOrder.type == 'latte' && size == 'short' && temp == 'iced'
+    || currentOrder.type == 'latte' && size == 'kids' && temp == 'iced'
     || currentOrder.type == 'ic' && size == 'kids'
     || currentOrder.type == 'ic' && size == 'short'
     || currentOrder.type == 'brewed' && size == 'kids'
@@ -296,6 +298,7 @@ export function changeSize(size, order, selected, ingredients, temp) {
             size: drinkPrice.size,
             shot: drinkIngredients.shot,
             syrup: drinkIngredients.syrup,
+            temp: drinkIngredients.temp,
             sizeCode: sizeCode
           }
         }
@@ -304,7 +307,7 @@ export function changeSize(size, order, selected, ingredients, temp) {
       })
     }
     // Modify Size
-    // currentIngredients = arr[selected];
+    currentIngredients = arr[selected];
     modal = false;
     modalType = '';
     editTotal = getTotal(arr);

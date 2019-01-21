@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 import { addItem } from './PosCalcActions';
 
 
-class EspressoScreen extends Component {
+class LatteScreen extends Component {
   constructor(props) {
     super(props);
     this.addDrink = this.addDrink.bind(this);
   }
 
   addDrink(drink, type) {
-    const { dispatch, currentOrder, drinkSize, currentTemp } = this.props;
-    dispatch(addItem(currentOrder, drink, type, drinkSize, currentTemp));
+    const { dispatch, currentOrder, selected, drinkSize, currentTemp } = this.props;
+    let size = currentOrder.length !== selected ? drinkSize : 'grande';
+    console.log(currentOrder.length, selected);
+    dispatch(addItem(currentOrder, drink, type, size, currentTemp));
   }
 
   render() {
@@ -80,8 +82,9 @@ function mapStateToProps(state) {
     mochas: state.home.posCalc.mochas,
     currentOrder: state.home.posCalc.currentOrder,
     drinkSize: state.home.posCalc.drinkSize,
-    currentTemp: state.home.posCalc.currentTemp
+    currentTemp: state.home.posCalc.currentTemp,
+    selected: state.home.posCalc.selected
   }
 }
 
-export default connect(mapStateToProps)(EspressoScreen);
+export default connect(mapStateToProps)(LatteScreen);
