@@ -1112,7 +1112,7 @@
               }]
             }],
             "milk": "N",
-            "custom": [],
+            "custom": ["WC"],
               "syrup": [{
                 "hot": [{
                   "short": "1SFM",

@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 class TotalScreen extends Component {  
   render() {
-    const { subTotal, orderTotal, payment, tax, returnedAmount, currentOrder } = this.props;
-    let sub = subTotal ? subTotal : 0;
-    let total = orderTotal ? orderTotal : 0;
-    let taxes = tax ? tax : 0;
+    const { orderTotal, payment, returnedAmount, currentOrder } = this.props;
+    const total = orderTotal.total ? orderTotal.total : 0;
+    const taxes = orderTotal.tax ? orderTotal.tax : 0;
+    const subTotal = orderTotal.subTotal ? orderTotal.subTotal : 0;
     return (
       <div className='pos-order-screen-list-total'>
         <div className="pos-order-screen-list-total-container">
@@ -19,7 +19,7 @@ class TotalScreen extends Component {
           <tbody>
             <tr>
               <td>Subtotal:</td>
-              <td>$ {sub.toFixed(2)}</td>
+              <td>$ {subTotal.toFixed(2)}</td>
             </tr>
             <tr>
               <td>Tax:</td>
@@ -80,9 +80,7 @@ class TotalScreen extends Component {
 
 function mapStateToProps(state) {
   return {
-    subTotal: state.home.posCalc.subTotal,
     orderTotal: state.home.posCalc.orderTotal,
-    tax: state.home.posCalc.tax,
     currentOrder: state.home.posCalc.currentOrder,
   }
 }

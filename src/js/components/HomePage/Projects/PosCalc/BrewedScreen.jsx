@@ -8,9 +8,10 @@ class BrewedScreen extends Component {
     this.addDrink = this.addDrink.bind(this);
   }
 
-  addDrink(drink) {   
+  addDrink(drink, type) {   
     const { dispatch, currentOrder, drinkSize, currentTemp} = this.props;    
-    dispatch(addItem(currentOrder, drink, 'brewed', drinkSize, currentTemp));    
+    const temp = type == 'ic' ? 'iced' : currentTemp
+    dispatch(addItem(currentOrder, drink, type, drinkSize, temp));    
   }
 
   render() {
@@ -32,7 +33,7 @@ class BrewedScreen extends Component {
             return (
               <button className = {cName} 
                 key = {i}
-                onClick = {() => this.addDrink(pour)}>
+                onClick = {() => this.addDrink(pour, 'brewed')}>
                 {pour.name}
               </button>
             )
@@ -47,7 +48,7 @@ class BrewedScreen extends Component {
             return (
               <button className = {cName} 
                 key = {i}
-                onClick = {() => this.addDrink(iced)}>
+                onClick = {() => this.addDrink(iced, 'ic')}>
                 {iced.name}
               </button>
             )
@@ -62,7 +63,7 @@ class BrewedScreen extends Component {
             return (
               <button className = {cName} 
                 key = {i}
-                onClick = {() => this.addDrink(cb)}>
+                onClick = {() => this.addDrink(cb, 'ic')}>
                 {cb.name}
               </button>
             )
@@ -77,7 +78,7 @@ class BrewedScreen extends Component {
             return (
               <button className = {cName} 
                 key = {i}
-                onClick = {() => this.addDrink(coff)}>
+                onClick = {() => this.addDrink(coff, 'brewed')}>
                 {coff.name}
               </button>
             )

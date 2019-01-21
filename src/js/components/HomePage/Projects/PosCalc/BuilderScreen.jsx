@@ -9,10 +9,14 @@ class BuilderScreen extends Component {
   }
 
   changeDrinkSize(size) {
-    const { dispatch, currentOrder, currentSelected, subTotal, orderTotal, tax, currentIngredients } = this.props;
-    dispatch(changeSize(size, currentOrder, currentSelected, subTotal, orderTotal, tax, currentIngredients));
+    const { dispatch, currentOrder, currentSelected, currentIngredients } = this.props;
+    console.log(currentOrder, currentSelected)
+    dispatch(changeSize(size, currentOrder, currentSelected, currentIngredients));
   }
-
+  changeTemp() {
+    const { dispatch, currentOrder, currentSelected, subTotal, orderTotal, tax, currentIngredients} = this.props;
+    
+  }
   render() {
     const { decaf, shots, drinkSize } = this.props;
     const decafMod = decaf ? decaf : [];
@@ -27,6 +31,13 @@ class BuilderScreen extends Component {
             } else {
               cName = `builder-screen-row-btn builder-screen-row-btn--${decaf.color}`
             }
+            if (decaf.name === 'iced') {
+              return (
+                <button onClick = {() =>this.changeTemp()} key = {i} className = {cName}>
+                {decaf.name}
+                </button>  
+              )
+            }
             return (
               <button key = {i} className = {cName}>
                 {decaf.name}
@@ -37,12 +48,17 @@ class BuilderScreen extends Component {
             let cName;
             if (shot.color == 'empty') {
               cName = 'builder-screen-row--empty'
+              return (
+                <button key = {i} className = {cName} disabled>
+                  {shot.name}
+                </button>
+              )
             } else {
               cName = `builder-screen-row-btn builder-screen-row-btn--${shot.color}`
             }
             if (drinkSize == shot.name) {
               return (
-                <button key = {i} onClick = {() => this.changeDrinkSize(shot.name)} className = 'builder-screen-row-btn builder-screen-row-btn--active'>
+                <button key = {i} onClick = {() => this.changeDrinkSize(shot.name)} className = 'builder-screen-row-btn builder-screen-row-btn--active' disabled>
                   {shot.name}
                 </button>
               )
@@ -73,9 +89,6 @@ function mapStateToProps(state) {
     drinkSize: state.home.posCalc.drinkSize,
     currentSelected: state.home.posCalc.currentSelected,
     currentOrder: state.home.posCalc.currentOrder,
-    subTotal: state.home.posCalc.subTotal,
-    orderTotal: state.home.posCalc.orderTotal,
-    tax: state.home.posCalc.tax,
     currentIngredients: state.home.posCalc. currentIngredients
   }
 }

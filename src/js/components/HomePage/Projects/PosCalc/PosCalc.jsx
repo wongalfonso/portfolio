@@ -15,7 +15,7 @@ import EspressoScreen from './EspressoScreen';
 import TotalScreen from './TotalScreen';
 import RightTabs from './RightTabs';
 import QuantityScreen from './QuantityScreen';
-import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalPosOpen, modalPosClose, saveOrder, totalScreen } from './PosCalcActions';
+import { getMenu, changeScreen, selected, removeSelected, cancelOrder, modalPosOpen, modalPosClose, saveOrder, totalScreen, nextDrink } from './PosCalcActions';
 
 const modalStyle = {
   overlay: {
@@ -35,6 +35,7 @@ class PosCalc extends Component {
     this.saveEntireOrder = this.saveEntireOrder.bind(this);
     this.changeTotalScreen = this.changeTotalScreen.bind(this);
     this.changeSizeRejectedModal = this.changeSizeRejectedModal.bind(this);
+    this.newItem = this.newItem.bind(this);
   }
   componentWillMount() {
     const { dispatch } = this.props;
@@ -66,7 +67,10 @@ class PosCalc extends Component {
     const { dispatch } = this.props;
     dispatch(modalPosClose());
   }
-
+  newItem() {
+    const { dispatch, currentOrder } = this.props;
+    dispatch(nextDrink(currentOrder))
+  }
   gitHub() {
     ReactGA.event({
       category: 'Visited GitHub from project',
@@ -257,7 +261,9 @@ class PosCalc extends Component {
               <div className="bottom-functions">
                 <button>Copy Drink</button>
                 <button>Add Shot</button>
-                <button>Next Drink</button>
+                <button onClick = {this.newItem}>
+                Next Drink
+                </button>
               </div>
             </div>
           </div>

@@ -4,14 +4,26 @@ import { connect } from 'react-redux';
 class RightTabs extends Component {
   render() {
     const { currentScreen, currentIngredients } = this.props;
-    console.log(currentIngredients);
+    let decaf, temp, size, syrup, milk, custom, shot;
+    if (currentIngredients == undefined) {
+      decaf, temp, size, syrup, milk, custom, shot = '';
+    } else {
+      decaf = currentIngredients.decaf;
+      temp = currentIngredients.temp ;
+      size = currentIngredients.sizeCode;
+      syrup = currentIngredients.syrup;
+      milk = currentIngredients.milk ;
+      custom = currentIngredients.custom;
+      shot = currentIngredients.shot ;
+
+    }
     return (
       <div className='right-tabs'>
       <ul>
         <li className={(currentScreen == 'drinks') ? 'tabs-group tabs-group--active' : 'tabs-group'}
           onClick={() => this.props.selectScreen('drinks')}>
           <div>
-            {(currentIngredients.temp == 'iced') ?
+            {(temp == 'iced') ?
               <div className='small-box'>√</div>
               : 
               <div className='small-box'></div>
@@ -19,31 +31,31 @@ class RightTabs extends Component {
             Iced
           </div>
           <div>Decaf
-          <div className='box'></div>
+          <div className='box'>{decaf}</div>
           </div>
           <div>Shots
-          <div className='box'>{currentIngredients.shot}</div>
+          <div className='box'>{shot}</div>
           </div>
           <div>Size
-          <div className='box'>{currentIngredients.sizeCode}</div>
+          <div className='box'>{size}</div>
           </div>
         </li>
         <li className={(currentScreen == 'syrup') ? 'tabs-group tabs-group--active' : 'tabs-group'}
           onClick={() => this.props.selectScreen('syrup')}
         >
           Syrup
-        <div className='box'>{currentIngredients.syrup}</div>
+        <div className='box'>{syrup}</div>
         </li>
         <li className={(currentScreen == 'milk') ? 'tabs-group tabs-group--active' : 'tabs-group'}
           onClick={() => this.props.selectScreen('milk')}>
           Milk
-        <div className='box'>{currentIngredients.milk}</div>
+        <div className='box'>{milk}</div>
         </li>
         <li className={(currentScreen == 'custom') ? 'tabs-group tabs-group--active' : 'tabs-group'}
           onClick={() => this.props.selectScreen('custom')}
         >
           Custom
-        <div className='box'>{currentIngredients.custom}</div>
+        <div className='box'>{custom}</div>
         </li>
       </ul>
     </div>
