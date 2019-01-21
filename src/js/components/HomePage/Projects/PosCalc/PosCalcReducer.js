@@ -75,12 +75,12 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'ADD_ITEM' : {          
       return {
-        ...state, currentOrder: payload.order, currentSelected: payload.currentSelected, subTotal: payload.subTotal, orderTotal: payload.total, tax: payload.tax, currentIngredients: payload.currentIngredients
+        ...state, currentOrder: payload.order, currentSelected: payload.currentSelected, subTotal: payload.subTotal, orderTotal: payload.total, tax: payload.tax, currentIngredients: payload.currentIngredients, currentScreen: 'drinks'
       }
     }    
     case 'CHANGE_SIZE': {
       return {
-        ...state, drinkSize: payload.size, currentOrder: payload.currentOrder, subTotal: payload.subTotal, orderTotal: payload.total
+        ...state, drinkSize: payload.size, currentOrder: payload.currentOrder, subTotal: payload.subTotal, orderTotal: payload.total, tax: payload.tax, posModalIsOpen: payload.posModalIsOpen, modalType: payload.modalType, currentIngredients: payload.currentIngredients
       }
     }
     case 'SELECTED_ITEM' : {
@@ -138,7 +138,7 @@ export default function PosReducer(state = defaultState, action) {
       return {
         ...state, totalScreenView: payload
       }
-    }
+    }   
     default: {
       return state;
     }

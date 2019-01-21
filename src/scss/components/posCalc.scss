@@ -20,6 +20,33 @@
 .ReactModal_TENDER {
   height: 17rem;
 }
+.rejected-size {
+  display: flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  font-size: 2rem;
+  &-modal {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    justify-content: space-around;
+    .rejected-size-btns {
+      button {
+        font-size: 1.8rem;
+        padding: 1rem;
+        width: 12rem;
+        height: 5rem;
+        border-radius: 8px;
+        background: linear-gradient(to bottom, #07a707, #257525);
+        color: white;
+      }
+    }
+  }
+}
 .pos-modal {
   display: flex;
   flex-direction: column;
@@ -477,6 +504,7 @@
                   }
                   &--active {
                     font-weight: bold;
+                    background-color: white;
                   }
                 }
               }

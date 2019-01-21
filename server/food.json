@@ -1083,7 +1083,7 @@
           "color": "orange"
         },
         {
-          "name": "Mocha",
+          "name": "Skinny Mocha",
           "price": [{
             "hot": [{
               "short": 2.45,
@@ -1882,7 +1882,7 @@
           "color": "empty"
         },
         {
-          "name": "Brown Butter Shortbread Sauce",
+          "name": "Brown Butter shortbread Sauce",
           "type": "add 60",
           "color": "light-purple"
         },
@@ -1912,7 +1912,7 @@
   "decaf": [
     {
       "name": "Iced",
-      "type": "",
+      "type": "iced",
       "color": "light-blue"
     },
     {
@@ -1964,27 +1964,27 @@
   "shots": [
     {
       "name": "Single (solo)",
-      "type": "add 75",
+      "type": "shots",
       "color": "light-purple"
     },
     {
       "name": "Double (Doppio)",
-      "type": "add 150",
+      "type": "shots",
       "color": "light-purple"
     },
     {
       "name": "Triple",
-      "type": "add 215",
+      "type": "shots",
       "color": "light-purple"
     },
     {
       "name": "Quad",
-      "type": "add 260",
+      "type": "shots",
       "color": "light-purple"
     },
     {
       "name": "More Shots",
-      "type": "",
+      "type": "shots",
       "color": "light-purple"
     },
     {
@@ -1994,7 +1994,7 @@
     },
     {
       "name": "Affogato Shot",
-      "type": "add 75",
+      "type": "shots",
       "color": "orange"
     },
     {
@@ -2009,7 +2009,8 @@
     },
     {
       "name": "Frappuccino Roast Coffe",
-      "type": "add 50",
+      "amount": "50",
+      "type": "shots",
       "color": "tan"
     },
     {
@@ -2038,27 +2039,27 @@
       "color": "light-green"
     },
     {
-      "name": "Short",
+      "name": "short",
       "type": "size",
       "color": "yellow"
     },
     {
-      "name": "Tall",
+      "name": "tall",
       "type": "size",
       "color": "yellow"
     },
     {
-      "name": "Grande",
+      "name": "grande",
       "type": "size",
       "color": "yellow"
     },
     {
-      "name": "Venti",
+      "name": "venti",
       "type": "size",
       "color": "yellow"
     },
     {
-      "name": "Trenta",
+      "name": "trenta",
       "type": "size",
       "color": "yellow"
     }

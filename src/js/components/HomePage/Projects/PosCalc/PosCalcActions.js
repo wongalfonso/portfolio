@@ -19,50 +19,57 @@ export function changeScreen(screen) {
   }
 }
 
-function getDrinkPrice(obj, item, size, temp, type) {
-  console.log(item);
+function getDrinkPrice(item, size, temp, type) {
+  let obj = {}, tempObj = {};
   obj.name = item.name;
   obj.size = size;
+  // Check if drink is espresso
   if (type === 'espresso') {
+  // Check if drink is hot
     if (temp == 'hot') {
-      obj.sizes = {
+      tempObj.sizes = {
         'short': item.price[0].hot[0].short,
         'tall': item.price[0].hot[0].tall,
         'grande': item.price[0].hot[0].grande,
         'venti': item.price[0].hot[0].venti,
       };
+  // Check if drink is iced
     } else {
-      obj.sizes = {
+      tempObj.sizes = {
         'tall': item.price[0].iced[0].tall,
         'grande': item.price[0].iced[0].grande,
         'venti': item.price[0].iced[0].venti,
       }
     }
-
+// Check if drink is iced
   } else {
-    obj.sizes = {
+
+    tempObj.sizes = {
       'short': item.price[0].short,
       'tall': item.price[0].tall,
       'grande': item.price[0].grande,
       'venti': item.price[0].venti,
     }
   }
-  let keys = Object.keys(obj.sizes);
+  let keys = Object.keys(tempObj.sizes);
   keys.forEach((key) => {
     if (key == size) {
-      obj.price = obj.sizes[key]
+      obj.price = tempObj.sizes[key]
     }
   })
   return obj;
 };
 
 function getIngredients(item, temp, type, size) {
-  console.log(item, size);
-  let obj = {}
+  console.log(item);
+  let obj = {}, shots, syrups;
   obj.milk = item.milk;
   obj.size = size;
   obj.sizeCode = size.charAt(0).toUpperCase();
   obj.decaf = '';
+  obj.temp = temp;
+
+  // Check if Order is Hot
   if (temp == 'hot' && type == 'espresso') {
     obj.custom = item.custom;
     let shortShots = item.shots[0].hot[0].short ? item.shots[0].hot[0].short : ' ';
@@ -85,6 +92,20 @@ function getIngredients(item, temp, type, size) {
       'grande': grandeSyrups,
       'venti': ventiSyrups,
     }
+    shots = Object.keys(obj.shots);
+    shots.forEach((shot) => {
+      if (shot == size) {
+        obj.shot = obj.shots[shot]
+      }
+    })
+    syrups = Object.keys(obj.syrups);
+    syrups.forEach((syrup) => {
+      if (syrup == size) {
+        obj.syrup = obj.syrups[syrup]
+      }
+    })
+
+  // Run if Temp Is Iced
   } else if (temp == 'iced' && type == 'espresso') {
     obj.shots = {
       'tall': item.shots[0].iced[0].tall,
@@ -97,13 +118,13 @@ function getIngredients(item, temp, type, size) {
       'grande': item.syrup[0].iced[0].grande,
       'venti': item.syrup[0].iced[0].venti,
     }
-    let shots = Object.keys(obj.shots);
+    shots = Object.keys(obj.shots);
     shots.forEach((shot) => {
       if (shot == size) {
         obj.shot = obj.shots[shot]
       }
     })
-    let syrups = Object.keys(obj.syrups);
+    syrups = Object.keys(obj.syrups);
     syrups.forEach((syrup) => {
       if (syrup == size) {
         obj.syrup = obj.syrups[syrup]
@@ -118,7 +139,7 @@ function getIngredients(item, temp, type, size) {
       'grande': item.syrup[0] && item.syrup[0].grande ? item.syrup[0].grande : '',
       'venti': item.syrup[0] && item.syrup[0].venti ? item.syrup[0].venti : ''
     }
-    let syrups = Object.keys(obj.syrups);
+    syrups = Object.keys(obj.syrups);
     syrups.forEach((syrup) => {
       if (syrup == size) {
         obj.syrup = obj.syrups[syrup]
@@ -130,6 +151,7 @@ function getIngredients(item, temp, type, size) {
 }
 
 export function addItem(currentOrder, item, type, size, temp, decaf, iced) {
+  console.log(itemgit s)
   let orderLength = currentOrder.length;
   let arr = [];
   let obj = {};
@@ -137,35 +159,51 @@ export function addItem(currentOrder, item, type, size, temp, decaf, iced) {
   let ingredients = item.ingredients && item.ingredients[0] ? item.ingredients[0] : [];
   
   let currentIngredients = getIngredients(ingredients, temp, type, size);
-  obj.sizeCode = size.charAt(0).toUpperCase();
+  
+  // Check if Items are in Current Order
   if (orderLength > 0) {
     arr = currentOrder.slice();
-    obj.key = orderLength;
+    //Check If Size has been Entered
     if (size) {
-      getDrinkPrice(obj, item, size, temp, type);
+      let getPrice = getDrinkPrice(item, size, temp, type);
+      obj.name = getPrice.name;
+      obj.price = getPrice.price;
+      obj.size = getPrice.size;
     } else {
       obj.price = item.price;
       obj.name = item.name;
-      obj.price = item.price;
+      obj.size = size;
     }
-    obj.type = type
+    obj.sizeCode = size.charAt(0).toUpperCase();
+    obj.key = orderLength;
+    obj.type = type;
     arr.push(obj);
     addTotal = getTotal(arr)
   } else {
+  // Create New Order
     if (size) {
-      getDrinkPrice(obj, item, size, temp, type);
+      let getPrice = getDrinkPrice(item, size, temp, type);
+      obj.name = getPrice.name;
+      obj.price = getPrice.price;
+      obj.size = getPrice.size;
+      obj.shots = item.shots;
+      obj.syrup = item.syrup;
+      obj.milk = item.milk;
+      obj.custom = item.custom;
       subTotal = obj.price;
     } else {
       obj.price = item.price;
       obj.name = item.name;
+      obj.size = size;
     }
+    obj.sizeCode = size.charAt(0).toUpperCase();
+    obj.temp = temp;
     obj.key = 0;    
-    obj.type = type
+    obj.type = type,
+    obj.ingredients = item.ingredients;
     arr.push(obj);
     addTotal = getTotal(arr);
-    console.log(arr);
   }
-
   return {
     type: "ADD_ITEM",
     payload: { order: arr, currentSelected: orderLength, subTotal: addTotal.subTotal, total: addTotal.total, tax: addTotal.tax, currentIngredients: currentIngredients }
@@ -184,23 +222,52 @@ function getTotal(arr) {
   return { subTotal, total, tax }
 }
 
-export function changeSize(size, order, selected) {
-  let arr = order.map((item) => {
-    let price;
-    if (item == order[selected]) {
-      price = item.sizes[size]
-      return {
-        ...item,
-        price: price,
-        size: size,
+export function changeSize(size, order, selected, subTotal, total, tax, ingredients) {
+  let currentOrder = order[selected] ? order[selected] : [];
+  console.log(currentOrder);
+  let arr = [], modal, modalType, drinkSize, sub, currentTax, currentTotal, currentIngredients;  
+
+  //Check If Size can be modified
+  if (currentOrder.type == 'brewed' && size == 'trenta' || currentOrder.type == 'espresso' && size == 'trenta' ) {
+    // || currentOrder.type == 'espresso' && size == 'short' && temp == 'iced'
+    arr = order;
+    modal = true;
+    modalType = 'rejected';
+    drinkSize = currentOrder.size;
+    sub = subTotal;
+    currentTax = tax;
+    currentTotal = total
+    currentIngredients = ingredients
+  } else {
+  // Modify Size
+    getDrinkPrice(item, size, temp, type);
+    arr = order.map((item) => {
+      let price;
+      if (item == order[selected]) {
+        price = item.sizes[size]
+
+        return {
+          ...item,
+          price: price,
+          size: size,
+          sizeCode: size.charAt(0).toUpperCase()
+        }
       }
-    }
-    return item
-  })
-  let editTotal = getTotal(arr);
+      currentIngredients = getIngredients(currentOrder.ingredients, currentOrder.temp, currentOrder.type, size);
+      console.log(currentIngredients);
+      return item
+    })    
+    modal = false;
+    modalType = '';
+    let editTotal = getTotal(arr);
+    drinkSize = size;
+    sub = editTotal.subTotal;
+    currentTotal = editTotal.total;
+    currentTax = editTotal.tax
+  }
   return {
     type: "CHANGE_SIZE",
-    payload: { size: size, currentOrder: arr, subTotal: editTotal.subTotal, total: editTotal.total }
+    payload: { size: drinkSize, currentOrder: arr, subTotal: sub, total: currentTotal, tax: currentTax, posModalIsOpen: modal, modalType: modalType, currentIngredients: currentIngredients }
   }
 }
 

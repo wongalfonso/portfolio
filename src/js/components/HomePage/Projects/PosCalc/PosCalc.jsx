@@ -34,6 +34,7 @@ class PosCalc extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.saveEntireOrder = this.saveEntireOrder.bind(this);
     this.changeTotalScreen = this.changeTotalScreen.bind(this);
+    this.changeSizeRejectedModal = this.changeSizeRejectedModal.bind(this);
   }
   componentWillMount() {
     const { dispatch } = this.props;
@@ -107,24 +108,41 @@ class PosCalc extends Component {
       <div className='pos-modal'>
         <div className='pos-modal-message'>
           Are you sure you want to save this order?
-      </div>
+        </div>
         <div className='pos-modal-btns'>
           <button onClick={this.closeModal}
             className='pos-modal-btns-cancel'>
             Cancel
-      </button>
+          </button>
           <button onClick={this.saveEntireOrder}
             className='pos-modal-btns-save'>
             Save
-      </button>
+          </button>
         </div>
+      </div>
+    )
+  }
+
+  changeSizeRejectedModal() {
+    return (
+      <div className = 'rejected-size'>
+        <div className='rejected-size-modal'>
+        <div className='rejected-size-modal-message'>
+          This item cannot be made this size
+      </div>
+        <div className='rejected-size-btns'>
+          <button onClick={this.closeModal}
+            className='rejected-size-btns-ok'>
+            OK
+          </button>
+        </div>
+      </div>
       </div>
     )
   }
 
   render() {
     const { currentScreen, currentOrder, currentSelected, posModalIsOpen, modalType, orderTotal, payment, totalScreenView } = this.props;
-    
     let order = currentOrder ? currentOrder : null;
     return (
       <div id="posCalcProject">
@@ -145,7 +163,7 @@ class PosCalc extends Component {
           >
             {(modalType == 'cancel') && this.cancelOrderModal()}
             {(modalType == 'save') && this.saveOrderModal()}
-
+            {(modalType == 'rejected') && this.changeSizeRejectedModal()}
           </Modal>         
           <div className="pos-menus">
             <div className="pos-menus-functions">
@@ -180,7 +198,6 @@ class PosCalc extends Component {
                 <table>
                   <tbody>
                     {order.map((item, i) => {
-                      console.log(item);
                       let selected = 'items'
                       if (i == currentSelected) selected = 'items items-selected'
                       return (

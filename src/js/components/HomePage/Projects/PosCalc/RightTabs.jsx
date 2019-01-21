@@ -10,7 +10,7 @@ class RightTabs extends Component {
         <li className={(currentScreen == 'drinks') ? 'tabs-group tabs-group--active' : 'tabs-group'}
           onClick={() => this.props.selectScreen('drinks')}>
           <div>
-            {(currentIngredients.iced == 'yes') ?
+            {(currentIngredients.temp == 'iced') ?
               <div className='small-box'>√</div>
               : 
               <div className='small-box'></div>
