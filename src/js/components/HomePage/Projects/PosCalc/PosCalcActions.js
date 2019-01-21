@@ -193,6 +193,8 @@ export function addItem(currentOrder, item, type, size, temp, decaf) {
   if (type == 'brewed' && size == 'trenta' || type == 'espresso' && size == 'trenta' || type == 'espresso' && size == 'kids' || type == 'ic' && size == 'kids' || type == 'ic' && size == 'short' || currentOrder.type == 'brewed' && size == 'kids') { 
     if (orderLength > 0) {
       arr = currentOrder.slice();
+      modal = true;
+      modalType = 'rejected';
       addTotal = getTotal(arr);
     } else {
       arr = [];
