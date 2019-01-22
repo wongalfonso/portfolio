@@ -221,6 +221,7 @@
                 display: flex;
                 justify-content: space-between;
                 padding: 1rem;
+                text-transform: capitalize;
                 &-selected {
                   background-color: #e4d400;
                 }
@@ -228,6 +229,16 @@
                   vertical-align: inherit;                
                 }              
               } 
+              .mods {
+                vertical-align: inherit;
+                display: flex;
+                justify-content: space-between;
+                background-color: #e4d400;
+                padding-top: .5rem;
+                padding-left: 5rem;
+                font-size: 1.5rem;
+                text-transform: capitalize;
+              }
             }
           }       
         } 

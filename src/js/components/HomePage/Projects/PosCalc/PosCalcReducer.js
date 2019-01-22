@@ -89,7 +89,7 @@ export default function PosReducer(state = defaultState, action) {
         posModalIsOpen: payload.posModalIsOpen, 
         modalType: payload.modalType,
         prepDrink: payload.prepDrink,
-        currentSelected: payload.currentSelected
+        currentSelected: payload.currentSelected,
       }
     }
     case 'SELECTED_ITEM' : {

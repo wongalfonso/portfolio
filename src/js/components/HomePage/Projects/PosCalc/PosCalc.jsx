@@ -147,7 +147,7 @@ class PosCalc extends Component {
 
   render() {
     const { currentScreen, currentOrder, currentSelected, posModalIsOpen, modalType, orderTotal, payment, totalScreenView } = this.props;
-    let order = currentOrder ? currentOrder : null;    
+    let order = currentOrder ? currentOrder : null;   
     return (
       <div id="posCalcProject">
         <div className="pos-sides">
@@ -200,23 +200,30 @@ class PosCalc extends Component {
             <div className="pos-order-screen-list">
               <div className="pos-order-screen-list-items">
                 <table>
-                  <tbody>
                     {order.map((item, i) => {
                       let price = item.currentPrice ? item.currentPrice.toFixed(2) : '';
-
+                      console.log(item);
                       let temp = item.temp == 'iced' ? 'iced' : ''
                       let selected = 'items'
                       if (i == currentSelected) selected = 'items items-selected'
                       return (
-                        <tr key={i}
-                          onClick={() => this.selectedItem(i, item.type)}
-                          className={selected}>
-                          {(item.sizeCode) ? <td>{item.sizeCode + ' ' + temp + ' ' + item.name}</td> : <td>{item.name}</td>}
-                          <td>{price}</td>
-                        </tr>
+                        <tbody key={i}>
+                          <tr onClick={() => this.selectedItem(i, item.type)}
+                            className={selected}>
+                            {(item.sizeCode) ? <td>{item.sizeCode + ' ' + temp + ' ' + item.name}</td> : <td>{item.name}</td>}
+                            <td>{price}</td>
+                          </tr>
+                          {item.modPrint.length > 0 && 
+                            item.modPrint.map((mods, i) => {
+                            return (
+                              <tr key = {i} className = 'mods'>
+                                <td>{mods}</td>
+                              </tr>
+                            )
+                          })}
+                        </tbody>
                       )
                     })}
-                  </tbody>
                 </table>
               </div>
               {(totalScreenView == 'quantity') ? 
@@ -294,7 +301,7 @@ function mapStateToProps(state) {
     savedOrders: state.home.posCalc.savedOrders,
     returnedAmount: state.home.posCalc.returnedAmount,
     payment: state.home.posCalc.payment,
-    totalScreenView: state.home.posCalc.totalScreenView
+    totalScreenView: state.home.posCalc.totalScreenView,
   }
 }
 

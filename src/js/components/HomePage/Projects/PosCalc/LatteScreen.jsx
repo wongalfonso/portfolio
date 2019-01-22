@@ -11,7 +11,6 @@ class LatteScreen extends Component {
 
   addDrink(drink, type) {
     const { dispatch, currentOrder, currentSelected, prepDrink } = this.props;
-    // console.log(prepDrink);
     dispatch(addItem(currentOrder, currentSelected, prepDrink, drink, type));
   }
 
@@ -24,7 +23,6 @@ class LatteScreen extends Component {
       <div className="espresso-screen">
         <div className="espresso-screen-row">
           {esp.map((espr, i) => {
-            console.log(espr)
             let cName;
             if (espr.color == 'empty') {
               cName = 'espresso-screen-row--empty'

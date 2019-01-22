@@ -20,12 +20,12 @@ export function changeScreen(screen) {
 }
 
 function getDrinkPrice(item, size, temp, type) {
-  // console.log(item, size, temp, type)
+  console.log(item, size, temp, type)
   let obj = {}, tempObj = {};
   obj.name = item.name;
   obj.size = size;
   // Check if drink is latte
-  if (type === 'latte' || type == 'espresso') {
+  if (type === 'latte' || type == 'espresso' || type == 'ameri') {
     // Check if drink is hot
     if (temp == 'hot') {
       tempObj.sizes = {
@@ -191,6 +191,7 @@ export function addItem(currentOrder, currentSelected, prep, item, type) {
   let temp = selected && selected.temp ? selected.temp : 'hot';
   temp = type == 'ic' ? 'iced' : temp;
   let size = selected && selected.size ? selected.size : 'grande';
+  let modPrint = selected && selected.modPrint ? selected.modPrint : [];
   let orderLength = currentOrder.length;
   let arr = [], mod = [], obj = {}, modObj = {};
   let addTotal, modal, modalType, prepDrink, modTemp, sizeCode;
@@ -248,7 +249,8 @@ export function addItem(currentOrder, currentSelected, prep, item, type) {
               name: getPrice.name,
               type: type,
               sizeCode: sizeCode,
-              key: orderLength
+              key: orderLength,
+              modPrint: modPrint
             }
           }
           return item;
@@ -274,6 +276,7 @@ export function addItem(currentOrder, currentSelected, prep, item, type) {
         obj.name = getPrice.name;
         obj.type = type;
         obj.sizeCode = sizeCode;
+        obj.modPrint = modPrint;
         arr.push(obj);      
       }
       // Create New Order    
@@ -296,12 +299,13 @@ export function addItem(currentOrder, currentSelected, prep, item, type) {
       obj.name = getPrice.name;
       obj.type = type;
       obj.sizeCode = sizeCode;
+      obj.modPrint = modPrint;
       arr.push(obj);
     }
   }
   addTotal = getTotal(arr);
   prepDrink = false;
-  console.log(arr.length);
+  console.log(addTotal);
   return {
     type: "ADD_ITEM",
     payload: { 
@@ -330,11 +334,14 @@ function getTotal(arr) {
 export function modifyDrink(order, selected, total, size, temp, espType) {
   // console.log(order, selected, total, size, temp, espType)
   let currentOrder = order[selected] ? order[selected] : [];
-  let arr, mod = [], modObj = {}, obj = {}, modal, modalType, drinkSize, currentIngredients, editTotal, prepDrink, decaf, modTemp;
+  let arr, mod = [], modObj = {}, obj = {}, modPrint = [], modal, modalType, modAdded, currentIngredients, editTotal, prepDrink, decaf, modTemp;
   let currentTemp = temp ? temp : 'hot';
   let currentSize = size ? size : 'grande';
   let blonde = espType ? espType : false;
   //Check If Size can be modified
+  if (blonde) {
+    modPrint.push('blonde');
+  }
   if (currentOrder.type == 'brewed' && currentSize == 'trenta'
     || currentOrder.type == 'ameri' && currentSize == 'trenta'
     || currentOrder.type == 'ameri' && currentSize == 'kids'
@@ -364,6 +371,7 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
       modObj.syrup = currentIngredients;
       modObj.custom;
       mod.push(modObj);
+      obj.modPrint = modPrint;
       obj.modifications = mod;
       obj.price; //all prices
       obj.ingredients; //all ingredients
@@ -393,6 +401,7 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
             modifications: mod,
             temp: currentTemp,
             size: currentSize,
+            modPrint: modPrint
           }
         }
         return item;
@@ -403,7 +412,6 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
       //MODIFY DRINK
       arr = order.map((item) => {
         if (item == order[selected]) {
-          console.log(order[selected]);
           let drinkPrice = getDrinkPrice(item, size, temp, item.type);
           let ingredients = item.ingredients && item.ingredients[0] ? item.ingredients[0] : [];
           let drinkIngredients = getIngredients(ingredients, temp, item.type, size);
@@ -422,7 +430,8 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
             size: drinkPrice.size,            
             temp: drinkIngredients.temp,
             sizeCode: sizeCode,
-            modifications: mod
+            modifications: mod,
+            modPrint: modPrint
           }
         }
         return item
@@ -433,7 +442,6 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
     modal = false;
     modalType = '';
   }
-  console.log(editTotal);
   // console.log(arr);
   return {
     type: "MODIFY_DRINK",
@@ -443,7 +451,8 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
       posModalIsOpen: modal, 
       modalType: modalType, 
       prepDrink: prepDrink, 
-      currentSelected: selected
+      currentSelected: selected,
+      modAdded: modAdded
     }
   }
 }
