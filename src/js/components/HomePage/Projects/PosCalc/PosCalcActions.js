@@ -234,14 +234,18 @@ export function addItem(currentOrder, currentSelected, prep, item, type) {
       if (prep) {
         arr = currentOrder.map((item) => {
           if (item == selected) {
-            modObj.milk = currentIngredients.milk;
-            modObj.shot = currentIngredients.shot;
-            modObj.syrup = currentIngredients.syrup;
-            modObj.custom = currentIngredients.custom;
-            mod.push(modObj);
+            modObj = item.modifications.map((mods) => {
+              return {
+                ...mods,
+                milk: currentIngredients.milk,
+                shot: currentIngredients.shot,
+                syrup: currentIngredients.syrup,
+                custom: currentIngredients.custom,
+              }
+            })            
             return {
               ...item,
-              modifications : mod,
+              modifications : modObj,
               price: allPrices, //all prices
               ingredients: allIngredients, //all ingredients
               size : getPrice.size,
@@ -305,7 +309,6 @@ export function addItem(currentOrder, currentSelected, prep, item, type) {
   }
   addTotal = getTotal(arr);
   prepDrink = false;
-  console.log(addTotal);
   return {
     type: "ADD_ITEM",
     payload: { 
@@ -340,6 +343,7 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
   let blonde = espType ? espType : false;
   //Check If Size can be modified
   if (blonde) {
+    console.log(blonde);
     modPrint.push('blonde');
   }
   if (currentOrder.type == 'brewed' && currentSize == 'trenta'
@@ -366,7 +370,7 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
       modObj.decaf = decaf;
       modObj.modTemp = modTemp;
       modObj.milk = currentIngredients;
-      modObj.blonde = espType;
+      modObj.blonde = blonde;
       modObj.shot = currentIngredients;
       modObj.syrup = currentIngredients;
       modObj.custom;
@@ -388,17 +392,17 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
     } else if (currentOrder.name == undefined) {
       arr = order.map((item) => {
         if (currentOrder == item) {
-          modObj.decaf = decaf;
-          modObj.modTemp = modTemp;
-          modObj.milk = currentIngredients;
-          modObj.blonde = blonde;
-          modObj.shot = currentIngredients;
-          modObj.syrup = currentIngredients;
-          modObj.custom;
-          mod.push(modObj);
+          modObj = item.modifications.map((mods) => {
+            return {
+              ...mods,
+              decaf: decaf,
+              modTemp: modTemp,
+              blonde: blonde
+            }
+          })  
           return {
             ...item, 
-            modifications: mod,
+            modifications: modObj,
             temp: currentTemp,
             size: currentSize,
             modPrint: modPrint
@@ -416,21 +420,21 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
           let ingredients = item.ingredients && item.ingredients[0] ? item.ingredients[0] : [];
           let drinkIngredients = getIngredients(ingredients, temp, item.type, size);
           let sizeCode = (size == 'trenta') ? 'Tr' : size.charAt(0).toUpperCase();
-          modObj.decaf = decaf;
-          modObj.modTemp = modTemp;
-          modObj.milk = drinkIngredients.milk;
-          modObj.blonde = espType;
-          modObj.shot = drinkIngredients.shot;
-          modObj.syrup = drinkIngredients.syrup;
-          modObj.custom = drinkIngredients.custom;
-          mod.push(modObj);
+          modObj = item.modifications.map((mods) => {
+            return {
+              ...mods,
+              decaf: decaf,
+              modTemp: modTemp,
+              blonde: blonde
+            }
+          })  
           return {
             ...item,
             currentPrice: drinkPrice.price,
             size: drinkPrice.size,            
             temp: drinkIngredients.temp,
             sizeCode: sizeCode,
-            modifications: mod,
+            modifications: modObj,
             modPrint: modPrint
           }
         }
@@ -442,7 +446,7 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
     modal = false;
     modalType = '';
   }
-  // console.log(arr);
+  console.log(arr);
   return {
     type: "MODIFY_DRINK",
     payload: { 

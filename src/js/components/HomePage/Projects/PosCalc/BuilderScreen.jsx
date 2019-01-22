@@ -10,6 +10,7 @@ class BuilderScreen extends Component {
 
   changeDrink(size, temp, blonde) {
     const { dispatch, currentOrder, currentSelected, orderTotal } = this.props;
+    console.log(blonde);
     dispatch(modifyDrink(currentOrder, currentSelected, orderTotal, size, temp, blonde));
   }
   render() {
@@ -18,6 +19,7 @@ class BuilderScreen extends Component {
     let mods = selected && selected.modifications && selected.modifications[0];
     let temp = selected && selected.temp ? selected.temp : 'hot';
     let size = selected && selected.size ? selected.size : 'grande';
+    console.log(mods);
     let blonde = mods && mods.blonde ? mods.blonde : false;
     const decafMod = decaf ? decaf : [];
     const shotsMod = shots ? shots : [];
@@ -88,7 +90,7 @@ class BuilderScreen extends Component {
             }
             if (shot.type == 'size') {
               return (
-                <button key = {i} onClick = {() => this.changeDrink(shot.name, temp)} className = {`builder-screen-row-btn builder-screen-row-btn--${shot.color}`}>
+                <button key = {i} onClick = {() => this.changeDrink(shot.name, temp, blonde)} className = {`builder-screen-row-btn builder-screen-row-btn--${shot.color}`}>
                   {shot.name}
                 </button>
               )
