@@ -98,7 +98,7 @@ export default function PosReducer(state = defaultState, action) {
     }
     case 'SELECTED_ITEM' : {
       return {
-        ...state, currentSelected: payload.selected, currentScreen: payload.currentScreen, drinkSize: payload.drinkSize
+        ...state, currentSelected: payload.selected, currentScreen: payload.currentScreen, drinkSize: payload.drinkSize, currentTemp: payload.temp, currentIngredients: payload.currentIngredients
       }
     }
     case 'REMOVED_ITEM' : {

@@ -664,8 +664,17 @@
             "milk": "2%",
             "custom": ["F"],
             "syrup": [{
-              "hot": [],
-              "iced": []
+              "hot": [{
+                "short": "",
+                "tall": "",
+                "grande": "",
+                "venti": ""
+              }],
+              "iced": [{
+                "tall": "",
+                "grande": "",
+                "venti": ""
+              }]
             }]
           }],
           "color": "yellow"
@@ -703,15 +712,15 @@
             "custom": ["WC"],
             "syrup": [{
               "hot": [{
-                "short": "1CD",
-                "tall": "2CD",
-                "grande": "3CD",
-                "venti": "4CD"
+                "short": "2CD",
+                "tall": "3CD",
+                "grande": "4CD",
+                "venti": "5CD"
               }],
               "iced": [{
-                "tall": "2CD",
-                "grande": "3CD",
-                "venti": "5CD"
+                "tall": "3CD",
+                "grande": "4CD",
+                "venti": "6CD"
               }]
             }]
           }],
@@ -749,8 +758,17 @@
             "milk": "2%",
             "custom": ["F"],
             "syrup": [{
-              "hot": [],
-              "iced": []
+              "hot": [{
+                "short": "",
+                "tall": "",
+                "grande": "",
+                "venti": ""
+              }],
+              "iced": [{
+                "tall": "",
+                "grande": "",
+                "venti": ""
+              }]
             }]
           }],
           "color": "tan"
@@ -787,8 +805,17 @@
             "milk": "WH",
             "custom": ["F"],
             "syrup": [{
-              "hot": [],
-              "iced": []
+              "hot": [{
+                "short": "",
+                "tall": "",
+                "grande": "",
+                "venti": ""
+              }],
+              "iced": [{
+                "tall": "",
+                "grande": "",
+                "venti": ""
+              }]
             }]
           }],
           "color": "light-blue"
@@ -926,15 +953,15 @@
             "custom": ["F"],
             "syrup": [{
               "hot": [{
-                "short": "1SFCD",
-                "tall": "2SFCD",
-                "grande": "3SFCD",
-                "venti": "4SFCD"
+                "short": "2SFCD",
+                "tall": "3SFCD",
+                "grande": "4SFCD",
+                "venti": "5SFCD"
               }],
               "iced": [{
-                "tall": "2SFCD",
-                "grande": "3SFCD",
-                "venti": "5SFCD"
+                "tall": "3SFCD",
+                "grande": "4SFCD",
+                "venti": "6SFCD"
               }]
             }]
           }],
@@ -998,15 +1025,15 @@
             "custom": ["F"],
             "syrup": [{
               "hot": [{
-                "short": "2V",
-                "tall": "3V",
-                "grande": "4V",
-                "venti": "5V"
+                "short": "1V",
+                "tall": "2V",
+                "grande": "3V",
+                "venti": "4V"
               }],
               "iced": [{
-                "tall": "3V",
-                "grande": "4V",
-                "venti": "6V"
+                "tall": "2V",
+                "grande": "3V",
+                "venti": "5V"
               }]
             }]
           }],
@@ -1077,15 +1104,15 @@
             "custom": ["WC"],
               "syrup": [{
                 "hot": [{
-                  "short": "1M",
-                  "tall": "2M",
-                  "grande": "3M",
-                  "venti": "4M"
+                  "short": "2M",
+                  "tall": "3M",
+                  "grande": "4M",
+                  "venti": "5M"
                 }],
                 "iced": [{
-                  "tall": "2M",
-                  "grande": "3M",
-                  "venti": "5M"
+                  "tall": "3M",
+                  "grande": "4M",
+                  "venti": "6M"
                 }]
               }]
           }],
@@ -1124,15 +1151,15 @@
             "custom": ["WC"],
               "syrup": [{
                 "hot": [{
-                  "short": "1SFM",
-                  "tall": "2SFM",
-                  "grande": "3SFM",
-                  "venti": "4SFM"
+                  "short": "2SFM",
+                  "tall": "3SFM",
+                  "grande": "4SFM",
+                  "venti": "5SFM"
                 }],
                 "iced": [{
-                  "tall": "2SFM",
-                  "grande": "3SFM",
-                  "venti": "5SFM"
+                  "tall": "3SFM",
+                  "grande": "4SFM",
+                  "venti": "6SFM"
                 }]
               }]
           }],
@@ -1171,15 +1198,15 @@
             "custom": ["WC"],
             "syrup": [{
               "hot": [{
-                "short": "1WM",
-                "tall": "2WM",
-                "grande": "3WM",
-                "venti": "4WM"
+                "short": "2WM",
+                "tall": "3WM",
+                "grande": "4WM",
+                "venti": "5WM"
               }],
               "iced": [{
-                "tall": "2WM",
-                "grande": "3WM",
-                "venti": "5WM"
+                "tall": "3WM",
+                "grande": "4WM",
+                "venti": "6WM"
               }]
             }]
           }],

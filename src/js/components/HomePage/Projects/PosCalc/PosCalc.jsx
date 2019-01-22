@@ -253,7 +253,7 @@ class PosCalc extends Component {
                   >
                     Brewed
                   </li>
-                  <li className={(currentScreen == 'espresso') ? 'tabs-group tabs-group--active' : 'tabs-group'}
+                  <li className={(currentScreen == 'latte') ? 'tabs-group tabs-group--active' : 'tabs-group'}
                     onClick={() => this.selectScreen('latte')}>
                     Espresso
                   </li>

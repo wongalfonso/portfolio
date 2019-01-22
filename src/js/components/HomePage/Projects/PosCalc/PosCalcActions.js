@@ -237,7 +237,7 @@ export function addItem(currentOrder, item, type, size, temp, decaf) {
     obj.type = type;
     obj.sizeCode = sizeCode;
     temp = currentIngredients.temp;
-    drinkSize = getPrice.size
+    drinkSize = getPrice.size;
     arr.push(obj);
     addTotal = getTotal(arr);
   }
@@ -259,6 +259,12 @@ function getTotal(arr) {
   return { subTotal, total, tax }
 }
 
+export function prepDrink(size, temp) {
+  return {
+    type: 'PREP_DRINK',
+    payload: {size: size, temp: temp}
+  }
+}
 export function modifyDrink(size, order, selected, ingredients, temp) {
   console.log(size, order, selected, ingredients, temp)
   let currentOrder = order[selected] ? order[selected] : [];
@@ -302,12 +308,11 @@ export function modifyDrink(size, order, selected, ingredients, temp) {
             sizeCode: sizeCode
           }
         }
-        currentIngredients = item;
         return item
       })
     }
+    currentIngredients = arr[selected]
     // Modify Size
-    currentIngredients = arr[selected];
     modal = false;
     modalType = '';
     editTotal = getTotal(arr);
@@ -320,10 +325,12 @@ export function modifyDrink(size, order, selected, ingredients, temp) {
 }
 
 export function selected(key, type, currentOrder) {
-  let size = currentOrder[key].size
+  let currentIngredients = currentOrder[key];
+  let size = currentIngredients.size;
+  let temp = currentIngredients.temp;
   return {
     type: 'SELECTED_ITEM',
-    payload: { selected: key, currentScreen: 'drinks', drinkSize: size }
+    payload: { selected: key, currentScreen: 'drinks', drinkSize: size, temp: temp, currentIngredients: currentIngredients }
   }
 }
 

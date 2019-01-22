@@ -11,9 +11,8 @@ class LatteScreen extends Component {
 
   addDrink(drink, type) {
     const { dispatch, currentOrder, selected, drinkSize, currentTemp } = this.props;
-    let size = currentOrder.length !== selected ? drinkSize : 'grande';
-    console.log(currentOrder.length, selected);
-    dispatch(addItem(currentOrder, drink, type, size, currentTemp));
+    // let size = !selected ? 'grande' : drinkSize;
+    dispatch(addItem(currentOrder, drink, type, drinkSize, currentTemp));
   }
 
   render() {
