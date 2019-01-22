@@ -147,7 +147,7 @@ class PosCalc extends Component {
 
   render() {
     const { currentScreen, currentOrder, currentSelected, posModalIsOpen, modalType, orderTotal, payment, totalScreenView } = this.props;
-    let order = currentOrder ? currentOrder : null;
+    let order = currentOrder ? currentOrder : null;    
     return (
       <div id="posCalcProject">
         <div className="pos-sides">
@@ -202,6 +202,8 @@ class PosCalc extends Component {
                 <table>
                   <tbody>
                     {order.map((item, i) => {
+                      let price = item.currentPrice ? item.currentPrice.toFixed(2) : '';
+
                       let temp = item.temp == 'iced' ? 'iced' : ''
                       let selected = 'items'
                       if (i == currentSelected) selected = 'items items-selected'
@@ -210,7 +212,7 @@ class PosCalc extends Component {
                           onClick={() => this.selectedItem(i, item.type)}
                           className={selected}>
                           {(item.sizeCode) ? <td>{item.sizeCode + ' ' + temp + ' ' + item.name}</td> : <td>{item.name}</td>}
-                          <td>{item.currentPrice.toFixed(2)}</td>
+                          <td>{price}</td>
                         </tr>
                       )
                     })}

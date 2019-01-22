@@ -9,10 +9,9 @@ class BrewedScreen extends Component {
   }
 
   addDrink(drink, type) {   
-    const { dispatch, currentOrder, drinkSize, currentTemp} = this.props;
-    console.log(currentTemp);
-    const temp = type == 'ic' ? 'iced' : currentTemp;
-    dispatch(addItem(currentOrder, drink, type, drinkSize, temp));    
+    const { dispatch, currentOrder, currentSelected, prepDrink } = this.props;
+    // console.log(prepDrink);
+    dispatch(addItem(currentOrder, currentSelected, prepDrink, drink, type));
   }
 
   render() {
@@ -94,8 +93,8 @@ function mapStateToProps(state) {
   return {
     brewed: state.home.posCalc.brewed,
     currentOrder: state.home.posCalc.currentOrder,
-    drinkSize: state.home.posCalc.drinkSize,
-    currentTemp: state.home.posCalc.currentTemp
+    currentSelected: state.home.posCalc.currentSelected,
+    prepDrink: state.home.posCalc.prepDrink
   }
 }
 

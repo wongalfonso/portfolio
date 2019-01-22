@@ -8,21 +8,24 @@ class BuilderScreen extends Component {
     this.changeDrink = this.changeDrink.bind(this);
   }
 
-  changeDrink(size, temp) {
-    console.log(size);
-    const { dispatch, currentOrder, currentSelected, currentIngredients, currentTemp, drinkSize } = this.props;
-    let currentSize = !size ? drinkSize : size;
-    let drinkTemp = !temp ? currentTemp : temp;
-    dispatch(modifyDrink(currentSize, currentOrder, currentSelected, currentIngredients, drinkTemp));
+  changeDrink(size, temp, blonde) {
+    const { dispatch, currentOrder, currentSelected, orderTotal } = this.props;
+    dispatch(modifyDrink(currentOrder, currentSelected, orderTotal, size, temp, blonde));
   }
   render() {
-    const { decaf, shots, drinkSize, currentTemp } = this.props;
+    const { currentOrder, currentSelected, decaf, shots } = this.props;        
+    let selected = currentOrder && currentOrder[currentSelected];
+    let mods = selected && selected.modifications && selected.modifications[0];
+    let temp = selected && selected.temp ? selected.temp : 'hot';
+    let size = selected && selected.size ? selected.size : 'grande';
+    let blonde = mods && mods.blonde ? mods.blonde : false;
     const decafMod = decaf ? decaf : [];
     const shotsMod = shots ? shots : [];
     return (
       <div className="builder-screen">
         <div className="builder-screen-row">
           {decafMod.map((decaf, i) => {
+            // console.log(decaf);
             let cName;
             if (decaf.color == 'empty') {
               cName = 'builder-screen-row--empty'
@@ -30,15 +33,29 @@ class BuilderScreen extends Component {
               cName = `builder-screen-row-btn builder-screen-row-btn--${decaf.color}`
             }
             if (decaf.name === 'iced') {
-              if (currentTemp == 'iced') {
+              if (temp == 'iced') {
                 return (
-                  <button onClick = {() =>this.changeDrink(drinkSize,'hot')} key = {i} className = 'builder-screen-row-btn builder-screen-row-btn--active'>
+                  <button onClick = {() =>this.changeDrink(size,'hot', blonde)} key = {i} className = 'builder-screen-row-btn builder-screen-row-btn--active'>
                   {decaf.name}
                   </button>  
                 )
               } else {
                 return (
-                  <button onClick = {() =>this.changeDrink(drinkSize, 'iced')} key = {i} className = {cName}>
+                  <button onClick = {() =>this.changeDrink(size, 'iced', blonde)} key = {i} className = {cName}>
+                  {decaf.name}
+                  </button>  
+                )
+              }
+            } else if (decaf.name == 'blonde') {
+              if (blonde) {
+                return (
+                  <button onClick = {() =>this.changeDrink(size, temp, false)} key = {i} className = 'builder-screen-row-btn builder-screen-row-btn--active'>
+                  {decaf.name}
+                  </button>  
+                )
+              } else {
+                return (
+                  <button onClick = {() =>this.changeDrink(size, temp, true)} key = {i} className = {cName}>
                   {decaf.name}
                   </button>  
                 )
@@ -62,7 +79,7 @@ class BuilderScreen extends Component {
             } else {
               cName = `builder-screen-row-btn builder-screen-row-btn--${shot.color}`
             }
-            if (drinkSize == shot.name) {
+            if (size == shot.name) {
               return (
                 <button key = {i} className = 'builder-screen-row-btn builder-screen-row-btn--active'>
                   {shot.name}
@@ -71,7 +88,7 @@ class BuilderScreen extends Component {
             }
             if (shot.type == 'size') {
               return (
-                <button key = {i} onClick = {() => this.changeDrink(shot.name)} className = {`builder-screen-row-btn builder-screen-row-btn--${shot.color}`}>
+                <button key = {i} onClick = {() => this.changeDrink(shot.name, temp)} className = {`builder-screen-row-btn builder-screen-row-btn--${shot.color}`}>
                   {shot.name}
                 </button>
               )
@@ -92,11 +109,13 @@ function mapStateToProps(state) {
   return {
     decaf: state.home.posCalc.decaf,
     shots: state.home.posCalc.shots,
-    drinkSize: state.home.posCalc.drinkSize,
+    orderTotal: state.home.posCalc.orderTotal,
     currentSelected: state.home.posCalc.currentSelected,
     currentOrder: state.home.posCalc.currentOrder,
     currentIngredients: state.home.posCalc.currentIngredients,
-    currentTemp: state.home.posCalc.currentTemp
+    currentTemp: state.home.posCalc.currentTemp,
+    blonde: state.home.posCalc.blonde,
+
   }
 }
 

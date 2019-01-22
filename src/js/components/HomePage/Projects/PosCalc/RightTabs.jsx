@@ -3,20 +3,16 @@ import { connect } from 'react-redux';
 
 class RightTabs extends Component {
   render() {
-    const { currentScreen, currentIngredients } = this.props;
-    let decaf, temp, size, syrup, milk, custom, shot;
-    if (currentIngredients == undefined) {
-      decaf, temp, size, syrup, milk, custom, shot = '';
-    } else {
-      decaf = currentIngredients.decaf;
-      temp = currentIngredients.temp ;
-      size = currentIngredients.sizeCode;
-      syrup = currentIngredients.syrup;
-      milk = currentIngredients.milk ;
-      custom = currentIngredients.custom;
-      shot = currentIngredients.shot ;
-
-    }
+    const { currentScreen, currentOrder, currentSelected } = this.props;
+    let selected = currentOrder && currentOrder[currentSelected];
+    let mods = selected && selected.modifications && selected.modifications[0];
+    let temp = selected && selected.temp ? selected.temp : 'hot';
+    let size = selected && selected.sizeCode ? selected.sizeCode : '';
+    let decaf = mods && mods.decaf ? mods.decaf : false;
+    let shot = mods && mods.shot ? mods.shot : '';
+    let syrup = mods && mods.syrup ? mods.syrup : '';
+    let milk = mods && mods.milk ? mods.milk : '';
+    let custom = mods && mods.custom ? mods.custom : ''; 
     return (
       <div className='right-tabs'>
       <ul>
@@ -31,7 +27,11 @@ class RightTabs extends Component {
             Iced
           </div>
           <div>Decaf
-          <div className='box'>{decaf}</div>
+            {(decaf === true) ?
+              <div className='box'>X</div>
+              :
+              <div className='box'></div>
+            }
           </div>
           <div>Shots
           <div className='box'>{shot}</div>
@@ -66,7 +66,8 @@ class RightTabs extends Component {
 function mapStateToProps(state) {
   return {
     currentScreen: state.home.posCalc.currentScreen,
-    currentIngredients: state.home.posCalc.currentIngredients
+    currentOrder: state.home.posCalc.currentOrder,
+    currentSelected: state.home.posCalc.currentSelected
   }
 }
 

@@ -2,20 +2,17 @@ const defaultState = {
   breakfast: [],
   bakery: [],
   currentScreen: 'drinks',
-  currentTemp: 'hot',
   currentOrder: [],
   currentSelected: 0, 
-  drinkDecaf: '',
-  drinkIced: '',
   currentIngredients: {},
   orderTotal: {},
   savedOrders: [],
-  drinkSize: 'grande',
   prepDrink: false,
   tenderModalIsOpen: false,
   posModalIsOpen: false,
   modalType: '',
   returnedAmount: 0,
+  currentItem: {},
   inputBox: ['', '.', '', '' ],
   customModifiers: [],
   customItems: [],
@@ -27,6 +24,7 @@ const defaultState = {
   brewed: [],
   decaf: [],
   shots: [],
+  blonde: false,
   espresso: [],
   latte: [],
   mochas: [],
@@ -78,35 +76,37 @@ export default function PosReducer(state = defaultState, action) {
         currentSelected: payload.currentSelected,  
         orderTotal: payload.total, 
         currentScreen: 'drinks',
-        currentIngredients: payload.currentIngredients,
         posModalIsOpen: payload.modal,
         modalType: payload.modalType,
-        drinkSize: payload.drinkSize,
-        currentTemp: payload.temp,
         prepDrink: payload.prepDrink
       }
     }    
     case 'MODIFY_DRINK': {
       return {
         ...state, 
-        drinkSize: payload.size, 
         currentOrder: payload.currentOrder,  
         orderTotal: payload.total, 
         posModalIsOpen: payload.posModalIsOpen, 
         modalType: payload.modalType,
-        currentIngredients: payload.currentIngredients,
-        currentTemp: payload.temp,
-        prepDrink: payload.prepDrink
+        prepDrink: payload.prepDrink,
+        currentSelected: payload.currentSelected
       }
     }
     case 'SELECTED_ITEM' : {
       return {
-        ...state, currentSelected: payload.selected, currentScreen: payload.currentScreen, drinkSize: payload.drinkSize, currentTemp: payload.temp, currentIngredients: payload.currentIngredients
+        ...state, 
+        currentSelected: payload.selected, 
+        currentScreen: payload.currentScreen, 
+        currentTemp: payload.temp
       }
     }
     case 'REMOVED_ITEM' : {
       return {
-        ...state, currentOrder: payload.order, subTotal: payload.subTotal, orderTotal: payload.total, currentSelected: payload.selected, currentScreen: payload.currentScreen
+        ...state, 
+        currentOrder: payload.order, 
+        orderTotal: payload.total, 
+        currentSelected: payload.selected, 
+        currentScreen: payload.currentScreen
       }
     }
     case 'NEXT_DRINK' : {

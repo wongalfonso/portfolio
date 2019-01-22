@@ -10,9 +10,9 @@ class LatteScreen extends Component {
   }
 
   addDrink(drink, type) {
-    const { dispatch, currentOrder, prepDrink, drinkSize, currentTemp } = this.props;
-    let size = prepDrink ? drinkSize : 'grande';
-    dispatch(addItem(currentOrder, drink, type, size, currentTemp));
+    const { dispatch, currentOrder, currentSelected, prepDrink } = this.props;
+    // console.log(prepDrink);
+    dispatch(addItem(currentOrder, currentSelected, prepDrink, drink, type));
   }
 
   render() {
@@ -24,19 +24,30 @@ class LatteScreen extends Component {
       <div className="espresso-screen">
         <div className="espresso-screen-row">
           {esp.map((espr, i) => {
+            console.log(espr)
             let cName;
             if (espr.color == 'empty') {
               cName = 'espresso-screen-row--empty'
             } else {
               cName = `espresso-screen-row-btn espresso-screen-row-btn--${espr.color}`
             }
-            return (
-              <button className={cName}
-                key={i}
-                onClick={() => this.addDrink(espr, 'espresso')}>
-                {espr.name}
-              </button>
-            )
+            if (espr.name == 'americano') {
+              return (
+                <button className={cName}
+                  key={i}
+                  onClick={() => this.addDrink(espr, 'ameri')}>
+                  {espr.name}
+                </button>
+              )
+            } else {
+              return (
+                <button className={cName}
+                  key={i}
+                  onClick={() => this.addDrink(espr, 'espresso')}>
+                  {espr.name}
+                </button>
+              )
+            }
           })}
           {lat.map((latt, i) => {
             let cName;
@@ -80,9 +91,8 @@ function mapStateToProps(state) {
     latte: state.home.posCalc.latte,
     mochas: state.home.posCalc.mochas,
     currentOrder: state.home.posCalc.currentOrder,
-    drinkSize: state.home.posCalc.drinkSize,
-    currentTemp: state.home.posCalc.currentTemp,
-    prepDrink: state.home.posCalc.prepDrink
+    prepDrink: state.home.posCalc.prepDrink,
+    currentSelected: state.home.posCalc.currentSelected
   }
 }
 
