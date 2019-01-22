@@ -189,7 +189,7 @@ export function addItem(currentOrder, item, type, size, temp, decaf) {
   let orderLength = currentOrder.length;
   let arr = [];
   let obj = {};
-  let addTotal, modal, modalType, drinkSize;
+  let addTotal, modal, modalType, drinkSize, prepDrink;
   // Check if Items are in Current Order
   if (type == 'brewed' && size == 'trenta' 
   || type == 'latte' && size == 'trenta' 
@@ -240,10 +240,11 @@ export function addItem(currentOrder, item, type, size, temp, decaf) {
     drinkSize = getPrice.size;
     arr.push(obj);
     addTotal = getTotal(arr);
+    prepDrink = false;
   }
   return {
     type: "ADD_ITEM",
-    payload: { order: arr, currentSelected: orderLength, total: addTotal, currentIngredients: obj, modal: modal, modalType: modalType, drinkSize: drinkSize, temp: temp }
+    payload: { order: arr, currentSelected: orderLength, total: addTotal, currentIngredients: obj, modal: modal, modalType: modalType, drinkSize: drinkSize, temp: temp, prepDrink: prepDrink }
   }
 }
 
@@ -259,16 +260,10 @@ function getTotal(arr) {
   return { subTotal, total, tax }
 }
 
-export function prepDrink(size, temp) {
-  return {
-    type: 'PREP_DRINK',
-    payload: {size: size, temp: temp}
-  }
-}
 export function modifyDrink(size, order, selected, ingredients, temp) {
   console.log(size, order, selected, ingredients, temp)
   let currentOrder = order[selected] ? order[selected] : [];
-  let arr = [], modal, modalType, drinkSize, currentIngredients, editTotal;
+  let arr = [], modal, modalType, drinkSize, currentIngredients, editTotal, prepDrink;
   //Check If Size can be modified
   if (currentOrder.type == 'brewed' && size == 'trenta'
     || currentOrder.type == 'latte' && size == 'trenta'
@@ -291,6 +286,7 @@ export function modifyDrink(size, order, selected, ingredients, temp) {
       arr = order;
       drinkSize = size;
       temp = temp;
+      prepDrink = true;
     } else {
       arr = order.map((item) => {
         if (item == order[selected]) {
@@ -310,6 +306,7 @@ export function modifyDrink(size, order, selected, ingredients, temp) {
         }
         return item
       })
+      prepDrink = false;
     }
     currentIngredients = arr[selected]
     // Modify Size
@@ -318,9 +315,10 @@ export function modifyDrink(size, order, selected, ingredients, temp) {
     editTotal = getTotal(arr);
     drinkSize = size;
   }
+
   return {
-    type: "CHANGE_SIZE",
-    payload: { size: drinkSize, currentOrder: arr, total: editTotal, posModalIsOpen: modal, modalType: modalType, currentIngredients: currentIngredients, temp: temp }
+    type: "MODIFY_DRINK",
+    payload: { size: drinkSize, currentOrder: arr, total: editTotal, posModalIsOpen: modal, modalType: modalType, currentIngredients: currentIngredients, temp: temp, prepDrink: prepDrink }
   }
 }
 

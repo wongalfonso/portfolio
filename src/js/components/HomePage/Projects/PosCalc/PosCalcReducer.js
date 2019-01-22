@@ -11,6 +11,7 @@ const defaultState = {
   orderTotal: {},
   savedOrders: [],
   drinkSize: 'grande',
+  prepDrink: false,
   tenderModalIsOpen: false,
   posModalIsOpen: false,
   modalType: '',
@@ -81,10 +82,11 @@ export default function PosReducer(state = defaultState, action) {
         posModalIsOpen: payload.modal,
         modalType: payload.modalType,
         drinkSize: payload.drinkSize,
-        currentTemp: payload.temp
+        currentTemp: payload.temp,
+        prepDrink: payload.prepDrink
       }
     }    
-    case 'CHANGE_SIZE': {
+    case 'MODIFY_DRINK': {
       return {
         ...state, 
         drinkSize: payload.size, 
@@ -93,7 +95,8 @@ export default function PosReducer(state = defaultState, action) {
         posModalIsOpen: payload.posModalIsOpen, 
         modalType: payload.modalType,
         currentIngredients: payload.currentIngredients,
-        currentTemp: payload.temp
+        currentTemp: payload.temp,
+        prepDrink: payload.prepDrink
       }
     }
     case 'SELECTED_ITEM' : {

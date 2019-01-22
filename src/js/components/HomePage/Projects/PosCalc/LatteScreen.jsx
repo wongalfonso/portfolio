@@ -10,9 +10,9 @@ class LatteScreen extends Component {
   }
 
   addDrink(drink, type) {
-    const { dispatch, currentOrder, selected, drinkSize, currentTemp } = this.props;
-    // let size = !selected ? 'grande' : drinkSize;
-    dispatch(addItem(currentOrder, drink, type, drinkSize, currentTemp));
+    const { dispatch, currentOrder, prepDrink, drinkSize, currentTemp } = this.props;
+    let size = prepDrink ? drinkSize : 'grande';
+    dispatch(addItem(currentOrder, drink, type, size, currentTemp));
   }
 
   render() {
@@ -82,7 +82,7 @@ function mapStateToProps(state) {
     currentOrder: state.home.posCalc.currentOrder,
     drinkSize: state.home.posCalc.drinkSize,
     currentTemp: state.home.posCalc.currentTemp,
-    selected: state.home.posCalc.selected
+    prepDrink: state.home.posCalc.prepDrink
   }
 }
 
