@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 class TotalScreen extends Component {  
   render() {
     const { orderTotal, payment, returnedAmount, currentOrder } = this.props;
-    // const total = orderTotal.total ? orderTotal.total : 0;
-    // const taxes = orderTotal.tax ? orderTotal.tax : 0;
-    // const subTotal = orderTotal.subTotal ? orderTotal.subTotal : 0;
+    const total = orderTotal.total ? orderTotal.total : 0;
+    const taxes = orderTotal.tax ? orderTotal.tax : 0;
+    const subTotal = orderTotal.subTotal ? orderTotal.subTotal : 0;
     return (
       <div className='pos-order-screen-list-total'>
         <div className="pos-order-screen-list-total-container">
@@ -19,11 +19,11 @@ class TotalScreen extends Component {
           <tbody>
             <tr>
               <td>Subtotal:</td>
-              {/* <td>$ {subTotal.toFixed(2)}</td> */}
+              <td>$ {subTotal.toFixed(2)}</td>
             </tr>
             <tr>
               <td>Tax:</td>
-              {/* <td>$ {taxes.toFixed(2)}</td> */}
+              <td>$ {taxes.toFixed(2)}</td>
             </tr>
             {(returnedAmount < 0) ?
               <tr className='final-total-under'>
@@ -39,14 +39,14 @@ class TotalScreen extends Component {
             <tr className='final-total'>
               <td>TOTAL DUE:</td>
               <td>
-                {/* {(currentOrder.length > 0) ?
+                {(currentOrder.length > 0) ?
                   <button className = 'final-total-btn final-total-btn--active' onClick={() => this.props.selectScreen('tender')}>
                     $ {total.toFixed(2)}
                   </button> :
                   <button className = 'final-total-btn' disabled>
                     $ {total.toFixed(2)}
                   </button>
-                } */}
+                }
               </td>
             </tr>
           </tbody>
@@ -61,7 +61,7 @@ class TotalScreen extends Component {
             onClick={() => this.props.openModal('cancel')}>
             Cancel
                 </button>
-          {/* {(currentOrder.length < 1) ?
+          {(currentOrder.length < 1) ?
             <button className='pos-order-screen-voids-btns save'
               onClick={() => this.props.selectScreen('orders')}>
               Find Order
@@ -71,7 +71,7 @@ class TotalScreen extends Component {
               onClick={() => this.props.openModal('save')}>
               Save Order
                 </button>
-          } */}
+          }
         </div>
       </div>
     )

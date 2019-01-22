@@ -328,9 +328,8 @@ function getTotal(arr) {
 }
 
 export function modifyDrink(order, selected, total, size, temp, espType) {
-  console.log(order, selected, total, size, temp, espType)
+  // console.log(order, selected, total, size, temp, espType)
   let currentOrder = order[selected] ? order[selected] : [];
-  console.log(currentOrder);
   let arr, mod = [], modObj = {}, obj = {}, modal, modalType, drinkSize, currentIngredients, editTotal, prepDrink, decaf, modTemp;
   let currentTemp = temp ? temp : 'hot';
   let currentSize = size ? size : 'grande';
@@ -375,7 +374,8 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
       obj.type;
       obj.sizeCode;
       arr.push(obj);
-      prepDrink = true;
+      prepDrink = true;      
+      editTotal = !total.total ? {subtotal: 0, total: 0, tax: 0} : total;
       //Modify Prepped Drink
     } else if (currentOrder.name == undefined) {
       arr = order.map((item) => {
@@ -397,6 +397,7 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
         }
         return item;
       })
+      editTotal = !total.total ? {subtotal: 0, total: 0, tax: 0} : total;
       prepDrink = true;
     } else {
       //MODIFY DRINK
@@ -432,6 +433,7 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
     modal = false;
     modalType = '';
   }
+  console.log(editTotal);
   // console.log(arr);
   return {
     type: "MODIFY_DRINK",
