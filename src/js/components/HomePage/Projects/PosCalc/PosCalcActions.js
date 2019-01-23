@@ -69,8 +69,11 @@ function getDrinkPrice(item, size, temp, type) {
 };
 
 function getIngredients(item, temp, type, size) {
+  console.log(item);
   let obj = {}, shots, syrups, syrupAmount, shotAmount, syrupCount, shotCount;
   let tempObj = {};
+  obj.name = 'milk';
+  obj.type = item.milk;
   obj.milk = item.milk;
   obj.size = size;
   obj.sizeCode = size.charAt(0).toUpperCase();
@@ -235,6 +238,7 @@ export function addItem(currentOrder, currentSelected, prep, item, type) {
         arr = currentOrder.map((item) => {
           if (item == selected) {
             modObj = item.modifications.map((mods) => {
+              console.log(mods);
               return {
                 ...mods,
                 milk: currentIngredients.milk,
@@ -286,6 +290,15 @@ export function addItem(currentOrder, currentSelected, prep, item, type) {
       // Create New Order    
     } else {
       obj.key = 0;
+      // let mod = ['decaf', 'modTemp', 'milk', 'blonde', 'shot', 'syrup', 'custom']
+      console.log(currentIngredients.length);
+      for (let i = 0; i < currentIngredients.length; i ++) {
+        console.log(currentIngredients[i])
+        // modObj.name = currentIngredients;
+        // modObj.type = '';
+        // modObj.active = false;
+        // mod.push(modObj);
+      }
       modObj.decaf = '';
       modObj.modTemp = '';
       modObj.milk = currentIngredients.milk;
@@ -334,18 +347,17 @@ function getTotal(arr) {
   return { subTotal, total, tax }
 }
 
-export function modifyDrink(order, selected, total, size, temp, espType) {
+export function modifyDrink(order, selected, total, size, temp, espType, decafType) {
   // console.log(order, selected, total, size, temp, espType)
   let currentOrder = order[selected] ? order[selected] : [];
-  let arr, mod = [], modObj = {}, obj = {}, modPrint = [], modal, modalType, modAdded, currentIngredients, editTotal, prepDrink, decaf, modTemp;
+  let arr, mod = [], modObj = {}, obj = {}, modPrint = [], modPrintObj = {}, modal, modalType, modAdded, currentIngredients, editTotal, prepDrink, modTemp;
   let currentTemp = temp ? temp : 'hot';
   let currentSize = size ? size : 'grande';
-  let blonde = espType ? espType : false;
+  let blonde = espType ? espType : {name: 'blonde', type: false};
+  let decaf = decafType ? decafType : {name: 'decaf', type: false};
+
   //Check If Size can be modified
-  if (blonde) {
-    console.log(blonde);
-    modPrint.push('blonde');
-  }
+
   if (currentOrder.type == 'brewed' && currentSize == 'trenta'
     || currentOrder.type == 'ameri' && currentSize == 'trenta'
     || currentOrder.type == 'ameri' && currentSize == 'kids'
@@ -367,6 +379,9 @@ export function modifyDrink(order, selected, total, size, temp, espType) {
     // Prep Drink
     if (selected == order.length) {      
       arr = order.slice();
+      for (let i = 0; i < mod.length; i ++) {
+        
+      }
       modObj.decaf = decaf;
       modObj.modTemp = modTemp;
       modObj.milk = currentIngredients;

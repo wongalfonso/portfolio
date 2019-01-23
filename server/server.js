@@ -18,10 +18,10 @@ if (NODE !== 'production') {
 }
 
 
-// mongoose.connect('mongodb://localhost/codewars' || process.env.MONGO_URL);
-// mongoose.Promise = Promise;
-// const db = mongoose.connection;
-// db.on('error', console.error.bind('connection error:'));
+mongoose.connect('mongodb://localhost/portfolio' || process.env.MONGO_URL);
+mongoose.Promise = Promise;
+const db = mongoose.connection;
+db.on('error', console.error.bind('connection error:'));
 
 app.use(morgan('dev'));
 app.use(express.static('public'));
@@ -59,8 +59,9 @@ app.get("/api/menu", (req, res) => {
 
 app.use('/api/users', require('./routes/Users'));
 app.use('/api/kyus', require('./routes/Kyus'));
+app.use('/api/pos', require('./routes/Pos'));
 
-app.get('*.js', (req,res, next) => {
+app.get('*.js', (req, res, next) => {
   req.url = req.url + '.gz';
   res.set('Content-Encoding', 'gzip');
   next();
