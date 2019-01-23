@@ -48,6 +48,10 @@
 
 @media only screen and (max-width: $sm) {
   .header-page{
+    position: relative;
+    // width: 100vw;
+    // height: 20vh;
+    // z-index: 50;  
     .banner-header {  
       font-size: 5.5rem;  
       width: 100%;       
