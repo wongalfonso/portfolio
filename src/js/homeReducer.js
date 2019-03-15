@@ -4,6 +4,7 @@ import PosReducer from './components/HomePage/Projects/PosCalc/PosCalcReducer';
 import WeatherReducer from './components/HomePage/Projects/Weather/WeatherFormReducer';
 import VstdaReducer from './components/HomePage/Projects/VstdaApp/VstdaReducer';
 import AstroReducer from './components/HomePage/Projects/AstroWeight/AstroWeightReducer';
+import BPMReducer from './components/HomePage/Projects/BPM/BPMReducer';
 
 
 const homeReducer = combineReducers({
@@ -11,7 +12,8 @@ const homeReducer = combineReducers({
   weather: WeatherReducer,  
   posCalc: PosReducer,
   vstda: VstdaReducer,
-  astro: AstroReducer
+  astro: AstroReducer,
+  bpm: BPMReducer 
 });
 
 export default homeReducer;
