@@ -8,6 +8,7 @@ import About from './About/About';
 import FormProjects from './Projects/FormProjects';
 import ApiProjects from './Projects/ApiProjects';
 import WebProjects from './Projects/WebProjects';
+import UserApplications from './Projects/UserApplications';
 import Footer from './../Footer';
 import Header from './../Header';
 import NavBar from './NavBar';
@@ -76,6 +77,13 @@ class HomePage extends Component {
           id='formProjects'
           ref={(project) => this._project = project}>
           <FormProjects
+            gitHub={this.gitHub}
+          />
+        </div>
+        <div className="projects-page"
+          id='apiProjects'
+          ref={(project) => this._project = project}>
+          <UserApplications
             gitHub={this.gitHub}
           />
         </div>

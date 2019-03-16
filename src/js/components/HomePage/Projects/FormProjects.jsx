@@ -17,20 +17,7 @@ const FormProjects = ({ gitHub, title}) => {
         <div className="projects-header">
           Form Projets
         </div>
-        <div className="projects">
-          <Link to = '/pos' className='projects-div'>
-            <img src={PosImage}
-              className='projects-div-info projects-div-info--front' id='posCalcImage'/>
-            <div className="projects-div-info projects-div-info--back projects-div-info--posCalc">
-              <p className='projects-div-info-title'>
-                <u>Point Of Sale Calculator</u>                
-              </p>
-              <p className='projects-div-info-text'>
-                This is a pretty complex single page Point of Sale application that I built from memory after using the Starbucks POS system. There are still customizations that could be added to this pos but I decided to keep it very simple and just translate the UX that is involved in this software. It is just a simple cash calculator that allows you to add in items along with customizing the sizes of drinks. This system also allows you to save orders and modify them along with voiding and cancelling entire orders. 
-                {/* This is a simple React form that allows you to enter the total amount of an item and the amount the person used to pay for that amount. This React project is a simple JavaScript project that was easy to reproduce with some basic math logic. This is not a form that is meant to be used for online shopping due to the fact that exact totals are usually charged, this is though meant to be used as a cash register form where amounts such as a whole Dollars can be accepted to pay for the item.  */}
-              </p>
-            </div>
-          </Link>
+        <div className="projects">          
           <Link to ='/vstda' className='projects-div'>
             <div className="projects-div-col-img">
               <img src={VSTDAImage} className='projects-div-info projects-div-info--front' id='vstdaImage'/>

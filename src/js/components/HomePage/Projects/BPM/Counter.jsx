@@ -66,8 +66,8 @@ class Counter extends Component {
     }
 
 
-    classCheck = classArr.slice();    
-    classCheck.push(parseInt(bpm));
+    classCheck = classArr.slice();        
+    classCheck.push(Math.round(bpm));
     if (classCheck.length > 2) {
       classCheck.shift();
     }    
@@ -99,7 +99,7 @@ class Counter extends Component {
       <div className='bpm-counters'>
         <span>Average BPM</span>
         <div className={"main-counter main-counter-" + classAnim}>{averageBPM}</div>
-        <span>BMP</span>
+        <span>BPM</span>
         <div className="average-counter">{BPM}</div>
         <span>Tap Counter</span>
         <div className="tap-counter">{tapCounter}</div>

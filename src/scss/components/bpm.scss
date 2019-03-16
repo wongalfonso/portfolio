@@ -6,86 +6,91 @@
   .bpm-container {
     position: relative;
     margin: 0 auto;
-    height: 100%;     
-    .bpm-counters {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      max-width: 500px;
-      width: 100%;      
-      padding: 1rem 4rem;      
-      color: white;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      -ms-flex-direction: column; 
-      .main-counter{ 
+    height: 100%;   
+    padding-bottom: 2rem;
+    .bpm-app {
+      position: relative;
+      height: 80%;
+      .bpm-counters {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 500px;
+        width: 100%;      
+        padding: 1rem 4rem;      
+        color: white;
         display: flex;
-        align-items: center;       
-        height: 6rem;
-        transition: all .2s ease-in;
-        &-0 {
-          color: rgb(0, 186, 0);
-          font-size: 8rem;
-        }
-        &-1 {
-          color: rgb(0, 140, 0);
-          font-size: 7.5rem;
-        }
-        &-2 {
-          color: rgb(57, 97, 0);
-          font-size: 7rem;
-        }
-        &-3 {
-          color: rgb(200, 255, 0);
-          font-size: 6.5rem;
-        }
-        &-4 {
-          color: rgb(234, 255, 0);
-          font-size: 6rem;
-        }
-        &-5 {
-          color: rgb(255, 247, 0);
-          font-size: 5.5rem;
-        }
-        &-6 {
-          color: rgb(225, 142, 0);
-          font-size: 5rem;
-        }
-        &-7 {
-          color: rgb(187, 0, 0);
-          font-size: 4.5rem;
-        }
-        &-8 {
-          color: rgb(152, 0, 0);
-          font-size: 4rem;
-        }
-      }
-      .average-counter, .tap-counter{
-        color: white;
-        margin: 1rem;
-      }
-      .buttons {
-        width: 100%;
-        padding: 1rem;
-        color: white;
-        border-radius: 8px;
-        margin-top: 1rem;
-        font-size: 3rem;
-        &-counter {
-          background-color: blue;
-          border: solid darkblue;
-          &-start {
-            margin-top: 4rem;
+        align-items: center;
+        flex-direction: column;
+        -ms-flex-direction: column; 
+        .main-counter{ 
+          display: flex;
+          align-items: center;       
+          height: 6rem;
+          transition: all .2s ease-in;
+          &-0 {
+            color: rgb(0, 186, 0);
+            font-size: 8rem;
+          }
+          &-1 {
+            color: rgb(0, 140, 0);
+            font-size: 7.5rem;
+          }
+          &-2 {
+            color: rgb(57, 97, 0);
+            font-size: 7rem;
+          }
+          &-3 {
+            color: rgb(200, 255, 0);
+            font-size: 6.5rem;
+          }
+          &-4 {
+            color: rgb(234, 255, 0);
+            font-size: 6rem;
+          }
+          &-5 {
+            color: rgb(255, 247, 0);
+            font-size: 5.5rem;
+          }
+          &-6 {
+            color: rgb(225, 142, 0);
+            font-size: 5rem;
+          }
+          &-7 {
+            color: rgb(187, 0, 0);
+            font-size: 4.5rem;
+          }
+          &-8 {
+            color: rgb(152, 0, 0);
+            font-size: 4rem;
           }
         }
-        &-reset {
-          background-color: red;
-          border: solid darkred;
+        .average-counter, .tap-counter{
+          color: white;
+          margin: 1rem;
         }
-      }      
-    }    
+        .buttons {
+          width: 100%;
+          padding: 1rem;
+          color: white;
+          border-radius: 8px;
+          margin-top: 1rem;
+          font-size: 3rem;
+          &-counter {
+            background-color: blue;
+            border: solid darkblue;
+            &-start {
+              margin-top: 4rem;
+            }
+          }
+          &-reset {
+            background-color: red;
+            border: solid darkred;
+          }
+        }      
+      }    
+    }  
   }
 }
 
