@@ -1,0 +1,300 @@
+.home-container {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(to left, rgb(184, 184, 4), rgb(223, 223, 3));
+  box-shadow: 8px 11px 32px 3px;
+}
+.home {
+  font-size: 3rem;
+  height: 100%;
+  &-header {
+    text-align: center; 
+    font-size: 6rem;
+    margin: 2rem 0;
+  }
+  &-form {
+    display: flex;   
+    flex-wrap: wrap; 
+    justify-content: center;
+    &-image {      
+      margin-right: 2rem;
+      img {
+        height: 15rem;
+      }      
+    }
+    &-group {
+      display: flex;
+      flex-direction: column;      
+      justify-content: center;
+      button {
+        border-radius: .8rem;
+        height: 5rem;
+        font-size: 2rem;
+        margin: 1rem 0;
+        border: black .3rem solid;
+        box-shadow: 2px 2px 2px;
+        text-shadow: 1px 0px 0px;
+        &:hover {
+          opacity: .8;
+        }          
+      }                   
+      .input-group-button-all {
+        height: 2.5rem;
+        font-size: 1.5rem;
+        width: 10rem;
+        border-radius: .8rem;
+        &:hover {
+          opacity: .8;
+        }
+      }
+    }
+  }
+  .pagination {
+    font-size: 2rem;
+    text-align: center;
+    &-ul {
+      list-style-type: none;
+      margin: 2rem;
+      text-align: right;
+      &-li {      
+        &:first-child {
+          border-radius: .8rem 0 0 .8rem;
+        }  
+        &:last-child {
+          border-radius: 0 .8rem .8rem 0;
+        }
+        display: inline;
+        text-align: center;
+        background-color: lightgrey; 
+        box-shadow: 2px 3px 0px -1px;
+        border: 2px solid #797702;  
+        &:hover {
+          -webkit-transform: scale(1.3);
+          -ms-transform: scale(1.3);
+          transform: scale(1.3);
+          cursor: default;
+          opacity: .8; 
+        }    
+        a {                    
+          display: inline-block;
+          width: 4rem;
+        }  
+        &-disabled {
+          color: black;        
+        }    
+        &-active {
+          color: blue;
+          a {
+            &:hover {
+              -webkit-transform: scale(1.3);
+              -ms-transform: scale(1.3);
+              transform: scale(1.3);
+              cursor: default;
+              opacity: .8;
+            }
+          }
+        }
+      }      
+    }
+  }
+  .results {
+    margin: 2rem 0;
+    &-table {
+      width: 100%;
+      font-size: 2rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity .5s ease-in;
+      -webkit-transition: opacity .5s ease-in;
+      &--active {
+        opacity: 1;
+      }
+      thead {
+        tr {
+          th {
+            font-size: 4rem;
+          }
+        }
+      }
+      tbody {
+        display: flex;
+        flex-wrap: wrap;        
+        tr {
+          flex: 1 0 200px;
+          height: 10rem; 
+          display: flex;               
+          padding: .5rem;
+          td {
+            flex: 1;
+            padding: 3rem; 
+            background: linear-gradient(to right, rgb(223, 5,5),rgb(218, 130, 130));
+            border-radius: .8rem;         
+            border: dotted black .3rem;
+            box-shadow: 2px 2px 2px 2px;
+            display: flex;
+            &:hover {
+              opacity: .8;
+              -webkit-transform: scale(1.1);
+              -ms-transform: scale(1.1);
+              transform: scale(1.1);
+            }
+            a {
+              flex: 1;
+              text-transform: capitalize;
+              // width:100%;
+              // height:100%;
+              // display: block;
+              text-decoration: none;
+              color: inherit;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.animation {
+  position: relative;
+  video {
+    width: 100%;
+  }
+  .pokemon-ball {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 20;
+    animation: pokeBall 2s linear 0s forwards;    
+  }
+  .pokeBall-container {
+    min-width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    
+  
+  }
+
+}
+
+
+.full-page {
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 5rem 0;
+  
+  .pokemon-container {    
+    background: linear-gradient(to left, rgb(184, 184, 4), rgb(223, 223, 3));
+    padding: 2rem;
+    max-width: 72rem !important;
+    min-width: 34rem;
+    border-radius: .8rem;
+    .poke-card {
+      margin: 0 auto;
+      min-height: 90vh;   
+      max-width: 70rem; 
+      min-width: 32rem;
+      padding: 5rem;
+      background: linear-gradient(to right, rgb(223, 5, 5), rgb(242, 86, 86), rgb(206, 53, 53), rgb(238, 40, 40));
+      border: 7px solid black;
+      .poke-header {
+        font-size: 6.5rem;
+        margin-top: .2rem;
+        border-top: solid 1rem rgb(194, 194, 3);
+        justify-content: space-around;
+        display: flex;  
+        .poke-name {
+          text-transform: capitalize;
+          font-weight: bold;
+        }    
+        .poke-number {
+          color: #ffaeae;
+        }
+      }
+      .poke-image {
+        background-color: rgb(194, 194, 3);
+        padding: 2rem;
+        box-shadow: 2px 6px 35px 5px;
+        text-align: center;
+        &-container {
+          background: linear-gradient(to right, rgb(223, 5,5),#610808);
+          img {
+            min-width: 36rem;
+          }
+        }
+      }
+      .poke-info {
+        margin-top: 2rem;
+        padding: 0 2rem;
+        &-header {        
+          font-size: 3.3rem;
+          font-weight: 600;
+          text-align: center;
+          background-color: rgb(194, 194, 3);
+          box-shadow: 4px 2px 30px 2px;
+          margin-bottom: 2rem;
+        }
+        &-body {
+          border-bottom: solid black 3px;
+          text-align: center;
+          &-header {
+            font-size: 4rem;
+            font-weight: 700;
+            color: purple;
+          }
+          &-info {
+            font-size:3.5rem;
+  
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@keyframes pokeBall {
+  0% {
+    height: 20rem;
+    transform: translate(-200%, -200%);
+  }
+  100% {
+    height: 45rem;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (max-width: $sm) {
+  .home {
+    &-header {
+      font-size: 5.5rem;
+    }
+    &-form {
+      margin: 0 2rem;
+    }
+  }
+}
+@media screen and (min-width: $sm) and (max-width: $md) {
+  
+}
+
+@media screen and (min-width: $md) and (max-width: $lg) {
+  .container {
+    min-width: 68rem;
+    max-width: 85rem;
+  }
+}
+
+@media screen and (min-width: $lg) and (max-width: $xl) {
+  .container {
+    min-width: 80rem;
+    max-width: 95rem;
+  }
+}
+@media screen and (min-width: $xl) {
+  .container {
+    min-width: 95rem;
+    max-width: 120rem;
+  }
+}

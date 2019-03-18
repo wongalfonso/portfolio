@@ -5,7 +5,7 @@ import WeatherReducer from './components/HomePage/Projects/Weather/WeatherFormRe
 import VstdaReducer from './components/HomePage/Projects/VstdaApp/VstdaReducer';
 import AstroReducer from './components/HomePage/Projects/AstroWeight/AstroWeightReducer';
 import BPMReducer from './components/HomePage/Projects/BPM/BPMReducer';
-
+import PokedexReducer from './components/HomePage/Projects/Pokedex/PokedexReducer';
 
 const homeReducer = combineReducers({
   homePage: HomePageReducer,
@@ -13,7 +13,8 @@ const homeReducer = combineReducers({
   posCalc: PosReducer,
   vstda: VstdaReducer,
   astro: AstroReducer,
-  bpm: BPMReducer 
+  bpm: BPMReducer,
+  pokedex: PokedexReducer
 });
 
 export default homeReducer;

@@ -14,19 +14,24 @@ import Weather from './components/HomePage/Projects/Weather/WeatherApp';
 import VSTDA from './components/HomePage/Projects/VstdaApp/Vstda';
 import AstroWeight from './components/HomePage/Projects/AstroWeight/AstroWeight';
 import BPM from './components/HomePage/Projects/BPM/BPM';
-
+import Pokedex from './components/HomePage/Projects/Pokedex/Pokedex';
+import PokedexProfile from './components/HomePage/Projects/Pokedex/PokedexProfile';
+import PokedexAnimation from './components/HomePage/Projects/Pokedex/PokedexAnimation';
 
 export default class App extends Component {
+
   render() {    
     return (
       <Router>
         <Switch>
           <Route exact path='/' component={ HomePage } />          
-          <Route exact path='/vstda' component={ VSTDA } />    
-          <Route exact path='/weather' component={ Weather } />    
-          <Route exact path='/astro' component={ AstroWeight } />
-          <Route exact path='/pos' component={ PosCalc } />
-          <Route exact path='/bpm' component={ BPM } />
+          <Route path='/vstda' component={ VSTDA } />    
+          <Route path='/weather' component={ Weather } />    
+          <Route path='/astro' component={ AstroWeight } />
+          <Route path='/pos' component={ PosCalc } />
+          <Route path='/bpm' component={ BPM } />
+          <Route exact path='/pokedex' render = {props => <Pokedex {...props}/>}/>
+          
           <Route path ='/profile' component = { Profile } />
           <Route path ='/blogpost' component={ PageBlog } />
           <Route path ='/blogsplash' component = { BlogSplashPage } />   

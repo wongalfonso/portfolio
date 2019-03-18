@@ -52,6 +52,25 @@ app.get("/api/weather/:input", (req, res) => {
     })
     .catch(err => res.send(err.response.data))
 });
+app.get('/api/pokemon', (req, res) => {  
+  axios.get('https://pokeapi.co/api/v2/pokemon/?limit=964').then((response) => { 
+    res.send(response.data);
+  })
+});
+
+app.get('/api/pokemon/:name', (req, res) => {  
+  const name = req.params.name;  
+  axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`).then((response) => {    
+    res.send(response.data);
+  })
+})
+
+app.get('/api/pokemon/:num', (req, res) => {
+  const num = req.params.num;
+  axios.get(`https://pokeapi.co/api/v2/ability/${num}`).then((response) => {
+    res.send(response.data);
+  })
+});
 
 app.get("/api/menu", (req, res) => {
   res.send(menu);
@@ -60,14 +79,14 @@ app.get("/api/menu", (req, res) => {
 app.use('/api/users', require('./routes/Users'));
 app.use('/api/kyus', require('./routes/Kyus'));
 
-app.get('*.js', (req,res, next) => {
-  req.url = req.url + '.gz';
-  res.set('Content-Encoding', 'gzip');
-  next();
-});
+// app.get('*.js', (req,res, next) => {
+//   req.url = req.url + '.gz';
+//   res.set('Content-Encoding', 'gzip');
+//   next();
+// });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve('public', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve('public', 'index.html'));
+// });
 
 module.exports = app;
