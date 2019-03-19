@@ -1,14 +1,9 @@
 import React, { Component }from 'react';
 import { connect } from 'react-redux';
-import { Link, matchPath } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class PokedexResults extends Component {  
-  renderTable(page){        
-    let match = matchPath('/pokedex', {
-      path: '/pokedex/:name',
-      exact: true,
-      strict: false
-    })
+  renderTable(page){            
     return (
       <div className = 'results'>      
       <table className = 'results-table results-table--active'>
@@ -22,7 +17,7 @@ class PokedexResults extends Component {
             return (
               <tr key = {i}>
                 <td onClick = {() => this.props.searchPoke(poke.name)}> 
-                  <Link to = { `matchPath/${poke.name}` }>
+                  <Link to = { `pokedex/${poke.name}` }>
                     {poke.name}
                   </Link>
                 </td>
