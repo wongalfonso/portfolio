@@ -15,6 +15,15 @@ class VSTDA extends Component {
     this.remove = this.remove.bind(this);
     this.edit = this.edit.bind(this);
     this.handlePrior = this.handlePrior.bind(this);
+    this.handleEnterKey = this.handleEnterKey.bind(this);
+  }  
+  handleEnterKey(e) {    
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const { dispatch, toDo, priority, editing, completed, lists } = this.props;
+      let id = Date.now();
+      dispatch(createToDoItem(id, toDo, priority, editing, completed, lists ));
+    }
   }
   github() {
     ReactGA.event({
@@ -38,9 +47,9 @@ class VSTDA extends Component {
   handlePrior(event) {
     const { dispatch } = this.props;
     let val;
-    if (event.target.value === '3') { val = '-item-danger' }
-    if (event.target.value === '2') { val = '-item-warning' }
-    if (event.target.value === '1') { val = '-item-success' }
+    if (event.target.value === '3') { val = '-danger' }
+    if (event.target.value === '2') { val = '-warning' }
+    if (event.target.value === '1') { val = '-success' }
     dispatch(updatePriority(val));    
   }
 
@@ -64,52 +73,48 @@ class VSTDA extends Component {
     dispatch(removeItem(id, lists));    
   }
 
-
   render() {
     const { lists, toDo, priority, } = this.props;
     return (
       <div id='vstdaProject' className='all-project-pages'>
-        <div className='container vstda-container'>          
-          <header className="vstda-header project-header">
-            Very Simple Todo App
-            <div className = 'vstda-subheader'>
-              Track All of the Things
-            </div>
-          </header>          
-          <div className="content vstda-content">
-            <ToDoForm createToDo={this.createToDo} 
-                      toDo={toDo} 
-                      handleText={this.handleText} 
-                      priority={priority} 
-                      handlePrior={this.handlePrior}
-            />
-
-            <div className='vstda-list' 
-                  id='List' 
-                  ref={(listEl) => { this.listElement = listEl }}>
-              <div className="vstda-list-body">
-                <div className='vstda-list-body-header' id='todoHeader'>
-                  View Todos
-                </div>
-                <ul className='vstda-list-body-group'>
-                  {lists.map((list) => {
-                    return (
-                      <List  key={list.id} 
-                            list={list} 
-                            updateToDo={this.handleToDo} 
-                            onRemove={this.remove.bind(this, list.id)} 
-                            onEdit={this.edit}
-                      >
-                        {list.toDo}
-                      </List>
-                    )
-                  })}
-                </ul>
+        <div className='container vstda-container'> 
+          <div className="vstda-content">
+            <header className="vstda-header project-header">
+              Very Simple Todo App
+              <div className = 'vstda-subheader'>
+                Track All of the Things
               </div>
-
-
+            </header>          
+            <div className="vstda-content-inputs">
+              <ToDoForm createToDo={this.createToDo} 
+                        toDo={toDo} 
+                        handleText={this.handleText} 
+                        priority={priority} 
+                        handlePrior={this.handlePrior}
+                        handleEnterKey = {this.handleEnterKey}
+              />
+              <div className='vstda-list' 
+                    id='List' 
+                    ref={(listEl) => { this.listElement = listEl }}>
+                <div className="vstda-list-body">
+                  <ul className='vstda-list-body-group'>
+                    {lists.map((list) => {
+                      return (
+                        <List  key={list.id} 
+                              list={list} 
+                              updateToDo={this.handleToDo} 
+                              onRemove={this.remove.bind(this, list.id)} 
+                              onEdit={this.edit}
+                        >
+                          {list.toDo}
+                        </List>
+                      )
+                    })}
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
+          </div>         
           <ProjectClose 
             github = {this.github}
             href = '/'

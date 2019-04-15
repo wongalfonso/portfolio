@@ -1,19 +1,17 @@
 import React from 'react';
 
-export const List = ({ onEdit, onRemove, updateToDo, list}) => {
-  console.log(list);
+export const List = ({ onEdit, onRemove, updateToDo, list, handleEnterKeyUpdate }) => {
   const edit = (e) => {
     e.preventDefault()
     onEdit(list.id, true);
   }
-  let _newText, _priority, _checked;
-
+  let _newText, _priority, _checked;  
   const remove = (e) => {
     e.preventDefault()
     onRemove(list.id)
   }
   const cancel = (e) => {
-    e.preventDefault()    
+    e.preventDefault()
     onEdit(list.id, false);
   }
   const save = () => {
@@ -22,42 +20,47 @@ export const List = ({ onEdit, onRemove, updateToDo, list}) => {
   const completed = () => {
     completed(_checked.value)
   }
+  const handleEnter = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      updateToDo(_newText.value, _priority.value, list.id)
+    }
+  }
 
   const renderEdit = () => {
     return (
-      <li className={'vstda-list-body-group-edit' + list.priority} id='vstdaEdit'> 
-        <label>Desription</label>
-        <textarea className='vstda-list-body-group-edit-update-text' 
-                  ref={input => _newText = input} 
-                  type='text' 
-                  defaultValue={list.toDo}>
-        </textarea>
-        <div className = 'vstda-list-body-group-edit-btns'>          
-          <label  className = 'vstda-list-body-group-edit-btns-label'
-                  htmlFor = 'updateToDoPriority' 
-                  id='update-label'>
-            Priority
-          </label>
-          <select   className='vstda-list-body-group-edit-btns-select' 
-                    id = 'updateToDoPriority' 
-                    ref={input => _priority = input} 
-                    defaultValue={list.priority}>
-            <option value='-item-success'>Low Priority
-            </option>
-            <option value='-item-warning'>Medium Priority
-            </option>
-            <option value='-item-danger'>High Priority
-            </option>
-          </select>                    
-          <button className='vstda-list-body-group-edit-btns-cancel' 
-                  onClick={cancel}>
-            Cancel
-          </button>            
-          <button className='vstda-list-body-group-edit-btns-submit' 
-                  onClick={save}>
-            Save
-          </button>          
-        </div>
+      <li className={'vstda-list-body-group vstda-list-body-group' + list.priority} id='vstdaEdit'>    
+          <a
+            className={"vstda-list-body-group" + list.priority + 
+          "-save"}
+            onClick={save}
+            type="submit">
+            <i className={'fas fa-plus vstda-list-body-group' + list.priority + '-save-btn'}></i>
+          </a>
+          <input
+            className={'vstda-list-body-group' + list.priority + '-input'}
+            ref={input => _newText = input}
+            type='text'
+            defaultValue={list.toDo}
+            autoFocus
+            onKeyDown = {handleEnter}
+            >
+          </input>
+          <select
+            className={"vstda-list-body-group" + list.priority + "-select"}
+            id='updateToDoPriority'
+            ref={input => _priority = input}
+            defaultValue={list.priority}>>
+              <option defaultValue hidden>Priority</option>
+              <option value='-success'>Low Priority</option>
+              <option value='-warning'>Medium Priority</option>
+              <option value='-danger'>High Priority</option>
+          </select>
+          <a
+            className={"vstda-list-body-group" + list.priority + "-cancel"}
+            onClick={cancel}>
+            <i className={'fas fa-window-close vstda-list-body-group' + list.priority + '-cancel'}></i>
+          </a>
       </li>
     )
   }
@@ -65,22 +68,18 @@ export const List = ({ onEdit, onRemove, updateToDo, list}) => {
   const renderList = () => {
     return (
       <li className={'vstda-list-body-group' + list.priority} id='list'>
-        <div className='vstda-list-body-group-text'> {list.toDo} </div>
-        <div className="vstda-list-body-group-btns">
-          <span className='vstda-list-body-group-btns-edit'>
-            <a  href='#'               
-                onClick={edit}>
+        <span className={'vstda-list-body-group' + list.priority + '-delete'}>
+          <input type="checkbox" onClick = {remove}/>
+        </span>
+        <div className={'vstda-list-body-group' + list.priority + '-text'}>            
+          {list.toDo}
+        </div>
+          <span className={'vstda-list-body-group' + list.priority + '-edit'}>
+            <a href='#'
+              onClick={edit}>
               <i className='far fa-edit'></i>
             </a>
           </span>
-          <span className='vstda-list-body-group-btns-delete'>
-            <a  href='#' 
-                ref={() => _newText = list.toDo} 
-                onClick={remove} style={{ color: 'red' }}>
-              <i className='far fa-trash-alt'></i>
-            </a>
-          </span>
-        </div>
       </li>
     )
   }
