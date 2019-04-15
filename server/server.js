@@ -85,8 +85,8 @@ app.use('/api/kyus', require('./routes/Kyus'));
 //   next();
 // });
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve('public', 'index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('public', 'index.html'));
+});
 
 module.exports = app;
