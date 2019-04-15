@@ -30,8 +30,9 @@ export default class App extends Component {
           <Route path='/astro' component={ AstroWeight } />
           <Route path='/pos' component={ PosCalc } />
           <Route path='/bpm' component={ BPM } />
-          <Route exact path = '/pokedex' component = { Pokedex}/>
-          <Route exact path = '/pokedex/:name' component = {PokedexProfile}/>
+          <Route exact path='/pokedex' render = {props => <Pokedex {...props}/>}/>
+          {/* <Route exact path = '/pokedex' component = { Pokedex}/>
+          <Route exact path = '/pokedex/:name' component = {PokedexProfile}/> */}
           <Route path ='/profile' component = { Profile } />
           <Route path ='/blogpost' component={ PageBlog } />
           <Route path ='/blogsplash' component = { BlogSplashPage } />   
