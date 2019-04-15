@@ -1,7 +1,7 @@
 const defaultState = {
   lists: [],
   toDo: '',
-  priority: '-item-success',
+  priority: '-success',
   id: '',
   newTodo: '',
   completed: false,
