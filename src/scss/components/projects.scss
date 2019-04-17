@@ -67,6 +67,10 @@
               background: -webkit-linear-gradient(to left, #020202, #717171);
               background: linear-gradient(to left, #020202, #717171);
             }
+            &--pokedex {
+              color: black;
+              background: white;
+            }
             &--front {
               border-radius: 20px;  
             }     

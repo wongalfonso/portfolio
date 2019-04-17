@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import pokeBall from '../../../../../../public/images/pokeBall.png';
 import backgroundVid from '../../../../../../public/video/pokemonAnimation.mp4';
-import { stopAnimation } from './PokedexActions';
+import { Redirect } from 'react-router-dom';
 
 
 class Animation extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props;
-    this.setTimeout(() => {
-      dispatch(stopAnimation());
-    }, 4000);
+    this.timeout = setTimeout(() => {
+      <Redirect from ='pokedex/animation' to = {'pokedex/' + poke.name}/>
+    }, 1000);
   }
   render() {
     return (

@@ -6,7 +6,8 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.join(__dirname, 'dist')
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/'
   },
   devtool: 'source-map',
   resolve: {
@@ -36,14 +37,19 @@ module.exports = {
       },
       {
         test: /\.(png|jpg)$/,
-        use: { loader: 'file-loader' }
+        use: { 
+          loader: 'file-loader',
+          options: {
+            name: '[hash].[ext]',
+          }
+        },
       },
       {
         test: /\.mp4$/,
         use: [{
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]'
+            name: '[hash].[ext]'
           }
         }]
       },
