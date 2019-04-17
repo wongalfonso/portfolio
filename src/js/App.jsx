@@ -16,7 +16,6 @@ import AstroWeight from './components/HomePage/Projects/AstroWeight/AstroWeight'
 import BPM from './components/HomePage/Projects/BPM/BPM';
 import Pokedex from './components/HomePage/Projects/Pokedex/Pokedex';
 import PokedexProfile from './components/HomePage/Projects/Pokedex/PokedexProfile';
-import PokedexAnimation from './components/HomePage/Projects/Pokedex/PokedexAnimation';
 
 export default class App extends Component {
 
@@ -32,7 +31,6 @@ export default class App extends Component {
           <Route path='/bpm' component={ BPM } />
           {/* <Route exact path='/pokedex' render = {props => <Pokedex {...props}/>}/> */}
           <Route exact path = '/pokedex' component = { Pokedex}/>
-          <Route exact path = '/pokedex/animation' component = { PokedexAnimation}/>
           <Route exact path = '/pokedex/:name' component = {PokedexProfile}/>
           <Route path ='/profile' component = { Profile } />
           <Route path ='/blogpost' component={ PageBlog } />
