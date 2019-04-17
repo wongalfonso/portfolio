@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { stopAnimation } from './PokedexActions';
 import { Redirect } from 'react-router';
 import Img from 'react-image';
-import pokeBall from './../../../../../../public/images/pokeball.png';
+import pokeBall from '../../../../../../public/images/pokeball.png';
 import pokeVid from './../../../../../../public/video/pokemonAnimation.mp4';
 
 class PokedexProfile extends Component {    
@@ -12,13 +12,13 @@ class PokedexProfile extends Component {
     const { dispatch } = this.props;
     setTimeout(() => {
       dispatch(stopAnimation());
-    },2000);
+    },2500);
     return (
       <div className='animation'>
         <video id='pokeVid' loop autoPlay muted >
           <source src={pokeVid} type='video/mp4' />
         </video>
-        <img src={pokeBall} className='pokemon-ball' />
+        <Img src= {pokeBall} className='pokemon-ball' />
       </div>
     )
   }
@@ -73,7 +73,8 @@ class PokedexProfile extends Component {
     const { animation } = this.props;
     if (animation) {
       return this.Animation();
-    } else {
+    } 
+    else {
       return this.Card();
     }
   }

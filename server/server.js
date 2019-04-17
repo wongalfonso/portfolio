@@ -24,8 +24,8 @@ if (NODE !== 'production') {
 // db.on('error', console.error.bind('connection error:'));
 
 app.use(morgan('dev'));
-app.use(express.static('/public'));
-app.use(express.static('dist'));
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(session({
