@@ -6,8 +6,13 @@
   "scripts": {
     "dev": "webpack -w --config webpack.dev.js",
     "dev:build": "webpack --config webpack.dev.js",
+<<<<<<< HEAD
     "dev:start": "npm run dev:build && node server/index.js",
     "start": "npm run build && node server/index.js",
+=======
+    "dev:start": "NODE_ENV=dev&& npm run dev:build && node server/index.js",
+    "start": "NODE_ENV=production&& npm run build && node server/index.js",
+>>>>>>> 66dff68a1d39e94047c47ca4b4a81368ec71b27a
     "build": "webpack --config webpack.prod.js",
     "server": "nodemon server/index.js",
     "lint": "eslint .",
