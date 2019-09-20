@@ -5,6 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack -w --config webpack.dev.js",
+    "dev:build" : "webpack --config webpack.dev.js",
+    "dev:start" : "npm run dev:build && node server/index.js",
     "start": "npm run build && node server/index.js",
     "build": "webpack --config webpack.prod.js",
     "server": "nodemon server/index.js",
@@ -18,7 +20,7 @@
     "axios": "^0.19.0",
     "body-parser": "^1.18.3",
     "connect-mongo": "^2.0.1",
-    "dotenv": "^6.0.0",
+    "dotenv": "^6.0.0", 
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "file-loader": "^1.1.11",
