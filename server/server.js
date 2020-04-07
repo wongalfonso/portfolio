@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 // app.use(session({
 //   secret: 'word hard',
 //   resave: true,
@@ -36,6 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //     mongooseConnection: db
 //   })
 // }))
+
 app.get("/api/weather/:input", (req, res) => {  
   let weatherKey;;
   if (NODE === 'production') {
