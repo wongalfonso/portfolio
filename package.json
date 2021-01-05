@@ -17,7 +17,7 @@
   "author": "Alfonso Wong",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "body-parser": "^1.18.3",
     "connect-mongo": "^3.0.0",
     "dotenv": "^6.0.0",
